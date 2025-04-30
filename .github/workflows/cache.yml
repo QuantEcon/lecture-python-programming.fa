@@ -1,0 +1,35 @@
+name: Build Cache [using jupyter-book]
+on:
+  push:
+    branches:
+      - main
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Anaconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          auto-activate-base: true
+          miniconda-version: 'latest'
+          python-version: "3.12"
+          environment-file: environment.yml
+          activate-environment: quantecon
+      - name: Build HTML
+        shell: bash -l {0}
+        run: |
+          jb build lectures --path-output ./ -W --keep-going
+      - name: Upload Execution Reports
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: execution-reports
+          path: _build/html/reports
+      - name: Upload "_build" folder (cache)
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-cache
+          path: _build
+          include-hidden-files: true
