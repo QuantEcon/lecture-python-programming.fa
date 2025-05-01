@@ -1,3 +1,18 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+```{only} html
+<div dir="rtl">
+```
+
 مقدمه ای بر پایتون
 
 درباره ی این دوره
@@ -372,3 +387,7 @@ Scikit-image و OpenCV: برای پردازش و تحلیل داده های تص
 BeautifulSoup: XML و HTML برای استخراج داده ها از فایل های 
 
 در این مجموعه خواهیم آموخت که چگونه از بسیاری از این کتابخانه ها برای کارهای محاسباتی علمی در اقتصاد و امور مالی استفاده کنیم.
+
+```{only} html
+</div>
+```
