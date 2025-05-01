@@ -110,6 +110,10 @@ Google، Open AI،Netflix ، Meta، Dropbox، Amazon، Reddit و غیره.
 
 **کد برنامه نویسی جاوا**
 
+```{only} html
+</div>
+```
+
 ```java
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -151,9 +155,16 @@ public class CSVReader {
 }
 ```
 
+```{only} html
+<div dir="rtl">
+```
+
 **کد برنامه نویسی پایتون**
 
 
+```{only} html
+</div>
+```
 
 ```python
 import csv
@@ -169,6 +180,10 @@ with open("data.csv", mode='r') as file:
             pass
 
 print(f"Average: {total / count if count else 'No valid data'}")
+```
+
+```{only} html
+<div dir="rtl">
 ```
 
 # اتصال هوش مصنوعی
@@ -188,6 +203,11 @@ print(f"Average: {total / count if count else 'No valid data'}")
 # NumPy
 
 یکی از مهم ترین بخش های محاسبات علمی کار با داده است. داده ها اغلب در ماتریس ها، بردارها و آرایه ها ذخیره می شوند و ما میتوانیم یک آرایه ی ساده از اعداد را با پایتون خالص به صورت زیر ایجاد کنیم:
+
+```{only} html
+</div>
+```
+
 ```python
 a = [-3.14, 0, 3.14]                    # A Python list
 a
@@ -196,9 +216,17 @@ a
 [-3.14, 0, 3.14]
 ```
 
+```{only} html
+<div dir="rtl">
+```
+
 این آرایه ی بسیار کوچک نشان می دهد که کار با پایتون خالص بسیار راحت است. اما وقتی می خواهیم با آرایه های بزرگتری در برنامه های واقعی کار کنیم، به کارایی بیشتر و ابزارهای بیشتری نیاز داریم. بنابراین، برای اینکار باید از کتابخانه ها برای کار با آرایه ها استفاده کنیم.
 
 برای پایتون، مهمترین کتابخانه ی پردازش ماتریس و آرایه، کتابخانه NumPy است. به عنوان مثال بیاید یک آرایه با 100 عنصر را با NumPy بسازیم:
+
+```{only} html
+</div>
+```
 
 ```python
 import numpy as np                     # Load the library
@@ -207,6 +235,7 @@ a = np.linspace(-np.pi, np.pi, 100)    # Create even grid from -π to π
 
 a
 ```
+
 ```
 array([-3.14159265, -3.07812614, -3.01465962, -2.9511931 , -2.88772658,
 
@@ -248,14 +277,32 @@ array([-3.14159265, -3.07812614, -3.01465962, -2.9511931 , -2.88772658,
 
 2.88772658,  2.9511931 ,  3.01465962,  3.07812614,  3.14159265])
 ```
+
+```{only} html
+<div dir="rtl">
+```
+
 حالا بیاید این آرایه را با اعمال توابع تبدیل کنیم:
+
+```{only} html
+</div>
+```
 
 ```python
 b = np.cos(a)                      # Apply cosine to each element of a
 
 c = np.sin(a)                      # Apply sin to each element of a
 ```
+
+```{only} html
+<div dir="rtl">
+```
+
 و حالا میتوانیم به راحتی حاصلضرب اسکالر b و c را بدست بیاوریم:
+
+```{only} html
+</div>
+```
 
 ```python
 b @ c
@@ -263,6 +310,11 @@ b @ c
 ```
 9.853229343548264e-16
 ```
+
+```{only} html
+<div dir="rtl">
+```
+
 همچنین میتوانیم با پایتون بسیاری از دستورات دیگر را انجام دهیم، مانند اینکه میانگین و واریانس آرایه ها را محاسبه کند، ماتریس بسازد و سیستم های خطی را حل کند، آرایه های تصادفی برای شبیه سازی ایجاد کند و... که جزئیات را در بخش های بعدی پوشش خواهیم داد.
 
 # جایگزین های NumPy
@@ -290,6 +342,10 @@ b @ c
   <mi>z</mi>
 </math> توزیع نرمال استاندارد است:
 
+```{only} html
+</div>
+```
+
 ```python
 from scipy.stats import norm
 from scipy.integrate import quad
@@ -300,6 +356,10 @@ value
 ```
 ```
 0.9544997361036417
+```
+
+```{only} html
+<div dir="rtl">
 ```
 
 کتابخانه ی SciPy شامل بسیاری از امور استاندارد کاربردی مانند جبرخطی، یکپارچه سازی، درون یابی، بهینه سازی، توزیع  ها و تکنیک های آماری و پردازش سیگنال است که بعدا در مورد آنها با جزئیات بیشتر صحبت خواهیم کرد.  
@@ -329,6 +389,10 @@ value
 
 در زیر نمونه ای از کد آورده شده است که یک گراف تصادفی ایجاد و رسم می کند. رنگ گره ها براساس طول کوتاه ترین مسیر از یک گره ی مرکزی مشخص تعیین می شود.
 
+```{only} html
+</div>
+```
+
 ```python
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -356,7 +420,12 @@ nx.draw_networkx_nodes(g,
                        cmap=plt.cm.jet_r)
 plt.show()
 ```
+
 ![نتیجه](images/7c437f98387eea82088cfa4a78bbdbf96ba625a77f4db1ceb5fc391941b56d78.png)
+
+```{only} html
+<div dir="rtl">
+```
 
 # سایرکتابخانه های علمی
 
