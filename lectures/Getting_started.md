@@ -73,7 +73,7 @@
 به دلیل این قابلیت ها، امروزه ژوپیتر یکی از ابزارهای مهم در اکوسیستم محاسبات علمی محسوب می شود.
 در [اینجا](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html) تصویری از اجرای کد در یک ژوپیتر نوت بوک آورده شده است.
 
-![نمونه اجرای کد](images/getting%20started/jp_demo.png)
+![نمونه اجرای کد](images/getting-started/jp_demo.png)
 
 درحالیکه ژوپیتر تنها روش برنامه نویسی در پایتون نیست، اما بهترین گزینه برای موقعیت هایی است که:
 <ul dir="rtl">
@@ -97,7 +97,7 @@
 
 اگر روش دوم را انتخاب کنید، با چیزی مشابه تصویر زیر رو به رو خواهید شد.
 
-![ترمینال](images/getting%20started/starting_nb.png)
+![ترمینال](images/getting-started/starting_nb.png)
 
 خروجی نشان می دهد که نوت بوک در `/http://localhost:8888` در حال اجرا است.
 <ul dir="rtl">
@@ -109,7 +109,7 @@
 
 اگر همه چیز به درستی پیش رفته باشد، مرورگر پیش فرض شما باید به طور خودکار یک صفحه ی وب مشابه تصویر زیر را باز کرده باشد.
 
-![ژوپیتر](images/getting%20started/nb.png)
+![ژوپیتر](images/getting-started/nb.png)
 
 
 آنچه در اینجا می بینید *داشبورد* ژوپیتر نام دارد.
@@ -119,7 +119,7 @@
 در صورتیکه همه چیز به درستی کار کرده باشد، اکنون می توانید روی "New" در گوشه ی بالا سمت راست کلیک کنید و `Python 3` یا چیزی مشابه آن را انتخاب کنید.
 
 در زیر تصویری که در سیستم ما نشان می دهد را میتوانید ببینید:
-![ژوپیتر2](images/getting%20started/nb2.png)
+![ژوپیتر2](images/getting-started/nb2.png)
 
 نوت بوک یک سلول کد فعال را نشان می دهد که می توانید دستورات پایتون را در آن وارد کنید.
 
@@ -133,7 +133,7 @@
 
 وقتی آماده ی اجرای کدی که در سلول نوشتید هستید، به جای آنکه به طور معمول از "Enter" استفاده کنید، کلیدهای "Shift + Enter" را بزنید.
 
-![ژوپیتر3](images/getting%20started/nb3.png)
+![ژوپیتر3](images/getting-started/nb3.png)
 
 ```{note}
 همچنین با کمی جستجو می توانید گزینه های منو و دکمه هایی را برای اجرای کد درون سلول پیدا کنید.
@@ -226,7 +226,7 @@ plt.show()
 
 برای نمونه، کافی است تایپ کنیم `np.random.r` و سپس کلید Tab را فشار دهیم.
 
-![numpy](images/getting%20started/nb6.png)
+![numpy](images/getting-started/nb6.png)
 
 ژوپیتر نوت بوک چندین گزینه ی تکمیل کننده ی خودکار را برای انتخاب در اختیارتان قرار می دهد.
 
@@ -238,7 +238,7 @@ plt.show()
 
 مستندات مربوط به این نحو در پنجره ای به طور جداگانه همانند تصویر زیر نمایش داده می شود.
 
-![online help](images/getting%20started/nb6a.png)
+![online help](images/getting-started/nb6a.png)
 
 با کلیک بر روی ضربدر در قسمت بالایی سمت راست در نیم پنجره ی ایجاد شده برای راهنمای دستور، راهنمای آنلاین بسته می شود.
 
@@ -254,11 +254,11 @@ plt.show()
 
 (همچنین می توانید با استفاده از ماوس، گزینه " Markdown " را از منوی کشویی "Code" که درست زیر نوار منو قرار دارد، انتخاب کنید.)
 
-![markdown](images/getting%20started/nb7.png)
+![markdown](images/getting-started/nb7.png)
 
 حال ما کلیدهای `Shift + Enter` را میزنیم تا نتیجه ای مطابق تصویر زیر ایجاد کنیم:
 
-![resultmd](images/getting%20started/nb8.png)
+![resultmd](images/getting-started/nb8.png)
 
 ### اشکال زدایی کد
 
@@ -268,7 +268,7 @@ plt.show()
 
 اگر از نسخه ی جدیدتری از ژوپیتر نوت بوک استفاده می کنید، باید نماد یک حشره (bug) را در انتهای سمت راست نوار ابزار خود داشته باشید.
 
-![dedugicon](images/getting%20started/debug.png)
+![dedugicon](images/getting-started/debug.png)
 
 با کلیک بر روی این آیکون، اشکال زدایی ژوپیتر فعال می شود.
 
@@ -281,7 +281,7 @@ plt.show()
 
 سپس می توانید خط به خط کد را با استفاده از دکمه های "Next" که در نوار ابزار CALLSTACK در پنجره ی سمت راست قرار دارد، بررسی کنید.
 
-![degug2](images/getting%20started/debugger_breakpoint.png)
+![degug2](images/getting-started/debugger_breakpoint.png)
 
 می توانید قابلیت های بیشتری از اشکال زدایی در ژوپیتر را در [اینجا](https://jupyterlab.readthedocs.io/en/latest/user/debugger.html) پیدا کنید.
 
