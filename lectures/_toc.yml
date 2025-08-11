@@ -5,7 +5,7 @@ parts:
   numbered: true
   chapters:
   - file: about_py
-  - file: Getting_started
+  - file: getting_started
   # - file: python_by_example
   # - file: functions
   # - file: python_essentials
