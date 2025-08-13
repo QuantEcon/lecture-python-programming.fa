@@ -23,17 +23,15 @@ _ کریس ویگینس
 در این درس:
 
 
+* پایتون را معرفی خواهیم کرد
 
-    پایتون را معرفی خواهیم کرد
+* برخی از ویژگی های پایتون را نشان خواهیم داد
 
-   برخی از ویژگی های پایتون را نشان خواهیم داد
+* در رابطه با ارتباط پایتون و هوش مصنوعی بحث خواهیم کرد
 
-   در رابطه با ارتباط پایتون و هوش مصنوعی بحث خواهیم کرد
+* توضیح می دهیم که چرا پایتون زبان محبوب ما برای محاسبات علمی است
 
-   توضیح می دهیم که چرا پایتون زبان محبوب ما برای محاسبات علمی است
-
-   و شما را به ادامه ی مسیر و اهدافتان تشویق می کنیم.
-
+* و شما را به ادامه ی مسیر و اهدافتان تشویق می کنیم.
 
 همچنین شما نیازی به درک همه ی مواردی که در این درس خواهید دید، ندارید؛ زیرا در ادامه ی دروس تمامی جزئیات را آموزش خواهیم داد.
 
@@ -60,17 +58,41 @@ _ کریس ویگینس
 
 این موضوع مهم است زیرا:
 
-پولمان را پس انداز می کند، به جای یک شرکت انتفاعی، توسط جامعه ی کاربران کنترل می شود و قابلیت تکثیر و [علم باز](https://en.wikipedia.org/wiki/Open_science) را تشویق می کند.
+* پولمان را پس انداز می کند
+
+* به جای یک شرکت انتفاعی، توسط جامعه ی کاربران کنترل می شود 
+
+* و قابلیت تکثیر و [علم باز](https://en.wikipedia.org/wiki/Open_science) را تشویق می کند.
 
 ### کاربردهای رایج پایتون
 
 پایتون یک زبان همه منظوره است که تقریبا در همه ی حوزه های کاربردی از جمله موارد زیر استفاده می شود:
 
-هوش مصنوعی، محاسبات علمی، ارتباطات، توسعه ی وب، CGI و رابط های کاربری گرافیکی، توسعه ی بازی، محتوای چندرسانه ای و غیره.
+* هوش مصنوعی
+
+* محاسبات علمی
+
+* ارتباطات
+
+* توسعه ی وب
+
+* رابط های کاربری گرافیکی و CGI
+
+* توسعه ی بازی
+
+* محتوای چندرسانه ای
+
+* و غیره.
 
 همچنین بطور گسترده ای توسط شرکت های زیر و بسیاری دیگر از شرکت ها مورد استفاده و پشتیبانی قرار می گیرد:
 
- [Google](https://www.google.com/)، [OpenAI](https://openai.com/)، [Netflix](https://www.netflix.com/)، [Meta](https://opensource.fb.com/)، [Dropbox](https://www.dropbox.com/)، [Amazon](https://www.amazon.com/)، [Reddit](https://www.reddit.com/)
+* [Google](https://www.google.com/)
+* [OpenAI](https://openai.com/)
+* [Netflix](https://www.netflix.com/)
+* [Meta](https://opensource.fb.com/)
+* [Dropbox](https://www.dropbox.com/)
+* [Amazon](https://www.amazon.com/)
+* [Reddit](https://www.reddit.com/)
 
 
 ### جایگاه محبوبیت
@@ -276,7 +298,15 @@ value
 
 همچنین می توانید نمونه های بیشتری را در [گالری تصاویر Matplotlib](https://matplotlib.org/stable/gallery/index.html) بیابید.
 
- سایر کتابخانه های گرافیکی عبارتند از [seaborn](https://seaborn.pydata.org/)، [Plotly](https://plot.ly/python/) (یک رابط سطح بالا برای Matplotlib می باشد)، [Altair](https://altair-viz.github.io/) و [Bokeh](http://bokeh.pydata.org/en/latest/) .
+ سایر کتابخانه های گرافیکی عبارتند از:
+
+*  [Plotly](https://plot.ly/python/)
+
+* [seaborn](https://seaborn.pydata.org/)(یک رابط سطح بالا برای Matplotlib می باشد)
+
+* [Altair](https://altair-viz.github.io/)
+
+* [Bokeh](http://bokeh.pydata.org/en/latest/) .
 
  همچنین برای مشاهده نمونه های بیشتری از نمودارهای رسم شده با استفاده از کتابخانه های مختلف، می توانید به [گالری نمودارهای پایتون](https://www.python-graph-gallery.com/) مراجعه کنید.
 
@@ -323,26 +353,27 @@ plt.show()
 
 در اینجا فهرست کوتاهی از چند کتابخانه ی علمی مهم برای پایتون که پیشتر نگفتیم برایتان آورده ایم:
 
-[SymPy](http://www.sympy.org/): برای جبر نمادین، از جمله محاسبه ی حد، مشتق و انتگرال
+* [SymPy](http://www.sympy.org/): برای جبر نمادین، از جمله محاسبه ی حد، مشتق و انتگرال
 
-[statsmodels](http://statsmodels.sourceforge.net/): برای توابع آماری
+* [statsmodels](http://statsmodels.sourceforge.net/): برای توابع آماری
 
-[scikit-learn](http://scikit-learn.org/): برای یادگیری ماشین
+* [scikit-learn](http://scikit-learn.org/): برای یادگیری ماشین
 
-[Keras](https://keras.io/): برای یادگیری ماشین
+* [Keras](https://keras.io/): برای یادگیری ماشین
 
-[Pyro](https://pyro.ai/) و [PyStan](https://pystan.readthedocs.org/en/latest/): برای تحلیل داده های بیزی
+* [Pyro](https://pyro.ai/) و [PyStan](https://pystan.readthedocs.org/en/latest/): برای تحلیل داده های بیزی
 
-[GeoPandas](https://geopandas.org/en/stable/): برای تحلیل داده های مکانی
+* [GeoPandas](https://geopandas.org/en/stable/): برای تحلیل داده های مکانی
 
-[Dask](https://docs.dask.org/en/stable/): برای پردازش موازی
+* [Dask](https://docs.dask.org/en/stable/): برای پردازش موازی
 
-[Numba](http://numba.pydata.org/): اجرای پایتون با سرعت برابر با کدهای سطح پایین قابل اجرا توسط سخت افزار
+* [Numba](http://numba.pydata.org/): اجرای پایتون با سرعت برابر با کدهای سطح پایین قابل اجرا توسط سخت افزار
 
-[CVXPY](https://www.cvxpy.org/): برای بهینه سازی محدب
+* [CVXPY](https://www.cvxpy.org/): برای بهینه سازی محدب
 
-[scikit-image](https://scikit-image.org/) و [OpenCV](https://opencv.org/): برای پردازش و تحلیل داده های تصویری
+* [scikit-image](https://scikit-image.org/) و [OpenCV](https://opencv.org/): برای پردازش و تحلیل داده های تصویری
 
-[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/): XML و HTML برای استخراج داده ها از فایل های 
+* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/): XML و HTML برای استخراج داده ها از فایل های 
+
 
 در این مجموعه خواهیم آموخت که چگونه از بسیاری از این کتابخانه ها برای کارهای محاسباتی علمی در اقتصاد و امور مالی استفاده کنیم.
