@@ -9,6 +9,7 @@ kernelspec:
   name: python3
 ---
 
+(python_by_example)=
 # یک مثال مقدماتی
 
 ## مقدمه
