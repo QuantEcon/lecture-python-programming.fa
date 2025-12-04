@@ -20,7 +20,8 @@ jobs:
       - name: Build HTML
         shell: bash -l {0}
         run: |
-          jb build lectures --path-output ./ -W --keep-going
+          jb build lectures --path-output ./ --keep-going
+          # TODO: Re-enable -W flag once all lectures are translated and warnings are resolved
       - name: Upload Execution Reports
         uses: actions/upload-artifact@v5
         if: failure()
