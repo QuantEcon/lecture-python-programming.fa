@@ -263,7 +263,9 @@ quad(lambda x: x**3, 0, 2)
 
 (نوشتن یک چیز دو بار [تقریباً همیشه ایده بدی است](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself))
 
-ما {doc}`بعداً <writing_good_code>` بیشتر در این مورد صحبت خواهیم کرد.
+ما بعداً بیشتر در این مورد صحبت خواهیم کرد.
+
+<!-- TODO: Restore link once writing_good_code lecture is translated and merged: {doc}`بعداً <writing_good_code>` -->
 
 ## کاربردها
 
