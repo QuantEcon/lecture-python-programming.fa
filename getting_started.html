@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. بیاین شروع کنیم &#8212; Python Programming for Economics and Finance</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=dbac30014ddb092b35ab80b3076a22a196655849" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=ceefa0362b71a389a50c4058a117a949b54259bd"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/getting_started.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. یک مثال مقدماتی" href="python_by_example.html" />
+    <link rel="prev" title="1. درباره ی این دوره" href="about_py.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="بیاین شروع کنیم"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="بیاین شروع کنیم" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/getting_started.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=getting_started>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1. مقدمه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2. پایتون در فضای ابری</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.3. نصب محلی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.3.1. توزیع آناکوندا</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.3.2. نصب آناکوندا</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2.3.3. به روزرسانی آناکوندا</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.4. ژوپیتر نوت بوک</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.4.1. راه اندازی ژوپیتر نوت بوک</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">2.4.2. اصول اولیه نوت بوک</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">2.4.2.1. اجرای سلول ها</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">2.4.2.2. ویرایش در حالت های مختلف</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">2.4.2.3. وارد کردن یونیکد (مثلا حروف یونانی)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">2.4.2.4. یک برنامه ی آزمایشی</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">2.4.3. کارکردن با نوت بوک</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tab">2.4.3.1. تکمیل خودکار با کلید Tab</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">2.4.3.2. راهنمای آنلاین</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">2.4.3.3. سایر محتواها</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">2.4.4. اشکال زدایی کد</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">2.4.5. اشتراک گذاری نوت بوک ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantecon-note">2.4.6. سایت QuantEcon Note</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">2.5. نصب کتابخانه ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">2.6. کار با فایل های پایتون</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">2.6.1. ویرایش و اجرا</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab">2.6.1.1. گزینه اول: JupyterLab</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">2.6.1.2. گزینه دوم: استفاده از یک ویرایشگر متن</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">2.7. تمرینات</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Dec 05, 2025
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/getting_started.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/5e6e497" class="changelog-hash">5e6e497</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Fix writing_good_code reference warning</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">2. </span>بیاین شروع کنیم<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>مقدمه<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>در این بخش شما خواهید آموخت که چگونه:</p>
+<ol class="arabic simple">
+<li><p>از پایتون در فضای ابری استفاده کنید</p></li>
+<li><p>یک محیط محلی پایتون راه اندازی و اجرا کنید</p></li>
+<li><p>دستورات ساده ی پایتون را اجرا کنید</p></li>
+<li><p>یک نمونه از برنامه را اجرا کنید</p></li>
+<li><p>کتابخانه های برنامه نویسی موردنیاز برای این دوره را نصب کنید</p></li>
+</ol>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2. </span>پایتون در فضای ابری<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>ساده ترین راه برای شروع کدنویسی در پایتون، اجرای آن در فضای ابری است. ( یعنی با استفاده از یک سرور از راه دور که از قبل روی آن پایتون نصب شده است.)
+یکی دیگر از گزینه های رایگان و قابل اعتماد نیز <a class="reference external" href="https://colab.research.google.com/">Google Colab</a> است. علاوه براین Colab دارای مزیت GPU نیز هست که ما از آن در دوره های پیشرفته تر استفاده خواهیم کرد. آموزش نحوه ی استفاده از Google Colab را می توانید در اینترنت جستجو کنید و ویدیوهای مربوط به آن را پیدا کنید.</p>
+<p>بیشتر دوره های ما شامل یک دکمه «راه اندازی نوت بوک» (با یک آیکون پخش) در بالای سمت راست هستند که شما را به یک نسخه قابل اجرا در Colab متصل می کند.</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.3. </span>نصب محلی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>اگر به سیستم مناسب دسترسی دارید و قصد دارید حجم قابل توجهی برنامه نویسی با پایتون انجام دهید، نصب محلی انتخاب بهتری است. این روش به شما امکان کنترل و انعطاف پذیری بیشتری در استفاده از ابزارها را می دهد.</p>
+<p>با این حال، نصب محلی در مقایسه با گزینه های ابری مانند Colab نیاز به کار بیشتری دارند. در ادامه ی این بخش، جزئیات مرتبط با نصب محلی توضیح داده می شود.</p>
+<section id="id5">
+<h3><span class="section-number">2.3.1. </span>توزیع آناکوندا<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.python.org/downloads/">بسته ی اصلی پایتون</a> به راحتی قابل نصب است، اما برای این دوره ی آموزشی گزینه مناسبی نیست.</p>
+<p>در این مجموعه به اکوسیستم کامل برنامه نویسی علمی نیاز داریم که در بسته ی اصلی پایتون ارائه نمی شود و همچنین نصب هر بخش به صورت جداگانه بسیار زمان بر و دشوار است.</p>
+<p>بنابراین، بهترین رویکرد برای اهداف ما نصب توزیعی از پایتون است که شامل زبان اصلی پایتون و نسخه های سازگار از محبوب ترین کتابخانه های علمی باشد که بهترین توزیع برای این منظور <a class="reference external" href="https://www.anaconda.com/">Anaconda Python</a> است.</p>
+<p>آناکوندا بسیار محبوب، کامل، جامع و دارای قابلیت اجرا بر روی چندین پلتفرم می باشد و البته هیچ ارتباطی با <a class="reference external" href="https://www.youtube.com/watch?v=LDZX4ooRsWs">آهنگی به همین نام از نیکی میناج</a> ندارد!</p>
+<p>آناکوندا همچنین دارای سیستم مدیریت بسته نیز هست که کتابخانه های برنامه نویسی شما را سازماندهی می کند.</p>
+<p><strong>تمام مطالبی که در ادامه خواهید آموخت بر این فرض استوار است که شما این توصیه ها را پذیرفته اید!</strong></p>
+</section>
+<section id="id6">
+<h3><span class="section-number">2.3.2. </span>نصب آناکوندا<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>برای نصب آناکوندا فایل باینری را از سایت اصلی آناکوندا <a class="reference external" href="https://www.anaconda.com/download/">دانلود</a> کرده و دستورالعمل ها را دنبال کنید.</p>
+<p>نکات:</p>
+<ul class="simple">
+<li><p>اطمینان حاصل کنید که نسخه ی مناسب سیستم عامل خود را نصب می کنید.</p></li>
+<li><p>اگر در طول فرایند نصب از شما پرسیده شد که آیا آناکوندا را به عنوان نصب پیش فرض پایتون انتخاب می کنید، گزینه “بله” را انتخاب کنید.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3><span class="section-number">2.3.3. </span>به روزرسانی آناکوندا<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>آناکوندا ابزاری به اسم <code class="docutils literal notranslate"><span class="pre">conda</span></code> برای مدیریت و ارتقاء بسته های آناکوندای شما فراهم می کند. یکی از دستورات <code class="docutils literal notranslate"><span class="pre">کوندا</span></code> که باید به طور منظم اجرا کنید، دستوری است که کل توزیع آناکوندا را به روز می کند.
+به عنوان یک تمرین، لطفا مراحل زیر را اجرا کنید:</p>
+<ol class="arabic simple">
+<li><p>یک ترمینال باز کنید</p></li>
+<li><p>عبارت <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">anaconda</span></code> را تایپ کنید</p></li>
+</ol>
+<p>برای اطلاعات بیشتر درباره کوندا، در ترمینال عبارت “ conda help “ را تایپ کنید.</p>
+</section>
+</section>
+<section id="id8">
+<h2><span class="section-number">2.4. </span>ژوپیتر نوت بوک<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://jupyter.org/">ژوپیتر</a> نوت بوک ها یکی از چندین راه های قابل دسترس برای ارتباط برقرار کردن با پایتون هستند.
+ژوپیتر نوت بوک ها از یک رابط مبتنی بر مرورگر برای دسترسی به پایتون استفاده می کنند که دارای ویژگی های زیر است:</p>
+<ul class="simple">
+<li><p>قابلیت نوشتن و اجرای دستورات پایتون</p></li>
+<li><p>خروجی قالب بندی شده در مرورگر، شامل جداول، نمودارها، انیمیشن ها و غیره</p></li>
+<li><p>امکان ترکیب متن قالب بندی شده و نمایش عبارات ریاضی</p></li>
+</ul>
+<p>به دلیل این قابلیت ها، امروزه ژوپیتر یکی از ابزارهای مهم در اکوسیستم محاسبات علمی محسوب می شود.
+در <a class="reference external" href="http://matplotlib.org/examples/pylab_examples/hexbin_demo.html">اینجا</a> تصویری از اجرای کد در یک ژوپیتر نوت بوک آورده شده است.</p>
+<p><img alt="نمونه اجرای کد" src="_images/jp_demo.png" /></p>
+<p>درحالیکه ژوپیتر تنها روش برنامه نویسی در پایتون نیست، اما بهترین گزینه برای موقعیت هایی است که:</p>
+<ul class="simple">
+<li><p>می خواهید برنامه نویسی با پایتون را شروع کنید</p></li>
+<li><p>ایده های جدید را آزمایش کنید یا فقط بخش های کوچکی از کد را بررسی کنید</p></li>
+<li><p>قصد دارید از محیط های تعاملی قدرتمند آنلاین مانند <a class="reference external" href="https://research.google.com/colaboratory/">Google Colab</a> استفاده کنید</p></li>
+<li><p>می خواهید ایده های علمی خود را با دانشجویان یا همکاران خود به اشتراک بگذارید و با آنها همکاری کنید</p></li>
+</ul>
+<p>این مجموعه دروس نیز برای اجرا در ژوپیتر نوت بوک ها طراحی شده اند.</p>
+<section id="id9">
+<h3><span class="section-number">2.4.1. </span>راه اندازی ژوپیتر نوت بوک<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>بعد از نصب آناکوندا، شما می توانید ژوپیتر نوت بوک را اجرا کنید.</p>
+<p>برای اینکار می توانید:</p>
+<ul class="simple">
+<li><p>در منوی برنامه های خود به دنبال Jupyter بگردید</p></li>
+<li><p>یک ترمینال باز کنید و دستور <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>را اجرا کنید</p>
+<ul>
+<li><p>کاربران ویندوز باید به جای “ترمینال” از “Anaconda Command Prompt” استفاده کنند.</p></li>
+</ul>
+</li>
+</ul>
+<p>اگر روش دوم را انتخاب کنید، با چیزی مشابه تصویر زیر رو به رو خواهید شد.</p>
+<p><img alt="ترمینال" src="_images/starting_nb.png" /></p>
+<p>خروجی نشان می دهد که نوت بوک در <code class="docutils literal notranslate"><span class="pre">/http://localhost:8888</span></code> در حال اجرا است.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">localhost</span></code> اسم رایانه ی محلی شماست</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8888</span></code> <a class="reference external" href="https://en.wikipedia.org/wiki/Port_%28computer_networking%29">شماره پورتی</a> است که رایانه ی شما از آن استفاده می کند</p></li>
+</ul>
+<p>بنابراین، هسته ی ژوپیتر در حال دریافت دستورات پایتون از طریق پورت 8888 در رایانه ی محلی شماست.</p>
+<p>اگر همه چیز به درستی پیش رفته باشد، مرورگر پیش فرض شما باید به طور خودکار یک صفحه ی وب مشابه تصویر زیر را باز کرده باشد.</p>
+<p><img alt="ژوپیتر" src="_images/nb.png" /></p>
+<p>آنچه در اینجا می بینید <em>داشبورد</em> ژوپیتر نام دارد.</p>
+<p>اگر به آدرس اینترنتی (URL) بالای صفحه نگاه کنید، باید چیزی مشابه <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> وجود داشته باشد که با پیام قبلی مطابقت دارد.</p>
+<p>در صورتیکه همه چیز به درستی کار کرده باشد، اکنون می توانید روی “New” در گوشه ی بالا سمت راست کلیک کنید و <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> یا چیزی مشابه آن را انتخاب کنید.</p>
+<p>در زیر تصویری که در سیستم ما نشان می دهد را میتوانید ببینید:
+<img alt="ژوپیتر2" src="_images/nb2.png" /></p>
+<p>نوت بوک یک سلول کد فعال را نشان می دهد که می توانید دستورات پایتون را در آن وارد کنید.</p>
+</section>
+<section id="id10">
+<h3><span class="section-number">2.4.2. </span>اصول اولیه نوت بوک<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>بیاید با نحوه ی ویرایش کد و اجرای برنامه های ساده شروع کنیم.</p>
+<section id="id11">
+<h4><span class="section-number">2.4.2.1. </span>اجرای سلول ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p>در تصویر قبل، سلول درون یک کادر سبز رنگ قرار دارد که نشان می دهد، سلول درحالت ویرایش قرار دارد.</p>
+<p>در این حالت، هر چیزی که تایپ کنید، درون سلول نمایش داده می شود و مکان نما چشمک می زند.</p>
+<p>وقتی آماده ی اجرای کدی که در سلول نوشتید هستید، به جای آنکه به طور معمول از “Enter” استفاده کنید، کلیدهای “Shift + Enter” را بزنید.</p>
+<p><img alt="ژوپیتر3" src="_images/nb3.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>همچنین با کمی جستجو می توانید گزینه های منو و دکمه هایی را برای اجرای کد درون سلول پیدا کنید.</p>
+</div>
+</section>
+<section id="id12">
+<h4><span class="section-number">2.4.2.2. </span>ویرایش در حالت های مختلف<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<p>نکته بعدی که باید درباره ی نوت بوک ژوپیتر بدانید این است که از سیستمی برای ویرایش استفاده می کند که شامل <em>حالت های مختلف</em> است.</p>
+<p><strong>یعنی عملکرد صفحه کلید بسته به حالتی که در آن قرار دارید، متفاوت خواهد بود.</strong></p>
+<p>دوحالت اصلی وجود دارد:</p>
+<ol class="arabic simple">
+<li><p>حالت ویرایش (Edit mode)</p>
+<ul class="simple">
+<li><p>با یک کادر سبز دور سلول و یک مکان نمای چشمک زن مشخص می شود.</p></li>
+<li><p>هر چیزی که تایپ کنید، به همان شکل در سلول نوشته می شود.</p></li>
+</ul>
+</li>
+<li><p>حالت فرمان (Command mode)</p>
+<ul class="simple">
+<li><p>کادر سبز با یک کادر آبی جایگزین می شود.</p></li>
+<li><p>کلیدهای صفحه کلید به عنوان فرمان تفسیر می شوند. (مثلا با زدن کلید <code class="docutils literal notranslate"><span class="pre">b</span></code> ، یک سلول جدید در زیر سلول فعلی ایجاد می شود).</p></li>
+</ul>
+</li>
+</ol>
+<p>برای جا به جایی بین حالت ها:</p>
+<ul class="simple">
+<li><p>برای رفتن از حالت ویرایش به حالت فرمان: کلید <code class="docutils literal notranslate"><span class="pre">Esc</span></code> یا <code class="docutils literal notranslate"><span class="pre">Ctrl-M</span></code> را بزنید.</p></li>
+<li><p>برای رفتن از حالت فرمان به حالت ویرایش: کلید <code class="docutils literal notranslate"><span class="pre">Enter</span></code> را فشار دهید یا درون یک سلول کلیک کنید.</p></li>
+</ul>
+<p>وقتی به این رفتار حالت محور عادت کنید، کار با ژوپیتر نوت بوک بسیار سریع و کارآمد خواهد بود.</p>
+</section>
+<section id="id13">
+<h4><span class="section-number">2.4.2.3. </span>وارد کردن یونیکد (مثلا حروف یونانی)<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p>پایتون از <a class="reference external" href="https://docs.python.org/3/howto/unicode.html">یونیکد</a> پشتیبانی می کند، بنابراین می توانید از کاراکترهایی مانند <span class="math notranslate nohighlight">\(\alpha\)</span> و <span class="math notranslate nohighlight">\(\beta\)</span> در نام گذاری کدهای خود استفاده کنید.</p>
+<p>در یک سلول، عبارت <code class="docutils literal notranslate"><span class="pre">alpha/</span></code>  را تایپ کنید و سپس کلید Tab را از صفحه کیبورد خود فشار دهید.</p>
+</section>
+<section id="id14">
+<h4><span class="section-number">2.4.2.4. </span>یک برنامه ی آزمایشی<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<p>بیایید یک برنامه آزمایشی اجرا کنیم.</p>
+<p>می توانیم از این برنامه نمونه استفاده کنیم:<a class="reference external" href="http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html">http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html</a>.</p>
+<p>در آن صفحه، شما کد زیر را مشاهده خواهید کرد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Fixing random state for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
+
+<span class="c1"># Compute pie slices</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">θ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">radii</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">(</span><span class="n">radii</span> <span class="o">/</span> <span class="mf">10.</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">θ</span><span class="p">,</span> <span class="n">radii</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bf8c98cdb6cc834cec9e871734f3aafea4e60e3f8eb8254be988d61d05ed8368.png" src="_images/bf8c98cdb6cc834cec9e871734f3aafea4e60e3f8eb8254be988d61d05ed8368.png" />
+</div>
+</div>
+<p>فعلا نگران جزئیات نباشید، بیاید فقط اجرا کنیم و ببینیم چه اتفاقی می افتد.</p>
+<p>ساده ترین راه برای اجرای این کد این است که که آن را در یک سلول از نوت بوک کپی و جایگذاری کنید.</p>
+<p>امیدواریم که نموداری مشابه دریافت کنید!</p>
+</section>
+</section>
+<section id="id15">
+<h3><span class="section-number">2.4.3. </span>کارکردن با نوت بوک<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>در ادامه چند نکته درباره ی کار با ژوپیتر نوت بوک آورده شده است.</p>
+<section id="tab">
+<h4><span class="section-number">2.4.3.1. </span>تکمیل خودکار با کلید Tab<a class="headerlink" href="#tab" title="Link to this heading">#</a></h4>
+<p>در جلسه ی قبل این خط از کد را اجرا کردیم: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
+<ul class="simple">
+<li><p>Numpy یک کتابخانه ی عددی است که به طور گسترده با آن کار خواهیم کرد.</p></li>
+</ul>
+<p>بعد از این دستور، می توانیم به توابع کتابخانه Numpy با استفاده از نحو  <code class="docutils literal notranslate"><span class="pre">np.function_name</span></code>دسترسی داشته باشیم.</p>
+<ul class="simple">
+<li><p>برای مثال بیاید دستور <code class="docutils literal notranslate"><span class="pre">np.random.randn(3)</span></code> را امتحان کنید.</p></li>
+</ul>
+<p>می توانیم ویژگی های مختلف <code class="docutils literal notranslate"><span class="pre">np</span></code> را با استفاده از کلید Tab بررسی کنیم.</p>
+<p>برای نمونه، کافی است تایپ کنیم <code class="docutils literal notranslate"><span class="pre">np.random.r</span></code> و سپس کلید Tab را فشار دهیم.</p>
+<p><img alt="numpy" src="_images/nb6.png" /></p>
+<p>ژوپیتر نوت بوک چندین گزینه ی تکمیل کننده ی خودکار را برای انتخاب در اختیارتان قرار می دهد.</p>
+<p>به همین ترتیب، کلید Tab هم یادآوری می کند که چه قابلیت هایی در دسترس شما قرار دارد و هم باعث صرفه جویی در تایپ می شود.</p>
+</section>
+<section id="id16">
+<h4><span class="section-number">2.4.3.2. </span>راهنمای آنلاین<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<p>برای مشاهده ی راهنمای نحو <code class="docutils literal notranslate"><span class="pre">np.random.randn</span></code> کافی است دستور <code class="docutils literal notranslate"><span class="pre">?np.random.randn</span></code> را اجرا کنید.</p>
+<p>مستندات مربوط به این نحو در پنجره ای به طور جداگانه همانند تصویر زیر نمایش داده می شود.</p>
+<p><img alt="online help" src="_images/nb6a.png" /></p>
+<p>با کلیک بر روی ضربدر در قسمت بالایی سمت راست در نیم پنجره ی ایجاد شده برای راهنمای دستور، راهنمای آنلاین بسته می شود.</p>
+<p>در ادامه، بیشتر درباره ی نحوه ی ایجاد مستندات مشابه بیشتر یادخواهیم گرفت!</p>
+</section>
+<section id="id17">
+<h4><span class="section-number">2.4.3.3. </span>سایر محتواها<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<p>ژوپیتر نوت بوک علاوه بر اجرای کد، به شما امکان می دهد تا متن، معادلات، نمودارها و حتی ویدیوها را در صفحه جایگذاری کنید.</p>
+<p>برای مثال، می توانیم به جای کد ، ترکیبی از متن ساده و لاتکس را وارد کنیم.</p>
+<p>سپس، با فشردن <code class="docutils literal notranslate"><span class="pre">Esc</span></code> وارد حالت فرمان (Command mode) می شویم و با تایپ <code class="docutils literal notranslate"><span class="pre">m</span></code> مشخص می کنیم که در حال نوشتن یک فایل <a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a> هستیم، Markdown یک زبان نشانه گذاری متن شبیه به لاتکس اما ساده تر از آن است.</p>
+<p>(همچنین می توانید با استفاده از ماوس، گزینه “ Markdown “ را از منوی کشویی “Code” که درست زیر نوار منو قرار دارد، انتخاب کنید.)</p>
+<p><img alt="markdown" src="_images/nb7.png" /></p>
+<p>حال ما کلیدهای <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> را میزنیم تا نتیجه ای مطابق تصویر زیر ایجاد کنیم:</p>
+<p><img alt="resultmd" src="_images/nb8.png" /></p>
+</section>
+</section>
+<section id="id18">
+<h3><span class="section-number">2.4.4. </span>اشکال زدایی کد<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>به فرآیند شناسایی و حذف خطاها از یک برنامه، اشکال زدایی یا Debugging می گویند.</p>
+<p>ازآنجایی که شما زمان زیادی را صرف اشکال زدایی کد خواهید کرد، بنابراین <a class="reference external" href="https://www.freecodecamp.org/news/what-is-debugging-how-to-debug-code/">یادگرفتن نحوه ی انجام درست</a> آن ضروری است.</p>
+<p>اگر از نسخه ی جدیدتری از ژوپیتر نوت بوک استفاده می کنید، باید نماد یک حشره (bug) را در انتهای سمت راست نوار ابزار خود داشته باشید.</p>
+<p><img alt="dedugicon" src="_images/debug.png" /></p>
+<p>با کلیک بر روی این آیکون، اشکال زدایی ژوپیتر فعال می شود.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ممکن است لازم باشد پنل اشکال زدایی را نیز باز کنید برای اینکار می توانید از این مسیر پیش بروید.(View -&gt; Debugger Panel)</p>
+</div>
+<p>می توانید با کلیک روی شماره خط سلولی که قصد اشکال زدایی آن را دارید، نقاط توقف (breakpoints) را تنظیم کنید.</p>
+<p>وقتی سلول را اجرا می کنید، اشکال زدایی در نقطه ی توقفی که تنظیم کرده بودید، متوقف می شود.</p>
+<p>سپس می توانید خط به خط کد را با استفاده از دکمه های “Next” که در نوار ابزار CALLSTACK در پنجره ی سمت راست قرار دارد، بررسی کنید.</p>
+<p><img alt="degug2" src="_images/debugger_breakpoint.png" /></p>
+<p>می توانید قابلیت های بیشتری از اشکال زدایی در ژوپیتر را در <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/debugger.html">اینجا</a> پیدا کنید.</p>
+</section>
+<section id="id19">
+<h3><span class="section-number">2.4.5. </span>اشتراک گذاری نوت بوک ها<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>فایل های نوت بوک صرفا فایل های متنی با ساختار <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> هستند که معمولا پسوند <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> دارند.</p>
+<p>شما می توانید آن ها را به همان شیوه که سایر فایل ها را به اشتراک می گذارید، ارسال کنید یا اینکه از سرویس های وب مانند <a class="reference external" href="http://nbviewer.jupyter.org/">nbviewer</a> استفاده کنید.</p>
+<p>نوت بوک هایی که شما در آن سایت مشاهده می کنید، نسخه های <strong>ایستا (static)</strong> با فرمت HTML هستند.
+برای اجرای نوت بوک ها، کافی است روی آیکون دانلود در بالا سمت راست کلیک کنید و آن را با فرمت <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> ذخیره کنید.</p>
+<p>سپس فایل را در جایی روی رایانه ی خودتان ذخیره کنید و از طریق داشبورد ژوپیتر آن را انتخاب کنید و طبق توضیحاتی که پیشتر گفته شد اجرا کنید.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>اگر به اشتراک گذاری نوت بوک هایی با محتوای تعاملی علاقه مند هستید، پیشنهاد میکنیم <a class="reference external" href="https://mybinder.org/">Binder</a>  را بررسی کنید.</p>
+<p>همچنین برای همکاری با دیگران در نوت بوک ها، می توانید از پلتفرم های زیر استفاده کنید:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kernels">Kaggle</a></p></li>
+</ul>
+<p>و اگر میخواهید کدها را به طور اختصاصی برای خود نگه دارید و همچنان از رابط کاربری آشنا مثل JupyterLab و Notenook استفاده کنید، پس نگاهی به <a class="reference external" href="https://jupyterlab-realtime-collaboration.readthedocs.io/en/latest/">JupyterLab Real-Time Collaboration extension</a> نیز بیندازید.</p>
+</div>
+</section>
+<section id="quantecon-note">
+<h3><span class="section-number">2.4.6. </span>سایت QuantEcon Note<a class="headerlink" href="#quantecon-note" title="Link to this heading">#</a></h3>
+<p>همچنین QuantEcon دارای یک سایت اختصاصی برای به اشتراک گذاری ژوپیتر نوت بوک های مرتبط با اقتصاد به نام <a class="reference external" href="http://notes.quantecon.org/">QuantEcon Notes</a> می باشد.</p>
+<p>نوت بوک هایی که در QuantEcon Note ارسال می شوند، از طریق لینک قابل اشتراگ گذاری هستند و جامعه ی کاربران می توانند به آنها رأی دهند یا نظرشان را به اشتراک بگذارند.</p>
+</section>
+</section>
+<section id="id20">
+<h2><span class="section-number">2.5. </span>نصب کتابخانه ها<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<p>بیشتر کتابخانه های موردنیاز ما در این دوره در آناکوندا وجود دارند. اما سایر کتابخانه ها را می توان با <code class="docutils literal notranslate"><span class="pre">conda</span></code> یا <code class="docutils literal notranslate"><span class="pre">pip</span></code> نصب کرد.</p>
+<p>یکی از کتابخانه هایی که از آن استفاده خواهیم کرد، <a class="reference external" href="http://quantecon.org/quantecon-py">QuantEcon.py</a> است.</p>
+<p>شما می توانید با اجرای ژوپیتر و تایپ دستور زیر درون یک سلول <a class="reference external" href="http://quantecon.org/quantecon-py">QuantEcon.py</a> را نصب کنید.</p>
+<div class="no-execute highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda<span class="w"> </span>install<span class="w"> </span>quantecon
+</pre></div>
+</div>
+<p>همچنین می توانید دستور زیر را درون ترمینال تایپ کنید:</p>
+<div class="no-execute highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>quantecon
+</pre></div>
+</div>
+<p>اگر به راهنمایی های بیشتری نیاز داشتید می توانید از <a class="reference external" href="http://quantecon.org/quantecon-py">صفحه کتابخانه</a> اطلاعات موردنیاز خود را کسب کنید.</p>
+<p>همچنین برای به روزرسانی به آخرین نسخه که توصیه می شود به طور منظم انجام دهید، می توانید از دستور زیر استفاده کنید:</p>
+<div class="no-execute highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>upgrade<span class="w"> </span>quantecon
+</pre></div>
+</div>
+<p>کتابخانه دیگری که از آن استفاده خواهیم کرد <a class="reference external" href="https://github.com/EconForge/interpolation.py">interpolation.py</a> است.</p>
+<p>این کتابخانه را نیز می توانید با استفاده از دستور زیر در ژوپیتر نصب کرد.</p>
+<div class="no-execute highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>interpolation
+</pre></div>
+</div>
+</section>
+<section id="id21">
+<h2><span class="section-number">2.6. </span>کار با فایل های پایتون<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<p>تا اینجا بیشتر روی اجرای کدهای پایتون در سلول های ژوپیتر نوت بوک تمرکز کردیم. اما به صورت سنتی، بیشتر کدهای پایتون به شکل دیگری اجرا می شوند. به این شکل که ابتدا کدها در یک فایل متنی روی سیستم ذخیره می شوند که به طور قراردادی دارای پسوند <code class="docutils literal notranslate"><span class="pre">.py</span></code> هستند.</p>
+<p>برای نمونه می توانیم یک نوع از این فایل ایجاد کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> foo.py
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foobar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting foo.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>دستور بالا خط <code class="docutils literal notranslate"><span class="pre">print(&quot;foobar&quot;)</span></code> را در فایلی به نام <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> در مسیر فعلی ذخیره می کند.</p>
+<p>در این کد دستور <code class="docutils literal notranslate"><span class="pre">%%writefile</span></code> نمونه ای از یک جادوی سلولی (<a class="reference external" href="http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics">cell magic</a>) است!</p>
+<section id="id22">
+<h3><span class="section-number">2.6.1. </span>ویرایش و اجرا<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>اگر با کدی مواجه شدید که در یک فایل با پسوند <code class="docutils literal notranslate"><span class="pre">*.py</span></code> ذخیره شده است، لازم است به این دو سوال توجه کنید:</p>
+<ol class="arabic simple">
+<li><p>چگونه باید آن را اجرا کرد؟</p></li>
+<li><p>چگونه می توان آن را ویرایش یا تغییری در آن اعمال کرد؟</p></li>
+</ol>
+<p>برای این کارها شما دو گزینه پیش روی خود دارید!</p>
+<section id="jupyterlab">
+<h4><span class="section-number">2.6.1.1. </span>گزینه اول: JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h4>
+<p>محیط <a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> یک محیط توسعه ی یکپارچه (IDE) است که بر پایه ی نوت بوک ها ژوپیتر ساخته شده است. با استفاده از JupyterLab می توانید فایل هایی با پسوند <code class="docutils literal notranslate"><span class="pre">*.py</span></code> را همانند ژوپیتر نوت بوک ها را ویرایش و اجرا کنید.</p>
+<p>برای اجرای JupyterLab می توانید آن را در فهرست برنامه ها جستجو کنید یا در ترمینال دستور <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> را وارد نمایید.</p>
+<p>اکنون باید بتوانید فایل <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> را که در مرحله ی قبل ساخته بودید در JupyterLab بازکرده، ویرایش و اجرا کنید.</p>
+<p>برای اطلاعات بیشتر، می توانید مستندات رسمی را مطالعه کنید یا یک ویدیوی آموزشی جدید در این باره در یوتیوب تماشا کنید.</p>
+</section>
+<section id="id23">
+<h4><span class="section-number">2.6.1.2. </span>گزینه دوم: استفاده از یک ویرایشگر متن<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<p>همچنین می توانید فایل ها را با یک ویرایشگر متن ویرایش کرده و سپس آن را از طریق ژوپیتر نوت بوک اجرا کنید.</p>
+<p>به طور کلی، ویرایشگر متن برنامه ای است که به طور اختصاصی برای کار با فایل های متنی مانند برنامه های پایتون طراحی شده است.</p>
+<p>البته هیچ چیز قدرت و کارایی یک ویرایشگر متن خوب را برای کار با کدهای برنامه نویسی را ندارد.</p>
+<p>یک ویرایشگر خوب امکانات زیر را ارائه می دهد:</p>
+<ul class="simple">
+<li><p>فرمان های کارآمد برای ویرایش متن(مثل کپی، جایگذاری، جست وجو و جایگزینی)</p></li>
+<li><p>برجسته سازی نحوی (syntax highlighting) برای خوانایی بهتر کد و امکانات مشابه دیگر</p></li>
+</ul>
+<p>در حال حاضر، یکی از محبوب ترین ویرایشگرهای متنی برای برنامه نویسی <a class="reference external" href="https://code.visualstudio.com/">VS Code</a> است، که کاربری بسیار آسانی دارد و افزونه های باکیفیت زیادی برای آن عرضه شده است.</p>
+<p>از طرف دیگر، اگر به دنبال یک ویرایشگر رایگان و قدرتمند هستید و با یک منحنی یادگیری عمودی، چندین روز سردرگمی و دردسر و بازسازی کامل مسیرهای عصبی مغزی خود کنار می آیید، میتوانید <a class="reference external" href="http://www.vim.org/">Vim</a> را امتحان کنید!</p>
+</section>
+</section>
+</section>
+<section id="id24">
+<h2><span class="section-number">2.7. </span>تمرینات<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<div class="exercise admonition" id="gs_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2.1 </span></p>
+<section id="exercise-content">
+<p>اگر هنوز ژوپیتر در حال اجرا است، آن را با فشردن ترکیب کلیدها <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> در ترمینالی که از آن شروع کرده اید، ببندید.</p>
+<p>حالا دوباره ژوپیتر را این بار با استفاده از کد دستوری <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">--no-browser</span></code> باز کنید.</p>
+<p>با این کار، هسته ی ژوپیتز (kernel) بدون آنکه مرورگر به صورت خودکار باز شود، راه اندازی می شود.</p>
+<p>همچنین به پیامی که هنگام شروع نمایش داده می شود دقت کنید: باید یک آدرس(URL) مانند <code class="docutils literal notranslate"><span class="pre">http://localhost:8888</span></code> به شما بدهد که نوت بوک در آن درحال اجرا است.</p>
+<p>اکنون وقت آن است که:</p>
+<ol class="arabic simple">
+<li><p>مرورگر خود را اجرا کنید (یا اگر باز است، یک تب جدید باز کنید.)</p></li>
+<li><p>آدرسی که در مرحله قبل داده شده (مثلا <code class="docutils literal notranslate"><span class="pre">http://localhost:8888</span></code>) را در نوار آدرس وارد کنید.</p></li>
+</ol>
+<p>اکنون باید بتوانید یک جلسه ی معمولی از نوت بوک ژوپیتر را اجرا کنید.</p>
+<p>این روش، جایگزین دیگری برای اجرای نوت بوک است که می تواند در برخی موقعیت ها مفید باشد.
+برای نمونه، اگر صفحه ی وب تصادفا بسته شود ولی هسته ی ژوپیتر هنوز فعال باشد، همچنان می توانید از این طریق دوباره به نوت بوک دسترسی پیدا کنید.</p>
+</section>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   5. Execution Statistics
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/getting_started.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/getting_started.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/getting_started.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/getting_started.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "getting_started";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/getting_started.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>
