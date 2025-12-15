@@ -23,13 +23,13 @@ jobs:
           jb build lectures --path-output ./ --keep-going
           # TODO: Re-enable -W flag once all lectures are translated and warnings are resolved
       - name: Upload Execution Reports
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: execution-reports
           path: _build/html/reports
       - name: Upload "_build" folder (cache)
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: build-cache
           path: _build
