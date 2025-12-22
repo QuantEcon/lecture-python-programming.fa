@@ -9,9 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. یک مثال مقدماتی &#8212; Python Programming for Economics and Finance</title>
-    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
     
         <script>
             MathJax = {
@@ -70,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=dbac30014ddb092b35ab80b3076a22a196655849" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +101,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=ceefa0362b71a389a50c4058a117a949b54259bd"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -245,22 +252,22 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Dec 05, 2025
+                            Last changed: Dec 22, 2025
                             <span class="changelog-icon">▼</span>
                         </button>
 
                     <!-- Changelog dropdown content -->
                     <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
-                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/python_by_example.md">full history</a>)</h4>
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/python_by_example.md">full history</a>)</h4>
                         <ul class="changelog-list">
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/5e6e497" class="changelog-hash">5e6e497</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/a48ef3b" class="changelog-hash">a48ef3b</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Fix writing_good_code reference warning</span>
+                                <span class="changelog-message">Fix undefined Docstrings reference by removing link temporarily</span>
                             </li>
                             
                         </ul>
@@ -336,7 +343,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1310af6635ebf4cf01ddc05523f9fa35f73a401ddabedf63a04565562be6ea48.png" src="_images/1310af6635ebf4cf01ddc05523f9fa35f73a401ddabedf63a04565562be6ea48.png" />
+<img alt="_images/30dc78f8bf5d4666be7b241d5e497e56e9e09852d975e778681397c6b8e3c579.png" src="_images/30dc78f8bf5d4666be7b241d5e497e56e9e09852d975e778681397c6b8e3c579.png" />
 </div>
 </div>
 <p>بیایید این برنامه را تجزیه و تحلیل کنیم و ببینیم چگونه کار میکند.</p>
@@ -456,7 +463,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2b31ed4333ff3c33f8bc6cf72d6255a6d62ab3f42111d2eaf9369bfbfb5e96ab.png" src="_images/2b31ed4333ff3c33f8bc6cf72d6255a6d62ab3f42111d2eaf9369bfbfb5e96ab.png" />
+<img alt="_images/3c6b18eee0673d3c42513531245c365e6df7a983292ce5686b7335260e9618c0.png" src="_images/3c6b18eee0673d3c42513531245c365e6df7a983292ce5686b7335260e9618c0.png" />
 </div>
 </div>
 <p>خط اول 100 عدد نرمال استاندارد (تقریبا) مستقل تولید می کند و آن ها را در متغیر <code class="docutils literal notranslate"><span class="pre">ϵ_values</span></code> ذخیره می کند.</p>
@@ -486,7 +493,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8be45e1679049dc8cb4c9ef6d8221bf8ff468997944392a7206f1bfa2d6f9aa8.png" src="_images/8be45e1679049dc8cb4c9ef6d8221bf8ff468997944392a7206f1bfa2d6f9aa8.png" />
+<img alt="_images/d497bf705f15c2872e1e55e54aafcd363fbfbdc7373b3cd76f037755f5b587ad.png" src="_images/d497bf705f15c2872e1e55e54aafcd363fbfbdc7373b3cd76f037755f5b587ad.png" />
 </div>
 </div>
 <p>به طور خلاصه:</p>
@@ -704,7 +711,7 @@ The plural of bird is birds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d3498617712fbb14bdeb296692fbf397bcff49a623636526d244a35ccc5da9ad.png" src="_images/d3498617712fbb14bdeb296692fbf397bcff49a623636526d244a35ccc5da9ad.png" />
+<img alt="_images/836f3c9686b378b6c7b88a560080b01c21eea2f13e256dffc5feb9374a18c130.png" src="_images/836f3c9686b378b6c7b88a560080b01c21eea2f13e256dffc5feb9374a18c130.png" />
 </div>
 </div>
 <p>حلقه while به اجرای بلوک کد (که با تورفتگی مشخص شده است)ادامه می دهد تا زمانی که شرط (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) برقرار باشد.</p>
@@ -799,7 +806,7 @@ The plural of bird is birds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d4d690aa48f2a2c3703379205ffbcb9048f6e5d2321d31dfd6fa3b97c4328e54.png" src="_images/d4d690aa48f2a2c3703379205ffbcb9048f6e5d2321d31dfd6fa3b97c4328e54.png" />
+<img alt="_images/ec83b068ebd01242ec7f47e83156d91527b05e5097d25ac068f8c6148c5953e8.png" src="_images/ec83b068ebd01242ec7f47e83156d91527b05e5097d25ac068f8c6148c5953e8.png" />
 </div>
 </div>
 <p>عبارت <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">np.empty(T+1)</span></code> حافظه ای برای ذخیره اعداد <code class="docutils literal notranslate"><span class="pre">T+1</span></code> (که اعداد اعشاری هستند) اختصاص می دهد.</p>
@@ -864,7 +871,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1c46513e2865dd80a8fb0b039e0dfee4f4d8cac116936426a899de372a784d60.png" src="_images/1c46513e2865dd80a8fb0b039e0dfee4f4d8cac116936426a899de372a784d60.png" />
+<img alt="_images/459aa7233e26cb279564e66ff1078266386eacf2beef99069a3422794ed6052d.png" src="_images/459aa7233e26cb279564e66ff1078266386eacf2beef99069a3422794ed6052d.png" />
 </div>
 </div>
 </section>
@@ -907,7 +914,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9c8be0fa9348caae17dd99ff390e58654d44e83eb5fdbff0ff23621adca6ebfe.png" src="_images/9c8be0fa9348caae17dd99ff390e58654d44e83eb5fdbff0ff23621adca6ebfe.png" />
+<img alt="_images/42c9c2d025c1ea528635d11ef3e26da2c9645fb8728cf4fa82e4eb57e15b68af.png" src="_images/42c9c2d025c1ea528635d11ef3e26da2c9645fb8728cf4fa82e4eb57e15b68af.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -961,7 +968,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/198ce4f446bdbb815e6b6b5a87e4e5173d9b9faf3535a1c6f3d2cc1e82074c82.png" src="_images/198ce4f446bdbb815e6b6b5a87e4e5173d9b9faf3535a1c6f3d2cc1e82074c82.png" />
+<img alt="_images/4b69329d726acb231fcf704b999b625059e0e8212de0d05edd3abba86bed9116.png" src="_images/4b69329d726acb231fcf704b999b625059e0e8212de0d05edd3abba86bed9116.png" />
 </div>
 </div>
 </section>
@@ -1028,7 +1035,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c05295abc3b803a733fe6e15334c0f1bc7db0bcfce3aa2226063ba5c9c589d81.png" src="_images/c05295abc3b803a733fe6e15334c0f1bc7db0bcfce3aa2226063ba5c9c589d81.png" />
+<img alt="_images/6ee5d776a081706c3f8ed4fa23d7194061a75f356ebc5600e58bde37054e0c3f.png" src="_images/6ee5d776a081706c3f8ed4fa23d7194061a75f356ebc5600e58bde37054e0c3f.png" />
 </div>
 </div>
 <p>در اینجا نیز روش کوتاه تری برای نوشتن همان برنامه وجود دارد:</p>
@@ -1049,7 +1056,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/307f3d505b7038452af396ee8246b931dc4b1688c47a57d7a77e5459904aa658.png" src="_images/307f3d505b7038452af396ee8246b931dc4b1688c47a57d7a77e5459904aa658.png" />
+<img alt="_images/1d8cb5d75d3087c06d3e7e57dddbcb93e83aa033728b99dc1e355ce3dd5d07c8.png" src="_images/1d8cb5d75d3087c06d3e7e57dddbcb93e83aa033728b99dc1e355ce3dd5d07c8.png" />
 </div>
 </div>
 </section>
@@ -1207,7 +1214,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142016
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144008
 </pre></div>
 </div>
 </div>

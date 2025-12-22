@@ -9,7 +9,19 @@ kernelspec:
   name: python3
 ---
 
+(getting_started)=
+```{raw} jupyter
+<div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div>
+```
+
 # بیاین شروع کنیم
+
+```{index} single: Python
+```
 
 ## مقدمه
 
@@ -50,7 +62,12 @@ kernelspec:
 
 **تمام مطالبی که در ادامه خواهید آموخت بر این فرض استوار است که شما این توصیه ها را پذیرفته اید!**
 
+(install_anaconda)=
 ### نصب آناکوندا
+
+```{index} single: Python; Anaconda
+```
+
 برای نصب آناکوندا فایل باینری را از سایت اصلی آناکوندا [دانلود](https://www.anaconda.com/download/) کرده و دستورالعمل ها را دنبال کنید.
 
 نکات:
@@ -72,7 +89,15 @@ kernelspec:
 
 برای اطلاعات بیشتر درباره کوندا، در ترمینال عبارت " conda help " را تایپ کنید.
 
-## ژوپیتر نوت بوک
+(ipython_notebook)=
+## Jupyter Notebooks
+
+```{index}
+single: Python; IPython
+single: IPython
+single: Jupyter
+```
+
 [ژوپیتر](http://jupyter.org/) نوت بوک ها یکی از چندین راه های قابل دسترس برای ارتباط برقرار کردن با پایتون هستند.
 ژوپیتر نوت بوک ها از یک رابط مبتنی بر مرورگر برای دسترسی به پایتون استفاده می کنند که دارای ویژگی های زیر است:
 
@@ -86,7 +111,12 @@ kernelspec:
 به دلیل این قابلیت ها، امروزه ژوپیتر یکی از ابزارهای مهم در اکوسیستم محاسبات علمی محسوب می شود.
 در [اینجا](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html) تصویری از اجرای کد در یک ژوپیتر نوت بوک آورده شده است.
 
-![نمونه اجرای کد](images/getting-started/jp_demo.png)
+```{figure} _static/lecture_specific/getting_started/jp_demo.png
+:name: gs_jp_demo
+:figclass: auto
+
+نمونه اجرای کد
+```
 
 درحالیکه ژوپیتر تنها روش برنامه نویسی در پایتون نیست، اما بهترین گزینه برای موقعیت هایی است که:
 
@@ -102,6 +132,9 @@ kernelspec:
 
 ### راه اندازی ژوپیتر نوت بوک
 
+```{index} single: Jupyter Notebook; راه‌اندازی
+```
+
 بعد از نصب آناکوندا، شما می توانید ژوپیتر نوت بوک را اجرا کنید.
 
 برای اینکار می توانید:
@@ -113,7 +146,12 @@ kernelspec:
 
 اگر روش دوم را انتخاب کنید، با چیزی مشابه تصویر زیر رو به رو خواهید شد.
 
-![ترمینال](images/getting-started/starting_nb.png)
+```{figure} _static/lecture_specific/getting_started/starting_nb.png
+:name: gs_starting_nb
+:figclass: terminal
+
+ترمینال
+```
 
 خروجی نشان می دهد که نوت بوک در `/http://localhost:8888` در حال اجرا است.
 
@@ -126,7 +164,12 @@ kernelspec:
 
 اگر همه چیز به درستی پیش رفته باشد، مرورگر پیش فرض شما باید به طور خودکار یک صفحه ی وب مشابه تصویر زیر را باز کرده باشد.
 
-![ژوپیتر](images/getting-started/nb.png)
+```{figure} _static/lecture_specific/getting_started/nb.png
+:name: gs_nb
+:figclass: auto
+
+ژوپیتر
+```
 
 
 آنچه در اینجا می بینید *داشبورد* ژوپیتر نام دارد.
@@ -136,11 +179,21 @@ kernelspec:
 در صورتیکه همه چیز به درستی کار کرده باشد، اکنون می توانید روی "New" در گوشه ی بالا سمت راست کلیک کنید و `Python 3` یا چیزی مشابه آن را انتخاب کنید.
 
 در زیر تصویری که در سیستم ما نشان می دهد را میتوانید ببینید:
-![ژوپیتر2](images/getting-started/nb2.png)
+
+```{figure} _static/lecture_specific/getting_started/nb2.png
+:name: gs_nb2
+:figclass: auto
+
+ژوپیتر
+```
 
 نوت بوک یک سلول کد فعال را نشان می دهد که می توانید دستورات پایتون را در آن وارد کنید.
 
 ### اصول اولیه نوت بوک
+
+```{index} single: Jupyter Notebook; مبانی
+```
+
 بیاید با نحوه ی ویرایش کد و اجرای برنامه های ساده شروع کنیم.
 
 #### اجرای سلول ها
@@ -150,7 +203,12 @@ kernelspec:
 
 وقتی آماده ی اجرای کدی که در سلول نوشتید هستید، به جای آنکه به طور معمول از "Enter" استفاده کنید، کلیدهای "Shift + Enter" را بزنید.
 
-![ژوپیتر3](images/getting-started/nb3.png)
+```{figure} _static/lecture_specific/getting_started/nb3.png
+:name: gs_nb3
+:figclass: auto
+
+ژوپیتر
+```
 
 ```{note}
 همچنین با کمی جستجو می توانید گزینه های منو و دکمه هایی را برای اجرای کد درون سلول پیدا کنید.
@@ -190,6 +248,7 @@ kernelspec:
 
 در یک سلول، عبارت `alpha/`  را تایپ کنید و سپس کلید Tab را از صفحه کیبورد خود فشار دهید.
 
+(a_test_program)=
 #### یک برنامه ی آزمایشی
 
 بیایید یک برنامه آزمایشی اجرا کنیم.
@@ -245,23 +304,39 @@ plt.show()
 
 برای نمونه، کافی است تایپ کنیم `np.random.r` و سپس کلید Tab را فشار دهیم.
 
-![numpy](images/getting-started/nb6.png)
+```{figure} _static/lecture_specific/getting_started/nb6.png
+:name: gs_nb6
+:figclass: auto
+
+numpy
+```
 
 ژوپیتر نوت بوک چندین گزینه ی تکمیل کننده ی خودکار را برای انتخاب در اختیارتان قرار می دهد.
 
 به همین ترتیب، کلید Tab هم یادآوری می کند که چه قابلیت هایی در دسترس شما قرار دارد و هم باعث صرفه جویی در تایپ می شود.
 
+(gs_help)=
 #### راهنمای آنلاین
+
+```{index} single: Jupyter Notebook; راهنما
+```
 
 برای مشاهده ی راهنمای نحو `np.random.randn` کافی است دستور `?np.random.randn` را اجرا کنید.
 
 مستندات مربوط به این نحو در پنجره ای به طور جداگانه همانند تصویر زیر نمایش داده می شود.
 
-![online help](images/getting-started/nb6a.png)
+```{figure} _static/lecture_specific/getting_started/nb6a.png
+:name: gs_nb6a
+:figclass: auto
+
+online help
+```
 
 با کلیک بر روی ضربدر در قسمت بالایی سمت راست در نیم پنجره ی ایجاد شده برای راهنمای دستور، راهنمای آنلاین بسته می شود.
 
-در ادامه، بیشتر درباره ی نحوه ی ایجاد مستندات مشابه بیشتر یادخواهیم گرفت!
+در ادامه، بیشتر درباره ی نحوه ی ایجاد مستندات مشابه یاد خواهیم گرفت!
+
+<!-- TODO: Restore link when python_essentials.md is translated: در ادامه، بیشتر درباره ی نحوه ی ایجاد مستندات مشابه {ref}`یاد خواهیم گرفت <Docstrings>`! -->
 
 #### سایر محتواها
 
@@ -273,13 +348,26 @@ plt.show()
 
 (همچنین می توانید با استفاده از ماوس، گزینه " Markdown " را از منوی کشویی "Code" که درست زیر نوار منو قرار دارد، انتخاب کنید.)
 
-![markdown](images/getting-started/nb7.png)
+```{figure} _static/lecture_specific/getting_started/nb7.png
+:name: gs_nb7
+:figclass: auto
+
+markdown
+```
 
 حال ما کلیدهای `Shift + Enter` را میزنیم تا نتیجه ای مطابق تصویر زیر ایجاد کنیم:
 
-![resultmd](images/getting-started/nb8.png)
+```{figure} _static/lecture_specific/getting_started/nb8.png
+:name: gs_nb8
+:figclass: auto
+
+resultmd
+```
 
 ### اشکال زدایی کد
+
+```{index} single: Jupyter Notebook; اشکال‌زدایی
+```
 
 به فرآیند شناسایی و حذف خطاها از یک برنامه، اشکال زدایی یا Debugging می گویند.
 
@@ -287,7 +375,13 @@ plt.show()
 
 اگر از نسخه ی جدیدتری از ژوپیتر نوت بوک استفاده می کنید، باید نماد یک حشره (bug) را در انتهای سمت راست نوار ابزار خود داشته باشید.
 
-![dedugicon](images/getting-started/debug.png)
+```{figure} _static/lecture_specific/getting_started/debug.png
+:name: gs_debug
+:scale: 50%
+:figclass: auto
+
+debug icon
+```
 
 با کلیک بر روی این آیکون، اشکال زدایی ژوپیتر فعال می شود.
 
@@ -300,11 +394,22 @@ plt.show()
 
 سپس می توانید خط به خط کد را با استفاده از دکمه های "Next" که در نوار ابزار CALLSTACK در پنجره ی سمت راست قرار دارد، بررسی کنید.
 
-![degug2](images/getting-started/debugger_breakpoint.png)
+```{figure} _static/lecture_specific/getting_started/debugger_breakpoint.png
+:name: gs_debugger_breakpoint
+:figclass: auto
+
+debugger breakpoint
+```
 
 می توانید قابلیت های بیشتری از اشکال زدایی در ژوپیتر را در [اینجا](https://jupyterlab.readthedocs.io/en/latest/user/debugger.html) پیدا کنید.
 
 ### اشتراک گذاری نوت بوک ها
+
+```{index} single: Jupyter Notebook; اشتراک‌گذاری
+```
+
+```{index} single: Jupyter Notebook; nbviewer
+```
 
 فایل های نوت بوک صرفا فایل های متنی با ساختار [JSON](https://en.wikipedia.org/wiki/JSON) هستند که معمولا پسوند `.ipynb` دارند.
 
@@ -334,10 +439,15 @@ plt.show()
 
 ## نصب کتابخانه ها
 
+(gs_qe)=
+```{index} single: QuantEcon
+```
+
 بیشتر کتابخانه های موردنیاز ما در این دوره در آناکوندا وجود دارند. اما سایر کتابخانه ها را می توان با `conda` یا `pip` نصب کرد.
 
 یکی از کتابخانه هایی که از آن استفاده خواهیم کرد، [QuantEcon.py](http://quantecon.org/quantecon-py) است.
 
+(gs_install_qe)=
 شما می توانید با اجرای ژوپیتر و تایپ دستور زیر درون یک سلول [QuantEcon.py](http://quantecon.org/quantecon-py) را نصب کنید.
 
 ```{code-block} ipython3
@@ -400,6 +510,9 @@ print("foobar")
 برای این کارها شما دو گزینه پیش روی خود دارید!
 
 #### گزینه اول: JupyterLab
+
+```{index} single: JupyterLab
+```
 
 محیط [JupyterLab](https://github.com/jupyterlab/jupyterlab) یک محیط توسعه ی یکپارچه (IDE) است که بر پایه ی نوت بوک ها ژوپیتر ساخته شده است. با استفاده از JupyterLab می توانید فایل هایی با پسوند `*.py` را همانند ژوپیتر نوت بوک ها را ویرایش و اجرا کنید. 
 

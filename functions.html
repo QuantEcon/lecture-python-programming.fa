@@ -9,9 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. توابع &#8212; Python Programming for Economics and Finance</title>
-    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
     
         <script>
             MathJax = {
@@ -70,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=dbac30014ddb092b35ab80b3076a22a196655849" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
@@ -94,7 +101,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=ceefa0362b71a389a50c4058a117a949b54259bd"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -244,22 +251,22 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Dec 05, 2025
+                            Last changed: Dec 22, 2025
                             <span class="changelog-icon">▼</span>
                         </button>
 
                     <!-- Changelog dropdown content -->
                     <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
-                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/functions.md">full history</a>)</h4>
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/functions.md">full history</a>)</h4>
                         <ul class="changelog-list">
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/5e6e497" class="changelog-hash">5e6e497</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/a48ef3b" class="changelog-hash">a48ef3b</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Fix writing_good_code reference warning</span>
+                                <span class="changelog-message">Fix undefined Docstrings reference by removing link temporarily</span>
                             </li>
                             
                         </ul>
@@ -605,7 +612,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0976a4173294f1927eb5fe15e0918ab9d6f1759ed98cdd3ebb8a84c4404bdd3e.png" src="_images/0976a4173294f1927eb5fe15e0918ab9d6f1759ed98cdd3ebb8a84c4404bdd3e.png" />
+<img alt="_images/72e5ef4ec3373595171113a78bbbb855e54ebc0b08d6dd89ababda889c1b471e.png" src="_images/72e5ef4ec3373595171113a78bbbb855e54ebc0b08d6dd89ababda889c1b471e.png" />
 </div>
 </div>
 <p>ما این برنامه را به دو بخش تقسیم خواهیم کرد:</p>
@@ -635,7 +642,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c3e1f792e6b94f4316038f7a08ca691a8d51c3f960fbb9dbbba0a6728a8b8b6.png" src="_images/6c3e1f792e6b94f4316038f7a08ca691a8d51c3f960fbb9dbbba0a6728a8b8b6.png" />
+<img alt="_images/95866b63c4cf30c6d778fb3c611c02d92d30855563bfe44e908bf48de33fbe28.png" src="_images/95866b63c4cf30c6d778fb3c611c02d92d30855563bfe44e908bf48de33fbe28.png" />
 </div>
 </div>
 <p>وقتی مفسر به عبارت <code class="docutils literal notranslate"><span class="pre">generate_data(100)</span></code> می‌رسد، بدنه تابع را با <code class="docutils literal notranslate"><span class="pre">n</span></code> برابر با 100 اجرا می‌کند.</p>
@@ -665,7 +672,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d7ea1d164c2f94b88ad53bd1f8c4f7d69dfcfa037a6939cfe3db10a4b7e4785d.png" src="_images/d7ea1d164c2f94b88ad53bd1f8c4f7d69dfcfa037a6939cfe3db10a4b7e4785d.png" />
+<img alt="_images/39c8664b5d6419b2e7718626815d7bd13ff82d12f7db97fa15b3f1cd79115e49.png" src="_images/39c8664b5d6419b2e7718626815d7bd13ff82d12f7db97fa15b3f1cd79115e49.png" />
 </div>
 </div>
 <p>امیدواریم نحو عبارت if/else خود توضیح‌دهنده باشد، با تورفتگی که دوباره محدوده بلوک‌های کد را مشخص می‌کند.</p>
@@ -698,7 +705,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/55d459896889bab43c148272d1eeb96ce47967c4909eaef529c76af618fbb958.png" src="_images/55d459896889bab43c148272d1eeb96ce47967c4909eaef529c76af618fbb958.png" />
+<img alt="_images/f4e16a297d7764fd758685f826725b944d52f7111dceaa51d9f40fff69035dfb.png" src="_images/f4e16a297d7764fd758685f826725b944d52f7111dceaa51d9f40fff69035dfb.png" />
 </div>
 </div>
 <p>حالا، وقتی تابع <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code> را فراخوانی می‌کنیم، <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> را به عنوان آرگومان دوم ارسال می‌کنیم.</p>
@@ -854,7 +861,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -907,14 +914,14 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-0
 0
 1
+2
 0
 1
 0
-0
+1
+2
 0
 </pre></div>
 </div>
@@ -945,16 +952,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-0
-0
-0
-0
-1
-1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
 2
 3
 4
+4
+5
+6
+7
+7
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
