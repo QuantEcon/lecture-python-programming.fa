@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Setup Anaconda
         uses: conda-incubator/setup-miniconda@v3
         with:
