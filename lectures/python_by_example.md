@@ -23,48 +23,24 @@ kernelspec:
 پیش از شروع این درس، باید جلسه ی قبل را مطالعه کرده باشید.
 
 ## هدف:رسم یک فرآیند نویز سفید
- 
- فرض کنید می خواهیم یک فرآیند نویز سفید به صورت <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mn>0</mn>
-  </msub>
-  <mo>,</mo>
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mn>1</mn>
-  </msub>
-  <mo>,</mo>
-  <mo>&#x2026;</mo>
-  <mo>,</mo>
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mi>T</mi>
-  </msub>
-</math> ، شبیه سازی و رسم کنیم، که در آن هر <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mi>t</mi>
-  </msub>
-</math> یک مقدار مستقل و از توزیع نرمال استاندارد است.
+
+فرض کنید می‌خواهیم فرآیند نویز سفید $\epsilon_0, \epsilon_1, \ldots, \epsilon_T$ را شبیه‌سازی و رسم کنیم، که در آن هر نقطه $\epsilon_t$ مستقل و نرمال استاندارد است.
 
  به بیان دیگر، می خواهیم نمودارهایی همانند نمودار زیر تولید کنیم:
 
- ![نمودار فرآیند نویز سفید](images/python_by_example/test_program_1_updated.png)
+```{figure} _static/lecture_specific/python_by_example/test_program_1_updated.png
+:name: pbe_white_noise
+:figclass: auto
+:scale: 120
+```
 
- (در اینجا <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>t</mi>
-</math> محور افقی و <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mi>t</mi>
-  </msub>
-</math> محور عمودی است.)
+(در اینجا $t$ روی محور افقی و $\epsilon_t$ روی محور عمودی است.)
 
 ما این کار را به چند روش مختلف انجام خواهیم داد و هر بار نکات بیشتری درباره ی پایتون خواهیم آموخت.
 
 ## روش اول
 
+(ourfirstprog)=
 در ادامه چند خط کد آمده که کاری را که تعریف کرده بودیم، انجام می دهد.
 
 ```{code-cell} ipython
@@ -77,6 +53,7 @@ plt.show()
 ```
 بیایید این برنامه را تجزیه و تحلیل کنیم و ببینیم چگونه کار میکند.
 
+(import)=
 ### Imports 
 
 دو خط اول کد، قابلیت هایی را از کتابخانه های خارجی وارد می کند.
@@ -194,6 +171,7 @@ plt.show()
 
 ### یک نسخه با حلقه تکرار For
 
+(firstloopprog)=
 این نسخه حلقه های `For` و لیست های پایتون را نشان می دهد.
 
 ```{code-cell} python3
@@ -217,18 +195,14 @@ plt.show()
 
 * عبارت `# empty list` یک توضیح (کامنت) است و توسط مفسر پایتون نادیده گرفته می شود.
 
-* سه خط بعدی حلقه `For` هستند که به طور پیوسته یک عدد تصادفی جدید <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mi>t</mi>
-  </msub>
-</math> تولید می کنند و آنها را به انتهای لیست `ϵ_values` اضافه می کنند.
+* سه خط بعدی حلقه `for` هستند، که به طور مکرر یک عدد تصادفی جدید $\epsilon_t$ می‌کشد و آن را به انتهای لیست `ϵ_values` اضافه می‌کند.
 
 * دو خط آخر نمودار را تولید کرده و به کاربر نمایش می دهند.
 
 
 بیایید برخی از بخش های این کد را با جزئیات بیشتری بررسی کنیم.
 
+(lists_ref)=
 ### لیست ها
 
 دستور `ϵ_values = []` را در نظر بگیرید، این دستور یک لیست خالی ایجاد می کند.
@@ -355,7 +329,7 @@ for variable_name in sequence:
 
 * استاندارد پایتون برای تورفتگی، 4 فاصله (space) است و شما هم باید از همین مقدار استقاده کنید.
 
-
+(whileloopprog)=
 ### حلقه های While
 
 حلقه `for` رایج ترین تکنیک برای تکرار در پایتون است.
@@ -396,56 +370,11 @@ i == ts_length #the ending condition for the while loop
 
 در این بازه زمانی هیچ برداشتی انجام نشده و تاریخ پایان دوره را با $T$ نشان می دهیم.
 
-موجودی اولیه <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>b</mi>
-    <mn>0</mn>
-  </msub>
-</math> و نرخ بهره $r$ است.
+موجودی اولیه $b_0$ و نرخ بهره $r$ است.
 
-موجوی حساب از دوره $t$ به <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>t</mi>
-  <mo>+</mo>
-  <mn>1</mn>
-</math> طبق رابطه <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>b</mi>
-    <mrow data-mjx-texclass="ORD">
-      <mi>t</mi>
-      <mo>+</mo>
-      <mn>1</mn>
-    </mrow>
-  </msub>
-  <mo>=</mo>
-  <mo stretchy="false">(</mo>
-  <mn>1</mn>
-  <mo>+</mo>
-  <mi>r</mi>
-  <mo stretchy="false">)</mo>
-  <msub>
-    <mi>b</mi>
-    <mi>t</mi>
-  </msub>
-</math> به روزرسانی می شود.
+موجودی از دوره $t$ به $t+1$ طبق $b_{t+1} = (1 + r) b_t$ به‌روزرسانی می‌شود.
 
-در کد زیر دنباله ی <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>b</mi>
-    <mn>0</mn>
-  </msub>
-  <mo>,</mo>
-  <msub>
-    <mi>b</mi>
-    <mn>1</mn>
-  </msub>
-  <mo>,</mo>
-  <mo>&#x2026;</mo>
-  <mo>,</mo>
-  <msub>
-    <mi>b</mi>
-    <mi>T</mi>
-  </msub>
-</math> را تولید و رسم می کنیم.
+در کد زیر، دنباله $b_0, b_1, \ldots, b_T$ را تولید و رسم می‌کنیم.
 
 برای ذخیره این دنباله، به جای استفاده از یک لیست پایتون، از یک آرایه NumPy استفاده خواهیم کرد.
 
@@ -489,14 +418,7 @@ x_0 = 0
 \quad \text{and} \quad t = 0,\ldots,T
 $$
 
-فرض می شود که دنباله ی شوک ها <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo fence="false" stretchy="false">{</mo>
-  <msub>
-    <mi>&#x3F5;</mi>
-    <mi>t</mi>
-  </msub>
-  <mo fence="false" stretchy="false">}</mo>
-</math> مستقل و با توزیع یکسان(IID)، و دارای توزیع نرمال استاندارد باشد.
+فرض می‌شود دنباله شوک‌های $\{\epsilon_t\}$ IID و نرمال استاندارد باشد.
 
 در راه حل خود، دستورات import را تنها به موارد زیر محدود و تنها از کتابخانه های زیر استفاده کنید
 
@@ -595,14 +517,7 @@ $$
 
 همانند قبل از $T=200$،  $\alpha = 0.9$ و $\{\epsilon_t\}$ استفاده کنید.
 
-به صورت آنلاین جست و جو کنید و یک تابع پیدا کنید که بتوان برای محاسبه قدرمطلق <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">|</mo>
-  <msub>
-    <mi>x</mi>
-    <mi>t</mi>
-  </msub>
-  <mo stretchy="false">|</mo>
-</math> از آن استفاده کرد.
+آنلاین برای تابعی که می‌تواند برای محاسبه قدر مطلق $|x_t|$ استفاده شود جستجو کنید.
 ```
 
 ```{exercise-end}
@@ -709,9 +624,7 @@ plt.show()
 
 این تمرین کمی سخت تر است و نیاز به فکر و برنامه ریزی دارد.
 
-تکلیف شما این است که با استفاده از روش [مونته کارلو](https://en.wikipedia.org/wiki/Monte_Carlo_method)، یک تقریب برای عدد <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>&#x3C0;</mi>
-</math> محاسبه کنید.
+وظیفه محاسبه تقریبی برای $\pi$ با استفاده از روش [مونته کارلو](https://en.wikipedia.org/wiki/Monte_Carlo_method) است.
 
 به جز موارد زیر، از هیچ کتابخانه ای استفاده نکنید:
 
@@ -724,39 +637,9 @@ import numpy as np
 
 راهنماهای شما به شرح زیر است:
 
-* اگر $U$ یک متغیرتصادفی دوبعدی یکنواخت روی مربع واحد <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">(</mo>
-  <mn>0</mn>
-  <mo>,</mo>
-  <mn>1</mn>
-  <msup>
-    <mo stretchy="false">)</mo>
-    <mn>2</mn>
-  </msup>
-</math> باشد، آنگاه احتمال اینکه $U$ در زیرمجموعه ای $B$ از <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">(</mo>
-  <mn>0</mn>
-  <mo>,</mo>
-  <mn>1</mn>
-  <msup>
-    <mo stretchy="false">)</mo>
-    <mn>2</mn>
-  </msup>
-</math> قرار گیرد، برابر با مساحت ناحیه ی $B$ است.
+* اگر $U$ یک متغیر تصادفی یکنواخت دوبعدی روی مربع واحد $(0, 1)^2$ باشد، احتمال اینکه $U$ در زیرمجموعه $B$ از $(0,1)^2$ قرار بگیرد برابر با مساحت $B$ است.
 
-* اگر <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>U</mi>
-    <mn>1</mn>
-  </msub>
-  <mo>,</mo>
-  <mo>&#x2026;</mo>
-  <mo>,</mo>
-  <msub>
-    <mi>U</mi>
-    <mi>n</mi>
-  </msub>
-</math> نسخه های مستقل و با توزیع یکسان از $U$ باشند، آنگاه با بزرگ شدن $n$، نسبت نقاطی که در ناحیه $B$ قرار میگیرند، به احتمال قرارگرفتن در $B$ همگرا می شوند.
+* اگر $U_1,\ldots,U_n$ کپی‌های IID از $U$ باشند، با بزرگ شدن $n$، کسری که در $B$ قرار می‌گیرد، به احتمال قرار گرفتن در $B$ همگرا می‌شود.
 
 * برای یک دایره ،
  $مساحت = \pi * شعاع^2$
@@ -770,74 +653,15 @@ import numpy as np
 :class: dropdown
 ```
 
-دایره ای با قطر یک را درون یک مربع درنظر بگیرید.
+دایره‌ای با قطر یک را درون یک مربع درنظر بگیرید.
 
-فرض کنید <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> مساحت آن باشد و <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>r</mi>
-  <mo>=</mo>
-  <mn>1</mn>
-  <mrow data-mjx-texclass="ORD">
-    <mo>/</mo>
-  </mrow>
-  <mn>2</mn>
-</math> شعاع آن است.
+فرض کنید $A$ مساحت آن و $r=1/2$ شعاع آن باشد.
 
-اگر مقدار <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>&#x3C0;</mi>
-</math> را بدانیم، میتوانیم مساحت <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> را از طریق  رابطه <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-  <mo>=</mo>
-  <mi>&#x3C0;</mi>
-  <msup>
-    <mi>r</mi>
-    <mn>2</mn>
-  </msup>
-</math> محاسبه کنیم.
+اگر $\pi$ را بدانیم، می‌توانیم $A$ را از طریق $A = \pi r^2$ محاسبه کنیم.
 
-اما در اینجا هدف محاسبه ی <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>&#x3C0;</mi>
-</math> است، که میتوانیم از رابطه <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>&#x3C0;</mi>
-  <mo>=</mo>
-  <mi>A</mi>
-  <mrow data-mjx-texclass="ORD">
-    <mo>/</mo>
-  </mrow>
-  <msup>
-    <mi>r</mi>
-    <mn>2</mn>
-  </msup>
-</math> به دست آوریم.
+اما در اینجا نکته محاسبه $\pi$ است که می‌توانیم با $\pi = A / r^2$ انجام دهیم.
 
-خلاصه: اگر بتوانیم مساحت دایره ای با قطر 1 را تخمین بزنیم، آنگاه تقسیم کردن آن بر <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>r</mi>
-    <mn>2</mn>
-  </msup>
-  <mo>=</mo>
-  <mo stretchy="false">(</mo>
-  <mn>1</mn>
-  <mrow data-mjx-texclass="ORD">
-    <mo>/</mo>
-  </mrow>
-  <mn>2</mn>
-  <msup>
-    <mo stretchy="false">)</mo>
-    <mn>2</mn>
-  </msup>
-  <mo>=</mo>
-  <mn>1</mn>
-  <mrow data-mjx-texclass="ORD">
-    <mo>/</mo>
-  </mrow>
-  <mn>4</mn>
-</math> تخمینی برای <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>&#x3C0;</mi>
-</math> به ما می دهد.
+خلاصه: اگر بتوانیم مساحت دایره‌ای با قطر 1 را تخمین بزنیم، تقسیم بر $r^2 = (1/2)^2 = 1/4$ تخمینی از $\pi$ می‌دهد.
 
 ما این مساحت را با نمونه گیری از توزیع یکواخت دومتغیره و بررسی کسری از نقاط که درون دایره می افتند، تخمین میزنیم:
 
