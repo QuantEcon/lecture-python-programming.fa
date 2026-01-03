@@ -8,7 +8,7 @@ parts:
   - file: getting_started
   - file: python_by_example
   - file: functions
-  # - file: python_essentials
+  - file: python_essentials
   # - file: oop_intro
   # - file: names
   # - file: python_oop
