@@ -9,24 +9,24 @@ kernelspec:
   name: python3
 ---
 
-# Execution Statistics
+# آمار اجرا
 
-This table contains the latest execution statistics.
+این جدول شامل آخرین آمار اجرا است.
 
 ```{nb-exec-table}
 ```
 
 (status:machine-details)=
 
-These lectures are built on `linux` instances through `github actions`. 
+این سخنرانی‌ها بر روی نمونه‌های `linux` از طریق `github actions` ساخته می‌شوند.
 
-These lectures are using the following python version
+این سخنرانی‌ها از نسخه python زیر استفاده می‌کنند
 
 ```{code-cell} ipython
 !python --version
 ```
 
-and the following package versions
+و نسخه‌های بسته زیر
 
 ```{code-cell} ipython
 :tags: [hide-output]
