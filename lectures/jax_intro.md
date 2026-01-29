@@ -775,7 +775,7 @@ ax.legend(loc='upper center')
 plt.show()
 ```
 
-ما بررسی بیشتر تمایز خودکار با JAX را تا {doc}`jax:autodiff` به تعویق می‌اندازیم.
+ما بررسی بیشتر تمایز خودکار با JAX را در [ماجراجویی‌ها با تمایز خودکار](https://jax.quantecon.org/autodiff.html) موکول می‌کنیم.
 
 
 ## تمرین‌ها
