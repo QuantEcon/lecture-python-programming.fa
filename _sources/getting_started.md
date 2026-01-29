@@ -90,12 +90,15 @@ kernelspec:
 برای اطلاعات بیشتر درباره کوندا، در ترمینال عبارت " conda help " را تایپ کنید.
 
 (ipython_notebook)=
-## Jupyter Notebooks
+## {index}`Jupyter Notebooks <single: Jupyter Notebooks>`
 
-```{index}
-single: Python; IPython
-single: IPython
-single: Jupyter
+```{index} single: Python; IPython
+```
+
+```{index} single: IPython
+```
+
+```{index} single: Jupyter
 ```
 
 [ژوپیتر](http://jupyter.org/) نوت بوک ها یکی از چندین راه های قابل دسترس برای ارتباط برقرار کردن با پایتون هستند.

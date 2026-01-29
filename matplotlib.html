@@ -1,0 +1,1550 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11. Matplotlib &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'matplotlib';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/matplotlib.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. SciPy" href="scipy.html" />
+    <link rel="prev" title="10. NumPy" href="numpy.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="Matplotlib"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Matplotlib" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/matplotlib.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=matplotlib>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-1">11.1. مروری کلی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.1.1. شخصیت دوگانه Matplotlib</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">11.2. APIها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-matlab">11.2.1. API به سبک MATLAB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">11.2.2. API شی‌گرا</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">11.2.3. تنظیمات ریز</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">11.3. ویژگی‌های بیشتر</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">11.3.1. نمودارهای چندگانه روی یک محور</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">11.3.2. زیرنمودارهای چندگانه</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">11.3.3. نمودارهای سه بعدی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">11.3.4. یک تابع سفارشی‌سازی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">11.3.5. برگه‌های سبک</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">11.4. مطالعه بیشتر</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">11.5. تمرین‌ها</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Jan 29, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/matplotlib.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/a308399" class="changelog-hash">a308399</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">5 hours ago</span>
+                                <span class="changelog-message">Add lecture: Matplotlib <single: Matplotlib> (#23)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">11. </span><span class="target" id="index-0"></span>Matplotlib<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="index-1">
+<span id="id2"></span><h2><span class="section-number">11.1. </span>مروری کلی<a class="headerlink" href="#index-1" title="Link to this heading">#</a></h2>
+<p>ما تاکنون با استفاده از <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> تعداد قابل توجهی نمودار در این سخنرانی‌ها تولید کرده‌ایم.</p>
+<p>Matplotlib یک کتابخانه گرافیکی عالی است که برای محاسبات علمی طراحی شده و دارای ویژگی‌های زیر است:</p>
+<ul class="simple">
+<li><p>نمودارهای دو بعدی و سه بعدی با کیفیت بالا</p></li>
+<li><p>خروجی در تمام فرمت‌های معمول (PDF، PNG و غیره)</p></li>
+<li><p>یکپارچگی با LaTeX</p></li>
+<li><p>کنترل دقیق بر تمام جنبه‌های نمایش</p></li>
+<li><p>انیمیشن و غیره</p></li>
+</ul>
+<section id="id3">
+<h3><span class="section-number">11.1.1. </span>شخصیت دوگانه Matplotlib<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Matplotlib در این زمینه غیرمعمول است که دو رابط مختلف برای ترسیم نمودار ارائه می‌دهد.</p>
+<p>یکی API ساده به سبک MATLAB (رابط برنامه‌نویسی کاربردی) است که برای کمک به مهاجران MATLAB برای یافتن خانه‌ای آماده نوشته شده است.</p>
+<p>دیگری یک API شی‌گرا و “پایتونی‌تر” است.</p>
+<p>به دلایلی که در زیر توضیح داده شده است، توصیه می‌کنیم از API دوم استفاده کنید.</p>
+<p>اما ابتدا، بیایید در مورد تفاوت آن‌ها بحث کنیم.</p>
+</section>
+</section>
+<section id="api">
+<h2><span class="section-number">11.2. </span>APIها<a class="headerlink" href="#api" title="Link to this heading">#</a></h2>
+<section id="api-matlab">
+<span id="index-2"></span><h3><span class="section-number">11.2.1. </span>API به سبک MATLAB<a class="headerlink" href="#api-matlab" title="Link to this heading">#</a></h3>
+<p>در اینجا نوعی مثال ساده است که ممکن است در آموزش‌های مقدماتی بیابید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e22d5fd19ce2a75509fdf146f2dff9bca567456bf3cc2fbc101a40eb0c7118f4.png" src="_images/e22d5fd19ce2a75509fdf146f2dff9bca567456bf3cc2fbc101a40eb0c7118f4.png" />
+</div>
+</div>
+<p>این ساده و راحت است، اما تا حدودی محدود و غیرپایتونی نیز هست.</p>
+<p>به عنوان مثال، در فراخوانی‌های تابع، اشیاء زیادی ایجاد و منتقل می‌شوند بدون اینکه خود را به برنامه‌نویس معرفی کنند.</p>
+<p>برنامه‌نویسان پایتون تمایل دارند سبک صریح‌تری از برنامه‌نویسی را ترجیح دهند (دستور <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> را در یک بلوک کد اجرا کنید و به خط دوم نگاه کنید).</p>
+<p>این ما را به جایگزین، یعنی API شی‌گرای Matplotlib هدایت می‌کند.</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">11.2.2. </span>API شی‌گرا<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>در اینجا کد مربوط به نمودار قبلی با استفاده از API شی‌گرا آمده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e22d5fd19ce2a75509fdf146f2dff9bca567456bf3cc2fbc101a40eb0c7118f4.png" src="_images/e22d5fd19ce2a75509fdf146f2dff9bca567456bf3cc2fbc101a40eb0c7118f4.png" />
+</div>
+</div>
+<p>در اینجا فراخوانی <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> یک جفت برمی‌گرداند، که در آن</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fig</span></code> یک نمونه از <code class="docutils literal notranslate"><span class="pre">Figure</span></code> است — مانند یک بوم خالی.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax</span></code> یک نمونه از <code class="docutils literal notranslate"><span class="pre">AxesSubplot</span></code> است — آن را به عنوان یک قاب برای ترسیم در نظر بگیرید.</p></li>
+</ul>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">plot()</span></code> در واقع یک متد از <code class="docutils literal notranslate"><span class="pre">ax</span></code> است.</p>
+<p>در حالی که تایپ کردن کمی بیشتر است، استفاده صریح‌تر از اشیاء کنترل بهتری به ما می‌دهد.</p>
+<p>این موضوع با ادامه کار واضح‌تر خواهد شد.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">11.2.3. </span>تنظیمات ریز<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>در اینجا ما خط را به قرمز تغییر داده و یک راهنما اضافه کرده‌ایم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sine function&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b6d906c0f09b90ad01839858ea1bf45524a9574ad5c90be8302b13d6e958de38.png" src="_images/b6d906c0f09b90ad01839858ea1bf45524a9574ad5c90be8302b13d6e958de38.png" />
+</div>
+</div>
+<p>ما همچنین از <code class="docutils literal notranslate"><span class="pre">alpha</span></code> استفاده کرده‌ایم تا خط را کمی شفاف کنیم — که باعث می‌شود نرم‌تر به نظر برسد.</p>
+<p>موقعیت راهنما را می‌توان با جایگزینی <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> با <code class="docutils literal notranslate"><span class="pre">ax.legend(loc='upper</span> <span class="pre">center')</span></code> تغییر داد.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sine function&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7e81d9b5d77de6de4bbf6c2b53762ad2fb302652e891cb1939c9fdc31c250900.png" src="_images/7e81d9b5d77de6de4bbf6c2b53762ad2fb302652e891cb1939c9fdc31c250900.png" />
+</div>
+</div>
+<p>اگر همه چیز به درستی پیکربندی شده باشد، اضافه کردن LaTeX بسیار ساده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$y=\sin(x)$&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6b4ed27d9f34bb33e095ba3c738afdc9e63a6533f873c18dc79ec85d9f28aaeb.png" src="_images/6b4ed27d9f34bb33e095ba3c738afdc9e63a6533f873c18dc79ec85d9f28aaeb.png" />
+</div>
+</div>
+<p>کنترل علامت‌ها، افزودن عناوین و غیره نیز ساده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$y=\sin(x)$&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Test plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/416236d5eeca31df3c5eaad50ea2d5306df6437db05c78eac5bbf41e84c167bf.png" src="_images/416236d5eeca31df3c5eaad50ea2d5306df6437db05c78eac5bbf41e84c167bf.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">11.3. </span>ویژگی‌های بیشتر<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Matplotlib مجموعه عظیمی از توابع و ویژگی‌ها دارد که می‌توانید در طول زمان و با نیاز به آن‌ها، آن‌ها را کشف کنید.</p>
+<p>ما فقط چند مورد را ذکر می‌کنیم.</p>
+<section id="id7">
+<h3><span class="section-number">11.3.1. </span>نمودارهای چندگانه روی یک محور<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p id="index-3">تولید نمودارهای چندگانه روی یک محور بسیار ساده است.</p>
+<p>در اینجا مثالی است که به طور تصادفی سه چگالی نرمال تولید می‌کند و برچسبی با میانگین آن‌ها اضافه می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">current_label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03e07f5318dc061f5d991cc9434033f10eb2c43a50ffbd65992dc62817893190.png" src="_images/03e07f5318dc061f5d991cc9434033f10eb2c43a50ffbd65992dc62817893190.png" />
+</div>
+</div>
+</section>
+<section id="id8">
+<h3><span class="section-number">11.3.2. </span>زیرنمودارهای چندگانه<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p id="index-4">گاهی اوقات می‌خواهیم زیرنمودارهای چندگانه در یک شکل داشته باشیم.</p>
+<p>در اینجا مثالی است که ۶ هیستوگرام تولید می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_rows</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_cols</span><span class="p">):</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">, \quad \sigma = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fd15dca84ff2ed5c343ba713624b7e412c83adff3cd185f957b2b7798c3de874.png" src="_images/fd15dca84ff2ed5c343ba713624b7e412c83adff3cd185f957b2b7798c3de874.png" />
+</div>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">11.3.3. </span>نمودارهای سه بعدی<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p id="index-5">Matplotlib کار خوبی در ترسیم نمودارهای سه بعدی انجام می‌دهد — در اینجا یک مثال آورده شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d.axes3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">ygrid</span> <span class="o">=</span> <span class="n">xgrid</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xgrid</span><span class="p">,</span> <span class="n">ygrid</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+                <span class="n">y</span><span class="p">,</span>
+                <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
+                <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3829759698a6d36e8223884b1dba7c0e12b6c082b6b2f276612f2ee310b78698.png" src="_images/3829759698a6d36e8223884b1dba7c0e12b6c082b6b2f276612f2ee310b78698.png" />
+</div>
+</div>
+</section>
+<section id="id10">
+<h3><span class="section-number">11.3.4. </span>یک تابع سفارشی‌سازی<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>شاید مجموعه‌ای از سفارشی‌سازی‌ها را پیدا کنید که به طور منظم از آن‌ها استفاده می‌کنید.</p>
+<p>فرض کنید معمولاً ترجیح می‌دهیم محورهای ما از مبدأ عبور کنند و یک شبکه داشته باشند.</p>
+<p>در اینجا یک مثال خوب از <a class="reference external" href="https://github.com/xcthulhu">Matthew Doty</a> وجود دارد که نشان می‌دهد چگونه API شی‌گرا می‌تواند برای ساخت یک تابع سفارشی <code class="docutils literal notranslate"><span class="pre">subplots</span></code> که این تغییرات را پیاده‌سازی می‌کند، استفاده شود.</p>
+<p>با دقت کد را بخوانید و ببینید آیا می‌توانید دنبال کنید که چه اتفاقی می‌افتد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">subplots</span><span class="p">():</span>
+    <span class="s2">&quot;Custom subplots with axes through the origin&quot;</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># Set the axes through the origin</span>
+    <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="s1">&#39;zero&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">spine</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">subplots</span><span class="p">()</span>  <span class="c1"># Call the local version, not plt.subplots()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sine function&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7da3b4d7fe06e38b9685ba700698e57324d11acc4fe19481717bab34a39ec91f.png" src="_images/7da3b4d7fe06e38b9685ba700698e57324d11acc4fe19481717bab34a39ec91f.png" />
+</div>
+</div>
+<p>تابع سفارشی <code class="docutils literal notranslate"><span class="pre">subplots</span></code></p>
+<ol class="arabic simple">
+<li><p>تابع استاندارد <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> را به صورت داخلی فراخوانی می‌کند تا جفت <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span></code> را تولید کند،</p></li>
+<li><p>سفارشی‌سازی‌های مورد نظر را روی <code class="docutils literal notranslate"><span class="pre">ax</span></code> انجام می‌دهد، و</p></li>
+<li><p>جفت <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">ax</span></code> را به کد فراخوان‌کننده برمی‌گرداند.</p></li>
+</ol>
+</section>
+<section id="id11">
+<h3><span class="section-number">11.3.5. </span>برگه‌های سبک<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>یکی دیگر از ویژگی‌های مفید در Matplotlib، <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">برگه‌های سبک</a> است.</p>
+<p>ما می‌توانیم از برگه‌های سبک برای ایجاد نمودارهایی با سبک‌های یکنواخت استفاده کنیم.</p>
+<p>می‌توانیم لیستی از سبک‌های موجود را با چاپ ویژگی <code class="docutils literal notranslate"><span class="pre">plt.style.available</span></code> پیدا کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">available</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Solarize_Light2&#39;, &#39;_classic_test_patch&#39;, &#39;_mpl-gallery&#39;, &#39;_mpl-gallery-nogrid&#39;, &#39;bmh&#39;, &#39;classic&#39;, &#39;dark_background&#39;, &#39;fast&#39;, &#39;fivethirtyeight&#39;, &#39;ggplot&#39;, &#39;grayscale&#39;, &#39;petroff10&#39;, &#39;seaborn-v0_8&#39;, &#39;seaborn-v0_8-bright&#39;, &#39;seaborn-v0_8-colorblind&#39;, &#39;seaborn-v0_8-dark&#39;, &#39;seaborn-v0_8-dark-palette&#39;, &#39;seaborn-v0_8-darkgrid&#39;, &#39;seaborn-v0_8-deep&#39;, &#39;seaborn-v0_8-muted&#39;, &#39;seaborn-v0_8-notebook&#39;, &#39;seaborn-v0_8-paper&#39;, &#39;seaborn-v0_8-pastel&#39;, &#39;seaborn-v0_8-poster&#39;, &#39;seaborn-v0_8-talk&#39;, &#39;seaborn-v0_8-ticks&#39;, &#39;seaborn-v0_8-white&#39;, &#39;seaborn-v0_8-whitegrid&#39;, &#39;tableau-colorblind10&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>اکنون می‌توانیم از متد <code class="docutils literal notranslate"><span class="pre">plt.style.use()</span></code> برای تنظیم برگه سبک استفاده کنیم.</p>
+<p>بیایید تابعی بنویسیم که نام یک برگه سبک را می‌گیرد و نمودارهای مختلف را با آن سبک ترسیم می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+
+    <span class="c1"># Setting a style sheet</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+
+    <span class="c1"># Set seed values to replicate results of random draws</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+
+        <span class="c1"># Draw mean and standard deviation from uniform distributions</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+
+        <span class="c1"># Generate a normal density plot</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+        <span class="c1"># Create a scatter plot with random X and Y values </span>
+        <span class="c1"># from normal distributions</span>
+        <span class="n">rnormX</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+        <span class="n">rnormY</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rnormX</span><span class="p">,</span> <span class="n">rnormY</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+        <span class="c1"># Create a histogram with random X values</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rnormX</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+        <span class="c1"># and a line graph with random Y values</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rnormY</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="n">style_name</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Style: </span><span class="si">{</span><span class="n">style_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بیایید ببینیم برخی از سبک‌ها چگونه به نظر می‌رسند.</p>
+<p>ابتدا، نمودارها را با برگه سبک <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> ترسیم می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;seaborn-v0_8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fb0bd601a04cf5b4c2eb48db5d222e392c659a9d65b72df645f3c7d69bbf1211.png" src="_images/fb0bd601a04cf5b4c2eb48db5d222e392c659a9d65b72df645f3c7d69bbf1211.png" />
+</div>
+</div>
+<p>می‌توانیم از <code class="docutils literal notranslate"><span class="pre">grayscale</span></code> برای حذف رنگ‌ها در نمودارها استفاده کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;grayscale&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4af50ee4e8948b43be922566efc68206668cc4984262ea92e1b362e0478d193b.png" src="_images/4af50ee4e8948b43be922566efc68206668cc4984262ea92e1b362e0478d193b.png" />
+</div>
+</div>
+<p>در اینجا نشان داده می‌شود که <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> چگونه به نظر می‌رسد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b9cb1fa8e625560ee93937f89c0b38733e5746e5d7d11827f8b551ffaa3419a3.png" src="_images/b9cb1fa8e625560ee93937f89c0b38733e5746e5d7d11827f8b551ffaa3419a3.png" />
+</div>
+</div>
+<p>همچنین می‌توانیم از سبک <code class="docutils literal notranslate"><span class="pre">dark_background</span></code> استفاده کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_graphs</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/892d854bb8917ce9484024f9ac7bb7c55f4d4339c5f220b5e69df435f3e8c0f8.png" src="_images/892d854bb8917ce9484024f9ac7bb7c55f4d4339c5f220b5e69df435f3e8c0f8.png" />
+</div>
+</div>
+<p>می‌توانید از این تابع برای آزمایش سبک‌های دیگر در لیست استفاده کنید.</p>
+<p>اگر علاقه‌مند هستید، حتی می‌توانید برگه‌های سبک خود را ایجاد کنید.</p>
+<p>پارامترهای برگه‌های سبک شما در یک متغیر شبه دیکشنری به نام <code class="docutils literal notranslate"><span class="pre">plt.rcParams</span></code> ذخیره می‌شوند</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KeysView(RcParams({&#39;_internal.classic_mode&#39;: False,
+          &#39;agg.path.chunksize&#39;: 0,
+          &#39;animation.bitrate&#39;: -1,
+          &#39;animation.codec&#39;: &#39;h264&#39;,
+          &#39;animation.convert_args&#39;: [&#39;-layers&#39;, &#39;OptimizePlus&#39;],
+          &#39;animation.convert_path&#39;: &#39;convert&#39;,
+          &#39;animation.embed_limit&#39;: 20.0,
+          &#39;animation.ffmpeg_args&#39;: [],
+          &#39;animation.ffmpeg_path&#39;: &#39;ffmpeg&#39;,
+          &#39;animation.frame_format&#39;: &#39;png&#39;,
+          &#39;animation.html&#39;: &#39;none&#39;,
+          &#39;animation.writer&#39;: &#39;ffmpeg&#39;,
+          &#39;axes.autolimit_mode&#39;: &#39;data&#39;,
+          &#39;axes.axisbelow&#39;: True,
+          &#39;axes.edgecolor&#39;: &#39;white&#39;,
+          &#39;axes.facecolor&#39;: &#39;black&#39;,
+          &#39;axes.formatter.limits&#39;: [-5, 6],
+          &#39;axes.formatter.min_exponent&#39;: 0,
+          &#39;axes.formatter.offset_threshold&#39;: 4,
+          &#39;axes.formatter.use_locale&#39;: False,
+          &#39;axes.formatter.use_mathtext&#39;: False,
+          &#39;axes.formatter.useoffset&#39;: True,
+          &#39;axes.grid&#39;: True,
+          &#39;axes.grid.axis&#39;: &#39;both&#39;,
+          &#39;axes.grid.which&#39;: &#39;major&#39;,
+          &#39;axes.labelcolor&#39;: &#39;white&#39;,
+          &#39;axes.labelpad&#39;: 4.0,
+          &#39;axes.labelsize&#39;: &#39;large&#39;,
+          &#39;axes.labelweight&#39;: &#39;normal&#39;,
+          &#39;axes.linewidth&#39;: 1.0,
+          &#39;axes.prop_cycle&#39;: cycler(&#39;color&#39;, [&#39;#8dd3c7&#39;, &#39;#feffb3&#39;, &#39;#bfbbd9&#39;, &#39;#fa8174&#39;, &#39;#81b1d2&#39;, &#39;#fdb462&#39;, &#39;#b3de69&#39;, &#39;#bc82bd&#39;, &#39;#ccebc4&#39;, &#39;#ffed6f&#39;]),
+          &#39;axes.spines.bottom&#39;: True,
+          &#39;axes.spines.left&#39;: True,
+          &#39;axes.spines.right&#39;: True,
+          &#39;axes.spines.top&#39;: True,
+          &#39;axes.titlecolor&#39;: &#39;auto&#39;,
+          &#39;axes.titlelocation&#39;: &#39;center&#39;,
+          &#39;axes.titlepad&#39;: 6.0,
+          &#39;axes.titlesize&#39;: &#39;x-large&#39;,
+          &#39;axes.titleweight&#39;: &#39;normal&#39;,
+          &#39;axes.titley&#39;: None,
+          &#39;axes.unicode_minus&#39;: True,
+          &#39;axes.xmargin&#39;: 0.05,
+          &#39;axes.ymargin&#39;: 0.05,
+          &#39;axes.zmargin&#39;: 0.05,
+          &#39;axes3d.automargin&#39;: False,
+          &#39;axes3d.grid&#39;: True,
+          &#39;axes3d.mouserotationstyle&#39;: &#39;arcball&#39;,
+          &#39;axes3d.trackballborder&#39;: 0.2,
+          &#39;axes3d.trackballsize&#39;: 0.667,
+          &#39;axes3d.xaxis.panecolor&#39;: (0.95, 0.95, 0.95, 0.5),
+          &#39;axes3d.yaxis.panecolor&#39;: (0.9, 0.9, 0.9, 0.5),
+          &#39;axes3d.zaxis.panecolor&#39;: (0.925, 0.925, 0.925, 0.5),
+          &#39;backend&#39;: &#39;module://matplotlib_inline.backend_inline&#39;,
+          &#39;backend_fallback&#39;: True,
+          &#39;boxplot.bootstrap&#39;: None,
+          &#39;boxplot.boxprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.boxprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.boxprops.linewidth&#39;: 1.0,
+          &#39;boxplot.capprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.capprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.capprops.linewidth&#39;: 1.0,
+          &#39;boxplot.flierprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.flierprops.linestyle&#39;: &#39;none&#39;,
+          &#39;boxplot.flierprops.linewidth&#39;: 1.0,
+          &#39;boxplot.flierprops.marker&#39;: &#39;o&#39;,
+          &#39;boxplot.flierprops.markeredgecolor&#39;: &#39;white&#39;,
+          &#39;boxplot.flierprops.markeredgewidth&#39;: 1.0,
+          &#39;boxplot.flierprops.markerfacecolor&#39;: &#39;none&#39;,
+          &#39;boxplot.flierprops.markersize&#39;: 6.0,
+          &#39;boxplot.meanline&#39;: False,
+          &#39;boxplot.meanprops.color&#39;: &#39;C2&#39;,
+          &#39;boxplot.meanprops.linestyle&#39;: &#39;--&#39;,
+          &#39;boxplot.meanprops.linewidth&#39;: 1.0,
+          &#39;boxplot.meanprops.marker&#39;: &#39;^&#39;,
+          &#39;boxplot.meanprops.markeredgecolor&#39;: &#39;C2&#39;,
+          &#39;boxplot.meanprops.markerfacecolor&#39;: &#39;C2&#39;,
+          &#39;boxplot.meanprops.markersize&#39;: 6.0,
+          &#39;boxplot.medianprops.color&#39;: &#39;C1&#39;,
+          &#39;boxplot.medianprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.medianprops.linewidth&#39;: 1.0,
+          &#39;boxplot.notch&#39;: False,
+          &#39;boxplot.patchartist&#39;: False,
+          &#39;boxplot.showbox&#39;: True,
+          &#39;boxplot.showcaps&#39;: True,
+          &#39;boxplot.showfliers&#39;: True,
+          &#39;boxplot.showmeans&#39;: False,
+          &#39;boxplot.vertical&#39;: True,
+          &#39;boxplot.whiskerprops.color&#39;: &#39;white&#39;,
+          &#39;boxplot.whiskerprops.linestyle&#39;: &#39;-&#39;,
+          &#39;boxplot.whiskerprops.linewidth&#39;: 1.0,
+          &#39;boxplot.whiskers&#39;: 1.5,
+          &#39;contour.algorithm&#39;: &#39;mpl2014&#39;,
+          &#39;contour.corner_mask&#39;: True,
+          &#39;contour.linewidth&#39;: None,
+          &#39;contour.negative_linestyle&#39;: &#39;dashed&#39;,
+          &#39;date.autoformatter.day&#39;: &#39;%Y-%m-%d&#39;,
+          &#39;date.autoformatter.hour&#39;: &#39;%m-%d %H&#39;,
+          &#39;date.autoformatter.microsecond&#39;: &#39;%M:%S.%f&#39;,
+          &#39;date.autoformatter.minute&#39;: &#39;%d %H:%M&#39;,
+          &#39;date.autoformatter.month&#39;: &#39;%Y-%m&#39;,
+          &#39;date.autoformatter.second&#39;: &#39;%H:%M:%S&#39;,
+          &#39;date.autoformatter.year&#39;: &#39;%Y&#39;,
+          &#39;date.converter&#39;: &#39;auto&#39;,
+          &#39;date.epoch&#39;: &#39;1970-01-01T00:00:00&#39;,
+          &#39;date.interval_multiples&#39;: True,
+          &#39;docstring.hardcopy&#39;: False,
+          &#39;errorbar.capsize&#39;: 0.0,
+          &#39;figure.autolayout&#39;: False,
+          &#39;figure.constrained_layout.h_pad&#39;: 0.04167,
+          &#39;figure.constrained_layout.hspace&#39;: 0.02,
+          &#39;figure.constrained_layout.use&#39;: False,
+          &#39;figure.constrained_layout.w_pad&#39;: 0.04167,
+          &#39;figure.constrained_layout.wspace&#39;: 0.02,
+          &#39;figure.dpi&#39;: 100.0,
+          &#39;figure.edgecolor&#39;: &#39;black&#39;,
+          &#39;figure.facecolor&#39;: &#39;black&#39;,
+          &#39;figure.figsize&#39;: [8.0, 5.5],
+          &#39;figure.frameon&#39;: True,
+          &#39;figure.hooks&#39;: [],
+          &#39;figure.labelsize&#39;: &#39;large&#39;,
+          &#39;figure.labelweight&#39;: &#39;normal&#39;,
+          &#39;figure.max_open_warning&#39;: 20,
+          &#39;figure.raise_window&#39;: True,
+          &#39;figure.subplot.bottom&#39;: 0.11,
+          &#39;figure.subplot.hspace&#39;: 0.2,
+          &#39;figure.subplot.left&#39;: 0.125,
+          &#39;figure.subplot.right&#39;: 0.9,
+          &#39;figure.subplot.top&#39;: 0.88,
+          &#39;figure.subplot.wspace&#39;: 0.2,
+          &#39;figure.titlesize&#39;: &#39;large&#39;,
+          &#39;figure.titleweight&#39;: &#39;normal&#39;,
+          &#39;font.cursive&#39;: [&#39;Apple Chancery&#39;,
+                           &#39;Textile&#39;,
+                           &#39;Zapf Chancery&#39;,
+                           &#39;Sand&#39;,
+                           &#39;Script MT&#39;,
+                           &#39;Felipa&#39;,
+                           &#39;Comic Neue&#39;,
+                           &#39;Comic Sans MS&#39;,
+                           &#39;cursive&#39;],
+          &#39;font.family&#39;: [&#39;sans-serif&#39;],
+          &#39;font.fantasy&#39;: [&#39;Chicago&#39;,
+                           &#39;Charcoal&#39;,
+                           &#39;Impact&#39;,
+                           &#39;Western&#39;,
+                           &#39;xkcd script&#39;,
+                           &#39;fantasy&#39;],
+          &#39;font.monospace&#39;: [&#39;DejaVu Sans Mono&#39;,
+                             &#39;Bitstream Vera Sans Mono&#39;,
+                             &#39;Computer Modern Typewriter&#39;,
+                             &#39;Andale Mono&#39;,
+                             &#39;Nimbus Mono L&#39;,
+                             &#39;Courier New&#39;,
+                             &#39;Courier&#39;,
+                             &#39;Fixed&#39;,
+                             &#39;Terminal&#39;,
+                             &#39;monospace&#39;],
+          &#39;font.sans-serif&#39;: [&#39;Arial&#39;,
+                              &#39;Liberation Sans&#39;,
+                              &#39;DejaVu Sans&#39;,
+                              &#39;Bitstream Vera Sans&#39;,
+                              &#39;sans-serif&#39;],
+          &#39;font.serif&#39;: [&#39;DejaVu Serif&#39;,
+                         &#39;Bitstream Vera Serif&#39;,
+                         &#39;Computer Modern Roman&#39;,
+                         &#39;New Century Schoolbook&#39;,
+                         &#39;Century Schoolbook L&#39;,
+                         &#39;Utopia&#39;,
+                         &#39;ITC Bookman&#39;,
+                         &#39;Bookman&#39;,
+                         &#39;Nimbus Roman No9 L&#39;,
+                         &#39;Times New Roman&#39;,
+                         &#39;Times&#39;,
+                         &#39;Palatino&#39;,
+                         &#39;Charter&#39;,
+                         &#39;serif&#39;],
+          &#39;font.size&#39;: 10.0,
+          &#39;font.stretch&#39;: &#39;normal&#39;,
+          &#39;font.style&#39;: &#39;normal&#39;,
+          &#39;font.variant&#39;: &#39;normal&#39;,
+          &#39;font.weight&#39;: &#39;normal&#39;,
+          &#39;grid.alpha&#39;: 1.0,
+          &#39;grid.color&#39;: &#39;white&#39;,
+          &#39;grid.linestyle&#39;: &#39;-&#39;,
+          &#39;grid.linewidth&#39;: 1.0,
+          &#39;hatch.color&#39;: &#39;black&#39;,
+          &#39;hatch.linewidth&#39;: 1.0,
+          &#39;hist.bins&#39;: 10,
+          &#39;image.aspect&#39;: &#39;equal&#39;,
+          &#39;image.cmap&#39;: &#39;gray&#39;,
+          &#39;image.composite_image&#39;: True,
+          &#39;image.interpolation&#39;: &#39;auto&#39;,
+          &#39;image.interpolation_stage&#39;: &#39;auto&#39;,
+          &#39;image.lut&#39;: 256,
+          &#39;image.origin&#39;: &#39;upper&#39;,
+          &#39;image.resample&#39;: True,
+          &#39;interactive&#39;: True,
+          &#39;keymap.back&#39;: [&#39;left&#39;, &#39;c&#39;, &#39;backspace&#39;, &#39;MouseButton.BACK&#39;],
+          &#39;keymap.copy&#39;: [&#39;ctrl+c&#39;, &#39;cmd+c&#39;],
+          &#39;keymap.forward&#39;: [&#39;right&#39;, &#39;v&#39;, &#39;MouseButton.FORWARD&#39;],
+          &#39;keymap.fullscreen&#39;: [&#39;f&#39;, &#39;ctrl+f&#39;],
+          &#39;keymap.grid&#39;: [&#39;g&#39;],
+          &#39;keymap.grid_minor&#39;: [&#39;G&#39;],
+          &#39;keymap.help&#39;: [&#39;f1&#39;],
+          &#39;keymap.home&#39;: [&#39;h&#39;, &#39;r&#39;, &#39;home&#39;],
+          &#39;keymap.pan&#39;: [&#39;p&#39;],
+          &#39;keymap.quit&#39;: [&#39;ctrl+w&#39;, &#39;cmd+w&#39;, &#39;q&#39;],
+          &#39;keymap.quit_all&#39;: [],
+          &#39;keymap.save&#39;: [&#39;s&#39;, &#39;ctrl+s&#39;],
+          &#39;keymap.xscale&#39;: [&#39;k&#39;, &#39;L&#39;],
+          &#39;keymap.yscale&#39;: [&#39;l&#39;],
+          &#39;keymap.zoom&#39;: [&#39;o&#39;],
+          &#39;legend.borderaxespad&#39;: 0.5,
+          &#39;legend.borderpad&#39;: 0.4,
+          &#39;legend.columnspacing&#39;: 2.0,
+          &#39;legend.edgecolor&#39;: &#39;0.8&#39;,
+          &#39;legend.facecolor&#39;: &#39;inherit&#39;,
+          &#39;legend.fancybox&#39;: True,
+          &#39;legend.fontsize&#39;: 10.0,
+          &#39;legend.framealpha&#39;: 0.8,
+          &#39;legend.frameon&#39;: False,
+          &#39;legend.handleheight&#39;: 0.7,
+          &#39;legend.handlelength&#39;: 2.0,
+          &#39;legend.handletextpad&#39;: 0.8,
+          &#39;legend.labelcolor&#39;: &#39;None&#39;,
+          &#39;legend.labelspacing&#39;: 0.5,
+          &#39;legend.loc&#39;: &#39;best&#39;,
+          &#39;legend.markerscale&#39;: 1.0,
+          &#39;legend.numpoints&#39;: 1,
+          &#39;legend.scatterpoints&#39;: 1,
+          &#39;legend.shadow&#39;: False,
+          &#39;legend.title_fontsize&#39;: None,
+          &#39;lines.antialiased&#39;: True,
+          &#39;lines.color&#39;: &#39;white&#39;,
+          &#39;lines.dash_capstyle&#39;: &lt;CapStyle.butt: &#39;butt&#39;&gt;,
+          &#39;lines.dash_joinstyle&#39;: &lt;JoinStyle.round: &#39;round&#39;&gt;,
+          &#39;lines.dashdot_pattern&#39;: [6.4, 1.6, 1.0, 1.6],
+          &#39;lines.dashed_pattern&#39;: [3.7, 1.6],
+          &#39;lines.dotted_pattern&#39;: [1.0, 1.65],
+          &#39;lines.linestyle&#39;: &#39;-&#39;,
+          &#39;lines.linewidth&#39;: 1.75,
+          &#39;lines.marker&#39;: &#39;None&#39;,
+          &#39;lines.markeredgecolor&#39;: &#39;auto&#39;,
+          &#39;lines.markeredgewidth&#39;: 0.0,
+          &#39;lines.markerfacecolor&#39;: &#39;auto&#39;,
+          &#39;lines.markersize&#39;: 7.0,
+          &#39;lines.scale_dashes&#39;: True,
+          &#39;lines.solid_capstyle&#39;: &lt;CapStyle.round: &#39;round&#39;&gt;,
+          &#39;lines.solid_joinstyle&#39;: &lt;JoinStyle.round: &#39;round&#39;&gt;,
+          &#39;macosx.window_mode&#39;: &#39;system&#39;,
+          &#39;markers.fillstyle&#39;: &#39;full&#39;,
+          &#39;mathtext.bf&#39;: &#39;sans:bold&#39;,
+          &#39;mathtext.bfit&#39;: &#39;sans:italic:bold&#39;,
+          &#39;mathtext.cal&#39;: &#39;cursive&#39;,
+          &#39;mathtext.default&#39;: &#39;it&#39;,
+          &#39;mathtext.fallback&#39;: &#39;cm&#39;,
+          &#39;mathtext.fontset&#39;: &#39;dejavusans&#39;,
+          &#39;mathtext.it&#39;: &#39;sans:italic&#39;,
+          &#39;mathtext.rm&#39;: &#39;sans&#39;,
+          &#39;mathtext.sf&#39;: &#39;sans&#39;,
+          &#39;mathtext.tt&#39;: &#39;monospace&#39;,
+          &#39;patch.antialiased&#39;: True,
+          &#39;patch.edgecolor&#39;: &#39;white&#39;,
+          &#39;patch.facecolor&#39;: &#39;#348ABD&#39;,
+          &#39;patch.force_edgecolor&#39;: False,
+          &#39;patch.linewidth&#39;: 0.5,
+          &#39;path.effects&#39;: [],
+          &#39;path.simplify&#39;: True,
+          &#39;path.simplify_threshold&#39;: 0.111111111111,
+          &#39;path.sketch&#39;: None,
+          &#39;path.snap&#39;: True,
+          &#39;pcolor.shading&#39;: &#39;auto&#39;,
+          &#39;pcolormesh.snap&#39;: True,
+          &#39;pdf.compression&#39;: 6,
+          &#39;pdf.fonttype&#39;: 3,
+          &#39;pdf.inheritcolor&#39;: False,
+          &#39;pdf.use14corefonts&#39;: False,
+          &#39;pgf.preamble&#39;: &#39;&#39;,
+          &#39;pgf.rcfonts&#39;: True,
+          &#39;pgf.texsystem&#39;: &#39;xelatex&#39;,
+          &#39;polaraxes.grid&#39;: True,
+          &#39;ps.distiller.res&#39;: 6000,
+          &#39;ps.fonttype&#39;: 3,
+          &#39;ps.papersize&#39;: &#39;letter&#39;,
+          &#39;ps.useafm&#39;: False,
+          &#39;ps.usedistiller&#39;: None,
+          &#39;savefig.bbox&#39;: None,
+          &#39;savefig.directory&#39;: &#39;~&#39;,
+          &#39;savefig.dpi&#39;: &#39;figure&#39;,
+          &#39;savefig.edgecolor&#39;: &#39;white&#39;,
+          &#39;savefig.facecolor&#39;: &#39;white&#39;,
+          &#39;savefig.format&#39;: &#39;png&#39;,
+          &#39;savefig.orientation&#39;: &#39;portrait&#39;,
+          &#39;savefig.pad_inches&#39;: 0.1,
+          &#39;savefig.transparent&#39;: False,
+          &#39;scatter.edgecolors&#39;: &#39;face&#39;,
+          &#39;scatter.marker&#39;: &#39;o&#39;,
+          &#39;svg.fonttype&#39;: &#39;path&#39;,
+          &#39;svg.hashsalt&#39;: None,
+          &#39;svg.id&#39;: None,
+          &#39;svg.image_inline&#39;: True,
+          &#39;text.antialiased&#39;: True,
+          &#39;text.color&#39;: &#39;white&#39;,
+          &#39;text.hinting&#39;: &#39;force_autohint&#39;,
+          &#39;text.hinting_factor&#39;: 8,
+          &#39;text.kerning_factor&#39;: 0,
+          &#39;text.latex.preamble&#39;: &#39;&#39;,
+          &#39;text.parse_math&#39;: True,
+          &#39;text.usetex&#39;: False,
+          &#39;timezone&#39;: &#39;UTC&#39;,
+          &#39;tk.window_focus&#39;: False,
+          &#39;toolbar&#39;: &#39;toolbar2&#39;,
+          &#39;webagg.address&#39;: &#39;127.0.0.1&#39;,
+          &#39;webagg.open_in_browser&#39;: True,
+          &#39;webagg.port&#39;: 8988,
+          &#39;webagg.port_retries&#39;: 50,
+          &#39;xaxis.labellocation&#39;: &#39;center&#39;,
+          &#39;xtick.alignment&#39;: &#39;center&#39;,
+          &#39;xtick.bottom&#39;: True,
+          &#39;xtick.color&#39;: &#39;white&#39;,
+          &#39;xtick.direction&#39;: &#39;out&#39;,
+          &#39;xtick.labelbottom&#39;: True,
+          &#39;xtick.labelcolor&#39;: &#39;inherit&#39;,
+          &#39;xtick.labelsize&#39;: 10.0,
+          &#39;xtick.labeltop&#39;: False,
+          &#39;xtick.major.bottom&#39;: True,
+          &#39;xtick.major.pad&#39;: 7.0,
+          &#39;xtick.major.size&#39;: 0.0,
+          &#39;xtick.major.top&#39;: True,
+          &#39;xtick.major.width&#39;: 1.0,
+          &#39;xtick.minor.bottom&#39;: True,
+          &#39;xtick.minor.ndivs&#39;: &#39;auto&#39;,
+          &#39;xtick.minor.pad&#39;: 3.4,
+          &#39;xtick.minor.size&#39;: 0.0,
+          &#39;xtick.minor.top&#39;: True,
+          &#39;xtick.minor.visible&#39;: False,
+          &#39;xtick.minor.width&#39;: 0.5,
+          &#39;xtick.top&#39;: False,
+          &#39;yaxis.labellocation&#39;: &#39;center&#39;,
+          &#39;ytick.alignment&#39;: &#39;center_baseline&#39;,
+          &#39;ytick.color&#39;: &#39;white&#39;,
+          &#39;ytick.direction&#39;: &#39;out&#39;,
+          &#39;ytick.labelcolor&#39;: &#39;inherit&#39;,
+          &#39;ytick.labelleft&#39;: True,
+          &#39;ytick.labelright&#39;: False,
+          &#39;ytick.labelsize&#39;: 10.0,
+          &#39;ytick.left&#39;: True,
+          &#39;ytick.major.left&#39;: True,
+          &#39;ytick.major.pad&#39;: 7.0,
+          &#39;ytick.major.right&#39;: True,
+          &#39;ytick.major.size&#39;: 0.0,
+          &#39;ytick.major.width&#39;: 1.0,
+          &#39;ytick.minor.left&#39;: True,
+          &#39;ytick.minor.ndivs&#39;: &#39;auto&#39;,
+          &#39;ytick.minor.pad&#39;: 3.4,
+          &#39;ytick.minor.right&#39;: True,
+          &#39;ytick.minor.size&#39;: 0.0,
+          &#39;ytick.minor.visible&#39;: False,
+          &#39;ytick.minor.width&#39;: 0.5,
+          &#39;ytick.right&#39;: False}))
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>پارامترهای زیادی وجود دارد که می‌توانید برای برگه‌های سبک خود تنظیم کنید.</p>
+<p>پارامترها را برای برگه سبک خود با روش‌های زیر تنظیم کنید:</p>
+<ol class="arabic simple">
+<li><p>ایجاد <a class="reference external" href="https://matplotlib.org/stable/users/explain/customizing.html">فایل <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code></a> خود، یا</p></li>
+<li><p>به‌روزرسانی مقادیر ذخیره شده در متغیر شبه دیکشنری <code class="docutils literal notranslate"><span class="pre">plt.rcParams</span></code></p></li>
+</ol>
+<p>بیایید سبک خطوط چگالی روی هم قرار گرفته خود را با استفاده از روش دوم تغییر دهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cycler</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycler</span>
+
+<span class="c1"># set to the default style sheet</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c1"># You can update single values using keys:</span>
+
+<span class="c1"># Set the font style to italic</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.style&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;italic&#39;</span>
+
+<span class="c1"># Update linewidth</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="c1"># You can also update many values at once using the update() method:</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># Change default figure size</span>
+    <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+
+    <span class="c1"># Add horizontal grid lines</span>
+    <span class="s1">&#39;axes.grid&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;axes.grid.axis&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Update colors for density lines</span>
+    <span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">:</span> <span class="n">cycler</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> 
+                            <span class="p">[</span><span class="s1">&#39;dimgray&#39;</span><span class="p">,</span> <span class="s1">&#39;slategrey&#39;</span><span class="p">,</span> <span class="s1">&#39;darkgray&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>این تنظیمات <code class="docutils literal notranslate"><span class="pre">سراسری</span></code> هستند.</p>
+<p>هر نمودار تولید شده پس از تغییر پارامترها در <code class="docutils literal notranslate"><span class="pre">.rcParams</span></code> تحت تأثیر این تنظیم قرار می‌گیرد.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">current_label</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;$\mu = </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s1">.2</span><span class="si">}</span><span class="s1">$&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">current_label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/88b45899d4196909f11f76e12ba13fb5fadcc7b1b344bc46ca3739b76b2ec151.png" src="_images/88b45899d4196909f11f76e12ba13fb5fadcc7b1b344bc46ca3739b76b2ec151.png" />
+</div>
+</div>
+<p>دوباره برگه سبک <code class="docutils literal notranslate"><span class="pre">default</span></code> را اعمال کنید تا سبک خود را به حالت پیش‌فرض برگردانید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c1"># Reset default figure size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id12">
+<h2><span class="section-number">11.4. </span>مطالعه بیشتر<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">گالری Matplotlib</a> مثال‌های زیادی ارائه می‌دهد.</p></li>
+<li><p>یک <a class="reference external" href="https://scipy-lectures.org/intro/matplotlib/index.html">آموزش خوب Matplotlib</a> توسط Nicolas Rougier، Mike Muller و Gael Varoquaux.</p></li>
+<li><p><a class="reference external" href="https://tonysyu.github.io/mpltools/index.html">mpltools</a> امکان تعویض آسان بین سبک‌های نمودار را فراهم می‌کند.</p></li>
+<li><p><a class="reference external" href="https://github.com/mwaskom/seaborn">Seaborn</a> نمودارهای آماری رایج را در Matplotlib تسهیل می‌کند.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h2><span class="section-number">11.5. </span>تمرین‌ها<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<div class="exercise admonition" id="mpl_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 11.1 </span></p>
+<section id="exercise-content">
+<p>تابع زیر را ترسیم کنید</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \cos(\pi \theta x) \exp(-x)
+\]</div>
+<p>روی بازه <span class="math notranslate nohighlight">\([0, 5]\)</span> برای هر <span class="math notranslate nohighlight">\(\theta\)</span> در <code class="docutils literal notranslate"><span class="pre">np.linspace(0,</span> <span class="pre">2,</span> <span class="pre">10)</span></code>.</p>
+<p>تمام منحنی‌ها را در یک شکل قرار دهید.</p>
+<p>خروجی باید شبیه این باشد</p>
+<a class="reference internal image-reference" href="_images/matplotlib_ex1.png"><img alt="_images/matplotlib_ex1.png" class="align-center" src="_images/matplotlib_ex1.png" style="width: 497.90000000000003px; height: 327.6px;" />
+</a>
+</section>
+</div>
+<div class="solution dropdown admonition" id="matplotlib-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#mpl_ex1"> Exercise 11.1</a></p>
+<section id="solution-content">
+<p>در اینجا یک راه‌حل آمده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">θ</span> <span class="o">*</span> <span class="n">x</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">θ_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">θ</span> <span class="ow">in</span> <span class="n">θ_vals</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">θ</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ce614a28afa9c56140bfae78ea6d5526ef2fafa5e90311b6bc445fd8cade7752.png" src="_images/ce614a28afa9c56140bfae78ea6d5526ef2fafa5e90311b6bc445fd8cade7752.png" />
+</div>
+</div>
+</section>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/matplotlib.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/matplotlib.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/matplotlib.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/matplotlib.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "matplotlib";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/matplotlib.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

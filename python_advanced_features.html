@@ -1,0 +1,2147 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>20. ویژگی‌های بیشتر زبان &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_advanced_features';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/python_advanced_features.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="21. اشکال‌زدایی و مدیریت خطاها" href="debugging.html" />
+    <link rel="prev" title="19. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="ویژگی‌های بیشتر زبان"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="ویژگی‌های بیشتر زبان" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/python_advanced_features.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=python_advanced_features>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterable-iterator">20.2. Iterableها و Iteratorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator">20.2.1. Iteratorها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-for">20.2.2. Iteratorها در حلقه‌های For</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterable">20.2.3. Iterableها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.2.4. Iteratorها و توابع داخلی</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.3. عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">20.3.1. باز کردن آرگومان‌ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">20.3.2. آرگومان‌های دلخواه</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator-descriptor">20.4. Decoratorها و Descriptorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator">20.4.1. Decoratorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">20.4.1.1. یک مثال</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">20.4.1.2. Decoratorها وارد می‌شوند</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptor">20.4.2. Descriptorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">20.4.2.1. یک راه‌حل</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">20.4.2.2. چگونه کار می‌کند</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator-property">20.4.2.3. Decoratorها و Propertyها</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator">20.5. Generatorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">20.5.1. عبارات Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">20.5.2. توابع Generator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">20.5.2.1. مثال 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">20.5.2.2. مثال 2</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">20.5.3. مزایای Iteratorها</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">20.6. تمرین‌ها</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Jan 29, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/python_advanced_features.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/a083b4b" class="changelog-hash">a083b4b</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 hours ago</span>
+                                <span class="changelog-message">Add lecture: ویژگی‌های بیشتر زبان (#32)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">20. </span>ویژگی‌های بیشتر زبان<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">20.1. </span>مروری کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>توصیه ما برای این سخنرانی آخر این است که <strong>در مرور اول آن را رد کنید</strong>، مگر اینکه میل شدیدی به خواندن آن داشته باشید.</p>
+<p>این سخنرانی اینجاست</p>
+<ol class="arabic simple">
+<li><p>به عنوان مرجع، تا بتوانیم در صورت نیاز به آن لینک دهیم، و</p></li>
+<li><p>برای کسانی که تعدادی از کاربردها را انجام داده‌اند و اکنون می‌خواهند بیشتر درباره زبان Python یاد بگیرند</p></li>
+</ol>
+<p>موضوعات متنوعی در این سخنرانی بررسی می‌شوند، از جمله iteratorها، decoratorها و descriptorها، و generatorها.</p>
+</section>
+<section id="iterable-iterator">
+<h2><span class="section-number">20.2. </span>Iterableها و Iteratorها<a class="headerlink" href="#iterable-iterator" title="Link to this heading">#</a></h2>
+<p id="index-0">ما قبلاً <a class="reference internal" href="python_essentials.html#iterating-version-1"><span class="std std-ref">چیزهایی درباره تکرار</span></a> در Python گفته‌ایم.</p>
+<p>اکنون بیایید دقیق‌تر به نحوه کار آن نگاه کنیم، با تمرکز بر پیاده‌سازی Python از حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+<section id="iterator">
+<span id="iterators"></span><h3><span class="section-number">20.2.1. </span>Iteratorها<a class="headerlink" href="#iterator" title="Link to this heading">#</a></h3>
+<p id="index-1">Iteratorها یک رابط یکنواخت برای حرکت در عناصر یک مجموعه هستند.</p>
+<p>در اینجا درباره استفاده از iteratorها صحبت خواهیم کرد — بعداً یاد خواهیم گرفت که چگونه iteratorهای خود را بسازیم.</p>
+<p>به طور رسمی، یک <em>iterator</em> یک شیء با متد <code class="docutils literal notranslate"><span class="pre">__next__</span></code> است.</p>
+<p>به عنوان مثال، اشیاء فایل iterator هستند.</p>
+<p>برای دیدن این موضوع، بیایید دوباره به <a class="reference internal" href="python_essentials.html#us-cities-data"><span class="std std-ref">داده‌های شهرهای آمریکا</span></a> نگاه کنیم،
+که در سلول زیر در دایرکتوری کاری فعلی نوشته شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> us_cities.txt
+<span class="n">new</span> <span class="n">york</span><span class="p">:</span> <span class="mi">8244910</span>
+<span class="n">los</span> <span class="n">angeles</span><span class="p">:</span> <span class="mi">3819702</span>
+<span class="n">chicago</span><span class="p">:</span> <span class="mi">2707120</span>
+<span class="n">houston</span><span class="p">:</span> <span class="mi">2145146</span>
+<span class="n">philadelphia</span><span class="p">:</span> <span class="mi">1536471</span>
+<span class="n">phoenix</span><span class="p">:</span> <span class="mi">1469471</span>
+<span class="n">san</span> <span class="n">antonio</span><span class="p">:</span> <span class="mi">1359758</span>
+<span class="n">san</span> <span class="n">diego</span><span class="p">:</span> <span class="mi">1326179</span>
+<span class="n">dallas</span><span class="p">:</span> <span class="mi">1223229</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing us_cities.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;us_cities.txt&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;new york: 8244910\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;los angeles: 3819702\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>می‌بینیم که اشیاء فایل واقعاً یک متد <code class="docutils literal notranslate"><span class="pre">__next__</span></code> دارند و فراخوانی این متد خط بعدی فایل را برمی‌گرداند.</p>
+<p>متد next همچنین می‌تواند از طریق تابع داخلی <code class="docutils literal notranslate"><span class="pre">next()</span></code> قابل دسترسی باشد،
+که مستقیماً این متد را فراخوانی می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;chicago: 2707120\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>اشیاء بازگردانده شده توسط <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> نیز iterator هستند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">])</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, &#39;foo&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, &#39;bar&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>همچنین اشیاء reader از ماژول <code class="docutils literal notranslate"><span class="pre">csv</span></code>.</p>
+<p>بیایید یک فایل csv کوچک بسازیم که داده‌هایی از شاخص NIKKEI را در خود دارد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> test_table.csv
+<span class="n">Date</span><span class="p">,</span><span class="n">Open</span><span class="p">,</span><span class="n">High</span><span class="p">,</span><span class="n">Low</span><span class="p">,</span><span class="n">Close</span><span class="p">,</span><span class="n">Volume</span><span class="p">,</span><span class="n">Adj</span> <span class="n">Close</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span><span class="mf">9280.35</span><span class="p">,</span><span class="mf">9286.35</span><span class="p">,</span><span class="mf">9189.92</span><span class="p">,</span><span class="mf">9264.15</span><span class="p">,</span><span class="mi">133200</span><span class="p">,</span><span class="mf">9264.15</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mf">9372.72</span><span class="p">,</span><span class="mf">9399.40</span><span class="p">,</span><span class="mf">9311.61</span><span class="p">,</span><span class="mf">9344.64</span><span class="p">,</span><span class="mi">143200</span><span class="p">,</span><span class="mf">9344.64</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span><span class="mf">9172.56</span><span class="p">,</span><span class="mf">9326.75</span><span class="p">,</span><span class="mf">9166.97</span><span class="p">,</span><span class="mf">9290.29</span><span class="p">,</span><span class="mi">167000</span><span class="p">,</span><span class="mf">9290.29</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">18</span><span class="p">,</span><span class="mf">9167.05</span><span class="p">,</span><span class="mf">9167.82</span><span class="p">,</span><span class="mf">8997.74</span><span class="p">,</span><span class="mf">9038.69</span><span class="p">,</span><span class="mi">147800</span><span class="p">,</span><span class="mf">9038.69</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mf">9150.21</span><span class="p">,</span><span class="mf">9272.08</span><span class="p">,</span><span class="mf">9140.90</span><span class="p">,</span><span class="mf">9265.02</span><span class="p">,</span><span class="mi">172000</span><span class="p">,</span><span class="mf">9265.02</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="mf">9212.30</span><span class="p">,</span><span class="mf">9223.77</span><span class="p">,</span><span class="mf">9052.41</span><span class="p">,</span><span class="mf">9093.73</span><span class="p">,</span><span class="mi">169400</span><span class="p">,</span><span class="mf">9093.73</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span><span class="mf">9305.79</span><span class="p">,</span><span class="mf">9379.47</span><span class="p">,</span><span class="mf">9278.89</span><span class="p">,</span><span class="mf">9340.49</span><span class="p">,</span><span class="mi">176000</span><span class="p">,</span><span class="mf">9340.49</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mf">9358.25</span><span class="p">,</span><span class="mf">9389.61</span><span class="p">,</span><span class="mf">9298.61</span><span class="p">,</span><span class="mf">9298.61</span><span class="p">,</span><span class="mi">188400</span><span class="p">,</span><span class="mf">9298.61</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="mf">9460.72</span><span class="p">,</span><span class="mf">9503.91</span><span class="p">,</span><span class="mf">9342.75</span><span class="p">,</span><span class="mf">9451.98</span><span class="p">,</span><span class="mi">230800</span><span class="p">,</span><span class="mf">9451.98</span>
+<span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">08</span><span class="p">,</span><span class="mf">9351.40</span><span class="p">,</span><span class="mf">9464.43</span><span class="p">,</span><span class="mf">9349.57</span><span class="p">,</span><span class="mf">9432.83</span><span class="p">,</span><span class="mi">220200</span><span class="p">,</span><span class="mf">9432.83</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test_table.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">csv</span><span class="w"> </span><span class="kn">import</span> <span class="n">reader</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_table.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">nikkei_data</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">nikkei_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Date&#39;, &#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Volume&#39;, &#39;Adj Close&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">nikkei_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;2009-05-21&#39;, &#39;9280.35&#39;, &#39;9286.35&#39;, &#39;9189.92&#39;, &#39;9264.15&#39;, &#39;133200&#39;, &#39;9264.15&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iterator-for">
+<h3><span class="section-number">20.2.2. </span>Iteratorها در حلقه‌های For<a class="headerlink" href="#iterator-for" title="Link to this heading">#</a></h3>
+<p id="index-2">همه iteratorها می‌توانند در سمت راست کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">in</span></code> در دستورات حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> قرار گیرند.</p>
+<p>در واقع به این ترتیب است که حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> کار می‌کند: اگر بنویسیم</p>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">iterator</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>آنگاه مفسر</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iterator.___next___()</span></code> را فراخوانی می‌کند و <code class="docutils literal notranslate"><span class="pre">x</span></code> را به نتیجه متصل می‌کند</p></li>
+<li><p>بلوک کد را اجرا می‌کند</p></li>
+<li><p>تکرار می‌کند تا خطای <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> رخ دهد</p></li>
+</ul>
+<p>بنابراین اکنون می‌دانید که این نحو جادویی چگونه کار می‌کند</p>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># do something</span>
+</pre></div>
+</div>
+<p>مفسر فقط ادامه می‌دهد</p>
+<ol class="arabic simple">
+<li><p>فراخوانی <code class="docutils literal notranslate"><span class="pre">f.__next__()</span></code> و اتصال <code class="docutils literal notranslate"><span class="pre">line</span></code> به نتیجه</p></li>
+<li><p>اجرای بدنه حلقه</p></li>
+</ol>
+<p>این کار تا زمانی که خطای <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> رخ دهد، ادامه دارد.</p>
+</section>
+<section id="iterable">
+<h3><span class="section-number">20.2.3. </span>Iterableها<a class="headerlink" href="#iterable" title="Link to this heading">#</a></h3>
+<p id="index-3">شما از قبل می‌دانید که می‌توانیم یک لیست Python را در سمت راست <code class="docutils literal notranslate"><span class="pre">in</span></code> در یک حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> قرار دهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spam
+eggs
+</pre></div>
+</div>
+</div>
+</div>
+<p>پس آیا این یعنی که لیست یک iterator است؟</p>
+<p>جواب منفی است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;list&#39; object is not an iterator
+</pre></div>
+</div>
+</div>
+</div>
+<p>پس چرا می‌توانیم روی یک لیست در یک حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> تکرار کنیم؟</p>
+<p>دلیل این است که یک لیست <em>iterable</em> است (در مقابل یک iterator).</p>
+<p>به طور رسمی، یک شیء iterable است اگر بتواند با استفاده از تابع داخلی <code class="docutils literal notranslate"><span class="pre">iter()</span></code> به یک iterator تبدیل شود.</p>
+<p>لیست‌ها یکی از این اشیاء هستند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list_iterator
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>بسیاری از اشیاء دیگر نیز iterable هستند، مانند دیکشنری‌ها و tupleها.</p>
+<p>البته، همه اشیاء iterable نیستند</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">iter</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">iter</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
+</pre></div>
+</div>
+</div>
+</div>
+<p>برای نتیجه‌گیری از بحث ما درباره حلقه‌های <code class="docutils literal notranslate"><span class="pre">for</span></code></p>
+<ul class="simple">
+<li><p>حلقه‌های <code class="docutils literal notranslate"><span class="pre">for</span></code> روی iteratorها یا iterableها کار می‌کنند.</p></li>
+<li><p>در حالت دوم، iterable قبل از شروع حلقه به یک iterator تبدیل می‌شود.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">20.2.4. </span>Iteratorها و توابع داخلی<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p id="index-4">برخی از توابع داخلی که روی توالی‌ها عمل می‌کنند، با iterableها نیز کار می‌کنند</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code>، <code class="docutils literal notranslate"><span class="pre">min()</span></code>، <code class="docutils literal notranslate"><span class="pre">sum()</span></code>، <code class="docutils literal notranslate"><span class="pre">all()</span></code>، <code class="docutils literal notranslate"><span class="pre">any()</span></code></p></li>
+</ul>
+<p>به عنوان مثال</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">]</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list_iterator
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>یک نکته که باید درباره iteratorها به خاطر بسپارید این است که آن‌ها با استفاده مصرف می‌شوند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: max() iterable argument is empty
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">20.3. </span>عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code> ابزارهای مناسب و پرکاربردی برای باز کردن لیست‌ها و tupleها و اجازه دادن به کاربران برای تعریف توابعی هستند که تعداد دلخواه آرگومان را به عنوان ورودی می‌گیرند.</p>
+<p>در این بخش، نحوه استفاده از آن‌ها و تمایز موارد استفاده آن‌ها را بررسی خواهیم کرد.</p>
+<section id="id5">
+<h3><span class="section-number">20.3.1. </span>باز کردن آرگومان‌ها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>وقتی روی لیستی از پارامترها عمل می‌کنیم، اغلب نیاز داریم که محتوای لیست را به عنوان آرگومان‌های منفرد به جای یک مجموعه استخراج کنیم هنگام ارسال آن‌ها به توابع.</p>
+<p>خوشبختانه، عملگر <code class="docutils literal notranslate"><span class="pre">*</span></code> می‌تواند به ما کمک کند تا لیست‌ها و tupleها را به <a class="reference internal" href="functions.html#pos-args"><span class="std std-ref"><em>آرگومان‌های موضعی</em></span></a> در فراخوانی توابع باز کنیم.</p>
+<p>برای مشخص کردن مطلب، مثال‌های زیر را در نظر بگیرید:</p>
+<p>بدون <code class="docutils literal notranslate"><span class="pre">*</span></code>، تابع <code class="docutils literal notranslate"><span class="pre">print</span></code> یک لیست را چاپ می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>در حالی که تابع <code class="docutils literal notranslate"><span class="pre">print</span></code> عناصر منفرد را چاپ می‌کند چون <code class="docutils literal notranslate"><span class="pre">*</span></code> لیست را به آرگومان‌های منفرد باز می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c
+</pre></div>
+</div>
+</div>
+</div>
+<p>باز کردن لیست با استفاده از <code class="docutils literal notranslate"><span class="pre">*</span></code> به آرگومان‌های موضعی معادل تعریف آن‌ها به صورت جداگانه هنگام فراخوانی تابع است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c
+</pre></div>
+</div>
+</div>
+</div>
+<p>با این حال، عملگر <code class="docutils literal notranslate"><span class="pre">*</span></code> راحت‌تر است اگر بخواهیم دوباره از آن‌ها استفاده کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c d
+</pre></div>
+</div>
+</div>
+</div>
+<p>به طور مشابه، <code class="docutils literal notranslate"><span class="pre">**</span></code> برای باز کردن آرگومان‌ها استفاده می‌شود.</p>
+<p>تفاوت این است که <code class="docutils literal notranslate"><span class="pre">**</span></code> <em>دیکشنری‌ها</em> را به <em>آرگومان‌های کلیدواژه‌ای</em> باز می‌کند.</p>
+<p><code class="docutils literal notranslate"><span class="pre">**</span></code> اغلب زمانی استفاده می‌شود که آرگومان‌های کلیدواژه‌ای زیادی وجود دارد که می‌خواهیم دوباره استفاده کنیم.</p>
+<p>به عنوان مثال، فرض کنید می‌خواهیم چندین نمودار با استفاده از تنظیمات گرافیکی یکسان رسم کنیم،
+که ممکن است شامل تنظیم مکرر بسیاری از پارامترهای گرافیکی باشد که معمولاً با استفاده از آرگومان‌های کلیدواژه‌ای تعریف می‌شوند.</p>
+<p>در این حالت، می‌توانیم از یک دیکشنری برای ذخیره این پارامترها استفاده کنیم و از <code class="docutils literal notranslate"><span class="pre">**</span></code> برای باز کردن دیکشنری‌ها به آرگومان‌های کلیدواژه‌ای در صورت نیاز استفاده کنیم.</p>
+<p>بیایید با هم یک مثال ساده را بررسی کنیم و استفاده از <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code> را متمایز کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Set up the frame and subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Create a function that generates synthetic data</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_data</span><span class="p">(</span><span class="n">β_0</span><span class="p">,</span> <span class="n">β_1</span><span class="p">,</span> <span class="n">σ</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_values</span> <span class="o">=</span> <span class="n">β_0</span> <span class="o">+</span> <span class="n">β_1</span> <span class="o">*</span> <span class="n">x_values</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">σ</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span>
+
+<span class="c1"># Store the keyword arguments for lines and legends in a dictionary</span>
+<span class="n">line_kargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">}</span>
+<span class="n">legend_kargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bbox_to_anchor&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">.102</span><span class="p">),</span> 
+                <span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
+                <span class="s1">&#39;ncol&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s1">&#39;mode&#39;</span><span class="p">:</span> <span class="s1">&#39;expand&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;prop&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}}</span>
+
+<span class="n">β_0s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">β_1s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Use a for loop to plot lines</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_plots</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">line_kargs</span><span class="p">,</span> <span class="n">legend_kargs</span><span class="p">):</span>
+    <span class="n">label_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">βs</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">):</span>
+    
+        <span class="c1"># Use * to unpack tuple βs and the tuple output from the generate_data function</span>
+        <span class="c1"># Use ** to unpack the dictionary of keyword arguments for lines</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">generate_data</span><span class="p">(</span><span class="o">*</span><span class="n">βs</span><span class="p">),</span> <span class="o">**</span><span class="n">line_kargs</span><span class="p">)</span>
+
+        <span class="n">label_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$β_0 = </span><span class="si">{</span><span class="n">βs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">$ | $β_1 = </span><span class="si">{</span><span class="n">βs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Use ** to unpack the dictionary of keyword arguments for legends</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">label_list</span><span class="p">,</span> <span class="o">**</span><span class="n">legend_kargs</span><span class="p">)</span>
+
+<span class="n">generate_plots</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">line_kargs</span><span class="p">,</span> <span class="n">legend_kargs</span><span class="p">)</span>
+
+<span class="c1"># We can easily reuse and update our parameters</span>
+<span class="n">β_1s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">β_0s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">line_kargs</span><span class="p">[</span><span class="s1">&#39;lw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">line_kargs</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+<span class="n">generate_plots</span><span class="p">(</span><span class="n">β_0s</span><span class="p">,</span> <span class="n">β_1s</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">line_kargs</span><span class="p">,</span> <span class="n">legend_kargs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2b278a0f3d6e26e5a9a1be7edc4903e421683342e247ba2c0e2e9e764755f1f5.png" src="_images/2b278a0f3d6e26e5a9a1be7edc4903e421683342e247ba2c0e2e9e764755f1f5.png" />
+</div>
+</div>
+<p>در این مثال، <code class="docutils literal notranslate"><span class="pre">*</span></code> پارامترهای zip شده <code class="docutils literal notranslate"><span class="pre">βs</span></code> و خروجی تابع <code class="docutils literal notranslate"><span class="pre">generate_data</span></code> که در tupleها ذخیره شده‌اند را باز کرد،
+در حالی که <code class="docutils literal notranslate"><span class="pre">**</span></code> پارامترهای گرافیکی ذخیره شده در <code class="docutils literal notranslate"><span class="pre">legend_kargs</span></code> و <code class="docutils literal notranslate"><span class="pre">line_kargs</span></code> را باز کرد.</p>
+<p>برای خلاصه کردن، زمانی که <code class="docutils literal notranslate"><span class="pre">*list</span></code>/<code class="docutils literal notranslate"><span class="pre">*tuple</span></code> و <code class="docutils literal notranslate"><span class="pre">**dictionary</span></code> به <em>فراخوانی توابع</em> ارسال می‌شوند، آن‌ها به آرگومان‌های منفرد به جای یک مجموعه باز می‌شوند.</p>
+<p>تفاوت این است که <code class="docutils literal notranslate"><span class="pre">*</span></code> لیست‌ها و tupleها را به <em>آرگومان‌های موضعی</em> باز می‌کند، در حالی که <code class="docutils literal notranslate"><span class="pre">**</span></code> دیکشنری‌ها را به <em>آرگومان‌های کلیدواژه‌ای</em> باز می‌کند.</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">20.3.2. </span>آرگومان‌های دلخواه<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>زمانی که توابع را <em>تعریف</em> می‌کنیم، گاهی مطلوب است که به کاربران اجازه دهیم هر تعداد آرگومان که می‌خواهند را وارد یک تابع کنند.</p>
+<p>شاید متوجه شده باشید که تابع <code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code> می‌تواند تعداد دلخواهی آرگومان را مدیریت کند.</p>
+<p>اگر به <a class="reference external" href="https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669">مستندات</a> تابع نگاه کنیم، می‌بینیم تابع به صورت زیر تعریف شده است</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>دوباره عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code> را در زمینه <em>تعریف تابع</em> یافتیم.</p>
+<p>در واقع، <code class="docutils literal notranslate"><span class="pre">*args</span></code> و <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> در کتابخانه‌های علمی در Python همه جا حضور دارند تا افزونگی را کاهش دهند و ورودی‌های انعطاف‌پذیر را امکان‌پذیر کنند.</p>
+<p><code class="docutils literal notranslate"><span class="pre">*args</span></code> تابع را قادر می‌سازد تا <em>آرگومان‌های موضعی</em> با اندازه متغیر را مدیریت کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">arb</span><span class="p">(</span><span class="o">*</span><span class="n">ls</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+<span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>ورودی‌ها به تابع ارسال شده و در یک tuple ذخیره می‌شوند.</p>
+<p>بیایید ورودی‌های بیشتری را امتحان کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;], [&#39;z&#39;, &#39;x&#39;, &#39;b&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>به طور مشابه، Python به ما اجازه می‌دهد از <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> برای ارسال تعداد دلخواه <em>آرگومان‌های کلیدواژه‌ای</em> به توابع استفاده کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">arb</span><span class="p">(</span><span class="o">**</span><span class="n">ls</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+<span class="c1"># Note that these are keyword arguments</span>
+<span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="o">=</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;l1&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;l2&#39;: [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>می‌بینیم که Python از یک دیکشنری برای ذخیره این آرگومان‌های کلیدواژه‌ای استفاده می‌کند.</p>
+<p>بیایید ورودی‌های بیشتری را امتحان کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb</span><span class="p">(</span><span class="n">l1</span><span class="o">=</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="o">=</span><span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="o">=</span><span class="n">l3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;l1&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;l2&#39;: [&#39;b&#39;, &#39;c&#39;, &#39;d&#39;], &#39;l3&#39;: [&#39;z&#39;, &#39;x&#39;, &#39;b&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>به طور کلی، <code class="docutils literal notranslate"><span class="pre">*args</span></code> و <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> هنگام <em>تعریف یک تابع</em> استفاده می‌شوند؛ آن‌ها تابع را قادر می‌سازند ورودی با اندازه دلخواه بپذیرد.</p>
+<p>تفاوت این است که توابع با <code class="docutils literal notranslate"><span class="pre">*args</span></code> قادر خواهند بود <em>آرگومان‌های موضعی</em> با اندازه دلخواه بپذیرند، در حالی که <code class="docutils literal notranslate"><span class="pre">**kargs</span></code> به توابع اجازه می‌دهد تعداد دلخواه <em>آرگومان‌های کلیدواژه‌ای</em> بپذیرند.</p>
+</section>
+</section>
+<section id="decorator-descriptor">
+<h2><span class="section-number">20.4. </span>Decoratorها و Descriptorها<a class="headerlink" href="#decorator-descriptor" title="Link to this heading">#</a></h2>
+<p id="index-6"><span id="index-5"></span>بیایید به برخی از عناصر نحوی خاص نگاه کنیم که به طور معمول توسط توسعه‌دهندگان Python استفاده می‌شوند.</p>
+<p>ممکن است بلافاصله به مفاهیم زیر نیاز نداشته باشید، اما آن‌ها را در کد دیگران خواهید دید.</p>
+<p>از این رو در مرحله‌ای از آموزش Python خود باید آن‌ها را درک کنید.</p>
+<section id="decorator">
+<h3><span class="section-number">20.4.1. </span>Decoratorها<a class="headerlink" href="#decorator" title="Link to this heading">#</a></h3>
+<p id="index-7">Decoratorها کمی نحو شیرین هستند که، اگرچه به راحتی قابل اجتناب هستند، محبوب شده‌اند.</p>
+<p>بسیار آسان است بگوییم که decoratorها چه کاری انجام می‌دهند.</p>
+<p>از طرف دیگر توضیح اینکه <em>چرا</em> ممکن است از آن‌ها استفاده کنید، کمی تلاش می‌طلبد.</p>
+<section id="id7">
+<h4><span class="section-number">20.4.1.1. </span>یک مثال<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>فرض کنید روی برنامه‌ای کار می‌کنیم که شبیه این است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">42</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Program continues with various calculations using f and g</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>اکنون فرض کنید مشکلی وجود دارد: گاهی اوقات اعداد منفی به <code class="docutils literal notranslate"><span class="pre">f</span></code> و <code class="docutils literal notranslate"><span class="pre">g</span></code> در محاسباتی که دنبال می‌شود، وارد می‌شوند.</p>
+<p>اگر امتحان کنید، خواهید دید که وقتی این توابع با اعداد منفی فراخوانی می‌شوند، یک شیء NumPy به نام <code class="docutils literal notranslate"><span class="pre">nan</span></code> را برمی‌گردانند.</p>
+<p>این مخفف “not a number” است (و نشان می‌دهد که شما در حال ارزیابی یک تابع ریاضی در نقطه‌ای هستید که تعریف نشده است).</p>
+<p>شاید این همان چیزی نیست که می‌خواهیم، زیرا مشکلات دیگری را ایجاد می‌کند که بعداً سخت قابل تشخیص هستند.</p>
+<p>فرض کنید به جای آن می‌خواهیم برنامه هر زمان که این اتفاق می‌افتد خاتمه یابد، با یک پیام خطای معقول.</p>
+<p>این تغییر به اندازه کافی آسان برای پیاده‌سازی است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Argument must be nonnegative&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Argument must be nonnegative&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">42</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Program continues with various calculations using f and g</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>با این حال متوجه شوید که اینجا کمی تکرار وجود دارد، به شکل دو خط یکسان کد.</p>
+<p>تکرار کد ما را طولانی‌تر و سخت‌تر برای نگهداری می‌کند، و از این رو چیزی است که سخت تلاش می‌کنیم از آن اجتناب کنیم.</p>
+<p>اینجا مشکل بزرگی نیست، اما حالا تصور کنید به جای فقط <code class="docutils literal notranslate"><span class="pre">f</span></code> و <code class="docutils literal notranslate"><span class="pre">g</span></code>، ما 20 تابع داریم که باید دقیقاً به همین شکل تغییر کنیم.</p>
+<p>این یعنی باید منطق تست (یعنی خط <code class="docutils literal notranslate"><span class="pre">assert</span></code> که غیرمنفی بودن را تست می‌کند) را 20 بار تکرار کنیم.</p>
+<p>وضعیت حتی بدتر است اگر منطق تست طولانی‌تر و پیچیده‌تر باشد.</p>
+<p>در این نوع سناریو رویکرد زیر منظم‌تر خواهد بود</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_nonneg</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">safe_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Argument must be nonnegative&quot;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">safe_function</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">42</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">check_nonneg</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">check_nonneg</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="c1"># Program continues with various calculations using f and g</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>این پیچیده به نظر می‌رسد، پس بیایید آرام آرام روی آن کار کنیم.</p>
+<p>برای باز کردن منطق، در نظر بگیرید چه اتفاقی می‌افتد وقتی می‌گوییم <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">check_nonneg(f)</span></code>.</p>
+<p>این تابع <code class="docutils literal notranslate"><span class="pre">check_nonneg</span></code> را با پارامتر <code class="docutils literal notranslate"><span class="pre">func</span></code> برابر با <code class="docutils literal notranslate"><span class="pre">f</span></code> فراخوانی می‌کند.</p>
+<p>اکنون <code class="docutils literal notranslate"><span class="pre">check_nonneg</span></code> یک تابع جدید به نام <code class="docutils literal notranslate"><span class="pre">safe_function</span></code> ایجاد می‌کند که
+<code class="docutils literal notranslate"><span class="pre">x</span></code> را به عنوان غیرمنفی تأیید می‌کند و سپس <code class="docutils literal notranslate"><span class="pre">func</span></code> را روی آن فراخوانی می‌کند (که همان <code class="docutils literal notranslate"><span class="pre">f</span></code> است).</p>
+<p>در نهایت، نام سراسری <code class="docutils literal notranslate"><span class="pre">f</span></code> برابر با <code class="docutils literal notranslate"><span class="pre">safe_function</span></code> قرار می‌گیرد.</p>
+<p>اکنون رفتار <code class="docutils literal notranslate"><span class="pre">f</span></code> همان‌طور که می‌خواهیم است، و همینطور برای <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
+<p>در عین حال، منطق تست فقط یک بار نوشته شده است.</p>
+</section>
+<section id="id8">
+<h4><span class="section-number">20.4.1.2. </span>Decoratorها وارد می‌شوند<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p id="index-8">نسخه آخر کد ما هنوز ایده‌آل نیست.</p>
+<p>به عنوان مثال، اگر کسی کد ما را بخواند و بخواهد بداند که
+<code class="docutils literal notranslate"><span class="pre">f</span></code> چگونه کار می‌کند، به دنبال تعریف تابع خواهد گشت، که این است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ممکن است خط <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">check_nonneg(f)</span></code> را از دست بدهند.</p>
+<p>به این و دلایل دیگر، decoratorها به Python معرفی شدند.</p>
+<p>با decoratorها، می‌توانیم خطوط</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">42</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">check_nonneg</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">check_nonneg</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>را با</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@check_nonneg</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="nd">@check_nonneg</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">42</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>جایگزین کنیم</p>
+<p>این دو قطعه کد دقیقاً همان کار را انجام می‌دهند.</p>
+<p>اگر همان کار را انجام می‌دهند، آیا واقعاً به نحو decorator نیاز داریم؟</p>
+<p>خب، توجه کنید که decoratorها دقیقاً بالای تعاریف تابع قرار دارند.</p>
+<p>بنابراین هر کسی که به تعریف تابع نگاه می‌کند، آن‌ها را خواهد دید و از
+اینکه تابع تغییر یافته است، آگاه خواهد شد.</p>
+<p>به نظر بسیاری از افراد، این نحو decorator را به یک بهبود قابل توجه برای زبان تبدیل می‌کند.</p>
+</section>
+</section>
+<section id="descriptor">
+<span id="descriptors"></span><h3><span class="section-number">20.4.2. </span>Descriptorها<a class="headerlink" href="#descriptor" title="Link to this heading">#</a></h3>
+<p id="index-9">Descriptorها مشکل رایجی را در مورد مدیریت متغیرها حل می‌کنند.</p>
+<p>برای درک موضوع، یک کلاس <code class="docutils literal notranslate"><span class="pre">Car</span></code> را در نظر بگیرید که یک ماشین را شبیه‌سازی می‌کند.</p>
+<p>فرض کنید این کلاس متغیرهای <code class="docutils literal notranslate"><span class="pre">miles</span></code> و <code class="docutils literal notranslate"><span class="pre">kms</span></code> را تعریف می‌کند که به ترتیب فاصله طی شده به مایل
+و کیلومتر را نشان می‌دهند.</p>
+<p>یک نسخه بسیار ساده‌شده از کلاس ممکن است به شکل زیر باشد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="n">miles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kms</span> <span class="o">=</span> <span class="n">miles</span> <span class="o">*</span> <span class="mf">1.61</span>
+
+    <span class="c1"># Some other functionality, details omitted</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>یک مشکل احتمالی که ممکن است اینجا داشته باشیم این است که کاربر یکی از این
+متغیرها را تغییر دهد اما دیگری را نه</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">car</span><span class="o">.</span><span class="n">miles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car</span><span class="o">.</span><span class="n">kms</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1610.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="n">car</span><span class="o">.</span><span class="n">kms</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1610.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>در دو خط آخر می‌بینیم که <code class="docutils literal notranslate"><span class="pre">miles</span></code> و <code class="docutils literal notranslate"><span class="pre">kms</span></code> همگام نیستند.</p>
+<p>آنچه واقعاً می‌خواهیم یک مکانیسم است که به موجب آن هر زمان که کاربر یکی از این متغیرها را تنظیم می‌کند، <em>دیگری به طور خودکار به‌روز شود</em>.</p>
+<section id="id9">
+<h4><span class="section-number">20.4.2.1. </span>یک راه‌حل<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<p>در Python، این موضوع با استفاده از <em>descriptorها</em> حل می‌شود.</p>
+<p>یک descriptor فقط یک شیء Python است که متدهای خاصی را پیاده‌سازی می‌کند.</p>
+<p>این متدها زمانی فعال می‌شوند که شیء از طریق نشانه‌گذاری ویژگی نقطه‌دار قابل دسترسی باشد.</p>
+<p>بهترین راه برای درک این موضوع دیدن آن در عمل است.</p>
+<p>این نسخه جایگزین از کلاس <code class="docutils literal notranslate"><span class="pre">Car</span></code> را در نظر بگیرید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span> <span class="o">=</span> <span class="n">miles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span> <span class="o">=</span> <span class="n">miles</span> <span class="o">*</span> <span class="mf">1.61</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mf">1.61</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_kms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mf">1.61</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_miles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_kms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span>
+
+    <span class="n">miles</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_miles</span><span class="p">,</span> <span class="n">set_miles</span><span class="p">)</span>
+    <span class="n">kms</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_kms</span><span class="p">,</span> <span class="n">set_kms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ابتدا بیایید بررسی کنیم که رفتار مورد نظر را دریافت می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">car</span><span class="o">.</span><span class="n">miles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car</span><span class="o">.</span><span class="n">miles</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="n">car</span><span class="o">.</span><span class="n">kms</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9660.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>بله، این همان چیزی است که می‌خواهیم — <code class="docutils literal notranslate"><span class="pre">car.kms</span></code> به طور خودکار به‌روز می‌شود.</p>
+</section>
+<section id="id10">
+<h4><span class="section-number">20.4.2.2. </span>چگونه کار می‌کند<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p>نام‌های <code class="docutils literal notranslate"><span class="pre">_miles</span></code> و <code class="docutils literal notranslate"><span class="pre">_kms</span></code> نام‌های دلخواهی هستند که برای ذخیره مقادیر متغیرها استفاده می‌کنیم.</p>
+<p>اشیاء <code class="docutils literal notranslate"><span class="pre">miles</span></code> و <code class="docutils literal notranslate"><span class="pre">kms</span></code> <em>propertyها</em> هستند، نوع رایجی از descriptor.</p>
+<p>متدهای <code class="docutils literal notranslate"><span class="pre">get_miles</span></code>، <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>، <code class="docutils literal notranslate"><span class="pre">get_kms</span></code> و <code class="docutils literal notranslate"><span class="pre">set_kms</span></code> تعریف
+می‌کنند که چه اتفاقی می‌افتد وقتی این متغیرها را دریافت (یعنی دسترسی) یا تنظیم (اتصال) می‌کنید</p>
+<ul class="simple">
+<li><p>متدهای به اصطلاح “getter” و “setter”.</p></li>
+</ul>
+<p>تابع داخلی Python به نام <code class="docutils literal notranslate"><span class="pre">property</span></code> متدهای getter و setter را می‌گیرد و یک property ایجاد می‌کند.</p>
+<p>به عنوان مثال، بعد از اینکه <code class="docutils literal notranslate"><span class="pre">car</span></code> به عنوان یک نمونه از <code class="docutils literal notranslate"><span class="pre">Car</span></code> ایجاد شد، شیء <code class="docutils literal notranslate"><span class="pre">car.miles</span></code> یک property است.</p>
+<p>به عنوان یک property، وقتی مقدار آن را از طریق <code class="docutils literal notranslate"><span class="pre">car.miles</span> <span class="pre">=</span> <span class="pre">6000</span></code> تنظیم می‌کنیم، متد setter
+آن فعال می‌شود — در این مورد <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>.</p>
+</section>
+<section id="decorator-property">
+<h4><span class="section-number">20.4.2.3. </span>Decoratorها و Propertyها<a class="headerlink" href="#decorator-property" title="Link to this heading">#</a></h4>
+<p id="index-11"><span id="index-10"></span>این روزها بسیار رایج است که تابع <code class="docutils literal notranslate"><span class="pre">property</span></code> را از طریق یک decorator ببینید.</p>
+<p>اینجا نسخه دیگری از کلاس <code class="docutils literal notranslate"><span class="pre">Car</span></code> ما است که مانند قبل کار می‌کند اما حالا از
+decoratorها برای تنظیم propertyها استفاده می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span> <span class="o">=</span> <span class="n">miles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span> <span class="o">=</span> <span class="n">miles</span> <span class="o">*</span> <span class="mf">1.61</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">kms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span>
+
+    <span class="nd">@miles</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">miles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mf">1.61</span>
+
+    <span class="nd">@kms</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">kms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kms</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_miles</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mf">1.61</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>از همه جزئیات اینجا نمی‌گذریم.</p>
+<p>برای اطلاعات بیشتر می‌توانید به <a class="reference external" href="https://docs.python.org/3/howto/descriptor.html">مستندات descriptor</a> مراجعه کنید.</p>
+</section>
+</section>
+</section>
+<section id="generator">
+<span id="paf-generators"></span><h2><span class="section-number">20.5. </span>Generatorها<a class="headerlink" href="#generator" title="Link to this heading">#</a></h2>
+<p id="index-12">یک generator نوعی iterator است (یعنی با تابع <code class="docutils literal notranslate"><span class="pre">next</span></code> کار می‌کند).</p>
+<p>دو راه برای ساخت generatorها مطالعه خواهیم کرد: عبارات generator و توابع generator.</p>
+<section id="id11">
+<h3><span class="section-number">20.5.1. </span>عبارات Generator<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>ساده‌ترین راه برای ساخت generatorها استفاده از <em>عبارات generator</em> است.</p>
+<p>درست مانند list comprehension، اما با پرانتز گرد.</p>
+<p>اینجا list comprehension است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">singular</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">singular</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plural</span> <span class="o">=</span> <span class="p">[</span><span class="n">string</span> <span class="o">+</span> <span class="s1">&#39;s&#39;</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">singular</span><span class="p">]</span>
+<span class="n">plural</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dogs&#39;, &#39;cats&#39;, &#39;birds&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">plural</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>و اینجا عبارت generator است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">singular</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">)</span>
+<span class="n">plural</span> <span class="o">=</span> <span class="p">(</span><span class="n">string</span> <span class="o">+</span> <span class="s1">&#39;s&#39;</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">singular</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">plural</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generator
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">plural</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dogs&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">plural</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cats&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">plural</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;birds&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>از آنجایی که <code class="docutils literal notranslate"><span class="pre">sum()</span></code> می‌تواند روی iteratorها فراخوانی شود، می‌توانیم این کار را انجام دهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>285
+</pre></div>
+</div>
+</div>
+</div>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">sum()</span></code> برای دریافت آیتم‌ها، <code class="docutils literal notranslate"><span class="pre">next()</span></code> را فراخوانی می‌کند و جملات متوالی را جمع می‌کند.</p>
+<p>در واقع، می‌توانیم در این مورد پرانتزهای بیرونی را حذف کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>285
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id12">
+<h3><span class="section-number">20.5.2. </span>توابع Generator<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p id="index-13">انعطاف‌پذیرترین راه برای ایجاد اشیاء generator استفاده از توابع generator است.</p>
+<p>بیایید به چند مثال نگاه کنیم.</p>
+<section id="id13">
+<h4><span class="section-number">20.5.2.1. </span>مثال 1<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p>اینجا یک مثال بسیار ساده از یک تابع generator است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s1">&#39;start&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;middle&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;end&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>شبیه یک تابع به نظر می‌رسد، اما از کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">yield</span></code> استفاده می‌کند که قبلاً با آن آشنا نشده‌ایم.</p>
+<p>بیایید ببینیم بعد از اجرای این کد چگونه کار می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>function
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+<span class="n">gen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fc207d8eb90&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;start&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;middle&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;end&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">62</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>تابع generator <code class="docutils literal notranslate"><span class="pre">f()</span></code> برای ایجاد اشیاء generator استفاده می‌شود (در این مورد <code class="docutils literal notranslate"><span class="pre">gen</span></code>).</p>
+<p>Generatorها iterator هستند، زیرا از متد <code class="docutils literal notranslate"><span class="pre">next</span></code> پشتیبانی می‌کنند.</p>
+<p>اولین فراخوانی <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code></p>
+<ul class="simple">
+<li><p>کد در بدنه <code class="docutils literal notranslate"><span class="pre">f()</span></code> را تا زمانی که با دستور <code class="docutils literal notranslate"><span class="pre">yield</span></code> مواجه شود، اجرا می‌کند.</p></li>
+<li><p>آن مقدار را به فراخواننده <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code> برمی‌گرداند.</p></li>
+</ul>
+<p>فراخوانی دوم <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code> از <em>خط بعدی</em> شروع به اجرا می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s1">&#39;start&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;middle&#39;</span>  <span class="c1"># This line!</span>
+    <span class="k">yield</span> <span class="s1">&#39;end&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>و تا دستور <code class="docutils literal notranslate"><span class="pre">yield</span></code> بعدی ادامه می‌دهد.</p>
+<p>در آن نقطه مقدار بعد از <code class="docutils literal notranslate"><span class="pre">yield</span></code> را به فراخواننده <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code> برمی‌گرداند، و غیره.</p>
+<p>وقتی بلوک کد تمام می‌شود، generator یک خطای <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> پرتاب می‌کند.</p>
+</section>
+<section id="id14">
+<h4><span class="section-number">20.5.2.2. </span>مثال 2<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<p>مثال بعدی ما یک آرگومان <code class="docutils literal notranslate"><span class="pre">x</span></code> را از فراخواننده دریافت می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بیایید ببینیم چگونه کار می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.g(x)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generator
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">70</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>فراخوانی <code class="docutils literal notranslate"><span class="pre">gen</span> <span class="pre">=</span> <span class="pre">g(2)</span></code> ، <code class="docutils literal notranslate"><span class="pre">gen</span></code> را به یک generator متصل می‌کند.</p>
+<p>در داخل generator، نام <code class="docutils literal notranslate"><span class="pre">x</span></code> به <code class="docutils literal notranslate"><span class="pre">2</span></code> متصل است.</p>
+<p>وقتی <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code> را فراخوانی می‌کنیم</p>
+<ul class="simple">
+<li><p>بدنه <code class="docutils literal notranslate"><span class="pre">g()</span></code> تا خط <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">x</span></code> اجرا می‌شود و مقدار <code class="docutils literal notranslate"><span class="pre">x</span></code> برگردانده می‌شود.</p></li>
+</ul>
+<p>توجه کنید که مقدار <code class="docutils literal notranslate"><span class="pre">x</span></code> در داخل generator حفظ می‌شود.</p>
+<p>وقتی دوباره <code class="docutils literal notranslate"><span class="pre">next(gen)</span></code> را فراخوانی می‌کنیم، اجرا <em>از جایی که متوقف شده بود</em> ادامه می‌یابد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>  <span class="c1"># execution continues from here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>وقتی <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100</span></code> شکست می‌خورد، generator یک خطای <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> پرتاب می‌کند.</p>
+<p>اتفاقاً، حلقه داخل generator می‌تواند بی‌نهایت باشد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id15">
+<h3><span class="section-number">20.5.3. </span>مزایای Iteratorها<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>مزیت استفاده از iterator اینجا چیست؟</p>
+<p>فرض کنید می‌خواهیم از یک binomial(n,0.5) نمونه بگیریم.</p>
+<p>یک راه برای انجام آن به شرح زیر است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">draws</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">draws</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5002391
+</pre></div>
+</div>
+</div>
+</div>
+<p>اما ما در حال ایجاد دو لیست بزرگ هستیم، <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> و <code class="docutils literal notranslate"><span class="pre">draws</span></code>.</p>
+<p>این از حافظه زیادی استفاده می‌کند و بسیار کند است.</p>
+<p>اگر <code class="docutils literal notranslate"><span class="pre">n</span></code> را حتی بزرگ‌تر کنیم، این اتفاق می‌افتد</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100000000</span>
+<span class="n">draws</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>می‌توانیم با استفاده از iteratorها از این مشکلات اجتناب کنیم.</p>
+<p>اینجا تابع generator است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>حالا بیایید جمع را انجام دهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">draws</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">draws</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fc207908520&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">draws</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000871
+</pre></div>
+</div>
+</div>
+</div>
+<p>خلاصه، iterableها</p>
+<ul class="simple">
+<li><p>نیاز به ایجاد لیست‌ها/tupleهای بزرگ را از بین می‌برند، و</p></li>
+<li><p>یک رابط یکنواخت برای تکرار فراهم می‌کنند که می‌تواند به صورت شفاف در حلقه‌های <code class="docutils literal notranslate"><span class="pre">for</span></code> استفاده شود</p></li>
+</ul>
+</section>
+</section>
+<section id="id16">
+<h2><span class="section-number">20.6. </span>تمرین‌ها<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<div class="exercise admonition" id="paf_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 20.1 </span></p>
+<section id="exercise-content">
+<p>کد زیر را کامل کنید و آن را با استفاده از <a class="reference external" href="https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv">این فایل csv</a> تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید</p>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">column_iterator</span><span class="p">(</span><span class="n">target_file</span><span class="p">,</span> <span class="n">column_number</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A generator function for CSV files.</span>
+<span class="sd">    When called with a file name target_file (string) and column number</span>
+<span class="sd">    column_number (integer), the generator function returns a generator</span>
+<span class="sd">    that steps through the elements of column column_number in file</span>
+<span class="sd">    target_file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># put your code here</span>
+
+<span class="n">dates</span> <span class="o">=</span> <span class="n">column_iterator</span><span class="p">(</span><span class="s1">&#39;test_table.csv&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="solution dropdown admonition" id="python_advanced_features-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#paf_ex1"> Exercise 20.1</a></p>
+<section id="solution-content">
+<p>یک راه‌حل به شرح زیر است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">column_iterator</span><span class="p">(</span><span class="n">target_file</span><span class="p">,</span> <span class="n">column_number</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A generator function for CSV files.</span>
+<span class="sd">    When called with a file name target_file (string) and column number</span>
+<span class="sd">    column_number (integer), the generator function returns a generator</span>
+<span class="sd">    which steps through the elements of column column_number in file</span>
+<span class="sd">    target_file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">target_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="n">column_number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">dates</span> <span class="o">=</span> <span class="n">column_iterator</span><span class="p">(</span><span class="s1">&#39;test_table.csv&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
+2009-05-21
+2009-05-20
+2009-05-19
+2009-05-18
+2009-05-15
+2009-05-14
+2009-05-13
+2009-05-12
+2009-05-11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   20. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/python_advanced_features.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/python_advanced_features.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/python_advanced_features.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/python_advanced_features.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "python_advanced_features";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/python_advanced_features.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

@@ -1,0 +1,1373 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. SciPy &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'scipy';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/scipy.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Numba" href="numba.html" />
+    <link rel="prev" title="11. Matplotlib" href="matplotlib.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="SciPy"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="SciPy" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/scipy.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=scipy>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-numpy">12.2. SciPy در مقابل NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.3. آمار</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">12.3.1. متغیرهای تصادفی و توزیع‌ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">12.3.2. نحو جایگزین</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy-stats">12.3.3. چیزهای مفید دیگر در scipy.stats</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">12.4. ریشه‌ها و نقاط ثابت</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisection">12.4.1. Bisection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-raphson-method">12.4.2. روش Newton-Raphson Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">12.4.3. روش‌های ترکیبی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">12.4.4. یافتن ریشه چند متغیره</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">12.4.5. نقاط ثابت</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">12.5. Optimization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">12.5.1. بهینه‌سازی چند متغیره</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">12.6. Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">12.7. Linear Algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">12.8. تمرین‌ها</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Jan 29, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/scipy.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/714d86c" class="changelog-hash">714d86c</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 hours ago</span>
+                                <span class="changelog-message">Add lecture: SciPy <single: SciPy> (#35)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="scipy">
+<h1><span class="section-number">12. </span><span class="target" id="index-0"></span>SciPy<a class="headerlink" href="#scipy" title="Link to this heading">#</a></h1>
+<p id="index-1">علاوه بر آنچه در Anaconda موجود است، این سخنرانی به کتابخانه‌های زیر نیاز خواهد داشت:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>quantecon
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.16.3)
+Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.14.0)
+Requirement already satisfied: llvmlite&lt;0.46,&gt;=0.45.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.45.1)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.4.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.11)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.5.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.11.12)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>ما از import های زیر استفاده می‌کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h2><span class="section-number">12.1. </span>مروری کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://scipy.org/">SciPy</a> بر روی NumPy ساخته شده است تا ابزارهای متداول برای برنامه‌نویسی علمی را فراهم کند، از جمله</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">جبر خطی</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html">انتگرال‌گیری عددی</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">درون‌یابی</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">بهینه‌سازی</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">توزیع‌ها و تولید اعداد تصادفی</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/signal.html">پردازش سیگنال</a></p></li>
+<li><p>و غیره، و غیره</p></li>
+</ul>
+<p>همانند NumPy، SciPy پایدار، بالغ و به طور گسترده‌ای استفاده می‌شود.</p>
+<p>بسیاری از روال‌های SciPy پوشش‌های نازکی در اطراف کتابخانه‌های استاندارد صنعتی Fortran مانند <a class="reference external" href="https://en.wikipedia.org/wiki/LAPACK">LAPACK</a>، <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> و غیره هستند.</p>
+<p>واقعاً نیازی به “یادگیری” SciPy به عنوان یک کل نیست.</p>
+<p>رویکرد متداول‌تر این است که ایده‌ای کلی از آنچه در کتابخانه موجود است به دست آورید و سپس در صورت نیاز به <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">مستندات</a> مراجعه کنید.</p>
+<p>در این سخنرانی، ما فقط قصد داریم برخی بخش‌های مفید بسته را برجسته کنیم.</p>
+</section>
+<section id="scipy-numpy">
+<h2><span class="section-number">12.2. </span><span class="target" id="index-2"></span>SciPy در مقابل <span class="target" id="index-3"></span>NumPy<a class="headerlink" href="#scipy-numpy" title="Link to this heading">#</a></h2>
+<p>SciPy بسته‌ای است که حاوی ابزارهای مختلفی است که بر روی NumPy ساخته شده‌اند و از نوع داده آرایه و عملکردهای مرتبط آن استفاده می‌کنند.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>در نسخه‌های قدیمی‌تر SciPy (<code class="docutils literal notranslate"><span class="pre">scipy</span> <span class="pre">&lt;</span> <span class="pre">0.15.1</span></code>)، import کردن بسته، سمبل‌های NumPy را نیز به فضای نام سراسری import می‌کرد، همانطور که از این گزیده از فایل مقداردهی اولیه SciPy مشخص است:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">rand</span><span class="p">,</span> <span class="n">randn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">ifft</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.lib.scimath</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>با این حال، رویه بهتری است که از عملکرد NumPy به صورت صریح استفاده شود.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>نسخه‌های اخیر SciPy (1.15+) دیگر به طور خودکار سمبل‌های NumPy را import نمی‌کنند.</p>
+</div>
+<p>آنچه در SciPy مفید است، عملکرد در زیربسته‌های آن است</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>، <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>، <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> و غیره.</p></li>
+</ul>
+<p>بیایید برخی از زیربسته‌های اصلی را بررسی کنیم.</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">12.3. </span>آمار<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p id="index-4">زیربسته <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> موارد زیر را ارائه می‌دهد</p>
+<ul class="simple">
+<li><p>اشیاء متغیر تصادفی متعدد (چگالی‌ها، توزیع‌های تجمعی، نمونه‌برداری تصادفی و غیره)</p></li>
+<li><p>برخی روش‌های تخمین</p></li>
+<li><p>برخی آزمون‌های آماری</p></li>
+</ul>
+<section id="id3">
+<h3><span class="section-number">12.3.1. </span>متغیرهای تصادفی و توزیع‌ها<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>به یاد بیاورید که <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> توابعی را برای تولید متغیرهای تصادفی فراهم می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.40839629, 0.58178179, 0.4008638 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>این یک نمونه از توزیع با تابع چگالی زیر را وقتی <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">5,</span> <span class="pre">5</span></code> تولید می‌کند</p>
+<div class="math notranslate nohighlight" id="equation-betadist2">
+<span class="eqno">(12.1)<a class="headerlink" href="#equation-betadist2" title="Link to this equation">#</a></span>\[f(x; a, b) = \frac{x^{(a - 1)} (1 - x)^{(b - 1)}}
+    {\int_0^1 u^{(a - 1)} (1 - u)^{(b - 1)} du}
+    \qquad (0 \leq x \leq 1)\]</div>
+<p>گاهی اوقات ما نیاز به دسترسی به خود چگالی، یا cdf، چندک‌ها و غیره داریم.</p>
+<p>برای این منظور، می‌توانیم از <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> استفاده کنیم که تمام این عملکرد و همچنین تولید اعداد تصادفی را در یک رابط سازگار واحد فراهم می‌کند.</p>
+<p>این یک مثال از استفاده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c1"># Beta(a, b), with a = b = 5</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>   <span class="c1"># 2000 observations</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8ebe69d872865376f6cdc6c87d8a4210d8188eae957508d3524b92c6f966a8f6.png" src="_images/8ebe69d872865376f6cdc6c87d8a4210d8188eae957508d3524b92c6f966a8f6.png" />
+</div>
+</div>
+<p>شیء <code class="docutils literal notranslate"><span class="pre">q</span></code> که نماینده توزیع است، متدهای مفید دیگری نیز دارد، از جمله</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>      <span class="c1"># Cumulative distribution function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.26656768000000003)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>      <span class="c1"># Quantile (inverse cdf) function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.6339134834642708)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>نحو کلی برای ایجاد این اشیا که نمایانگر توزیع‌ها هستند (از نوع <code class="docutils literal notranslate"><span class="pre">rv_frozen</span></code>) به صورت زیر است</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">=</span> <span class="pre">scipy.stats.distribution_name(shape_parameters,</span> <span class="pre">loc=c,</span> <span class="pre">scale=d)</span></code></p>
+</div></blockquote>
+<p>اینجا <code class="docutils literal notranslate"><span class="pre">distribution_name</span></code> یکی از نام‌های توزیع در <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy.stats</a> است.</p>
+<p>پارامترهای <code class="docutils literal notranslate"><span class="pre">loc</span></code> و <code class="docutils literal notranslate"><span class="pre">scale</span></code> متغیر تصادفی اصلی
+<span class="math notranslate nohighlight">\(X\)</span> را به <span class="math notranslate nohighlight">\(Y = c + d X\)</span> تبدیل می‌کنند.</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">12.3.2. </span>نحو جایگزین<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>یک روش جایگزین برای فراخوانی متدهای توصیف شده در بالا وجود دارد.</p>
+<p>به عنوان مثال، کدی که نمودار بالا را تولید می‌کند می‌تواند با کد زیر جایگزین شود</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/905351452e98d25d49ce5962db751892446465522b548ee63ef1bf6105f2b104.png" src="_images/905351452e98d25d49ce5962db751892446465522b548ee63ef1bf6105f2b104.png" />
+</div>
+</div>
+</section>
+<section id="scipy-stats">
+<h3><span class="section-number">12.3.3. </span>چیزهای مفید دیگر در scipy.stats<a class="headerlink" href="#scipy-stats" title="Link to this heading">#</a></h3>
+<p>انواع توابع آماری در <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> وجود دارد.</p>
+<p>به عنوان مثال، <code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress</span></code> رگرسیون خطی ساده را پیاده‌سازی می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">linregress</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">gradient</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">gradient</span><span class="p">,</span> <span class="n">intercept</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(1.989269287863053), np.float64(0.0021481956158785204))
+</pre></div>
+</div>
+</div>
+</div>
+<p>برای مشاهده لیست کامل، <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html#statistical-functions-scipy-stats">مستندات</a> را مشاهده کنید.</p>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">12.4. </span>ریشه‌ها و نقاط ثابت<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>یک <strong>ریشه</strong> یا <strong>صفر</strong> یک تابع حقیقی <span class="math notranslate nohighlight">\(f\)</span> در <span class="math notranslate nohighlight">\([a,b]\)</span> یک <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> است به طوری که <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
+<p>به عنوان مثال، اگر تابع زیر را رسم کنیم</p>
+<div class="math notranslate nohighlight" id="equation-root-f">
+<span class="eqno">(12.2)<a class="headerlink" href="#equation-root-f" title="Link to this equation">#</a></span>\[f(x) = \sin(4 (x - 1/4)) + x + x^{20} - 1\]</div>
+<p>با <span class="math notranslate nohighlight">\(x \in [0,1]\)</span> به نتیجه زیر می‌رسیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">20</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$f(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fca576a46409728617dc70af98b9acd5a1763eb89404616a57d6e0c57751a383.png" src="_images/fca576a46409728617dc70af98b9acd5a1763eb89404616a57d6e0c57751a383.png" />
+</div>
+</div>
+<p>ریشه یکتا تقریباً 0.408 است.</p>
+<p>بیایید برخی تکنیک‌های عددی برای یافتن ریشه‌ها را در نظر بگیریم.</p>
+<section id="bisection">
+<h3><span class="section-number">12.4.1. </span><span class="target" id="index-5"></span>Bisection<a class="headerlink" href="#bisection" title="Link to this heading">#</a></h3>
+<p id="index-6">یکی از متداول‌ترین الگوریتم‌ها برای یافتن ریشه عددی، <em>نصف کردن</em> است.</p>
+<p>برای درک ایده، بازی شناخته شده زیر را به یاد بیاورید که</p>
+<ul class="simple">
+<li><p>بازیکن A به یک عدد مخفی بین 1 و 100 فکر می‌کند</p></li>
+<li><p>بازیکن B می‌پرسد آیا کمتر از 50 است</p>
+<ul>
+<li><p>اگر بله، B می‌پرسد آیا کمتر از 25 است</p></li>
+<li><p>اگر خیر، B می‌پرسد آیا کمتر از 75 است</p></li>
+</ul>
+</li>
+</ul>
+<p>و به همین ترتیب.</p>
+<p>این همان نصف کردن است.</p>
+<p>در اینجا یک پیاده‌سازی ساده از الگوریتم در Python آورده شده است.</p>
+<p>برای تمام توابع پیوسته صعودی با رفتار مناسب با <span class="math notranslate nohighlight">\(f(a) &lt; 0 &lt; f(b)\)</span> کار می‌کند</p>
+<div class="cell docutils container" id="bisect-func">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements the bisection root finding algorithm, assuming that f is a</span>
+<span class="sd">    real-valued function on [a, b] satisfying f(a) &lt; 0 &lt; f(b).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+
+    <span class="k">while</span> <span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">middle</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># root is between lower and middle</span>
+            <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">lower</span><span class="p">,</span> <span class="n">middle</span>
+        <span class="k">else</span><span class="p">:</span>               <span class="c1"># root is between middle and upper</span>
+            <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">middle</span><span class="p">,</span> <span class="n">upper</span>
+
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بیایید آن را با استفاده از تابع <span class="math notranslate nohighlight">\(f\)</span> تعریف شده در <a class="reference internal" href="#equation-root-f">(12.2)</a> آزمایش کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.408294677734375
+</pre></div>
+</div>
+</div>
+</div>
+<p>جای تعجب نیست که SciPy تابع نصف کردن خود را ارائه می‌دهد.</p>
+<p>بیایید آن را با استفاده از همان تابع <span class="math notranslate nohighlight">\(f\)</span> تعریف شده در <a class="reference internal" href="#equation-root-f">(12.2)</a> آزمایش کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">bisect</span>
+
+<span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4082935042806639
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="newton-raphson-method">
+<h3><span class="section-number">12.4.2. </span>روش <span class="target" id="index-7"></span>Newton-Raphson Method<a class="headerlink" href="#newton-raphson-method" title="Link to this heading">#</a></h3>
+<p id="index-8">یکی دیگر از الگوریتم‌های بسیار متداول یافتن ریشه، <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">روش نیوتن-رافسون</a> است.</p>
+<p>در SciPy این الگوریتم توسط <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton</span></code> پیاده‌سازی شده است.</p>
+<p>برخلاف نصف کردن، روش نیوتن-رافسون از اطلاعات شیب محلی در تلاش برای افزایش سرعت همگرایی استفاده می‌کند.</p>
+<p>بیایید این را با استفاده از همان تابع <span class="math notranslate nohighlight">\(f\)</span> تعریف شده در بالا بررسی کنیم.</p>
+<p>با یک شرط اولیه مناسب برای جستجو، همگرایی به دست می‌آید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">newton</span>
+
+<span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>   <span class="c1"># Start the search at initial condition x = 0.2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.40829350427935673)
+</pre></div>
+</div>
+</div>
+</div>
+<p>اما شرایط اولیه دیگر منجر به شکست در همگرایی می‌شوند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>   <span class="c1"># Start the search at x = 0.7 instead</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7001700000000279)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3><span class="section-number">12.4.3. </span>روش‌های ترکیبی<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>یک اصل کلی روش‌های عددی به شرح زیر است:</p>
+<ul class="simple">
+<li><p>اگر دانش خاصی درباره یک مسئله معین دارید، ممکن است بتوانید از آن برای ایجاد کارایی بهره‌برداری کنید.</p></li>
+<li><p>اگر نه، انتخاب الگوریتم شامل یک مبادله بین سرعت و استحکام است.</p></li>
+</ul>
+<p>در عمل، اکثر الگوریتم‌های پیش‌فرض برای یافتن ریشه، بهینه‌سازی و نقاط ثابت از روش‌های <em>ترکیبی</em> استفاده می‌کنند.</p>
+<p>این روش‌ها معمولاً یک روش سریع را با یک روش قوی به روش زیر ترکیب می‌کنند:</p>
+<ol class="arabic simple">
+<li><p>سعی کنید از یک روش سریع استفاده کنید</p></li>
+<li><p>تشخیص‌ها را بررسی کنید</p></li>
+<li><p>اگر تشخیص‌ها بد باشند، به یک الگوریتم قوی‌تر تبدیل شوید</p></li>
+</ol>
+<p>در <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>، تابع <code class="docutils literal notranslate"><span class="pre">brentq</span></code> چنین روش ترکیبی است و یک پیش‌فرض خوب</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">brentq</span>
+
+<span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40829350427936706
+</pre></div>
+</div>
+</div>
+</div>
+<p>اینجا راه‌حل صحیح یافت می‌شود و سرعت بهتر از نصف کردن است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s2">&quot;milliseconds&quot;</span><span class="p">):</span>
+    <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05 ms elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="s2">&quot;milliseconds&quot;</span><span class="p">):</span>
+    <span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18 ms elapsed
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">12.4.4. </span>یافتن ریشه چند متغیره<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p id="index-9">از <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code> استفاده کنید، یک wrapper برای یک روش ترکیبی در MINPACK.</p>
+<p>برای جزئیات <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">مستندات</a> را ببینید.</p>
+</section>
+<section id="id8">
+<h3><span class="section-number">12.4.5. </span>نقاط ثابت<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>یک <strong>نقطه ثابت</strong> یک تابع حقیقی <span class="math notranslate nohighlight">\(f\)</span> در <span class="math notranslate nohighlight">\([a,b]\)</span> یک <span class="math notranslate nohighlight">\(x \in [a, b]\)</span> است به طوری که <span class="math notranslate nohighlight">\(f(x)=x\)</span>.</p>
+<p id="index-10">SciPy تابعی برای یافتن نقاط ثابت (اسکالر) نیز دارد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fixed_point</span>
+
+<span class="n">fixed_point</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>  <span class="c1"># 10.0 is an initial guess</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(1.)
+</pre></div>
+</div>
+</div>
+</div>
+<p>اگر نتایج خوبی نگرفتید، همیشه می‌توانید به یافتن ریشه <code class="docutils literal notranslate"><span class="pre">brentq</span></code> برگردید، زیرا
+نقطه ثابت یک تابع <span class="math notranslate nohighlight">\(f\)</span> ریشه <span class="math notranslate nohighlight">\(g(x) := x - f(x)\)</span> است.</p>
+</section>
+</section>
+<section id="optimization">
+<h2><span class="section-number">12.5. </span><span class="target" id="index-11"></span>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
+<p id="index-12">اکثر بسته‌های عددی فقط توابعی برای <em>کمینه‌سازی</em> ارائه می‌دهند.</p>
+<p>بیشینه‌سازی را می‌توان با یادآوری این که بیشینه‌کننده یک تابع <span class="math notranslate nohighlight">\(f\)</span> در دامنه <span class="math notranslate nohighlight">\(D\)</span>
+کمینه‌کننده <span class="math notranslate nohighlight">\(-f\)</span> در <span class="math notranslate nohighlight">\(D\)</span> است انجام داد.</p>
+<p>کمینه‌سازی ارتباط نزدیکی با یافتن ریشه دارد: برای توابع هموار، بهینه‌های داخلی مطابق با ریشه‌های مشتق اول هستند.</p>
+<p>مبادله سرعت/استحکام توصیف شده در بالا نیز با بهینه‌سازی عددی وجود دارد.</p>
+<p>مگر اینکه اطلاعات قبلی داشته باشید که بتوانید از آن بهره‌برداری کنید، معمولاً بهتر است از روش‌های ترکیبی استفاده کنید.</p>
+<p>برای کمینه‌سازی تک متغیره (یعنی اسکالر) محدود، یک گزینه ترکیبی خوب <code class="docutils literal notranslate"><span class="pre">fminbound</span></code> است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fminbound</span>
+
+<span class="n">fminbound</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Search in [-1, 2]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id9">
+<h3><span class="section-number">12.5.1. </span>بهینه‌سازی چند متغیره<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p id="index-13">بهینه‌سازهای محلی چند متغیره شامل <code class="docutils literal notranslate"><span class="pre">minimize</span></code>، <code class="docutils literal notranslate"><span class="pre">fmin</span></code>، <code class="docutils literal notranslate"><span class="pre">fmin_powell</span></code>، <code class="docutils literal notranslate"><span class="pre">fmin_cg</span></code>، <code class="docutils literal notranslate"><span class="pre">fmin_bfgs</span></code> و <code class="docutils literal notranslate"><span class="pre">fmin_ncg</span></code> هستند.</p>
+<p>بهینه‌سازهای محلی چند متغیره محدود شامل <code class="docutils literal notranslate"><span class="pre">fmin_l_bfgs_b</span></code>، <code class="docutils literal notranslate"><span class="pre">fmin_tnc</span></code>، <code class="docutils literal notranslate"><span class="pre">fmin_cobyla</span></code> هستند.</p>
+<p>برای جزئیات <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">مستندات</a> را ببینید.</p>
+</section>
+</section>
+<section id="integration">
+<h2><span class="section-number">12.6. </span><span class="target" id="index-14"></span>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h2>
+<p id="index-15">اکثر روش‌های انتگرال‌گیری عددی با محاسبه انتگرال یک چندجمله‌ای تقریبی کار می‌کنند.</p>
+<p>خطای حاصل به این بستگی دارد که چندجمله‌ای چقدر به انتگرال‌گیرنده “متناسب” باشد، که به نوبه خود بستگی به این دارد که انتگرال‌گیرنده چقدر “منظم” است.</p>
+<p>در SciPy، ماژول مربوطه برای انتگرال‌گیری عددی <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> است.</p>
+<p>یک پیش‌فرض خوب برای انتگرال‌گیری تک متغیره <code class="docutils literal notranslate"><span class="pre">quad</span></code> است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+
+<span class="n">integral</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">integral</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33333333333333337
+</pre></div>
+</div>
+</div>
+</div>
+<p>در واقع، <code class="docutils literal notranslate"><span class="pre">quad</span></code> یک رابط برای یک روال بسیار استاندارد انتگرال‌گیری عددی در کتابخانه Fortran به نام QUADPACK است.</p>
+<p>از <a class="reference external" href="https://en.wikipedia.org/wiki/Clenshaw-Curtis_quadrature">کادراتور Clenshaw-Curtis</a> استفاده می‌کند که مبتنی بر بسط بر حسب چندجمله‌ای‌های Chebychev است.</p>
+<p>گزینه‌های دیگری نیز برای انتگرال‌گیری تک متغیره وجود دارد—یک گزینه مفید <code class="docutils literal notranslate"><span class="pre">fixed_quad</span></code> است که سریع است و بنابراین در داخل حلقه‌های <code class="docutils literal notranslate"><span class="pre">for</span></code> به خوبی کار می‌کند.</p>
+<p>توابعی نیز برای انتگرال‌گیری چند متغیره وجود دارد.</p>
+<p>برای جزئیات بیشتر <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/integrate.html">مستندات</a> را ببینید.</p>
+</section>
+<section id="linear-algebra">
+<h2><span class="section-number">12.7. </span><span class="target" id="index-16"></span>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h2>
+<p id="index-17">دیدیم که NumPy ماژولی برای جبر خطی به نام <code class="docutils literal notranslate"><span class="pre">linalg</span></code> ارائه می‌دهد.</p>
+<p>SciPy نیز ماژولی برای جبر خطی با همان نام ارائه می‌دهد.</p>
+<p>دومی یک زیرمجموعه دقیق از اولی نیست، اما به طور کلی عملکرد بیشتری دارد.</p>
+<p>ما به شما می‌گذاریم که <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html">مجموعه روال‌های موجود</a> را بررسی کنید.</p>
+</section>
+<section id="id10">
+<h2><span class="section-number">12.8. </span>تمرین‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>چند تمرین اول مربوط به قیمت‌گذاری یک اختیار خرید اروپایی تحت
+فرض خنثی بودن ریسک است. قیمت صدق می‌کند</p>
+<div class="math notranslate nohighlight">
+\[
+P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
+\]</div>
+<p>که در آن</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> یک عامل تنزیل است،</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> تاریخ انقضا است،</p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span> قیمت اعمال است و</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{S_t\}\)</span> قیمت دارایی پایه در هر زمان <span class="math notranslate nohighlight">\(t\)</span> است.</p></li>
+</ol>
+<p>به عنوان مثال، اگر اختیار خرید برای خرید سهام در آمازون با قیمت اعمال <span class="math notranslate nohighlight">\(K\)</span> باشد، مالک این حق (اما نه تعهد) را دارد که 1 سهم در آمازون را با قیمت <span class="math notranslate nohighlight">\(K\)</span> پس از <span class="math notranslate nohighlight">\(n\)</span> روز بخرد.</p>
+<p>بنابراین بازده <span class="math notranslate nohighlight">\(\max\{S_n - K, 0\}\)</span> است</p>
+<p>قیمت، امید ریاضی بازده است که به ارزش فعلی تنزیل شده است.</p>
+<div class="exercise admonition" id="sp_ex01">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12.1 </span></p>
+<section id="exercise-content">
+<p>فرض کنید <span class="math notranslate nohighlight">\(S_n\)</span> دارای توزیع <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">لگ-نرمال</a> با پارامترهای <span class="math notranslate nohighlight">\(\mu\)</span> و <span class="math notranslate nohighlight">\(\sigma\)</span> است. فرض کنید <span class="math notranslate nohighlight">\(f\)</span> نشان‌دهنده چگالی این توزیع باشد. آنگاه</p>
+<div class="math notranslate nohighlight">
+\[
+P = \beta^n \int_0^\infty \max\{x - K, 0\} f(x) dx
+\]</div>
+<p>تابع زیر را رسم کنید</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = \beta^n  \max\{x - K, 0\} f(x)
+\]</div>
+<p>در بازه <span class="math notranslate nohighlight">\([0, 400]\)</span> وقتی <code class="docutils literal notranslate"><span class="pre">μ,</span> <span class="pre">σ,</span> <span class="pre">β,</span> <span class="pre">n,</span> <span class="pre">K</span> <span class="pre">=</span> <span class="pre">4,</span> <span class="pre">0.25,</span> <span class="pre">0.99,</span> <span class="pre">10,</span> <span class="pre">40</span></code>.</p>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<p>از <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> می‌توانید <code class="docutils literal notranslate"><span class="pre">lognorm</span></code> را import کنید و سپس از <code class="docutils literal notranslate"><span class="pre">lognorm.pdf(x,</span> <span class="pre">σ,</span> <span class="pre">scale=np.exp(μ))</span></code> برای به دست آوردن چگالی <span class="math notranslate nohighlight">\(f\)</span> استفاده کنید.</p>
+</div>
+</section>
+</div>
+<div class="solution dropdown admonition" id="scipy-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex01"> Exercise 12.1</a></p>
+<section id="solution-content">
+<p>در اینجا یک راه‌حل ممکن آورده شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">lognorm</span>
+
+<span class="n">μ</span><span class="p">,</span> <span class="n">σ</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">β</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">σ</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">μ</span><span class="p">))</span>
+
+<span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y_grid</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">x_grid</span><span class="p">)</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">y_grid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$g$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/50116f59e57e9c60fcc64758e389773f9d161e3bc4383afc9ed7a2eb25ea3717.png" src="_images/50116f59e57e9c60fcc64758e389773f9d161e3bc4383afc9ed7a2eb25ea3717.png" />
+</div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="sp_ex02">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12.2 </span></p>
+<section id="exercise-content">
+<p>برای به دست آوردن قیمت اختیار، انتگرال این تابع را به صورت عددی با استفاده از <code class="docutils literal notranslate"><span class="pre">quad</span></code> از <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> محاسبه کنید.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="scipy-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex02"> Exercise 12.2</a></p>
+<section id="solution-content">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The numerical integration based option price is </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The numerical integration based option price is 15.188
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="sp_ex03">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12.3 </span></p>
+<section id="exercise-content">
+<p>سعی کنید با استفاده از Monte Carlo برای محاسبه عبارت امید ریاضی در قیمت اختیار، به جای <code class="docutils literal notranslate"><span class="pre">quad</span></code>، به نتیجه مشابهی برسید.</p>
+<p>به طور خاص، از این واقعیت استفاده کنید که اگر <span class="math notranslate nohighlight">\(S_n^1, \ldots, S_n^M\)</span> نمونه‌های مستقل از
+توزیع لگ‌نرمال مشخص شده در بالا باشند، آنگاه، طبق قانون
+اعداد بزرگ،</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb E \max\{ S_n - K, 0 \} 
+    \approx
+    \frac{1}{M} \sum_{m=1}^M \max \{S_n^m - K, 0 \}
+    \]</div>
+<p><code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">10_000_000</span></code> را تنظیم کنید</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="scipy-solution-5">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex03"> Exercise 12.3</a></p>
+<section id="solution-content">
+<p>در اینجا یک راه‌حل آورده شده است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">μ</span> <span class="o">+</span> <span class="n">σ</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+<span class="n">return_draws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">S</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">β</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">return_draws</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Monte Carlo option price is </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s2">3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Monte Carlo option price is 15.183618
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="sp_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12.4 </span></p>
+<section id="exercise-content">
+<p>در <a class="reference internal" href="functions.html#functions"><span class="std std-ref">این سخنرانی</span></a>، ما مفهوم <a class="reference internal" href="functions.html#recursive-functions"><span class="std std-ref">فراخوانی تابع بازگشتی</span></a> را مورد بحث قرار دادیم.</p>
+<p>سعی کنید یک پیاده‌سازی بازگشتی از تابع نصف کردن خانگی <a class="reference internal" href="#bisect-func"><span class="std std-ref">توصیف شده در بالا</span></a> بنویسید.</p>
+<p>آن را روی تابع <a class="reference internal" href="#equation-root-f">(12.2)</a> آزمایش کنید.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="scipy-solution-7">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#sp_ex1"> Exercise 12.4</a></p>
+<section id="solution-content">
+<p>در اینجا یک راه‌حل معقول آورده شده است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements the bisection root-finding algorithm, assuming that f is a</span>
+<span class="sd">    real-valued function on [a, b] satisfying f(a) &lt; 0 &lt; f(b).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+    <span class="k">if</span> <span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Current mid point = </span><span class="si">{</span><span class="n">middle</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">middle</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># Implies root is between lower and middle</span>
+            <span class="k">return</span> <span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">middle</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>               <span class="c1"># Implies root is between middle and upper</span>
+            <span class="k">return</span> <span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">middle</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>می‌توانیم آن را به صورت زیر آزمایش کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">))</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">20</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">bisect</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current mid point = 0.5
+Current mid point = 0.25
+Current mid point = 0.375
+Current mid point = 0.4375
+Current mid point = 0.40625
+Current mid point = 0.421875
+Current mid point = 0.4140625
+Current mid point = 0.41015625
+Current mid point = 0.408203125
+Current mid point = 0.4091796875
+Current mid point = 0.40869140625
+Current mid point = 0.408447265625
+Current mid point = 0.4083251953125
+Current mid point = 0.40826416015625
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.408294677734375
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/scipy.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/scipy.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/scipy.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/scipy.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "scipy";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/scipy.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>19. نوشتن برنامه‌های طولانی‌تر &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workspace';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/workspace.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="20. ویژگی‌های بیشتر زبان" href="python_advanced_features.html" />
+    <link rel="prev" title="18. نوشتن کد خوب" href="writing_good_code.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="نوشتن برنامه‌های طولانی‌تر"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="نوشتن برنامه‌های طولانی‌تر" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/workspace.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=workspace>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">19.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">19.2. کار با فایل‌های Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">19.3. محیط‌های توسعه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks-jupyterlab">19.4. یک قدم جلوتر از Jupyter Notebooks: JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.4.1. استفاده از دستورات جادویی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.4.2. استفاده از ترمینال</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">19.5. گشت و گذاری در Visual Studio Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run">19.5.1. استفاده از دکمه run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.5.2. استفاده از ترمینال</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">19.6. Git را امتحان کنید</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Jan 29, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/workspace.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/924c47f" class="changelog-hash">924c47f</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 hours ago</span>
+                                <span class="changelog-message">Add lecture: نوشتن برنامه‌های طولانی‌تر (#38)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">19. </span>نوشتن برنامه‌های طولانی‌تر<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">19.1. </span>مروری کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>تا کنون، استفاده از Jupyter Notebooks را در نوشتن و اجرای کد Python بررسی کرده‌ایم.</p>
+<p>در حالی که آنها هنگام کار با قطعات کوچک کد کارآمد و سازگار هستند، Notebooks بهترین انتخاب برای برنامه‌ها و اسکریپت‌های طولانی‌تر نیستند.</p>
+<p>Jupyter Notebooks برای محاسبات تعاملی (یعنی گردش کارهای علم داده) مناسب هستند و می‌توانند به اجرای قطعات کد یکی یکی کمک کنند.</p>
+<p>فایل‌های متنی و اسکریپت‌ها امکان نوشتن و اجرای قطعات بلند کد را به یکباره فراهم می‌کنند.</p>
+<p>ما استفاده از اسکریپت‌های Python را به عنوان یک جایگزین بررسی خواهیم کرد.</p>
+<p>سپس محیط‌های توسعه Jupyter Lab و Visual Studio Code (VS Code) به همراه یک آشنایی مقدماتی با کنترل نسخه (Git) معرفی می‌شوند.</p>
+<p>در این سخنرانی، شما یاد خواهید گرفت که</p>
+<ul class="simple">
+<li><p>با اسکریپت‌های Python کار کنید</p></li>
+<li><p>محیط‌های توسعه مختلف را راه‌اندازی کنید</p></li>
+<li><p>با GitHub شروع کنید</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>از این به بعد، فرض بر این است که شما یک محیط Anaconda آماده و در حال اجرا دارید.</p>
+<p>اگر هنوز این کار را نکرده‌اید، ممکن است بخواهید <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands">یک محیط conda جدید ایجاد کنید</a>.</p>
+</div>
+</section>
+<section id="python">
+<h2><span class="section-number">19.2. </span>کار با فایل‌های Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<p>فایل‌های Python هنگام نوشتن بلوک‌های بلند و قابل استفاده مجدد کد استفاده می‌شوند - طبق قرارداد، آنها پسوند <code class="docutils literal notranslate"><span class="pre">.py</span></code> دارند.</p>
+<p>بیایید با کار با مثال زیر شروع کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Wave&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2986957974e1c49bc0dfd955c04201305d51a51c691bb7d311d4f192eeae689b.png" src="_images/2986957974e1c49bc0dfd955c04201305d51a51c691bb7d311d4f192eeae689b.png" />
+</div>
+</div>
+<p>از آنجا که راه‌های مختلفی برای اجرای کد وجود دارد، ما آنها را در زمینه محیط‌های توسعه مختلف بررسی خواهیم کرد.</p>
+<p>یکی از مزایای اصلی استفاده از اسکریپت‌های Python در این واقعیت نهفته است که می‌توانید قابلیت‌ها را از اسکریپت‌های دیگر به اسکریپت فعلی یا Jupyter Notebook خود “import” کنید.</p>
+<p>بیایید کد قبلی را به یک تابع بازنویسی کنیم و آن را در فایلی به نام <code class="docutils literal notranslate"><span class="pre">sine_wave.py</span></code> بنویسیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> sine_wave.py
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Define the plot_wave function.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_wave</span><span class="p">(</span><span class="n">title</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Sine Wave&#39;</span><span class="p">):</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing sine_wave.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sine_wave</span> <span class="c1"># Import the sine_wave script</span>
+ 
+<span class="c1"># Call the plot_wave function.</span>
+<span class="n">sine_wave</span><span class="o">.</span><span class="n">plot_wave</span><span class="p">(</span><span class="s2">&quot;Sine Wave - Called from the Second Script&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/be9399f341b8f0eca93ddd2ebb2aa7e13dbc82ed354b6042b98cbcb2e6b01d72.png" src="_images/be9399f341b8f0eca93ddd2ebb2aa7e13dbc82ed354b6042b98cbcb2e6b01d72.png" />
+</div>
+</div>
+<p>این به شما امکان می‌دهد کد خود را به قطعات تقسیم کرده و پایگاه کد خود را بهتر ساختار دهید.</p>
+<p>برای اطلاعات بیشتر در مورد import کردن قابلیت‌ها، به استفاده از <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">ماژول‌ها</a> و <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">بسته‌ها</a> نگاه کنید.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">19.3. </span>محیط‌های توسعه<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>یک محیط توسعه یک فضای کاری یکپارچه است که در آن می‌توانید</p>
+<ul class="simple">
+<li><p>کد خود را ویرایش و اجرا کنید</p></li>
+<li><p>تست و اشکال‌زدایی کنید</p></li>
+<li><p>فایل‌های پروژه را مدیریت کنید</p></li>
+</ul>
+<p>این سخنرانی شما را با نحوه کار دو محیط توسعه آشنا می‌کند.</p>
+</section>
+<section id="jupyter-notebooks-jupyterlab">
+<h2><span class="section-number">19.4. </span>یک قدم جلوتر از Jupyter Notebooks: JupyterLab<a class="headerlink" href="#jupyter-notebooks-jupyterlab" title="Link to this heading">#</a></h2>
+<p>JupyterLab یک محیط توسعه مبتنی بر مرورگر برای Jupyter Notebooks، اسکریپت‌های کد و فایل‌های داده است.</p>
+<p>اگر می‌خواهید قبل از نصب محلی آن را آزمایش کنید، می‌توانید <a class="reference external" href="https://jupyter.org/try-jupyter/lab/">JupyterLab را در مرورگر امتحان کنید</a>.</p>
+<p>می‌توانید JupyterLab را با استفاده از pip نصب کنید</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">jupyterlab</span>
+</pre></div>
+</div>
+<p>و آن را در مرورگر، مشابه Jupyter Notebooks، راه‌اندازی کنید.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span>
+</pre></div>
+</div>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab_cmd.png" src="_images/jupyter_lab_cmd.png" />
+</figure>
+<p>می‌بینید که Jupyter Server در حال اجرا روی پورت 8888 بر روی localhost است.</p>
+<p>رابط کاربری زیر باید به طور خودکار در مرورگر پیش‌فرض شما باز شود - در غیر این صورت، CTRL + Click روی URL سرور.</p>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab.png" src="_images/jupyter_lab.png" />
+</figure>
+<p>روی موارد زیر کلیک کنید</p>
+<ul class="simple">
+<li><p>دکمه Python 3 (ipykernel) در زیر Notebooks برای باز کردن یک Jupyter Notebook جدید</p></li>
+<li><p>دکمه Python File برای باز کردن یک اسکریپت Python جدید (.py)</p></li>
+</ul>
+<p>همیشه می‌توانید این تب راه‌انداز را با کلیک بر روی دکمه ‘+’ در بالا باز کنید.</p>
+<p>تمام فایل‌ها و پوشه‌ها در دایرکتوری کاری شما را می‌توان در File Browser (تب سمت چپ) یافت.</p>
+<p>می‌توانید با استفاده از دکمه‌های موجود در بالای تب File Browser، فایل‌ها و پوشه‌های جدید ایجاد کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/file_browser.png" src="_images/file_browser.png" />
+</figure>
+<p>می‌توانید با مراجعه به تب Extensions، افزونه‌هایی را نصب کنید که قابلیت‌های JupyterLab را افزایش می‌دهند.</p>
+<figure class="auto align-default">
+<img alt="_images/extensions.png" src="_images/extensions.png" />
+</figure>
+<p>برگشت به اسکریپت‌های مثال قبلی، دو راه برای کار با آنها در JupyterLab وجود دارد.</p>
+<ul class="simple">
+<li><p>استفاده از دستورات جادویی</p></li>
+<li><p>استفاده از ترمینال</p></li>
+</ul>
+<section id="id4">
+<h3><span class="section-number">19.4.1. </span>استفاده از دستورات جادویی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Jupyter Notebooks و JupyterLab از استفاده از <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">دستورات جادویی</a> پشتیبانی می‌کنند - دستوراتی که قابلیت‌های یک Jupyter Notebook استاندارد را گسترش می‌دهند.</p>
+<p>دستور جادویی <code class="docutils literal notranslate"><span class="pre">%run</span></code> به شما امکان می‌دهد یک اسکریپت Python را از درون یک Notebook اجرا کنید.</p>
+<p>این یک راه راحت برای اجرای اسکریپت‌هایی است که در همان دایرکتوری Notebook خود روی آنها کار می‌کنید و خروجی‌ها را در داخل Notebook ارائه می‌دهید.</p>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab_py_run.png" src="_images/jupyter_lab_py_run.png" />
+</figure>
+</section>
+<section id="id5">
+<h3><span class="section-number">19.4.2. </span>استفاده از ترمینال<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>با این حال، اگر فقط به دنبال اجرای فایل <code class="docutils literal notranslate"><span class="pre">.py</span></code> هستید، گاهی اوقات استفاده از ترمینال آسان‌تر است.</p>
+<p>از راه‌انداز یک ترمینال باز کنید و دستور زیر را اجرا کنید.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">file</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<figure class="auto align-default">
+<img alt="_images/jupyter_lab_py_run_term.png" src="_images/jupyter_lab_py_run_term.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>همچنین می‌توانید اسکریپت را خط به خط با باز کردن یک کنسول ipykernel اجرا کنید، یا</p>
+<ul class="simple">
+<li><p>از راه‌انداز</p></li>
+<li><p>یا با کلیک راست در داخل Notebook و انتخاب Create Console for Editor</p></li>
+</ul>
+<p>از Shift + Enter برای اجرای یک خط کد استفاده کنید.</p>
+</div>
+</section>
+</section>
+<section id="visual-studio-code">
+<h2><span class="section-number">19.5. </span>گشت و گذاری در Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
+<p>Visual Studio Code (VS Code) یک ویرایشگر کد و فضای کاری توسعه است که می‌تواند</p>
+<ul class="simple">
+<li><p>در <a class="reference external" href="https://vscode.dev/">مرورگر</a> اجرا شود.</p></li>
+<li><p>به عنوان یک <a class="reference external" href="https://code.visualstudio.com/docs/?dv=win">نصب محلی</a> اجرا شود.</p></li>
+</ul>
+<p>هر دو رابط کاربری یکسان هستند.</p>
+<p>وقتی VS Code را راه‌اندازی می‌کنید، رابط کاربری زیر را خواهید دید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_home.png" src="_images/vs_code_home.png" />
+</figure>
+<p>از طریق راهنماهای گام به گام، نحوه سفارشی‌سازی VS Code به دلخواه خود را کشف کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_walkthrough.png" src="_images/vs_code_walkthrough.png" />
+</figure>
+<p>هنگام مواجهه با پیام زیر، ادامه دهید و تمام افزونه‌های پیشنهادی را نصب کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_install_ext.png" src="_images/vs_code_install_ext.png" />
+</figure>
+<p>همچنین می‌توانید افزونه‌ها را از تب Extensions نصب کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_extensions.png" src="_images/vs_code_extensions.png" />
+</figure>
+<p>Jupyter Notebooks (فایل‌های <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) را می‌توان در VS Code کار کرد.</p>
+<p>مطمئن شوید که قبل از تلاش برای باز کردن یک Jupyter Notebook، افزونه Jupyter را از تب Extensions نصب کنید.</p>
+<p>یک فایل جدید ایجاد کنید (در تب file Explorer) و آن را با پسوند <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> ذخیره کنید.</p>
+<p>یک kernel/environment برای اجرای Notebook در آن با کلیک بر روی دکمه Select Kernel در گوشه بالا سمت راست ویرایشگر انتخاب کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_kernels.png" src="_images/vs_code_kernels.png" />
+</figure>
+<p>VS Code همچنین از طریق تب Source Control قابلیت کنترل نسخه عالی دارد.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_git.png" src="_images/vs_code_git.png" />
+</figure>
+<p>حساب GitHub خود را به VS Code متصل کنید تا تغییرات را به مخازن خود push و pull کنید.</p>
+<p>بحث‌های بیشتر در مورد کنترل نسخه را می‌توان در بخش بعدی یافت.</p>
+<p>برای باز کردن یک Terminal جدید در VS Code، روی تب Terminal کلیک کرده و New Terminal را انتخاب کنید.</p>
+<p>VS Code یک Terminal جدید در همان دایرکتوری که در آن کار می‌کنید باز می‌کند - یک PowerShell در Windows و یک Bash در Linux.</p>
+<p>می‌توانید shell را تغییر دهید یا یک instance جدید از طریق منوی کشویی در انتهای سمت راست تب ترمینال باز کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_terminal_opts.png" src="_images/vs_code_terminal_opts.png" />
+</figure>
+<p>VS Code به شما کمک می‌کند محیط‌های conda را بدون استفاده از خط فرمان مدیریت کنید.</p>
+<p>Command Palette را باز کنید (CTRL + SHIFT + P یا از منوی کشویی تحت تب View) و <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Select</span> <span class="pre">Interpreter</span></code> را جستجو کنید.</p>
+<p>این محیط‌های موجود را بارگذاری می‌کند.</p>
+<p>همچنین می‌توانید با استفاده از <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Create</span> <span class="pre">Environment</span></code> در Command Palette، محیط‌های جدید ایجاد کنید.</p>
+<p>یک محیط جدید (پوشه .conda) در دایرکتوری کاری فعلی ایجاد می‌شود.</p>
+<p>در مورد اسکریپت‌های مثال قبلی، باز هم دو راه برای کار با آنها در VS Code وجود دارد.</p>
+<ul class="simple">
+<li><p>استفاده از دکمه run</p></li>
+<li><p>استفاده از ترمینال</p></li>
+</ul>
+<section id="run">
+<h3><span class="section-number">19.5.1. </span>استفاده از دکمه run<a class="headerlink" href="#run" title="Link to this heading">#</a></h3>
+<p>می‌توانید اسکریپت را با کلیک بر روی دکمه run در گوشه بالا سمت راست ویرایشگر اجرا کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_run.png" src="_images/vs_code_run.png" />
+</figure>
+<p>همچنین می‌توانید اسکریپت را به صورت تعاملی با انتخاب گزینه <strong>Run Current File in Interactive Window</strong> از منوی کشویی اجرا کنید.</p>
+<figure class="auto align-default">
+<img alt="_images/vs_code_run_button.png" src="_images/vs_code_run_button.png" />
+</figure>
+<p>این یک کنسول ipykernel ایجاد می‌کند و اسکریپت را اجرا می‌کند.</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">19.5.2. </span>استفاده از ترمینال<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>دستور <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">file.py&gt;</span></code> بر روی کنسول انتخابی شما اجرا می‌شود.</p>
+<p>اگر از یک دستگاه Windows استفاده می‌کنید، می‌توانید یا از Anaconda Prompt یا Command Prompt استفاده کنید - اما به طور کلی نه از PowerShell.</p>
+<p>در اینجا یک اجرای کد قبلی آمده است.</p>
+<figure class="auto align-default">
+<img alt="_images/sine_wave_import.png" src="_images/sine_wave_import.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>اگر می‌خواهید بسته‌ها را توسعه دهید و ابزارهایی با استفاده از Python بسازید، ممکن است بخواهید به <a class="reference external" href="https://github.com/RamiKrispin/vscode-python">استفاده از Docker containers و VS Code</a> نگاه کنید.</p>
+<p>با این حال، این خارج از تمرکز این سخنرانی‌ها است.</p>
+</div>
+</section>
+</section>
+<section id="git">
+<h2><span class="section-number">19.6. </span>Git را امتحان کنید<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
+<p>این بخش شما را با git و GitHub آشنا می‌کند.</p>
+<p><a class="reference external" href="https://git-scm.com/">Git</a> یک <em>سیستم کنترل نسخه</em> است — نرم‌افزاری که برای مدیریت پروژه‌های دیجیتال مانند کتابخانه‌های کد استفاده می‌شود.</p>
+<p>در بسیاری از موارد، مجموعه‌های مرتبط فایل‌ها — که <em>مخازن</em> نامیده می‌شوند — بر روی <a class="reference external" href="https://github.com/">GitHub</a> ذخیره می‌شوند.</p>
+<p>GitHub یک دنیای شگفت‌انگیز از پروژه‌های کدنویسی مشارکتی است.</p>
+<p>به عنوان مثال، میزبان بسیاری از کتابخانه‌های علمی است که بعداً از آنها استفاده خواهیم کرد، مانند <a class="reference external" href="https://github.com/pandas-dev/pandas">این یکی</a>.</p>
+<p>Git نرم‌افزار زیربنایی است که برای مدیریت این پروژه‌ها استفاده می‌شود.</p>
+<p>Git یک ابزار بسیار قدرتمند برای همکاری توزیع شده است — به عنوان مثال، ما از آن برای به اشتراک گذاشتن و همگام‌سازی تمام فایل‌های منبع این سخنرانی‌ها استفاده می‌کنیم.</p>
+<p>دو نوع اصلی Git وجود دارد</p>
+<ol class="arabic simple">
+<li><p>نسخه <a class="reference external" href="https://git-scm.com/downloads">خط فرمان Git</a> ساده وانیلی</p></li>
+<li><p>نسخه‌های مختلف GUI کلیک و اشاره</p>
+<ul class="simple">
+<li><p>برای مثال، <a class="reference external" href="https://github.com/apps/desktop">نسخه GitHub</a> یا Git GUI یکپارچه شده در IDE شما را ببینید.</p></li>
+</ul>
+</li>
+</ol>
+<p>در صورتی که قبلاً این کار را نکرده‌اید، امتحان کنید</p>
+<ol class="arabic simple">
+<li><p>نصب Git.</p></li>
+<li><p>دریافت یک کپی از <a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a> با استفاده از Git.</p></li>
+</ol>
+<p>به عنوان مثال، اگر نسخه خط فرمان را نصب کرده‌اید، یک ترمینال باز کنید و وارد کنید.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/QuantEcon/QuantEcon.py
+</pre></div>
+</div>
+<p>(این فقط <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> در جلوی URL مخزن است)</p>
+<p>این دستور تمام اجزای لازم را برای بازسازی سخنرانی‌ای که اکنون می‌خوانید دانلود می‌کند.</p>
+<p>به عنوان وظیفه دوم،</p>
+<ol class="arabic simple">
+<li><p>در <a class="reference external" href="https://github.com/">GitHub</a> ثبت نام کنید.</p></li>
+<li><p>به ‘forking’ مخازن GitHub نگاه کنید (forking به معنای ایجاد کپی خود از یک مخزن GitHub است که در GitHub ذخیره می‌شود).</p></li>
+<li><p><a class="reference external" href="https://github.com/QuantEcon/QuantEcon.py">QuantEcon.py</a> را fork کنید.</p></li>
+<li><p>fork خود را در یک دایرکتوری محلی clone کنید، ویرایش‌ها انجام دهید، آنها را commit کنید و به مخزن GitHub fork شده خود push کنید.</p></li>
+<li><p>اگر بهبود ارزشمندی ایجاد کردید، برای ما یک <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull request</a> ارسال کنید!</p></li>
+</ol>
+<p>برای خواندن در مورد این موضوعات و سایر موضوعات، امتحان کنید</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/doc">مستندات رسمی Git</a>.</p></li>
+<li><p>خواندن مستندات در <a class="reference external" href="https://docs.github.com/en">GitHub</a>.</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/book">کتاب Pro Git</a> توسط Scott Chacon و Ben Straub.</p></li>
+<li><p>یکی از هزاران آموزش Git در اینترنت.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   19. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/workspace.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/workspace.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/workspace.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/workspace.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "workspace";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/workspace.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

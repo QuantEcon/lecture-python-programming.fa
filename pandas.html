@@ -1,0 +1,4773 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>16. Pandas &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pandas';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/pandas.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="17. Pandas برای داده‌های پانلی" href="pandas_panel.html" />
+    <link rel="prev" title="15. NumPy در مقابل Numba در مقابل JAX" href="numpy_vs_numba_vs_jax.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="Pandas"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Pandas" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/pandas.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=pandas>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">16.1. مرور کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">16.2. Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes">16.3. DataFrames</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">16.3.1. انتخاب داده بر اساس موقعیت</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">16.3.2. انتخاب داده بر اساس شرایط</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">16.3.3. متد Apply</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">16.3.4. ایجاد تغییرات در DataFrames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">16.3.5. استانداردسازی و بصری‌سازی</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">16.4. منابع داده آنلاین</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requests">16.4.1. دسترسی به داده با requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wbgapi-yfinance">16.4.2. استفاده از wbgapi و yfinance برای دسترسی به داده</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">16.5. تمرین‌ها</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Jan 29, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/pandas.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c931be2" class="changelog-hash">c931be2</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 hours ago</span>
+                                <span class="changelog-message">Add lecture: Pandas <single: Pandas> (#30)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
+<h1><span class="section-number">16. </span><span class="target" id="index-0"></span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
+<p id="index-1">علاوه بر آنچه در Anaconda موجود است، این درس به کتابخانه‌های زیر نیاز دارد:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>wbgapi
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>yfinance
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wbgapi
+  Downloading wbgapi-1.0.12-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (2.32.5)
+Requirement already satisfied: PyYAML in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (6.0.3)
+Requirement already satisfied: tabulate in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (0.9.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.4.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.11)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2.5.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2025.11.12)
+Downloading wbgapi-1.0.12-py3-none-any.whl (36 kB)
+Installing collected packages: wbgapi
+Successfully installed wbgapi-1.0.12
+Collecting yfinance
+  Downloading yfinance-1.1.0-py2.py3-none-any.whl.metadata (6.1 kB)
+Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.3.3)
+Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.3.5)
+Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.32.5)
+Collecting multitasking&gt;=0.0.7 (from yfinance)
+  Downloading multitasking-0.0.12.tar.gz (19 kB)
+  Installing build dependencies ... ?25l-
+ \
+ |
+ done
+?25h  Getting requirements to build wheel ... ?25l-
+ done
+?25h  Preparing metadata (pyproject.toml) ... ?25l- done
+?25hRequirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.5.0)
+Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2025.2)
+Collecting frozendict&gt;=2.3.4 (from yfinance)
+  Downloading frozendict-2.4.7-py3-none-any.whl.metadata (23 kB)
+Collecting peewee&gt;=3.16.2 (from yfinance)
+  Downloading peewee-3.19.0-py3-none-any.whl.metadata (7.0 kB)
+Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.13.5)
+Collecting curl_cffi&lt;0.14,&gt;=0.7 (from yfinance)
+  Downloading curl_cffi-0.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (5.29.3)
+Collecting websockets&gt;=13.0 (from yfinance)
+  Downloading websockets-16.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+Requirement already satisfied: cffi&gt;=1.12.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&lt;0.14,&gt;=0.7-&gt;yfinance) (2.0.0)
+Requirement already satisfied: certifi&gt;=2024.2.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&lt;0.14,&gt;=0.7-&gt;yfinance) (2025.11.12)
+Requirement already satisfied: soupsieve&gt;1.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.5)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (4.15.0)
+Requirement already satisfied: pycparser in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from cffi&gt;=1.12.0-&gt;curl_cffi&lt;0.14,&gt;=0.7-&gt;yfinance) (2.23)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.9.0.post0)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2025.2)
+Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.3.0-&gt;yfinance) (1.17.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.11)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.5.0)
+Downloading yfinance-1.1.0-py2.py3-none-any.whl (129 kB)
+Downloading curl_cffi-0.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+?25l
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/8.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.3/8.3 MB</span> <span class=" -Color -Color-Red">130.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading frozendict-2.4.7-py3-none-any.whl (16 kB)
+Downloading peewee-3.19.0-py3-none-any.whl (411 kB)
+Downloading websockets-16.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
+Building wheels for collected packages: multitasking
+  Building wheel for multitasking (pyproject.toml) ... ?25l-
+ done
+?25h  Created wheel for multitasking: filename=multitasking-0.0.12-py3-none-any.whl size=15637 sha256=e64c62d7542e485dc72a0cadc4b31ea6d848f2147435bdf08f208dfe21cc5d8f
+  Stored in directory: /home/runner/.cache/pip/wheels/1e/df/0f/e2bbb22d689b30c681feb5410ab64a2523437b34c8ecfc6476
+Successfully built multitasking
+Installing collected packages: peewee, multitasking, websockets, frozendict, curl_cffi, yfinance
+?25l
+   ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/6</span> [websockets]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4/6</span> [curl_cffi]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6/6</span> [yfinance]
+Successfully installed curl_cffi-0.13.0 frozendict-2.4.7 multitasking-0.0.12 peewee-3.19.0 websockets-16.0 yfinance-1.1.0
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="id1">
+<h2><span class="section-number">16.1. </span>مرور کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> یک بسته ابزارهای سریع و کارآمد برای تحلیل داده در Python است.</p>
+<p>محبوبیت آن در سال‌های اخیر به طور همزمان با ظهور حوزه‌هایی مانند علم داده و یادگیری ماشین افزایش یافته است.</p>
+<p>در اینجا مقایسه‌ای از محبوبیت در طول زمان در برابر Matlab و STATA از طریق Stack Overflow Trends آورده شده است</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/pandas_vs_rest.png"><img alt="_images/pandas_vs_rest.png" src="_images/pandas_vs_rest.png" style="width: 660.0px; height: 400.0px;" />
+</a>
+</figure>
+<p>همانطور که <a class="reference external" href="https://numpy.org/">NumPy</a> نوع داده آرایه پایه به اضافه عملیات اصلی آرایه را فراهم می‌کند، pandas</p>
+<ol class="arabic simple">
+<li><p>ساختارهای بنیادین برای کار با داده را تعریف می‌کند و</p></li>
+<li><p>آنها را با متدهایی مجهز می‌کند که عملیات‌هایی مانند موارد زیر را تسهیل می‌کنند:</p>
+<ul class="simple">
+<li><p>خواندن داده</p></li>
+<li><p>تنظیم اندیس‌ها</p></li>
+<li><p>کار با تاریخ‌ها و سری‌های زمانی</p></li>
+<li><p>مرتب‌سازی، گروه‌بندی، مرتب‌سازی مجدد و به طور کلی تبدیل داده <a class="footnote-reference brackets" href="#mung" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+<li><p>برخورد با مقادیر گمشده، و غیره</p></li>
+</ul>
+</li>
+</ol>
+<p>قابلیت‌های آماری پیچیده‌تر به بسته‌های دیگر مانند <a class="reference external" href="https://www.statsmodels.org/">statsmodels</a> و <a class="reference external" href="https://scikit-learn.org/">scikit-learn</a> که بر روی pandas ساخته شده‌اند، واگذار می‌شود.</p>
+<p>این درس مقدمه‌ای پایه به pandas ارائه خواهد داد.</p>
+<p>در سراسر درس، فرض خواهیم کرد که import‌های زیر انجام شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>دو نوع داده مهم تعریف شده توسط pandas، <code class="docutils literal notranslate"><span class="pre">Series</span></code> و <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> هستند.</p>
+<p>می‌توانید <code class="docutils literal notranslate"><span class="pre">Series</span></code> را به عنوان یک “ستون” از داده تصور کنید، مانند مجموعه‌ای از مشاهدات روی یک متغیر واحد.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> یک شیء دوبعدی برای ذخیره ستون‌های مرتبط از داده است.</p>
+</section>
+<section id="series">
+<h2><span class="section-number">16.2. </span>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h2>
+<p id="index-2">بیایید با Series شروع کنیم.</p>
+<p>با ایجاد یک سری از چهار مشاهده تصادفی شروع می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;daily returns&#39;</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.678060
+1    0.006756
+2    1.310952
+3   -0.855765
+Name: daily returns, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>در اینجا می‌توانید تصور کنید که اندیس‌های <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3</span></code> چهار شرکت فهرست شده را اندیس‌گذاری می‌کنند و مقادیر، بازده روزانه سهام آنها هستند.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Series</span></code> در Pandas بر روی آرایه‌های NumPy ساخته شده‌اند و از بسیاری از عملیات مشابه پشتیبانی می‌کنند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    167.805981
+1      0.675611
+2    131.095179
+3    -85.576549
+Name: daily returns, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.678060
+1    0.006756
+2    1.310952
+3    0.855765
+Name: daily returns, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>اما <code class="docutils literal notranslate"><span class="pre">Series</span></code> بیش از آرایه‌های NumPy ارائه می‌دهند.</p>
+<p>نه تنها آنها چند متد اضافی (با جهت‌گیری آماری) دارند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
+mean     0.535001
+std      1.172171
+min     -0.855765
+25%     -0.208874
+50%      0.658854
+75%      1.402729
+max      1.678060
+Name: daily returns, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>بلکه اندیس‌های آنها انعطاف‌پذیرتر هستند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">]</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.678060
+AAPL    0.006756
+MSFT    1.310952
+GOOG   -0.855765
+Name: daily returns, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>از این منظر، <code class="docutils literal notranslate"><span class="pre">Series</span></code> مانند دیکشنری‌های سریع و کارآمد Python هستند (با محدودیت اینکه تمام آیتم‌های دیکشنری از نوع یکسانی دارند — در این مورد، اعداد اعشاری).</p>
+<p>در واقع، می‌توانید از بسیاری از نحو یکسان با دیکشنری‌های Python استفاده کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6780598061788885)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
+AAPL    0.006756
+MSFT    1.310952
+GOOG   -0.855765
+Name: daily returns, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;AAPL&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframes">
+<h2><span class="section-number">16.3. </span>DataFrames<a class="headerlink" href="#dataframes" title="Link to this heading">#</a></h2>
+<p id="index-3">در حالی که <code class="docutils literal notranslate"><span class="pre">Series</span></code> یک ستون واحد از داده است، <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> چندین ستون است، یکی برای هر متغیر.</p>
+<p>در اصل، یک <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> در pandas مشابه یک صفحه گسترده Excel (بسیار بهینه شده) است.</p>
+<p>بنابراین، یک ابزار قدرتمند برای نمایش و تحلیل داده‌هایی است که به طور طبیعی در سطرها و ستون‌ها سازماندهی شده‌اند، اغلب با اندیس‌های توصیفی برای سطرها و ستون‌های فردی.</p>
+<p>بیایید به مثالی نگاه کنیم که داده را از فایل CSV <code class="docutils literal notranslate"><span class="pre">pandas/data/test_pwt.csv</span></code> می‌خواند، که از <a class="reference external" href="https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0">Penn World Tables</a> گرفته شده است.</p>
+<p>مجموعه داده شامل شاخص‌های زیر است</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Variable Name</p></th>
+<th class="head text-center"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>POP</p></td>
+<td class="text-center"><p>جمعیت (به هزار نفر)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>XRAT</p></td>
+<td class="text-center"><p>نرخ ارز به دلار آمریکا</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>tcgdp</p></td>
+<td class="text-center"><p>کل تولید ناخالص داخلی تبدیل شده PPP (به میلیون دلار بین‌المللی)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>cc</p></td>
+<td class="text-center"><p>سهم مصرف از تولید ناخالص داخلی تبدیل شده PPP سرانه (٪)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>cg</p></td>
+<td class="text-center"><p>سهم مصرف دولت از تولید ناخالص داخلی تبدیل شده PPP سرانه (٪)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>ما این را از یک URL با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> در <code class="docutils literal notranslate"><span class="pre">pandas</span></code> خواهیم خواند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>در اینجا محتوای <code class="docutils literal notranslate"><span class="pre">test_pwt.csv</span></code> آمده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.999500</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000</td>
+      <td>19053.186</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.570</td>
+      <td>4.077330</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>1.000000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="id3">
+<h3><span class="section-number">16.3.1. </span>انتخاب داده بر اساس موقعیت<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>در عمل، کاری که همیشه انجام می‌دهیم این است که زیرمجموعه‌ای از داده مورد علاقه خود را پیدا کنیم، انتخاب کنیم و با آن کار کنیم.</p>
+<p>می‌توانیم سطرهای خاص را با استفاده از نماد برش استاندارد آرایه Python انتخاب کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.570</td>
+      <td>4.077330</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>برای انتخاب ستون‌ها، می‌توانیم لیستی حاوی نام ستون‌های مورد نظر را به صورت رشته ارسال کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>tcgdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>2.950722e+05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>9.898700e+06</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>برای انتخاب هم سطرها و هم ستون‌ها با استفاده از اعداد صحیح، باید از ویژگی <code class="docutils literal notranslate"><span class="pre">iloc</span></code> با قالب <code class="docutils literal notranslate"><span class="pre">.iloc[rows,</span> <span class="pre">columns]</span></code> استفاده شود.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.570</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>برای انتخاب سطرها و ستون‌ها با استفاده از ترکیبی از اعداد صحیح و برچسب‌ها، می‌توان از ویژگی <code class="docutils literal notranslate"><span class="pre">loc</span></code> به روشی مشابه استفاده کرد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>tcgdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>5.026222e+03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">16.3.2. </span>انتخاب داده بر اساس شرایط<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>به جای اندیس‌گذاری سطرها و ستون‌ها با استفاده از اعداد صحیح و نام‌ها، می‌توانیم یک زیر دیتافریم از علایق خود را که شرایط خاص (بالقوه پیچیده) را برآورده می‌کند، به دست آوریم.</p>
+<p>این بخش روش‌های مختلف انجام این کار را نشان می‌دهد.</p>
+<p>ساده‌ترین راه با عملگر <code class="docutils literal notranslate"><span class="pre">[]</span></code> است.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.99950</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.94160</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.93983</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>1.00000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>برای درک آنچه در اینجا اتفاق می‌افتد، توجه کنید که <code class="docutils literal notranslate"><span class="pre">df.POP</span> <span class="pre">&gt;=</span> <span class="pre">20000</span></code> یک سری از مقادیر بولی را برمی‌گرداند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&gt;=</span> <span class="mi">20000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1    False
+2     True
+3    False
+4    False
+5     True
+6     True
+7    False
+Name: POP, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>در این مورد، <code class="docutils literal notranslate"><span class="pre">df[___]</span></code> یک سری از مقادیر بولی را می‌گیرد و تنها سطرهایی با مقادیر <code class="docutils literal notranslate"><span class="pre">True</span></code> را برمی‌گرداند.</p>
+<p>یک مثال دیگر بزنید،</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Argentina&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="s1">&#39;South Africa&#39;</span><span class="p">]))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&gt;</span> <span class="mi">40000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.94160</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.93983</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>با این حال، راه دیگری برای انجام همین کار وجود دارد که می‌تواند برای دیتافریم‌های بزرگ کمی سریع‌تر باشد، با نحو طبیعی‌تر.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># مورد بالا معادل است با </span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;POP &gt;= 20000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.99950</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.94160</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.93983</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>1.00000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;country in [&#39;Argentina&#39;, &#39;India&#39;, &#39;South Africa&#39;] and POP &gt; 40000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.94160</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.93983</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>همچنین می‌توانیم عملیات حسابی بین ستون‌های مختلف را مجاز کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">cc</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">cg</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&lt;=</span> <span class="mi">20000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5026.221784</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>25255.961693</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># مورد بالا معادل است با </span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;cc + cg &gt;= 80 &amp; POP &lt;= 20000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5026.221784</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>25255.961693</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>به عنوان مثال، می‌توانیم از شرط‌گذاری برای انتخاب کشوری با بیشترین سهم مصرف خانوار - تولید ناخالص داخلی <code class="docutils literal notranslate"><span class="pre">cc</span></code> استفاده کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">cc</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cc</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>25255.961693</td>
+      <td>78.97874</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>وقتی فقط می‌خواهیم به ستون‌های خاصی از یک زیر دیتافریم انتخاب شده نگاه کنیم، می‌توانیم از شرایط بالا با دستور <code class="docutils literal notranslate"><span class="pre">.loc[__</span> <span class="pre">,</span> <span class="pre">__]</span></code> استفاده کنیم.</p>
+<p>آرگومان اول شرط را می‌گیرد، در حالی که آرگومان دوم لیستی از ستون‌هایی را که می‌خواهیم برگردانیم می‌گیرد.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">cc</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">cg</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&lt;=</span> <span class="mi">20000</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>POP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>2000</td>
+      <td>11801.505</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>2000</td>
+      <td>3219.793</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>کاربرد: زیرمجموعه‌سازی دیتافریم</strong></p>
+<p>مجموعه داده‌های دنیای واقعی می‌توانند <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/overfitting">عظیم</a> باشند.</p>
+<p>گاهی اوقات مطلوب است که با زیرمجموعه‌ای از داده کار کنیم تا کارایی محاسباتی را افزایش دهیم و افزونگی را کاهش دهیم.</p>
+<p>فرض کنید که ما فقط به جمعیت (<code class="docutils literal notranslate"><span class="pre">POP</span></code>) و کل تولید ناخالص داخلی (<code class="docutils literal notranslate"><span class="pre">tcgdp</span></code>) علاقه‌مند هستیم.</p>
+<p>یکی از راه‌های کاهش دیتافریم <code class="docutils literal notranslate"><span class="pre">df</span></code> به فقط این متغیرها، بازنویسی دیتافریم با استفاده از روش انتخاب توضیح داده شده در بالا است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">]]</span>
+<span class="n">df_subset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>POP</th>
+      <th>tcgdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>37335.653</td>
+      <td>2.950722e+05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>19053.186</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>1006300.297</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>6114.570</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>11801.505</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>45064.098</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>282171.957</td>
+      <td>9.898700e+06</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>3219.793</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>سپس می‌توانیم مجموعه داده کوچکتر را برای تحلیل بیشتر ذخیره کنیم.</p>
+<div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_subset</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;pwt_subset.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="apply">
+<h3><span class="section-number">16.3.3. </span>متد Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h3>
+<p>یکی دیگر از متدهای پرکاربرد Pandas، <code class="docutils literal notranslate"><span class="pre">df.apply()</span></code> است.</p>
+<p>این یک تابع را به هر سطر/ستون اعمال می‌کند و یک سری را برمی‌گرداند.</p>
+<p>این تابع می‌تواند برخی از توابع داخلی مانند تابع <code class="docutils literal notranslate"><span class="pre">max</span></code>، یک تابع <code class="docutils literal notranslate"><span class="pre">lambda</span></code> یا یک تابع تعریف شده توسط کاربر باشد.</p>
+<p>در اینجا مثالی با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">max</span></code> آورده شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;XRAT&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;cc&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year     2.000000e+03
+POP      1.006300e+06
+XRAT     5.954381e+01
+tcgdp    9.898700e+06
+cc       7.897874e+01
+cg       1.407221e+01
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>این خط کد تابع <code class="docutils literal notranslate"><span class="pre">max</span></code> را به تمام ستون‌های انتخاب شده اعمال می‌کند.</p>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">lambda</span></code> اغلب با متد <code class="docutils literal notranslate"><span class="pre">df.apply()</span></code> استفاده می‌شود</p>
+<p>یک مثال بدیهی برگرداندن خودش برای هر سطر در دیتافریم است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.999500</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000</td>
+      <td>19053.186</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.570</td>
+      <td>4.077330</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>1.000000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>برای متد <code class="docutils literal notranslate"><span class="pre">.apply()</span></code></p>
+<ul class="simple">
+<li><p>axis = 0 – اعمال تابع به هر ستون (متغیرها)</p></li>
+<li><p>axis = 1 – اعمال تابع به هر سطر (مشاهدات)</p></li>
+<li><p>axis = 0 پارامتر پیش‌فرض است</p></li>
+</ul>
+</div>
+<p>می‌توانیم آن را همراه با <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> برای انجام برخی انتخاب‌های پیشرفته‌تر استفاده کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complexCondition</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">POP</span> <span class="o">&gt;</span> <span class="mi">40000</span> <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">country</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Argentina&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="s1">&#39;South Africa&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="n">row</span><span class="o">.</span><span class="n">POP</span> <span class="o">&lt;</span> <span class="mi">20000</span><span class="p">,</span> 
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;XRAT&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">df.apply()</span></code> در اینجا یک سری از مقادیر بولی سطرهایی را که شرط مشخص شده در عبارت if-else را برآورده می‌کنند برمی‌گرداند.</p>
+<p>علاوه بر این، زیرمجموعه‌ای از متغیرهای مورد علاقه را نیز تعریف می‌کند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complexCondition</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0    False
+ 1     True
+ 2     True
+ 3     True
+ 4     True
+ 5     True
+ 6    False
+ 7     True
+ dtype: bool,
+ [&#39;country&#39;, &#39;year&#39;, &#39;POP&#39;, &#39;XRAT&#39;, &#39;tcgdp&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>وقتی این شرط را به دیتافریم اعمال کنیم، نتیجه خواهد بود</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">complexCondition</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>2000</td>
+      <td>19053.186</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>2000</td>
+      <td>6114.570</td>
+      <td>4.077330</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">16.3.4. </span>ایجاد تغییرات در DataFrames<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>توانایی ایجاد تغییرات در دیتافریم‌ها برای تولید یک مجموعه داده تمیز برای تحلیل آینده مهم است.</p>
+<p><strong>1.</strong> می‌توانیم به راحتی از <code class="docutils literal notranslate"><span class="pre">df.where()</span></code> برای “نگه داشتن” سطرهایی که انتخاب کرده‌ایم استفاده کنیم و بقیه سطرها را با هر مقدار دیگری جایگزین کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">POP</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.9995</td>
+      <td>295072.21869</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.9416</td>
+      <td>1728144.3748</td>
+      <td>64.575551</td>
+      <td>14.072206</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.93983</td>
+      <td>227242.36949</td>
+      <td>72.71871</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>1.0</td>
+      <td>9898700.0</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>2.</strong> به سادگی می‌توانیم از <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> برای مشخص کردن ستونی که می‌خواهیم تغییر دهیم استفاده کنیم و مقادیر را اختصاص دهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">cg</span> <span class="o">==</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cg</span><span class="p">),</span> <span class="s1">&#39;cg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.999500</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000</td>
+      <td>19053.186</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.570</td>
+      <td>4.077330</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>1.000000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>3.</strong> می‌توانیم از متد <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> برای تغییر <em>سطرها/ستون‌ها به عنوان یک کل</em> استفاده کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_row</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="c1"># تغییر POP</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">POP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">POP</span><span class="o">&lt;=</span> <span class="mi">10000</span> <span class="k">else</span> <span class="n">row</span><span class="o">.</span><span class="n">POP</span>
+
+    <span class="c1"># تغییر XRAT</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">XRAT</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">XRAT</span> <span class="o">/</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="n">row</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">update_row</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.653</td>
+      <td>0.099950</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000</td>
+      <td>19053.186</td>
+      <td>0.172483</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.297</td>
+      <td>4.494160</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>NaN</td>
+      <td>0.407733</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.505</td>
+      <td>5.954381</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.098</td>
+      <td>0.693983</td>
+      <td>2.272424e+05</td>
+      <td>72.718710</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.957</td>
+      <td>0.100000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>NaN</td>
+      <td>1.209959</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>4.</strong> می‌توانیم از متد <code class="docutils literal notranslate"><span class="pre">.map()</span></code> برای تغییر تمام <em>ورودی‌های فردی</em> در دیتافریم با هم استفاده کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># گرد کردن تمام اعداد اعشاری به 2 رقم اعشار</span>
+<span class="n">df</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span><span class="nb">str</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000</td>
+      <td>37335.65</td>
+      <td>1.00</td>
+      <td>295072.22</td>
+      <td>75.72</td>
+      <td>5.58</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000</td>
+      <td>19053.19</td>
+      <td>1.72</td>
+      <td>541804.65</td>
+      <td>67.76</td>
+      <td>6.72</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000</td>
+      <td>1006300.30</td>
+      <td>44.94</td>
+      <td>1728144.37</td>
+      <td>64.58</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000</td>
+      <td>6114.57</td>
+      <td>4.08</td>
+      <td>129253.89</td>
+      <td>64.44</td>
+      <td>10.27</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000</td>
+      <td>11801.50</td>
+      <td>59.54</td>
+      <td>5026.22</td>
+      <td>74.71</td>
+      <td>11.66</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000</td>
+      <td>45064.10</td>
+      <td>6.94</td>
+      <td>227242.37</td>
+      <td>72.72</td>
+      <td>5.73</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000</td>
+      <td>282171.96</td>
+      <td>1.00</td>
+      <td>9898700.00</td>
+      <td>72.35</td>
+      <td>6.03</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000</td>
+      <td>3219.79</td>
+      <td>12.10</td>
+      <td>25255.96</td>
+      <td>78.98</td>
+      <td>5.11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>کاربرد: جایگزینی مقدار گمشده</strong></p>
+<p>جایگزینی مقادیر گمشده یک گام مهم در تبدیل داده است.</p>
+<p>بیایید به طور تصادفی چند مقدار NaN وارد کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">])):</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000.0</td>
+      <td>NaN</td>
+      <td>0.999500</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000.0</td>
+      <td>19053.186</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000.0</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000.0</td>
+      <td>6114.570</td>
+      <td>NaN</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000.0</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000.0</td>
+      <td>45064.098</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+      <td>NaN</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>NaN</td>
+      <td>282171.957</td>
+      <td>1.000000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000.0</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">zip()</span></code> در اینجا جفت‌هایی از مقادیر دو لیست را ایجاد می‌کند (یعنی [0,3]، [3,4] …)</p>
+<p>می‌توانیم دوباره از متد <code class="docutils literal notranslate"><span class="pre">.map()</span></code> برای جایگزینی تمام مقادیر گمشده با 0 استفاده کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># جایگزینی تمام مقادیر NaN با 0</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">replace_nan</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span><span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span>  <span class="mi">0</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">replace_nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000.0</td>
+      <td>0.000</td>
+      <td>0.999500</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000.0</td>
+      <td>19053.186</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000.0</td>
+      <td>1006300.297</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000.0</td>
+      <td>6114.570</td>
+      <td>0.000000</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000.0</td>
+      <td>11801.505</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000.0</td>
+      <td>45064.098</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+      <td>0.000000</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>0.0</td>
+      <td>282171.957</td>
+      <td>1.000000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000.0</td>
+      <td>3219.793</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas همچنین متدهای مناسبی برای جایگزینی مقادیر گمشده در اختیار ما قرار می‌دهد.</p>
+<p>به عنوان مثال، جایگزینی تکی با استفاده از میانگین متغیرها به راحتی در pandas قابل انجام است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country isocode</th>
+      <th>year</th>
+      <th>POP</th>
+      <th>XRAT</th>
+      <th>tcgdp</th>
+      <th>cc</th>
+      <th>cg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2000.0</td>
+      <td>1.962465e+05</td>
+      <td>0.999500</td>
+      <td>2.950722e+05</td>
+      <td>75.716805</td>
+      <td>5.578804</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2000.0</td>
+      <td>1.905319e+04</td>
+      <td>1.724830</td>
+      <td>5.418047e+05</td>
+      <td>67.759026</td>
+      <td>6.720098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2000.0</td>
+      <td>1.006300e+06</td>
+      <td>44.941600</td>
+      <td>1.728144e+06</td>
+      <td>64.575551</td>
+      <td>7.298802</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>2000.0</td>
+      <td>6.114570e+03</td>
+      <td>18.178451</td>
+      <td>1.292539e+05</td>
+      <td>64.436451</td>
+      <td>10.266688</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>MWI</td>
+      <td>2000.0</td>
+      <td>1.180150e+04</td>
+      <td>59.543808</td>
+      <td>5.026222e+03</td>
+      <td>74.707624</td>
+      <td>11.658954</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2000.0</td>
+      <td>4.506410e+04</td>
+      <td>6.939830</td>
+      <td>2.272424e+05</td>
+      <td>71.217322</td>
+      <td>5.726546</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>2000.0</td>
+      <td>2.821720e+05</td>
+      <td>1.000000</td>
+      <td>9.898700e+06</td>
+      <td>72.347054</td>
+      <td>6.032454</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>URY</td>
+      <td>2000.0</td>
+      <td>3.219793e+03</td>
+      <td>12.099592</td>
+      <td>2.525596e+04</td>
+      <td>78.978740</td>
+      <td>5.108068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>جایگزینی مقدار گمشده یک حوزه بزرگ در علم داده است که شامل تکنیک‌های مختلف یادگیری ماشین می‌شود.</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/impute.html">ابزارهای پیشرفته‌تر</a> در python برای جایگزینی مقادیر گمشده نیز وجود دارد.</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">16.3.5. </span>استانداردسازی و بصری‌سازی<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>فرض کنیم که ما فقط به جمعیت (<code class="docutils literal notranslate"><span class="pre">POP</span></code>) و کل تولید ناخالص داخلی (<code class="docutils literal notranslate"><span class="pre">tcgdp</span></code>) علاقه‌مند هستیم.</p>
+<p>یکی از راه‌های کاهش دیتافریم <code class="docutils literal notranslate"><span class="pre">df</span></code> به فقط این متغیرها، بازنویسی دیتافریم با استفاده از روش انتخاب توضیح داده شده در بالا است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">]]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>POP</th>
+      <th>tcgdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Argentina</td>
+      <td>1.962465e+05</td>
+      <td>2.950722e+05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Australia</td>
+      <td>1.905319e+04</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>India</td>
+      <td>1.006300e+06</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Israel</td>
+      <td>6.114570e+03</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Malawi</td>
+      <td>1.180150e+04</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>South Africa</td>
+      <td>4.506410e+04</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United States</td>
+      <td>2.821720e+05</td>
+      <td>9.898700e+06</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Uruguay</td>
+      <td>3.219793e+03</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>در اینجا اندیس <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,...,</span> <span class="pre">7</span></code> زائد است زیرا می‌توانیم از نام کشورها به عنوان اندیس استفاده کنیم.</p>
+<p>برای انجام این کار، اندیس را به متغیر <code class="docutils literal notranslate"><span class="pre">country</span></code> در دیتافریم تنظیم می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>POP</th>
+      <th>tcgdp</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Argentina</th>
+      <td>1.962465e+05</td>
+      <td>2.950722e+05</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>1.905319e+04</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>1.006300e+06</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>Israel</th>
+      <td>6.114570e+03</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>1.180150e+04</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>South Africa</th>
+      <td>4.506410e+04</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>2.821720e+05</td>
+      <td>9.898700e+06</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>3.219793e+03</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>بیایید نام‌های بهتری به ستون‌ها بدهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;total GDP&#39;</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>total GDP</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Argentina</th>
+      <td>1.962465e+05</td>
+      <td>2.950722e+05</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>1.905319e+04</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>1.006300e+06</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>Israel</th>
+      <td>6.114570e+03</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>1.180150e+04</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>South Africa</th>
+      <td>4.506410e+04</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>2.821720e+05</td>
+      <td>9.898700e+06</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>3.219793e+03</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>متغیر <code class="docutils literal notranslate"><span class="pre">population</span></code> به هزار نفر است، بیایید به واحدهای تکی برگردیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>total GDP</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Argentina</th>
+      <td>1.962465e+08</td>
+      <td>2.950722e+05</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>1.905319e+07</td>
+      <td>5.418047e+05</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>1.006300e+09</td>
+      <td>1.728144e+06</td>
+    </tr>
+    <tr>
+      <th>Israel</th>
+      <td>6.114570e+06</td>
+      <td>1.292539e+05</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>1.180150e+07</td>
+      <td>5.026222e+03</td>
+    </tr>
+    <tr>
+      <th>South Africa</th>
+      <td>4.506410e+07</td>
+      <td>2.272424e+05</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>2.821720e+08</td>
+      <td>9.898700e+06</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>3.219793e+06</td>
+      <td>2.525596e+04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>در مرحله بعد، قصد داریم ستونی که تولید ناخالص داخلی واقعی سرانه را نشان می‌دهد اضافه کنیم، و در ضمن در 1,000,000 ضرب می‌کنیم زیرا کل تولید ناخالص داخلی به میلیون است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total GDP&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>total GDP</th>
+      <th>GDP percap</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Argentina</th>
+      <td>1.962465e+08</td>
+      <td>2.950722e+05</td>
+      <td>1503.579625</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>1.905319e+07</td>
+      <td>5.418047e+05</td>
+      <td>28436.433261</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>1.006300e+09</td>
+      <td>1.728144e+06</td>
+      <td>1717.324719</td>
+    </tr>
+    <tr>
+      <th>Israel</th>
+      <td>6.114570e+06</td>
+      <td>1.292539e+05</td>
+      <td>21138.672749</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>1.180150e+07</td>
+      <td>5.026222e+03</td>
+      <td>425.896679</td>
+    </tr>
+    <tr>
+      <th>South Africa</th>
+      <td>4.506410e+07</td>
+      <td>2.272424e+05</td>
+      <td>5042.647686</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>2.821720e+08</td>
+      <td>9.898700e+06</td>
+      <td>35080.381854</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>3.219793e+06</td>
+      <td>2.525596e+04</td>
+      <td>7843.970620</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>یکی از ویژگی‌های خوب اشیاء <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> و <code class="docutils literal notranslate"><span class="pre">Series</span></code> در pandas این است که آنها متدهایی برای رسم نمودار و بصری‌سازی دارند که از طریق Matplotlib کار می‌کنند.</p>
+<p>به عنوان مثال، می‌توانیم به راحتی یک نمودار میله‌ای از تولید ناخالص داخلی سرانه تولید کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;GDP per capita&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7dd764907995fbc0b89fe5ee18805fe4e9a5e6431ca3262d319b68f37570d5d8.png" src="_images/7dd764907995fbc0b89fe5ee18805fe4e9a5e6431ca3262d319b68f37570d5d8.png" />
+</div>
+</div>
+<p>در حال حاضر دیتافریم به ترتیب الفبایی بر اساس کشورها مرتب شده است — بیایید آن را به تولید ناخالص داخلی سرانه تغییر دهیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>total GDP</th>
+      <th>GDP percap</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>United States</th>
+      <td>2.821720e+08</td>
+      <td>9.898700e+06</td>
+      <td>35080.381854</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>1.905319e+07</td>
+      <td>5.418047e+05</td>
+      <td>28436.433261</td>
+    </tr>
+    <tr>
+      <th>Israel</th>
+      <td>6.114570e+06</td>
+      <td>1.292539e+05</td>
+      <td>21138.672749</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>3.219793e+06</td>
+      <td>2.525596e+04</td>
+      <td>7843.970620</td>
+    </tr>
+    <tr>
+      <th>South Africa</th>
+      <td>4.506410e+07</td>
+      <td>2.272424e+05</td>
+      <td>5042.647686</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>1.006300e+09</td>
+      <td>1.728144e+06</td>
+      <td>1717.324719</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>1.962465e+08</td>
+      <td>2.950722e+05</td>
+      <td>1503.579625</td>
+    </tr>
+    <tr>
+      <th>Malawi</th>
+      <td>1.180150e+07</td>
+      <td>5.026222e+03</td>
+      <td>425.896679</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>رسم نمودار مانند قبل اکنون به نتیجه زیر منجر می‌شود</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;GDP per capita&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7caefb7fbad28377703bb23dddd7bd04a72925bd4b7aa0a217ae8bd7f5631f8a.png" src="_images/7caefb7fbad28377703bb23dddd7bd04a72925bd4b7aa0a217ae8bd7f5631f8a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">16.4. </span>منابع داده آنلاین<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p id="index-4">Python پرس‌وجوی برنامه‌ای پایگاه‌های داده آنلاین را ساده می‌کند.</p>
+<p>یک پایگاه داده مهم برای اقتصاددانان <a class="reference external" href="https://fred.stlouisfed.org/">FRED</a> است — یک مجموعه وسیع از داده‌های سری زمانی که توسط فدرال رزرو سنت لوئیس نگهداری می‌شود.</p>
+<p>به عنوان مثال، فرض کنید که ما به <a class="reference external" href="https://fred.stlouisfed.org/series/UNRATE">نرخ بیکاری</a> علاقه‌مند هستیم.</p>
+<p>(برای دانلود داده به عنوان csv، روی <code class="docutils literal notranslate"><span class="pre">Download</span></code> در بالا سمت راست کلیک کرده و گزینه <code class="docutils literal notranslate"><span class="pre">CSV</span> <span class="pre">(data)</span></code> را انتخاب کنید).</p>
+<p>از طرف دیگر، می‌توانیم به فایل CSV از داخل یک برنامه Python دسترسی پیدا کنیم.</p>
+<p>این کار می‌تواند با انواع روش‌ها انجام شود.</p>
+<p>ما با یک روش نسبتاً سطح پایین شروع می‌کنیم و سپس به pandas برمی‌گردیم.</p>
+<section id="requests">
+<h3><span class="section-number">16.4.1. </span>دسترسی به داده با <span class="target" id="index-5"></span>requests<a class="headerlink" href="#requests" title="Link to this heading">#</a></h3>
+<p id="index-6">یک گزینه استفاده از <a class="reference external" href="https://requests.readthedocs.io/en/latest/">requests</a> است، یک کتابخانه استاندارد Python برای درخواست داده از طریق اینترنت.</p>
+<p>برای شروع، کد زیر را روی کامپیوتر خود امتحان کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=</span><span class="si">%23e</span><span class="s1">1e9f0&amp;chart_type=line&amp;drp=0&amp;fo=open</span><span class="si">%20s</span><span class="s1">ans&amp;graph_bgcolor=</span><span class="si">%23f</span><span class="s1">fffff&amp;height=450&amp;mode=fred&amp;recession_bars=on&amp;txtcolor=%23444444&amp;ts=12&amp;tts=12&amp;width=1318&amp;nt=0&amp;thu=0&amp;trc=0&amp;show_legend=yes&amp;show_axis_titles=yes&amp;show_tooltip=yes&amp;id=UNRATE&amp;scale=left&amp;cosd=1948-01-01&amp;coed=2024-06-01&amp;line_color=</span><span class="si">%234572a</span><span class="s1">7&amp;link_values=false&amp;line_style=solid&amp;mark_type=none&amp;mw=3&amp;lw=2&amp;ost=-99999&amp;oet=99999&amp;mma=0&amp;fml=a&amp;fq=Monthly&amp;fam=avg&amp;fgst=lin&amp;fgsnd=2020-02-01&amp;line_index=1&amp;transformation=lin&amp;vintage_date=2024-07-29&amp;revision_date=2024-07-29&amp;nd=1948-01-01&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>اگر پیام خطایی نباشد، پس فراخوانی موفق بوده است.</p>
+<p>اگر خطایی دریافت کردید، دو علت احتمالی وجود دارد</p>
+<ol class="arabic simple">
+<li><p>شما به اینترنت متصل نیستید — امیدوارم که این مورد نباشد.</p></li>
+<li><p>دستگاه شما از طریق یک سرور پروکسی به اینترنت دسترسی پیدا می‌کند و Python از این موضوع آگاه نیست.</p></li>
+</ol>
+<p>در حالت دوم، می‌توانید</p>
+<ul class="simple">
+<li><p>به دستگاه دیگری تغییر دهید</p></li>
+<li><p>مشکل پروکسی خود را با خواندن <a class="reference external" href="https://requests.readthedocs.io/en/latest/">مستندات</a> حل کنید</p></li>
+</ul>
+<p>با فرض اینکه همه چیز کار می‌کند، اکنون می‌توانید از شیء <code class="docutils literal notranslate"><span class="pre">source</span></code> برگردانده شده توسط فراخوانی <code class="docutils literal notranslate"><span class="pre">requests.get('https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')</span></code> استفاده کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=</span><span class="si">%23e</span><span class="s1">1e9f0&amp;chart_type=line&amp;drp=0&amp;fo=open</span><span class="si">%20s</span><span class="s1">ans&amp;graph_bgcolor=</span><span class="si">%23f</span><span class="s1">fffff&amp;height=450&amp;mode=fred&amp;recession_bars=on&amp;txtcolor=%23444444&amp;ts=12&amp;tts=12&amp;width=1318&amp;nt=0&amp;thu=0&amp;trc=0&amp;show_legend=yes&amp;show_axis_titles=yes&amp;show_tooltip=yes&amp;id=UNRATE&amp;scale=left&amp;cosd=1948-01-01&amp;coed=2024-06-01&amp;line_color=</span><span class="si">%234572a</span><span class="s1">7&amp;link_values=false&amp;line_style=solid&amp;mark_type=none&amp;mw=3&amp;lw=2&amp;ost=-99999&amp;oet=99999&amp;mma=0&amp;fml=a&amp;fq=Monthly&amp;fam=avg&amp;fgst=lin&amp;fgsnd=2020-02-01&amp;line_index=1&amp;transformation=lin&amp;vintage_date=2024-07-29&amp;revision_date=2024-07-29&amp;nd=1948-01-01&#39;</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">source</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;observation_date,UNRATE&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1948-01-01,3.4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1948-02-01,3.8&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>اکنون می‌توانیم کد اضافی برای تجزیه این متن و ذخیره آن به عنوان یک آرایه بنویسیم.</p>
+<p>اما این غیرضروری است — تابع <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> در pandas می‌تواند این کار را برای ما انجام دهد.</p>
+<p>از <code class="docutils literal notranslate"><span class="pre">parse_dates=True</span></code> استفاده می‌کنیم تا pandas ستون تاریخ‌های ما را تشخیص دهد و فیلتر کردن تاریخ ساده را امکان‌پذیر کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>داده به یک DataFrame در pandas به نام <code class="docutils literal notranslate"><span class="pre">data</span></code> خوانده شده است که اکنون می‌توانیم به روش معمول با آن کار کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  <span class="c1"># یک متد مفید برای نگاه سریع به دیتافریم</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UNRATE</th>
+    </tr>
+    <tr>
+      <th>observation_date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1948-01-01</th>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th>1948-02-01</th>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <th>1948-03-01</th>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1948-04-01</th>
+      <td>3.9</td>
+    </tr>
+    <tr>
+      <th>1948-05-01</th>
+      <td>3.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.precision&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>  <span class="c1"># خروجی شما ممکن است کمی متفاوت باشد</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UNRATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>918.0</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.7</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.7</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>4.4</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>14.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>همچنین می‌توانیم نرخ بیکاری از 2006 تا 2012 را به شرح زیر رسم کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;2006&#39;</span><span class="p">:</span><span class="s1">&#39;2012&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;US Unemployment Rate&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/53880b060d7698a3988bebf5788270c267bfa5203454c1bb24f01abe1deaeb1c.png" src="_images/53880b060d7698a3988bebf5788270c267bfa5203454c1bb24f01abe1deaeb1c.png" />
+</div>
+</div>
+<p>توجه کنید که pandas گزینه‌های بسیار دیگری برای نوع فایل ارائه می‌دهد.</p>
+<p>Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">تنوع گسترده‌ای</a> از متدهای سطح بالا دارد که می‌توانیم از آنها برای خواندن excel، json، parquet استفاده کنیم یا مستقیماً به یک سرور پایگاه داده وصل شویم.</p>
+</section>
+<section id="wbgapi-yfinance">
+<h3><span class="section-number">16.4.2. </span>استفاده از <span class="target" id="index-7"></span>wbgapi و <span class="target" id="index-8"></span>yfinance برای دسترسی به داده<a class="headerlink" href="#wbgapi-yfinance" title="Link to this heading">#</a></h3>
+<p>کتابخانه python <a class="reference external" href="https://pypi.org/project/wbgapi/">wbgapi</a> می‌تواند برای واکشی داده از پایگاه‌های داده متعددی که توسط بانک جهانی منتشر شده‌اند استفاده شود.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>می‌توانید اطلاعات مفیدی درباره بسته <a class="reference external" href="https://pypi.org/project/wbgapi/">wbgapi</a> در این <a class="reference external" href="https://blogs.worldbank.org/en/opendata/introducing-wbgapi-new-python-package-accessing-world-bank-data">پست وبلاگ بانک جهانی</a> و همچنین این <a class="reference external" href="https://github.com/tgherzog/wbgapi/blob/master/examples/wbgapi-quickstart.ipynb">آموزش</a> پیدا کنید</p>
+</div>
+<p>همچنین از <a class="reference external" href="https://pypi.org/project/yfinance/">yfinance</a> برای واکشی داده از Yahoo finance در تمرین‌ها استفاده خواهیم کرد.</p>
+<p>فعلاً بیایید یک مثال از دانلود و رسم نمودار داده را کار کنیم — این بار از بانک جهانی.</p>
+<p>بانک جهانی <a class="reference external" href="https://data.worldbank.org/indicator">داده را جمع‌آوری و سازماندهی می‌کند</a> در مجموعه‌ای عظیم از شاخص‌ها.</p>
+<p>به عنوان مثال، <a class="reference external" href="https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS">در اینجا</a> برخی داده‌ها در مورد بدهی دولت به عنوان نسبتی از تولید ناخالص داخلی آورده شده است.</p>
+<p>مثال کد بعدی داده را برای شما واکشی می‌کند و سری‌های زمانی را برای ایالات متحده و استرالیا رسم می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">wbgapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">wb</span>
+<span class="n">wb</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;GC.DOD.TOTL.GD.ZS&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div class="wbgapi"><table>
+<thead>
+<tr><th>id               </th><th>value                                    </th></tr>
+</thead>
+<tbody>
+<tr><td>GC.DOD.TOTL.GD.ZS</td><td>Central government debt, total (% of GDP)</td></tr>
+<tr><td>                 </td><td>1 elements                               </td></tr>
+</tbody>
+</table></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">govt_debt</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="s1">&#39;GC.DOD.TOTL.GD.ZS&#39;</span><span class="p">,</span> <span class="n">economy</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span><span class="s1">&#39;AUS&#39;</span><span class="p">],</span> <span class="n">time</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span><span class="mi">2016</span><span class="p">))</span>
+<span class="n">govt_debt</span> <span class="o">=</span> <span class="n">govt_debt</span><span class="o">.</span><span class="n">T</span>    <span class="c1"># انتقال سال‌ها از ستون‌ها به سطرها برای رسم نمودار</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">govt_debt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Government debt (</span><span class="si">% o</span><span class="s1">f GDP)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0f9cbe8df44b0a5b4fdb5fe6a14b4df472ca01ccc70f40e1d77489f6f466febb.png" src="_images/0f9cbe8df44b0a5b4fdb5fe6a14b4df472ca01ccc70f40e1d77489f6f466febb.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id8">
+<h2><span class="section-number">16.5. </span>تمرین‌ها<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<div class="exercise admonition" id="pd_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 16.1 </span></p>
+<section id="exercise-content">
+<p>با این import‌ها:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>برنامه‌ای بنویسید تا درصد تغییر قیمت در سال 2021 را برای سهام زیر محاسبه کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ticker_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;INTC&#39;</span><span class="p">:</span> <span class="s1">&#39;Intel&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;MSFT&#39;</span><span class="p">:</span> <span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;IBM&#39;</span><span class="p">:</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;BHP&#39;</span><span class="p">:</span> <span class="s1">&#39;BHP&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;TM&#39;</span><span class="p">:</span> <span class="s1">&#39;Toyota&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AAPL&#39;</span><span class="p">:</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AMZN&#39;</span><span class="p">:</span> <span class="s1">&#39;Amazon&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;Citigroup&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;QCOM&#39;</span><span class="p">:</span> <span class="s1">&#39;Qualcomm&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;KO&#39;</span><span class="p">:</span> <span class="s1">&#39;Coca-Cola&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;GOOG&#39;</span><span class="p">:</span> <span class="s1">&#39;Google&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>در اینجا قسمت اول برنامه آورده شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_data</span><span class="p">(</span><span class="n">ticker_list</span><span class="p">,</span>
+          <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+          <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function reads in closing price data from Yahoo</span>
+<span class="sd">    for each tick in the ticker_list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ticker</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ticker_list</span><span class="p">:</span>
+        <span class="n">stock</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+        <span class="n">prices</span> <span class="o">=</span> <span class="n">stock</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+
+        <span class="c1"># Change the index to date-only</span>
+        <span class="n">prices</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+        
+        <span class="n">closing_prices</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+        <span class="n">ticker</span><span class="p">[</span><span class="n">tick</span><span class="p">]</span> <span class="o">=</span> <span class="n">closing_prices</span>
+
+    <span class="k">return</span> <span class="n">ticker</span>
+
+<span class="n">ticker</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">ticker_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>برنامه را تکمیل کنید تا نتیجه را به صورت نمودار میله‌ای مانند این رسم کنید:</p>
+<a class="reference internal image-reference" href="_images/pandas_share_prices.png"><img alt="_images/pandas_share_prices.png" class="align-center" src="_images/pandas_share_prices.png" style="width: 493.6px; height: 421.6px;" />
+</a>
+</section>
+</div>
+<div class="solution dropdown admonition" id="pandas-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pd_ex1"> Exercise 16.1</a></p>
+<section id="solution-content">
+<p>چند راه برای رویکرد به این مشکل با استفاده از Pandas برای محاسبه درصد تغییر وجود دارد.</p>
+<p>اول، می‌توانید داده را استخراج کنید و محاسبه را انجام دهید مانند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">ticker</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># اولین مجموعه قیمت‌ها را به عنوان یک Series بگیرید</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">ticker</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># آخرین مجموعه قیمت‌ها را به عنوان یک Series بگیرید</span>
+<span class="n">price_change</span> <span class="o">=</span> <span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span> <span class="o">/</span> <span class="n">p1</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">price_change</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INTC     6.9
+MSFT    57.2
+IBM     18.7
+BHP     -2.2
+TM      23.4
+AAPL    38.6
+AMZN     5.8
+C        3.6
+QCOM    25.3
+KO      14.9
+GOOG    69.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>از طرف دیگر می‌توانید از یک متد داخلی <code class="docutils literal notranslate"><span class="pre">pct_change</span></code> استفاده کنید و آن را برای انجام محاسبه صحیح با استفاده از آرگومان <code class="docutils literal notranslate"><span class="pre">periods</span></code> پیکربندی کنید.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change</span> <span class="o">=</span> <span class="n">ticker</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">price_change</span> <span class="o">=</span> <span class="n">change</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">price_change</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INTC     6.9
+MSFT    57.2
+IBM     18.7
+BHP     -2.2
+TM      23.4
+AAPL    38.6
+AMZN     5.8
+C        3.6
+QCOM    25.3
+KO      14.9
+GOOG    69.0
+Name: 2021-12-30 00:00:00, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>سپس برای رسم نمودار</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price_change</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">price_change</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ticker_list</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3055/1503263560.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  price_change.sort_values(inplace=True)
+/tmp/ipykernel_3055/1503263560.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  price_change.rename(index=ticker_list, inplace=True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;stock&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;percentage change in price&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">price_change</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2126970c0f9d116bc01b86a0808e7a30388d65c5bb1c4abd7af59b235b3cf2f0.png" src="_images/2126970c0f9d116bc01b86a0808e7a30388d65c5bb1c4abd7af59b235b3cf2f0.png" />
+</div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="pd_ex2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 16.2 </span></p>
+<section id="exercise-content">
+<p>با استفاده از متد <code class="docutils literal notranslate"><span class="pre">read_data</span></code> معرفی شده در <a class="reference internal" href="#pd_ex1"><span class="std std-numref">Exercise 16.1</span></a>، برنامه‌ای بنویسید تا درصد تغییر سال به سال را برای شاخص‌های زیر به دست آورید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;^GSPC&#39;</span><span class="p">:</span> <span class="s1">&#39;S&amp;P 500&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;^IXIC&#39;</span><span class="p">:</span> <span class="s1">&#39;NASDAQ&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;^DJI&#39;</span><span class="p">:</span> <span class="s1">&#39;Dow Jones&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;^N225&#39;</span><span class="p">:</span> <span class="s1">&#39;Nikkei&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>برنامه را تکمیل کنید تا آمار خلاصه را نشان دهد و نتیجه را به صورت نمودار سری زمانی مانند این رسم کنید:</p>
+<a class="reference internal image-reference" href="_images/pandas_indices_pctchange.png"><img alt="_images/pandas_indices_pctchange.png" class="align-center" src="_images/pandas_indices_pctchange.png" style="width: 576.0px; height: 345.6px;" />
+</a>
+</section>
+</div>
+<div class="solution dropdown admonition" id="pandas-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pd_ex2"> Exercise 16.2</a></p>
+<section id="solution-content">
+<p>با پیروی از کاری که در <a class="reference internal" href="#pd_ex1"><span class="std std-numref">Exercise 16.1</span></a> انجام دادید، می‌توانید داده را با استفاده از <code class="docutils literal notranslate"><span class="pre">read_data</span></code> با به‌روزرسانی تاریخ‌های شروع و پایان به طور مناسب پرس‌وجو کنید.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span>
+        <span class="n">indices_list</span><span class="p">,</span>
+        <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1971</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>  <span class="c1"># تاریخ شروع مشترک</span>
+        <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>سپس، اولین و آخرین مجموعه قیمت‌ها در هر سال را به عنوان DataFrames استخراج کنید و بازده سالانه را محاسبه کنید مانند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_returns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">indices_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">indices_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">indices_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>  <span class="c1"># اولین مجموعه بازده‌ها را به عنوان DataFrame بگیرید</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">indices_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">indices_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>   <span class="c1"># آخرین مجموعه بازده‌ها را به عنوان DataFrame بگیرید</span>
+    <span class="n">returns</span> <span class="o">=</span> <span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span> <span class="o">/</span> <span class="n">p1</span>
+    <span class="n">yearly_returns</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">returns</span>
+
+<span class="n">yearly_returns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S&amp;P 500</th>
+      <th>NASDAQ</th>
+      <th>Dow Jones</th>
+      <th>Nikkei</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1971</th>
+      <td>1.2e-01</td>
+      <td>1.4e-01</td>
+      <td>NaN</td>
+      <td>3.6e-01</td>
+    </tr>
+    <tr>
+      <th>1972</th>
+      <td>1.6e-01</td>
+      <td>1.8e-01</td>
+      <td>NaN</td>
+      <td>9.2e-01</td>
+    </tr>
+    <tr>
+      <th>1973</th>
+      <td>-1.8e-01</td>
+      <td>-3.2e-01</td>
+      <td>NaN</td>
+      <td>-1.8e-01</td>
+    </tr>
+    <tr>
+      <th>1974</th>
+      <td>-3.0e-01</td>
+      <td>-3.5e-01</td>
+      <td>NaN</td>
+      <td>-9.9e-02</td>
+    </tr>
+    <tr>
+      <th>1975</th>
+      <td>2.8e-01</td>
+      <td>2.8e-01</td>
+      <td>NaN</td>
+      <td>1.7e-01</td>
+    </tr>
+    <tr>
+      <th>1976</th>
+      <td>1.8e-01</td>
+      <td>2.5e-01</td>
+      <td>NaN</td>
+      <td>1.3e-01</td>
+    </tr>
+    <tr>
+      <th>1977</th>
+      <td>-1.1e-01</td>
+      <td>7.5e-02</td>
+      <td>NaN</td>
+      <td>-2.7e-02</td>
+    </tr>
+    <tr>
+      <th>1978</th>
+      <td>2.4e-02</td>
+      <td>1.3e-01</td>
+      <td>NaN</td>
+      <td>2.3e-01</td>
+    </tr>
+    <tr>
+      <th>1979</th>
+      <td>1.2e-01</td>
+      <td>2.8e-01</td>
+      <td>NaN</td>
+      <td>8.7e-02</td>
+    </tr>
+    <tr>
+      <th>1980</th>
+      <td>2.8e-01</td>
+      <td>3.7e-01</td>
+      <td>NaN</td>
+      <td>7.7e-02</td>
+    </tr>
+    <tr>
+      <th>1981</th>
+      <td>-1.0e-01</td>
+      <td>-3.8e-02</td>
+      <td>NaN</td>
+      <td>7.4e-02</td>
+    </tr>
+    <tr>
+      <th>1982</th>
+      <td>1.5e-01</td>
+      <td>1.9e-01</td>
+      <td>NaN</td>
+      <td>3.9e-02</td>
+    </tr>
+    <tr>
+      <th>1983</th>
+      <td>1.9e-01</td>
+      <td>2.1e-01</td>
+      <td>NaN</td>
+      <td>2.3e-01</td>
+    </tr>
+    <tr>
+      <th>1984</th>
+      <td>2.0e-02</td>
+      <td>-1.1e-01</td>
+      <td>NaN</td>
+      <td>1.6e-01</td>
+    </tr>
+    <tr>
+      <th>1985</th>
+      <td>2.8e-01</td>
+      <td>3.2e-01</td>
+      <td>NaN</td>
+      <td>1.3e-01</td>
+    </tr>
+    <tr>
+      <th>1986</th>
+      <td>1.6e-01</td>
+      <td>7.3e-02</td>
+      <td>NaN</td>
+      <td>4.4e-01</td>
+    </tr>
+    <tr>
+      <th>1987</th>
+      <td>2.6e-03</td>
+      <td>-6.4e-02</td>
+      <td>NaN</td>
+      <td>1.5e-01</td>
+    </tr>
+    <tr>
+      <th>1988</th>
+      <td>8.5e-02</td>
+      <td>1.3e-01</td>
+      <td>NaN</td>
+      <td>4.2e-01</td>
+    </tr>
+    <tr>
+      <th>1989</th>
+      <td>2.8e-01</td>
+      <td>2.0e-01</td>
+      <td>NaN</td>
+      <td>2.9e-01</td>
+    </tr>
+    <tr>
+      <th>1990</th>
+      <td>-8.2e-02</td>
+      <td>-1.9e-01</td>
+      <td>NaN</td>
+      <td>-3.8e-01</td>
+    </tr>
+    <tr>
+      <th>1991</th>
+      <td>2.8e-01</td>
+      <td>5.8e-01</td>
+      <td>NaN</td>
+      <td>-4.5e-02</td>
+    </tr>
+    <tr>
+      <th>1992</th>
+      <td>4.4e-02</td>
+      <td>1.5e-01</td>
+      <td>4.1e-02</td>
+      <td>-2.9e-01</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <td>7.1e-02</td>
+      <td>1.6e-01</td>
+      <td>1.3e-01</td>
+      <td>2.5e-02</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <td>-1.3e-02</td>
+      <td>-2.4e-02</td>
+      <td>2.1e-02</td>
+      <td>1.4e-01</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>3.4e-01</td>
+      <td>4.1e-01</td>
+      <td>3.3e-01</td>
+      <td>9.4e-03</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>1.9e-01</td>
+      <td>2.2e-01</td>
+      <td>2.5e-01</td>
+      <td>-6.1e-02</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>3.2e-01</td>
+      <td>2.3e-01</td>
+      <td>2.3e-01</td>
+      <td>-2.2e-01</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>2.6e-01</td>
+      <td>3.9e-01</td>
+      <td>1.5e-01</td>
+      <td>-7.5e-02</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>2.0e-01</td>
+      <td>8.4e-01</td>
+      <td>2.5e-01</td>
+      <td>4.1e-01</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>-9.3e-02</td>
+      <td>-4.0e-01</td>
+      <td>-5.0e-02</td>
+      <td>-2.7e-01</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>-1.1e-01</td>
+      <td>-1.5e-01</td>
+      <td>-5.9e-02</td>
+      <td>-2.3e-01</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>-2.4e-01</td>
+      <td>-3.3e-01</td>
+      <td>-1.7e-01</td>
+      <td>-2.1e-01</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>2.2e-01</td>
+      <td>4.5e-01</td>
+      <td>2.1e-01</td>
+      <td>2.3e-01</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>9.3e-02</td>
+      <td>8.4e-02</td>
+      <td>3.6e-02</td>
+      <td>6.1e-02</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>3.8e-02</td>
+      <td>2.5e-02</td>
+      <td>-1.1e-03</td>
+      <td>4.0e-01</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>1.2e-01</td>
+      <td>7.6e-02</td>
+      <td>1.5e-01</td>
+      <td>5.3e-02</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>3.7e-02</td>
+      <td>9.5e-02</td>
+      <td>6.3e-02</td>
+      <td>-1.2e-01</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>-3.8e-01</td>
+      <td>-4.0e-01</td>
+      <td>-3.3e-01</td>
+      <td>-4.0e-01</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>2.0e-01</td>
+      <td>3.9e-01</td>
+      <td>1.5e-01</td>
+      <td>1.7e-01</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>1.1e-01</td>
+      <td>1.5e-01</td>
+      <td>9.4e-02</td>
+      <td>-4.0e-02</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>-1.1e-02</td>
+      <td>-3.2e-02</td>
+      <td>4.7e-02</td>
+      <td>-1.9e-01</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>1.2e-01</td>
+      <td>1.4e-01</td>
+      <td>5.7e-02</td>
+      <td>2.1e-01</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>2.6e-01</td>
+      <td>3.4e-01</td>
+      <td>2.4e-01</td>
+      <td>5.2e-01</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>1.2e-01</td>
+      <td>1.4e-01</td>
+      <td>8.4e-02</td>
+      <td>9.7e-02</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>-6.9e-03</td>
+      <td>5.9e-02</td>
+      <td>-2.3e-02</td>
+      <td>9.3e-02</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>1.1e-01</td>
+      <td>9.8e-02</td>
+      <td>1.5e-01</td>
+      <td>3.6e-02</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>1.8e-01</td>
+      <td>2.7e-01</td>
+      <td>2.4e-01</td>
+      <td>1.6e-01</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>-7.0e-02</td>
+      <td>-5.3e-02</td>
+      <td>-6.0e-02</td>
+      <td>-1.5e-01</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>2.9e-01</td>
+      <td>3.5e-01</td>
+      <td>2.2e-01</td>
+      <td>2.1e-01</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>1.5e-01</td>
+      <td>4.2e-01</td>
+      <td>6.0e-02</td>
+      <td>1.8e-01</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>2.9e-01</td>
+      <td>2.4e-01</td>
+      <td>2.0e-01</td>
+      <td>5.6e-02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>در مرحله بعد، می‌توانید آمار خلاصه را با استفاده از متد <code class="docutils literal notranslate"><span class="pre">describe</span></code> به دست آورید.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_returns</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S&amp;P 500</th>
+      <th>NASDAQ</th>
+      <th>Dow Jones</th>
+      <th>Nikkei</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.1e+01</td>
+      <td>5.1e+01</td>
+      <td>3.0e+01</td>
+      <td>5.1e+01</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>9.2e-02</td>
+      <td>1.3e-01</td>
+      <td>9.1e-02</td>
+      <td>7.9e-02</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.6e-01</td>
+      <td>2.5e-01</td>
+      <td>1.4e-01</td>
+      <td>2.4e-01</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-3.8e-01</td>
+      <td>-4.0e-01</td>
+      <td>-3.3e-01</td>
+      <td>-4.0e-01</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-2.2e-03</td>
+      <td>1.6e-04</td>
+      <td>2.5e-02</td>
+      <td>-6.8e-02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.2e-01</td>
+      <td>1.4e-01</td>
+      <td>8.9e-02</td>
+      <td>7.7e-02</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.0e-01</td>
+      <td>2.8e-01</td>
+      <td>2.1e-01</td>
+      <td>2.0e-01</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.4e-01</td>
+      <td>8.4e-01</td>
+      <td>3.3e-01</td>
+      <td>9.2e-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>سپس، برای رسم نمودار</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">iter_</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>            <span class="c1"># تبدیل آرایه 2 بعدی به آرایه 1 بعدی</span>
+    <span class="n">index_name</span> <span class="o">=</span> <span class="n">yearly_returns</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">iter_</span><span class="p">]</span>         <span class="c1"># نام اندیس را در هر تکرار بگیرید</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_returns</span><span class="p">[</span><span class="n">index_name</span><span class="p">])</span>                <span class="c1"># رسم درصد تغییر بازده سالانه در هر اندیس</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;percent change&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">index_name</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aab73373aa803d32c8a7c62c16b04cdb8dcda4d253d77f7ee20b83a206db410c.png" src="_images/aab73373aa803d32c8a7c62c16b04cdb8dcda4d253d77f7ee20b83a206db410c.png" />
+</div>
+</div>
+</section>
+</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="mung" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>ویکی‌پدیا munging را به عنوان پاک‌سازی داده از یک فرم خام به یک فرم ساختاریافته و تصفیه شده تعریف می‌کند.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/pandas.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/pandas.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/pandas.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/pandas.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "pandas";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/pandas.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

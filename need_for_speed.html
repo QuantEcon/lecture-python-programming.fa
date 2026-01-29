@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. پایتون برای محاسبات علمی &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'need_for_speed';</script>
+    <link rel="canonical" href="https://python-programming-fa.quantecon.org/need_for_speed.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. NumPy" href="numpy.html" />
+    <link rel="prev" title="8. OOP II: ساخت کلاس‌ها" href="python_oop.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="پایتون برای محاسبات علمی"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="پایتون برای محاسبات علمی" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://python-programming-fa.quantecon.org/need_for_speed.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+<body dir="rtl">
+
+<!-- Override QuantEcon theme colors -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=need_for_speed>
+
+                <div class="qe-page__toc">
+
+                    <div class="inner">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.1. مرور کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2. کتابخانه‌های علمی اصلی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.2.1. چرا به آنها نیاز داریم؟</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.2.2. اکوسیستم علمی پایتون</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">9.3. پایتون خالص کند است</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">9.3.1. کد سطح بالا در مقابل سطح پایین</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">9.3.2. گلوگاه‌ها کجا هستند؟</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">9.3.2.1. تایپ کردن پویا</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">9.3.2.2. انواع ایستا</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">9.3.3. دسترسی به داده</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9.3.3.1. جمع کردن با کد کامپایل شده</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">9.3.3.2. جمع کردن در پایتون خالص</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">9.3.4. خلاصه</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">9.4. تسریع پایتون</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">9.4.1. برداری‌سازی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">9.4.2. برداری‌سازی در مقابل حلقه‌های پایتون خالص</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">9.4.3. کامپایلرهای JIT</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">9.5. موازی‌سازی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu">9.5.1. موازی‌سازی بر روی CPUها</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">9.5.1.1. چندپردازشی</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">9.5.1.2. چندرشته‌ای</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">9.5.1.3. مزایا و معایب</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">9.5.2. شتاب‌دهنده‌های سخت‌افزاری</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-tpu">9.5.2.1. GPUها و TPUها</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tpu-gpu">9.5.2.2. چرا TPU/GPU مهم هستند</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-gpu">9.5.3. GPUهای تکی در مقابل سرورهای GPU</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">9.5.3.1. سیستم‌های GPU تکی</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">9.5.3.2. سرورهای چند GPU</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">9.5.4. خلاصه</a></li>
+</ul>
+</li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Jan 29, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/need_for_speed.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c2c5104" class="changelog-hash">c2c5104</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">56 minutes ago</span>
+                                <span class="changelog-message">Fix build warnings from publish.yml workflow (#56)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/2b259d1" class="changelog-hash">2b259d1</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">5 hours ago</span>
+                                <span class="changelog-message">Add lecture: پایتون برای محاسبات علمی (#25)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">9. </span>پایتون برای محاسبات علمی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<blockquote class="epigraph">
+<div><p>“ما باید کارایی‌های کوچک را فراموش کنیم، بگوییم حدود 97 درصد از زمان:
+بهینه‌سازی زودرس ریشه همه بدی‌هاست.” – دونالد کنوت</p>
+</div></blockquote>
+<section id="id2">
+<h2><span class="section-number">9.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>احتمالاً می‌توان با اطمینان گفت که پایتون محبوب‌ترین زبان برای محاسبات علمی است.</p>
+<p>این به دلیل موارد زیر است:</p>
+<ul class="simple">
+<li><p>ماهیت قابل دسترس و گویا بودن خود زبان،</p></li>
+<li><p>دامنه عظیم کتابخانه‌های علمی با کیفیت بالا،</p></li>
+<li><p>این واقعیت که زبان و کتابخانه‌ها متن‌باز هستند،</p></li>
+<li><p>نقش محوری که پایتون در علم داده، یادگیری ماشین و هوش مصنوعی ایفا می‌کند.</p></li>
+</ul>
+<p>در سخنرانی‌های قبلی، از برخی کتابخانه‌های علمی پایتون، از جمله NumPy و Matplotlib استفاده کردیم.</p>
+<p>با این حال، تمرکز اصلی ما بر زبان پایتون بود، نه کتابخانه‌ها.</p>
+<p>اکنون به کتابخانه‌های علمی می‌پردازیم و تمام توجه خود را به آنها معطوف می‌کنیم.</p>
+<p>در این سخنرانی مقدماتی، موضوعات زیر را مورد بحث قرار خواهیم داد:</p>
+<ol class="arabic simple">
+<li><p>عناصر اصلی اکوسیستم علمی پایتون چیست؟</p></li>
+<li><p>آنها چگونه با هم جور می‌شوند؟</p></li>
+<li><p>وضعیت در طول زمان چگونه در حال تغییر است؟</p></li>
+</ol>
+<p>علاوه بر آنچه در Anaconda موجود است، این سخنرانی به موارد زیر نیاز دارد:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>quantecon
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.16.3)
+Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.14.0)
+Requirement already satisfied: llvmlite&lt;0.46,&gt;=0.45.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.45.1)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.4.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.11)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.5.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.11.12)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>بیایید با برخی import ها شروع کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">9.2. </span>کتابخانه‌های علمی اصلی<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>بیایید به طور خلاصه کتابخانه‌های علمی پایتون را مرور کنیم.</p>
+<section id="id4">
+<h3><span class="section-number">9.2.1. </span>چرا به آنها نیاز داریم؟<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>یکی از دلایل استفاده از کتابخانه‌های علمی این است که آنها روال‌هایی را که می‌خواهیم استفاده کنیم، پیاده‌سازی می‌کنند.</p>
+<ul class="simple">
+<li><p>انتگرال‌گیری عددی، درونیابی، جبر خطی، یافتن ریشه و غیره.</p></li>
+</ul>
+<p>به عنوان مثال، معمولاً بهتر است از یک روال موجود برای یافتن ریشه استفاده کنیم تا اینکه از ابتدا یک روال جدید بنویسیم.</p>
+<p>(برای الگوریتم‌های استاندارد، کارایی زمانی به حداکثر می‌رسد که جامعه بتواند در یک مجموعه مشترک از پیاده‌سازی‌ها هماهنگ شود، که توسط متخصصان نوشته شده و توسط کاربران برای سریع و قوی بودن تا حد ممکن تنظیم شده‌اند!)</p>
+<p>اما این تنها دلیلی نیست که ما از کتابخانه‌های علمی پایتون استفاده می‌کنیم.</p>
+<p>دلیل دیگر این است که پایتون خالص سریع نیست.</p>
+<p>بنابراین به کتابخانه‌هایی نیاز داریم که برای تسریع اجرای کد پایتون طراحی شده‌اند.</p>
+<p>آنها این کار را با استفاده از دو استراتژی انجام می‌دهند:</p>
+<ol class="arabic simple">
+<li><p>استفاده از کامپایلرهایی که دستورات شبیه پایتون را به کد ماشین سریع برای رشته‌های منفرد منطقی تبدیل می‌کنند و</p></li>
+<li><p>موازی‌سازی وظایف در چندین “کارگر” (به عنوان مثال، CPUها، رشته‌های منفرد داخل GPUها).</p></li>
+</ol>
+<p>ما این ایده‌ها را به طور گسترده در این سخنرانی و سخنرانی‌های باقی‌مانده این مجموعه بحث خواهیم کرد.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">9.2.2. </span>اکوسیستم علمی پایتون<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>در QuantEcon، کتابخانه‌های علمی که بیشترین استفاده را از آنها می‌کنیم عبارتند از:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://scipy.org/">SciPy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jax-ml/jax">JAX</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
+<li><p><a class="reference external" href="https://numba.pydata.org/">Numba</a></p></li>
+</ul>
+<p>اینگونه با هم جور می‌شوند:</p>
+<ul class="simple">
+<li><p>NumPy با ارائه یک نوع داده آرایه‌ای پایه (به بردارها و ماتریس‌ها فکر کنید) و توابعی برای عمل بر روی این آرایه‌ها (به عنوان مثال، ضرب ماتریسی)، پایه‌ها را تشکیل می‌دهد.</p></li>
+<li><p>SciPy بر روی NumPy با افزودن روش‌های عددی که به طور معمول در علم استفاده می‌شوند (درونیابی، بهینه‌سازی، یافتن ریشه و غیره) ساخته می‌شود.</p></li>
+<li><p>Matplotlib برای تولید شکل‌ها، با تمرکز بر رسم داده‌های ذخیره شده در آرایه‌های NumPy استفاده می‌شود.</p></li>
+<li><p>JAX شامل عملیات پردازش آرایه مشابه NumPy، مشتق‌گیری خودکار، یک کامپایلر just-in-time با محوریت موازی‌سازی، و یکپارچه‌سازی خودکار با شتاب‌دهنده‌های سخت‌افزاری مانند GPUها است.</p></li>
+<li><p>Pandas انواع و توابعی را برای دستکاری داده‌ها فراهم می‌کند.</p></li>
+<li><p>Numba یک کامپایلر just-in-time فراهم می‌کند که با NumPy به خوبی کار می‌کند و به تسریع کد پایتون کمک می‌کند.</p></li>
+</ul>
+<p>ما همه این کتابخانه‌ها را به طور گسترده در این مجموعه سخنرانی‌ها مورد بحث قرار خواهیم داد.</p>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">9.3. </span>پایتون خالص کند است<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>همانطور که در بالا ذکر شد، یکی از جاذبه‌های اصلی کتابخانه‌های علمی، سرعت اجرای بیشتر است.</p>
+<p>ما بحث خواهیم کرد که چگونه کتابخانه‌های علمی می‌توانند به ما در تسریع کد کمک کنند.</p>
+<p>برای این موضوع، مفید خواهد بود اگر درک کنیم که چه چیزی باعث سرعت اجرای کند می‌شود.</p>
+<section id="id7">
+<h3><span class="section-number">9.3.1. </span>کد سطح بالا در مقابل سطح پایین<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>زبان‌های سطح بالاتر مانند پایتون برای انسان‌ها بهینه شده‌اند.</p>
+<p>این بدان معنی است که برنامه‌نویس می‌تواند بسیاری از جزئیات را به محیط زمان اجرا واگذار کند:</p>
+<ul class="simple">
+<li><p>مشخص کردن انواع متغیرها</p></li>
+<li><p>تخصیص/آزادسازی حافظه</p></li>
+<li><p>و غیره.</p></li>
+</ul>
+<p>علاوه بر این، پایتون خالص توسط یک <a class="reference external" href="https://en.wikipedia.org/wiki/Interpreter_(computing)">مفسر</a> اجرا می‌شود که کد را دستور به دستور اجرا می‌کند.</p>
+<p>این پایتون را انعطاف‌پذیر، تعاملی، آسان برای نوشتن، آسان برای خواندن و نسبتاً آسان برای اشکال‌زدایی می‌کند.</p>
+<p>از طرف دیگر، پیاده‌سازی استاندارد پایتون (به نام CPython) نمی‌تواند با سرعت زبان‌های کامپایل شده مانند C یا Fortran برابری کند.</p>
+</section>
+<section id="id8">
+<h3><span class="section-number">9.3.2. </span>گلوگاه‌ها کجا هستند؟<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>چرا اینطور است؟</p>
+<section id="id9">
+<h4><span class="section-number">9.3.2.1. </span>تایپ کردن پویا<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<p id="index-0">این عملیات پایتون را در نظر بگیرید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>حتی برای این عملیات ساده، مفسر پایتون کار زیادی برای انجام دادن دارد.</p>
+<p>به عنوان مثال، در دستور <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>، مفسر باید بداند کدام عملیات را فراخوانی کند.</p>
+<p>اگر <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> رشته باشند، آنگاه <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> نیاز به الحاق رشته دارد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;foobar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>اگر <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> لیست باشند، آنگاه <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> نیاز به الحاق لیست دارد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;foo&#39;, &#39;bar&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>(ما می‌گوییم که عملگر <code class="docutils literal notranslate"><span class="pre">+</span></code> <em>بارگذاری شده</em> است — عمل آن به نوع اشیایی که بر روی آنها عمل می‌کند بستگی دارد)</p>
+<p>در نتیجه، هنگام اجرای <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>، پایتون ابتدا باید نوع اشیا را بررسی کند و سپس عملیات صحیح را فراخوانی کند.</p>
+<p>این شامل یک سربار غیر قابل اغماض است.</p>
+<p>اگر ما بارها و بارها این عبارت را در یک حلقه تنگ اجرا کنیم، سربار غیر قابل اغماض به یک سربار بزرگ تبدیل می‌شود.</p>
+</section>
+<section id="id10">
+<h4><span class="section-number">9.3.2.2. </span>انواع ایستا<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p id="index-1">زبان‌های کامپایل شده از این سربارها با انواع صریح و ایستا اجتناب می‌کنند.</p>
+<p>به عنوان مثال، کد C زیر را در نظر بگیرید که اعداد صحیح از 1 تا 10 را جمع می‌کند:</p>
+<div class="no-execute highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;sum = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>متغیرهای <code class="docutils literal notranslate"><span class="pre">i</span></code> و <code class="docutils literal notranslate"><span class="pre">sum</span></code> به صراحت به عنوان اعداد صحیح اعلام شده‌اند.</p>
+<p>علاوه بر این، وقتی یک دستور مانند <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span></code> را می‌دهیم، ما به کامپایلر وعده می‌دهیم که <code class="docutils literal notranslate"><span class="pre">i</span></code> <em>همیشه</em> یک عدد صحیح خواهد بود، در طول اجرای برنامه.</p>
+<p>به این ترتیب، معنای جمع در عبارت <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">+</span> <span class="pre">i</span></code> کاملاً بدون ابهام است.</p>
+<p>نیازی به بررسی نوع نیست و بنابراین سربار وجود ندارد.</p>
+</section>
+</section>
+<section id="id11">
+<h3><span class="section-number">9.3.3. </span>دسترسی به داده<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>یکی دیگر از موانع سرعت برای زبان‌های سطح بالا، دسترسی به داده است.</p>
+<p>برای توضیح، بیایید مسئله جمع کردن برخی داده‌ها را در نظر بگیریم — بگویید، مجموعه‌ای از اعداد صحیح.</p>
+<section id="id12">
+<h4><span class="section-number">9.3.3.1. </span>جمع کردن با کد کامپایل شده<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<p>در C یا Fortran، این اعداد صحیح معمولاً در یک آرایه ذخیره می‌شوند که یک ساختار داده ساده برای ذخیره داده‌های همگن است.</p>
+<p>چنین آرایه‌ای در یک بلوک پیوسته واحد از حافظه ذخیره می‌شود:</p>
+<ul class="simple">
+<li><p>در کامپیوترهای مدرن، آدرس‌های حافظه به هر بایت اختصاص داده می‌شوند (یک بایت = 8 بیت).</p></li>
+<li><p>به عنوان مثال، یک عدد صحیح 64 بیتی در 8 بایت حافظه ذخیره می‌شود.</p></li>
+<li><p>یک آرایه از <span class="math notranslate nohighlight">\(n\)</span> چنین اعداد صحیحی <span class="math notranslate nohighlight">\(8n\)</span> شکاف حافظه <em>متوالی</em> اشغال می‌کند.</p></li>
+</ul>
+<p>علاوه بر این، کامپایلر توسط برنامه‌نویس از نوع داده آگاه می‌شود.</p>
+<ul class="simple">
+<li><p>در این مورد اعداد صحیح 64 بیتی</p></li>
+</ul>
+<p>از این رو، هر نقطه داده متوالی می‌تواند با جابجایی رو به جلو در فضای حافظه به میزان مشخص و ثابتی دسترسی پیدا کند.</p>
+<ul class="simple">
+<li><p>در این مورد 8 بایت</p></li>
+</ul>
+</section>
+<section id="id13">
+<h4><span class="section-number">9.3.3.2. </span>جمع کردن در پایتون خالص<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p>پایتون سعی می‌کند این ایده‌ها را تا حدی تکرار کند.</p>
+<p>به عنوان مثال، در پیاده‌سازی استاندارد پایتون (CPython)، عناصر لیست در مکان‌های حافظه قرار می‌گیرند که به نوعی پیوسته هستند.</p>
+<p>با این حال، این عناصر لیست بیشتر شبیه اشاره‌گرها به داده‌ها هستند تا خود داده‌های واقعی.</p>
+<p>از این رو، هنوز سربار در دسترسی به خود مقادیر داده وجود دارد.</p>
+<p>این یک مانع قابل توجه بر سرعت است.</p>
+<p>در واقع، به طور کلی درست است که ترافیک حافظه یک مجرم اصلی است وقتی صحبت از اجرای کند می‌شود.</p>
+</section>
+</section>
+<section id="id14">
+<h3><span class="section-number">9.3.4. </span>خلاصه<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>آیا بحث بالا به این معنی است که ما باید برای همه چیز به C یا Fortran تغییر مکان دهیم؟</p>
+<p>پاسخ این است: قطعاً نه!</p>
+<p>برای هر برنامه داده شده، خطوط نسبتاً کمی همیشه بحرانی از نظر زمان خواهند بود.</p>
+<p>از این رو بسیار کارآمدتر است که بیشتر کد خود را در یک زبان با بهره‌وری بالا مانند پایتون بنویسیم.</p>
+<p>علاوه بر این، حتی برای خطوط کدی که <em>هستند</em> بحرانی از نظر زمان، اکنون می‌توانیم با استفاده از کتابخانه‌های علمی پایتون با فایل‌های باینری کامپایل شده از C یا Fortran برابری یا از آنها پیشی بگیریم.</p>
+<p>در این زمینه، ما تأکید می‌کنیم که، در چند سال گذشته، تسریع کد اساساً مترادف با موازی‌سازی شده است.</p>
+<p>این کار بهترین است که به کامپایلرهای تخصصی واگذار شود!</p>
+<p>برخی از کتابخانه‌های پایتون قابلیت‌های برجسته‌ای برای موازی‌سازی کد علمی دارند – ما در ادامه بیشتر در این مورد بحث خواهیم کرد.</p>
+</section>
+</section>
+<section id="id15">
+<h2><span class="section-number">9.4. </span>تسریع پایتون<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<p>در این بخش به سه تکنیک مرتبط برای تسریع کد پایتون نگاه می‌کنیم.</p>
+<p>در اینجا بر ایده‌های بنیادی تمرکز خواهیم کرد.</p>
+<p>بعداً به کتابخانه‌های خاص و نحوه پیاده‌سازی این ایده‌ها توسط آنها نگاه خواهیم کرد.</p>
+<section id="id16">
+<h3><span class="section-number">9.4.1. </span><span class="target" id="index-2"></span>برداری‌سازی<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p id="index-3">یکی از روش‌ها برای اجتناب از ترافیک حافظه و بررسی نوع، <a class="reference external" href="https://en.wikipedia.org/wiki/Array_programming">برنامه‌نویسی آرایه‌ای</a> است.</p>
+<p>بسیاری از اقتصاددانان معمولاً به برنامه‌نویسی آرایه‌ای به عنوان “برداری‌سازی” اشاره می‌کنند.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>در علوم کامپیوتر، این اصطلاح <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_vectorization">معنای کمی متفاوت</a> دارد.</p>
+</div>
+<p>ایده کلیدی این است که عملیات پردازش آرایه را به صورت دسته‌ای به کد ماشین بومی از پیش کامپایل شده و کارآمد ارسال کنیم.</p>
+<p>خود کد ماشین معمولاً از C یا Fortran که به دقت بهینه شده‌اند کامپایل می‌شود.</p>
+<p>به عنوان مثال، هنگام کار در یک زبان سطح بالا، عملیات معکوس کردن یک ماتریس بزرگ می‌تواند به کد ماشین کارآمد که از پیش برای این منظور کامپایل شده و به عنوان بخشی از یک بسته به کاربران ارائه شده است، پیمانکاری شود.</p>
+<p>مزایای اصلی عبارتند از:</p>
+<ol class="arabic simple">
+<li><p>بررسی نوع <em>به ازای هر آرایه</em> پرداخت می‌شود، نه به ازای هر عنصر، و</p></li>
+<li><p>آرایه‌های حاوی عناصر با یک نوع داده از نظر دسترسی به حافظه کارآمد هستند.</p></li>
+</ol>
+<p>ایده برداری‌سازی به MATLAB برمی‌گردد که به طور گسترده از برداری‌سازی استفاده می‌کند.</p>
+<figure class="align-default">
+<img alt="_images/matlab.png" src="_images/matlab.png" />
+</figure>
+</section>
+<section id="id17">
+<h3><span class="section-number">9.4.2. </span>برداری‌سازی در مقابل حلقه‌های پایتون خالص<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>بیایید یک مقایسه سریع سرعت را امتحان کنیم تا نشان دهیم چگونه برداری‌سازی می‌تواند کد را تسریع کند.</p>
+<p>در اینجا مقداری کد غیر برداری شده وجود دارد که از یک حلقه بومی پایتون برای تولید، مجذور کردن و سپس جمع کردن تعداد زیادی متغیر تصادفی استفاده می‌کند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Will accumulate and store sum</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>کد برداری شده زیر از NumPy استفاده می‌کند که به زودی آن را به تفصیل بررسی خواهیم کرد، تا همان کار را انجام دهد.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>همانطور که می‌بینید، بلوک کد دوم بسیار سریعتر اجرا می‌شود.</p>
+<p>این حلقه را به سه عملیات اساسی تقسیم می‌کند:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> uniform را بکشید</p></li>
+<li><p>آنها را مجذور کنید</p></li>
+<li><p>آنها را جمع کنید</p></li>
+</ol>
+<p>اینها به عنوان عملگرهای دسته‌ای به کد ماشین بهینه شده ارسال می‌شوند.</p>
+</section>
+<section id="jit">
+<span id="numba-p-c-vectorization"></span><h3><span class="section-number">9.4.3. </span>کامپایلرهای JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h3>
+<p>در بهترین حالت، برداری‌سازی کد سریع و ساده ارائه می‌دهد.</p>
+<p>با این حال، بدون معایب نیست.</p>
+<p>یکی از مسائل این است که می‌تواند بسیار فشرده از نظر حافظه باشد.</p>
+<p>این به این دلیل است که برداری‌سازی تمایل به ایجاد آرایه‌های میانی زیادی قبل از تولید محاسبه نهایی دارد.</p>
+<p>مسئله دیگر این است که همه الگوریتم‌ها نمی‌توانند برداری شوند.</p>
+<p>به دلیل این مسائل، بیشتر محاسبات با کارایی بالا از برداری‌سازی سنتی دور می‌شوند و به سمت استفاده از <a class="reference external" href="https://en.wikipedia.org/wiki/Just-in-time_compilation">کامپایلرهای just-in-time</a> حرکت می‌کنند.</p>
+<p>در سخنرانی‌های بعدی در این مجموعه، در مورد چگونگی بهره‌برداری کتابخانه‌های مدرن پایتون از کامپایلرهای just-in-time برای تولید کد ماشین سریع، کارآمد و موازی یاد خواهیم گرفت.</p>
+</section>
+</section>
+<section id="id18">
+<h2><span class="section-number">9.5. </span>موازی‌سازی<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<p>رشد سرعت کلاک CPU (یعنی سرعتی که یک زنجیره منفرد منطقی می‌تواند اجرا شود) در سال‌های اخیر به طور چشمگیری کند شده است.</p>
+<p>طراحان تراشه و برنامه‌نویسان کامپیوتر با کندی با جستجوی مسیری متفاوت برای اجرای سریع پاسخ داده‌اند: موازی‌سازی.</p>
+<p>سازندگان سخت‌افزار تعداد هسته‌ها (CPUهای فیزیکی) تعبیه شده در هر ماشین را افزایش داده‌اند.</p>
+<p>برای برنامه‌نویسان، چالش این بوده است که از این CPUهای چندگانه با اجرای بسیاری از فرآیندها به صورت موازی (یعنی همزمان) بهره‌برداری کنند.</p>
+<p>این امر به ویژه در برنامه‌نویسی علمی مهم است که نیاز به مدیریت موارد زیر دارد:</p>
+<ul class="simple">
+<li><p>مقادیر زیادی از داده‌ها و</p></li>
+<li><p>شبیه‌سازی‌های فشرده CPU و سایر محاسبات.</p></li>
+</ul>
+<p>در زیر ما موازی‌سازی برای محاسبات علمی را با تمرکز بر موارد زیر بحث می‌کنیم:</p>
+<ol class="arabic simple">
+<li><p>بهترین ابزارها برای موازی‌سازی در پایتون و</p></li>
+<li><p>چگونه این ابزارها می‌توانند برای مسائل اقتصادی کمی به کار گرفته شوند.</p></li>
+</ol>
+<section id="cpu">
+<h3><span class="section-number">9.5.1. </span>موازی‌سازی بر روی CPUها<a class="headerlink" href="#cpu" title="Link to this heading">#</a></h3>
+<p>بیایید دو نوع اصلی موازی‌سازی مبتنی بر CPU که معمولاً در محاسبات علمی استفاده می‌شود را مرور کنیم و مزایا و معایب آنها را بحث کنیم.</p>
+<section id="id19">
+<h4><span class="section-number">9.5.1.1. </span>چندپردازشی<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<p>چندپردازشی به معنای اجرای همزمان چندین فرآیند با استفاده از بیش از یک پردازنده است.</p>
+<p>در این زمینه، یک <strong>فرآیند</strong> یک زنجیره از دستورات (یعنی یک برنامه) است.</p>
+<p>چندپردازشی می‌تواند روی یک ماشین با CPUهای چندگانه یا روی مجموعه‌ای از ماشین‌های متصل شده توسط یک شبکه انجام شود.</p>
+<p>در مورد دوم، مجموعه ماشین‌ها معمولاً <strong>کلاستر</strong> نامیده می‌شود.</p>
+<p>با چندپردازشی، هر فرآیند فضای حافظه خود را دارد، اگرچه تراشه حافظه فیزیکی ممکن است مشترک باشد.</p>
+</section>
+<section id="id20">
+<h4><span class="section-number">9.5.1.2. </span>چندرشته‌ای<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
+<p>چندرشته‌ای شبیه به چندپردازشی است، به جز اینکه، در طول اجرا، همه رشته‌ها فضای حافظه یکسانی را به اشتراک می‌گذارند.</p>
+<p>پایتون بومی برای پیاده‌سازی چندرشته‌ای به دلیل برخی <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">ویژگی‌های طراحی قدیمی</a> مشکل دارد.</p>
+<p>اما این یک محدودیت برای کتابخانه‌های علمی مانند NumPy و Numba نیست.</p>
+<p>توابع وارد شده از این کتابخانه‌ها و کد JIT-compiled در محیط‌های اجرای سطح پایین اجرا می‌شوند که محدودیت‌های قدیمی پایتون اعمال نمی‌شود.</p>
+</section>
+<section id="id21">
+<h4><span class="section-number">9.5.1.3. </span>مزایا و معایب<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
+<p>چندرشته‌ای سبک‌تر است زیرا بیشتر منابع سیستم و حافظه توسط رشته‌ها به اشتراک گذاشته می‌شوند.</p>
+<p>علاوه بر این، این واقعیت که چندین رشته همه به یک استخر مشترک از حافظه دسترسی دارند برای برنامه‌نویسی عددی بسیار راحت است.</p>
+<p>از طرف دیگر، چندپردازشی انعطاف‌پذیرتر است و می‌تواند در کلاسترها توزیع شود.</p>
+<p>برای اکثریت قریب به اتفاق کاری که ما در این سخنرانی‌ها انجام می‌دهیم، چندرشته‌ای کافی خواهد بود.</p>
+</section>
+</section>
+<section id="id22">
+<h3><span class="section-number">9.5.2. </span>شتاب‌دهنده‌های سخت‌افزاری<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>در حالی که CPUها با هسته‌های چندگانه برای محاسبات موازی استاندارد شده‌اند، یک تغییر چشمگیرتر با ظهور شتاب‌دهنده‌های سخت‌افزاری تخصصی رخ داده است.</p>
+<p>این شتاب‌دهنده‌ها به طور خاص برای انواع محاسبات بسیار موازی که در محاسبات علمی، یادگیری ماشین و علم داده به وجود می‌آید طراحی شده‌اند.</p>
+<section id="gpu-tpu">
+<h4><span class="section-number">9.5.2.1. </span>GPUها و TPUها<a class="headerlink" href="#gpu-tpu" title="Link to this heading">#</a></h4>
+<p>دو نوع مهم‌ترین شتاب‌دهنده‌های سخت‌افزاری عبارتند از:</p>
+<ul class="simple">
+<li><p><strong>GPU</strong>ها (واحدهای پردازش گرافیکی) و</p></li>
+<li><p><strong>TPU</strong>ها (واحدهای پردازش تانسور).</p></li>
+</ul>
+<p>GPUها در ابتدا برای رندرینگ گرافیک طراحی شدند که نیاز به انجام همزمان یک عملیات روی بسیاری از پیکسل‌ها دارد.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/geforce.png"><img alt="_images/geforce.png" src="_images/geforce.png" style="width: 486.40000000000003px; height: 277.2px;" />
+</a>
+</figure>
+<p>دانشمندان و مهندسان متوجه شدند که همین معماری — بسیاری از پردازنده‌های ساده که به صورت موازی کار می‌کنند — برای وظایف محاسبات علمی ایده‌آل است.</p>
+<p>TPUها یک توسعه اخیرتر هستند که توسط گوگل به طور خاص برای بارهای کاری یادگیری ماشین طراحی شده‌اند.</p>
+<p>مانند GPUها، TPUها در انجام تعداد عظیمی از عملیات ماتریسی به صورت موازی عالی هستند.</p>
+</section>
+<section id="tpu-gpu">
+<h4><span class="section-number">9.5.2.2. </span>چرا TPU/GPU مهم هستند<a class="headerlink" href="#tpu-gpu" title="Link to this heading">#</a></h4>
+<p>دستاوردهای عملکردی از استفاده از شتاب‌دهنده‌های سخت‌افزاری می‌تواند چشمگیر باشد.</p>
+<p>به عنوان مثال، یک GPU مدرن می‌تواند شامل هزاران هسته پردازشی کوچک باشد، در مقایسه با 8-64 هسته معمولاً در CPUها یافت می‌شوند.</p>
+<p>وقتی یک مسئله می‌تواند به عنوان بسیاری از عملیات مستقل بر روی آرایه‌های داده بیان شود، GPUها می‌توانند درجه‌های بزرگی سریعتر از CPUها باشند.</p>
+<p>این امر به ویژه برای محاسبات علمی مرتبط است زیرا بسیاری از الگوریتم‌ها به طور طبیعی بر روی معماری موازی GPUها نگاشت می‌شوند.</p>
+</section>
+</section>
+<section id="gpu-gpu">
+<h3><span class="section-number">9.5.3. </span>GPUهای تکی در مقابل سرورهای GPU<a class="headerlink" href="#gpu-gpu" title="Link to this heading">#</a></h3>
+<p>دو روش رایج برای دسترسی به منابع GPU وجود دارد:</p>
+<section id="gpu">
+<h4><span class="section-number">9.5.3.1. </span>سیستم‌های GPU تکی<a class="headerlink" href="#gpu" title="Link to this heading">#</a></h4>
+<p>بسیاری از ایستگاه‌های کاری و لپ‌تاپ‌ها اکنون با GPUهای قابل استفاده ارائه می‌شوند، یا می‌توانند با آنها مجهز شوند.</p>
+<p>یک GPU مدرن تکی می‌تواند بسیاری از وظایف محاسبات علمی را به طور چشمگیری تسریع بخشد.</p>
+<p>برای محققان فردی و پروژه‌های کوچک، یک GPU تکی اغلب کافی است.</p>
+<p>کتابخانه‌های مدرن پایتون مانند JAX که به طور گسترده در این مجموعه سخنرانی‌ها مورد بحث قرار می‌گیرند، به طور خودکار GPUهای موجود را با تغییرات حداقلی در کد تشخیص داده و استفاده می‌کنند.</p>
+</section>
+<section id="id23">
+<h4><span class="section-number">9.5.3.2. </span>سرورهای چند GPU<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<p>برای مسائل در مقیاس بزرگتر، سرورهای حاوی GPUهای متعدد (اغلب 4-8 GPU در هر سرور) به طور فزاینده‌ای رایج هستند.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/dgx.png"><img alt="_images/dgx.png" src="_images/dgx.png" style="width: 512.0px; height: 272.0px;" />
+</a>
+</figure>
+<p>با نرم‌افزار مناسب، محاسبات می‌توانند در چندین GPU، یا در یک سرور واحد یا در چندین سرور، توزیع شوند.</p>
+<p>این محققان را قادر می‌سازد مسائلی را که بر روی یک GPU یا CPU تکی غیرعملی هستند، مورد بررسی قرار دهند.</p>
+</section>
+</section>
+<section id="id24">
+<h3><span class="section-number">9.5.4. </span>خلاصه<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>محاسبات GPU بسیار در دسترس‌تر می‌شود، به ویژه از داخل پایتون.</p>
+<p>برخی از کتابخانه‌های علمی پایتون، مانند JAX، اکنون شتاب GPU را با تغییرات حداقلی در کد موجود پشتیبانی می‌کنند.</p>
+<p>ما محاسبات GPU را با جزئیات بیشتری در سخنرانی‌های بعدی بررسی خواهیم کرد و آن را در طیف وسیعی از کاربردهای اقتصادی به کار خواهیم برد.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. OOP I: اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   16. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   17. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   18. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   19. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   20. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   21. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   22. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   23. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   24. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/need_for_speed.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/need_for_speed.ipynb">Colab</option>
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/need_for_speed.ipynb" data-branch=main>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/need_for_speed.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "need_for_speed";
+                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
+                const urlPath = "tree/lecture-python-programming.fa.notebooks/need_for_speed.ipynb";
+                const branch = "main"
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>
