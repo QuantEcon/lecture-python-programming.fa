@@ -9,13 +9,13 @@ kernelspec:
   name: python3
 ---
 
-# Python Programming for Economics and Finance
+# برنامه‌نویسی پایتون برای اقتصاد و مالی
 
-This website presents a set of lectures on Python programming for economics and finance. 
+این وب‌سایت مجموعه‌ای از سخنرانی‌ها درباره برنامه‌نویسی پایتون برای اقتصاد و مالی ارائه می‌دهد.
 
-This is the first text in the series, which focuses on programming in Python.
+این اولین متن در این مجموعه است که بر برنامه‌نویسی در پایتون تمرکز دارد.
 
-For an overview of the series, see [this page](https://quantecon.org/lectures/)
+برای مروری بر این مجموعه، [این صفحه](https://quantecon.org/lectures/) را ببینید.
 
 ```{tableofcontents}
 ```
