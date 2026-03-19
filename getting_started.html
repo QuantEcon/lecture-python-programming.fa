@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -158,7 +158,25 @@
   </head>
 <body dir="rtl">
 
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
 
     <span id="top"></span>
 
@@ -170,7 +188,12 @@
 
                 <div class="qe-page__toc">
 
-                    <div class="inner">
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
 
                         
                         <div class="qe-page__toc-header">
@@ -237,10 +260,16 @@
                         <div class="qe-page__toc-footer">
                             
                             
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
+                            
+                            
                         </div>
 
                     </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
 
                 </div>
 
@@ -267,7 +296,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jan 29, 2026
+                            Last changed: Mar 19, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -278,56 +307,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/52c94d6" class="changelog-hash">52c94d6</a>
-                                
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">22 minutes ago</span>
-                                <span class="changelog-message">Fix additional build warnings (#57)</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/a48ef3b" class="changelog-hash">a48ef3b</a>
-                                
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
-                                <span class="changelog-message">Fix undefined Docstrings reference by removing link temporarily</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/9a74430" class="changelog-hash">9a74430</a>
-                                
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
-                                <span class="changelog-message">Update getting_started.md with standardized image paths and labels (#43)</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/68a1f05" class="changelog-hash">68a1f05</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
                                 
                                 <span class="changelog-author">Zahra</span>
-                                <span class="changelog-time">5 months ago</span>
-                                <span class="changelog-message">fix bullet list markdown, add new lecture python_by_example.md, update toc (#10)</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/7166055" class="changelog-hash">7166055</a>
-                                
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">5 months ago</span>
-                                <span class="changelog-message">Add back in jupyter-book elements (#9)</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0442a20" class="changelog-hash">0442a20</a>
-                                
-                                <span class="changelog-author">Zahra</span>
-                                <span class="changelog-time">5 months ago</span>
-                                <span class="changelog-message">Add Persian translation for "Getting Started" and update structure (#5)</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Update lecture markdown files (#54)</span>
                             </li>
                             
                         </ul>
@@ -359,7 +343,7 @@
 <h2><span class="section-number">2.2. </span>پایتون در فضای ابری<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>ساده ترین راه برای شروع کدنویسی در پایتون، اجرای آن در فضای ابری است. ( یعنی با استفاده از یک سرور از راه دور که از قبل روی آن پایتون نصب شده است.)
 یکی دیگر از گزینه های رایگان و قابل اعتماد نیز <a class="reference external" href="https://colab.research.google.com/">Google Colab</a> است. علاوه براین Colab دارای مزیت GPU نیز هست که ما از آن در دوره های پیشرفته تر استفاده خواهیم کرد. آموزش نحوه ی استفاده از Google Colab را می توانید در اینترنت جستجو کنید و ویدیوهای مربوط به آن را پیدا کنید.</p>
-<p>بیشتر دوره های ما شامل یک دکمه «راه اندازی نوت بوک» (با یک آیکون پخش) در بالای سمت راست هستند که شما را به یک نسخه قابل اجرا در Colab متصل می کند.</p>
+<p>بیشتر دوره های ما یک دکمه «راه اندازی نوت بوک» (با یک آیکون پخش) در بالای صفحه سمت چپ دارد که شما را به یک نسخه قابل اجرا در Colab متصل می کند.</p>
 </section>
 <section id="id4">
 <h2><span class="section-number">2.3. </span>نصب محلی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
@@ -638,7 +622,7 @@
 </section>
 <section id="id18">
 <h3><span class="section-number">2.4.5. </span>اشتراک گذاری نوت بوک ها<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
-<p id="index-11"><span id="index-10"></span>فایل های نوت بوک صرفا فایل های متنی با ساختار <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> هستند که معمولا پسوند <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> دارند.</p>
+<p id="index-11"><span id="index-10"></span>فایل های نوت بوک صرفا فایل های متنی با ساختار <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a> هستند که معمولا پسوند <code class="docutils literal notranslate"><span class="pre">ipynb.</span></code> دارند.</p>
 <p>شما می توانید آن ها را به همان شیوه که سایر فایل ها را به اشتراک می گذارید، ارسال کنید یا اینکه از سرویس های وب مانند <a class="reference external" href="http://nbviewer.jupyter.org/">nbviewer</a> استفاده کنید.</p>
 <p>نوت بوک هایی که شما در آن سایت مشاهده می کنید، نسخه های <strong>ایستا (static)</strong> با فرمت HTML هستند.
 برای اجرای نوت بوک ها، کافی است روی آیکون دانلود در بالا سمت راست کلیک کنید و آن را با فرمت <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> ذخیره کنید.</p>
@@ -685,7 +669,7 @@
 </section>
 <section id="id20">
 <h2><span class="section-number">2.6. </span>کار با فایل های پایتون<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
-<p>تا اینجا بیشتر روی اجرای کدهای پایتون در سلول های ژوپیتر نوت بوک تمرکز کردیم. اما به صورت سنتی، بیشتر کدهای پایتون به شکل دیگری اجرا می شوند. به این شکل که ابتدا کدها در یک فایل متنی روی سیستم ذخیره می شوند که به طور قراردادی دارای پسوند <code class="docutils literal notranslate"><span class="pre">.py</span></code> هستند.</p>
+<p>تا اینجا بیشتر روی اجرای کدهای پایتون در سلول های ژوپیتر نوت بوک تمرکز کردیم. اما به صورت سنتی، بیشتر کدهای پایتون به شکل دیگری اجرا می شوند. به این شکل که ابتدا کدها در یک فایل متنی روی سیستم ذخیره می شوند که به طور قراردادی دارای پسوند <code class="docutils literal notranslate"><span class="pre">py.</span></code> هستند.</p>
 <p>برای نمونه می توانیم یک نوع از این فایل ایجاد کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,10 +686,10 @@
 </div>
 </div>
 <p>دستور بالا خط <code class="docutils literal notranslate"><span class="pre">print(&quot;foobar&quot;)</span></code> را در فایلی به نام <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> در مسیر فعلی ذخیره می کند.</p>
-<p>در این کد دستور <code class="docutils literal notranslate"><span class="pre">%%writefile</span></code> نمونه ای از یک جادوی سلولی (<a class="reference external" href="http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics">cell magic</a>) است!</p>
+<p>در این کد دستور <code class="docutils literal notranslate"><span class="pre">writefile%%</span></code> نمونه ای از یک جادوی سلولی (<a class="reference external" href="http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-magics">cell magic</a>) است!</p>
 <section id="id21">
 <h3><span class="section-number">2.6.1. </span>ویرایش و اجرا<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
-<p>اگر با کدی مواجه شدید که در یک فایل با پسوند <code class="docutils literal notranslate"><span class="pre">*.py</span></code> ذخیره شده است، لازم است به این دو سوال توجه کنید:</p>
+<p>اگر با کدی مواجه شدید که در یک فایل با پسوند <code class="docutils literal notranslate"><span class="pre">py.*</span></code> ذخیره شده است، لازم است به این دو سوال توجه کنید:</p>
 <ol class="arabic simple">
 <li><p>چگونه باید آن را اجرا کرد؟</p></li>
 <li><p>چگونه می توان آن را ویرایش یا تغییری در آن اعمال کرد؟</p></li>
@@ -713,7 +697,7 @@
 <p>برای این کارها شما دو گزینه پیش روی خود دارید!</p>
 <section id="jupyterlab">
 <h4><span class="section-number">2.6.1.1. </span>گزینه اول: JupyterLab<a class="headerlink" href="#jupyterlab" title="Link to this heading">#</a></h4>
-<p id="index-13">محیط <a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> یک محیط توسعه ی یکپارچه (IDE) است که بر پایه ی نوت بوک ها ژوپیتر ساخته شده است. با استفاده از JupyterLab می توانید فایل هایی با پسوند <code class="docutils literal notranslate"><span class="pre">*.py</span></code> را همانند ژوپیتر نوت بوک ها را ویرایش و اجرا کنید.</p>
+<p id="index-13">محیط <a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> یک محیط توسعه ی یکپارچه (IDE) است که بر پایه ی نوت بوک ها ژوپیتر ساخته شده است. با استفاده از JupyterLab می توانید فایل هایی با پسوند <code class="docutils literal notranslate"><span class="pre">py.*</span></code> را همانند ژوپیتر نوت بوک ها را ویرایش و اجرا کنید.</p>
 <p>برای اجرای JupyterLab می توانید آن را در فهرست برنامه ها جستجو کنید یا در ترمینال دستور <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> را وارد نمایید.</p>
 <p>اکنون باید بتوانید فایل <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> را که در مرحله ی قبل ساخته بودید در JupyterLab بازکرده، ویرایش و اجرا کنید.</p>
 <p>برای اطلاعات بیشتر، می توانید مستندات رسمی را مطالعه کنید یا یک ویدیوی آموزشی جدید در این باره در یوتیوب تماشا کنید.</p>
@@ -722,7 +706,7 @@
 <h4><span class="section-number">2.6.1.2. </span>گزینه دوم: استفاده از یک ویرایشگر متن<a class="headerlink" href="#id22" title="Link to this heading">#</a></h4>
 <p>همچنین می توانید فایل ها را با یک ویرایشگر متن ویرایش کرده و سپس آن را از طریق ژوپیتر نوت بوک اجرا کنید.</p>
 <p>به طور کلی، ویرایشگر متن برنامه ای است که به طور اختصاصی برای کار با فایل های متنی مانند برنامه های پایتون طراحی شده است.</p>
-<p>البته هیچ چیز قدرت و کارایی یک ویرایشگر متن خوب را برای کار با کدهای برنامه نویسی را ندارد.</p>
+<p>البته هیچ چیز قدرت و کارایی یک ویرایشگر متن خوب را برای کار با کدهای برنامه نویسی ندارد.</p>
 <p>یک ویرایشگر خوب امکانات زیر را ارائه می دهد:</p>
 <ul class="simple">
 <li><p>فرمان های کارآمد برای ویرایش متن(مثل کپی، جایگذاری، جست وجو و جایگزینی)</p></li>
@@ -741,7 +725,7 @@
 <section id="exercise-content">
 <p>اگر هنوز ژوپیتر در حال اجرا است، آن را با فشردن ترکیب کلیدها <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> در ترمینالی که از آن شروع کرده اید، ببندید.</p>
 <p>حالا دوباره ژوپیتر را این بار با استفاده از کد دستوری <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">--no-browser</span></code> باز کنید.</p>
-<p>با این کار، هسته ی ژوپیتز (kernel) بدون آنکه مرورگر به صورت خودکار باز شود، راه اندازی می شود.</p>
+<p>با این کار، هسته ی ژوپیتر (kernel) بدون آنکه مرورگر به صورت خودکار باز شود، راه اندازی می شود.</p>
 <p>همچنین به پیامی که هنگام شروع نمایش داده می شود دقت کنید: باید یک آدرس(URL) مانند <code class="docutils literal notranslate"><span class="pre">http://localhost:8888</span></code> به شما بدهد که نوت بوک در آن درحال اجرا است.</p>
 <p>اکنون وقت آن است که:</p>
 <ol class="arabic simple">
@@ -835,12 +819,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_essentials.html">
-   5. اصول Python
+   5. اصول برنامه‌نویسی پایتون
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: اشیاء و متدها
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
   </a>
  </li>
  <li class="toctree-l1">

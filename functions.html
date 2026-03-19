@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -130,7 +130,7 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. اصول Python" href="python_essentials.html" />
+    <link rel="next" title="5. اصول برنامه‌نویسی پایتون" href="python_essentials.html" />
     <link rel="prev" title="3. یک مثال مقدماتی" href="python_by_example.html" />
 
 <!-- Normal Meta Tags -->
@@ -158,7 +158,25 @@
   </head>
 <body dir="rtl">
 
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
 
     <span id="top"></span>
 
@@ -170,7 +188,12 @@
 
                 <div class="qe-page__toc">
 
-                    <div class="inner">
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
 
                         
                         <div class="qe-page__toc-header">
@@ -180,28 +203,28 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-0">4.1. مرور کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2. مبانی توابع</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.2.1. توابع داخلی</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.2.2. توابع شخص ثالث</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-0">4.1. مقدمه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.2. اصول اولیه توابع</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in">4.2.1. توابع داخلی(Built-In)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#third-party">4.2.2. توابع خارجی(Third Party)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3. تعریف توابع</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4.3.1. نحو پایه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.3. تعریف توابع</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3.1. نحو پایه</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pos-args">4.3.2. آرگومان‌های کلیدواژه‌ای</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4.3.3. انعطاف‌پذیری توابع پایتون</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4.3.3. انعطاف‌پذیری توابع پایتون</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda">4.3.4. توابع یک خطی: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">4.3.5. چرا توابع بنویسیم؟</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4.3.5. چرا تابع بنویسیم؟</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">4.4. کاربردها</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4.4.1. نمونه‌برداری تصادفی</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4.4.2. اضافه کردن شرط‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4.4. کاربردها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">4.4.1. نمونه‌برداری تصادفی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">4.4.2. اضافه کردن شرط‌ها</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-functions">4.5. فراخوانی‌های بازگشتی تابع (پیشرفته)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-functions">4.5. فراخوانی‌ توابع بازگشتی (پیشرفته)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorial-exercise">4.6. تمرینات</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.7. تمرینات پیشرفته</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.7. تمرینات پیشرفته</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -221,10 +244,16 @@
                         <div class="qe-page__toc-footer">
                             
                             
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
+                            
+                            
                         </div>
 
                     </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
 
                 </div>
 
@@ -251,7 +280,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Dec 05, 2025
+                            Last changed: Mar 19, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -262,20 +291,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/5e6e497" class="changelog-hash">5e6e497</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
-                                <span class="changelog-message">Fix writing_good_code reference warning</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0772596" class="changelog-hash">0772596</a>
-                                
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">3 months ago</span>
-                                <span class="changelog-message">Add Persian translation: Functions lecture (#13)</span>
+                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Update lecture markdown files (#54)</span>
                             </li>
                             
                         </ul>
@@ -293,16 +313,16 @@
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">4. </span>توابع<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="index-0">
-<span id="id2"></span><h2><span class="section-number">4.1. </span>مرور کلی<a class="headerlink" href="#index-0" title="Link to this heading">#</a></h2>
-<p>توابع (Functions) یکی از ساختارهای بسیار مفید هستند که تقریباً در تمام زبان‌های برنامه‌نویسی وجود دارند.</p>
+<span id="id2"></span><h2><span class="section-number">4.1. </span>مقدمه<a class="headerlink" href="#index-0" title="Link to this heading">#</a></h2>
+<p>توابع (Functions) یکی از ساختارهای بسیار کاربردی هستند که تقریباً در تمام زبان‌های برنامه‌نویسی وجود دارند.</p>
 <p>ما تاکنون با چندین تابع آشنا شده‌ایم، مانند</p>
 <ul class="simple">
-<li><p>تابع <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code> از کتابخانه NumPy و</p></li>
-<li><p>تابع داخلی <code class="docutils literal notranslate"><span class="pre">print()</span></code></p></li>
+<li><p>تابع <code class="docutils literal notranslate"><span class="pre">()sqrt</span></code> از کتابخانه NumPy و</p></li>
+<li><p>تابع داخلی <code class="docutils literal notranslate"><span class="pre">()print</span></code></p></li>
 </ul>
 <p>در این درس ما:</p>
 <ol class="arabic simple">
-<li><p>توابع را به صورت سیستماتیک بررسی می‌کنیم و نحوه نوشتن و موارد استفاده را پوشش می‌دهیم، و</p></li>
+<li><p>توابع را به صورت سیستماتیک بررسی می‌کنیم و نحوه نوشتن و موارد استفاده از آنها را پوشش می‌دهیم، و</p></li>
 <li><p>یاد می‌گیریم که چگونه توابع سفارشی خودمان را بسازیم.</p></li>
 </ol>
 <p>ما از import های زیر استفاده خواهیم کرد.</p>
@@ -316,12 +336,12 @@
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">4.2. </span>مبانی توابع<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>اصول اولیه توابع<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>تابع یک بخش نام‌گذاری شده از یک برنامه است که یک وظیفه خاص را اجرا می‌کند.</p>
-<p>توابع زیادی از قبل وجود دارند و ما می‌توانیم از آنها به همین شکل استفاده کنیم.</p>
+<p>توابع زیادی از قبل وجود دارند و ما می‌توانیم از آنها به همان شکل استفاده کنیم.</p>
 <p>ابتدا این توابع را بررسی می‌کنیم و سپس بحث می‌کنیم که چگونه می‌توانیم توابع خودمان را بسازیم.</p>
-<section id="id4">
-<h3><span class="section-number">4.2.1. </span>توابع داخلی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="built-in">
+<h3><span class="section-number">4.2.1. </span>توابع داخلی(Built-In)<a class="headerlink" href="#built-in" title="Link to this heading">#</a></h3>
 <p>پایتون تعدادی تابع <strong>داخلی</strong> دارد که بدون نیاز به <code class="docutils literal notranslate"><span class="pre">import</span></code> در دسترس هستند.</p>
 <p>ما قبلاً با برخی از آنها آشنا شده‌ایم</p>
 <div class="cell docutils container">
@@ -374,8 +394,8 @@
 </div>
 <p>لیست کامل توابع داخلی پایتون در <a class="reference external" href="https://docs.python.org/3/library/functions.html">اینجا</a> موجود است.</p>
 </section>
-<section id="id5">
-<h3><span class="section-number">4.2.2. </span>توابع شخص ثالث<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="third-party">
+<h3><span class="section-number">4.2.2. </span>توابع خارجی(Third Party)<a class="headerlink" href="#third-party" title="Link to this heading">#</a></h3>
 <p>اگر توابع داخلی نیاز ما را پوشش ندهند، یا باید توابع را import کنیم یا توابع خودمان را بسازیم.</p>
 <p>نمونه‌هایی از import کردن و استفاده از توابع در <a class="reference internal" href="python_by_example.html"><span class="doc">درس قبلی</span></a> آورده شده است.</p>
 <p>در اینجا نمونه دیگری داریم که بررسی می‌کند آیا یک سال خاص، سال کبیسه است یا خیر:</p>
@@ -394,12 +414,12 @@
 </div>
 </section>
 </section>
-<section id="id6">
-<h2><span class="section-number">4.3. </span>تعریف توابع<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>در بسیاری از موارد، توانایی تعریف توابع خودمان مفید است.</p>
+<section id="id4">
+<h2><span class="section-number">4.3. </span>تعریف توابع<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>در بسیاری از موارد، باید بتوانیم توابع مدنظر خودمان را تعریف کنیم.</p>
 <p>بیایید با بحث در مورد نحوه انجام آن شروع کنیم.</p>
-<section id="id7">
-<h3><span class="section-number">4.3.1. </span>نحو پایه<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3><span class="section-number">4.3.1. </span>نحو پایه<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>در اینجا یک تابع بسیار ساده پایتون داریم که تابع ریاضی <span class="math notranslate nohighlight">\(f(x) = 2 x + 1\)</span> را پیاده‌سازی می‌کند</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -435,7 +455,7 @@
 </div>
 </div>
 <p>در اینجا یک تابع طولانی‌تر داریم که قدر مطلق یک عدد داده شده را محاسبه می‌کند.</p>
-<p>(چنین تابعی قبلاً به عنوان یک تابع داخلی وجود دارد، اما بیایید برای تمرین، تابع خودمان را بنویسیم.)</p>
+<p>(چنین تابعی از قبل به عنوان یک تابع داخلی وجود دارد، اما بیایید برای تمرین، تابع خودمان را بنویسیم.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">new_abs_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -451,9 +471,9 @@
 <p>بیایید نحو را در اینجا بررسی کنیم.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> یک کلمه کلیدی پایتون است که برای شروع تعریف توابع استفاده می‌شود.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">new_abs_function(x):</span></code> نشان می‌دهد که نام تابع <code class="docutils literal notranslate"><span class="pre">new_abs_function</span></code> است و یک آرگومان واحد <code class="docutils literal notranslate"><span class="pre">x</span></code> دارد.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:def</span> <span class="pre">new_abs_function(x)</span></code> نشان می‌دهد که نام تابع <code class="docutils literal notranslate"><span class="pre">new_abs_function</span></code> است و یک آرگومان واحد <code class="docutils literal notranslate"><span class="pre">x</span></code> دارد.</p></li>
 <li><p>کد تورفتگی‌دار یک بلوک کد است که <em>بدنه تابع</em> نامیده می‌شود.</p></li>
-<li><p>کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">return</span></code> نشان می‌دهد که <code class="docutils literal notranslate"><span class="pre">abs_value</span></code> شیء‌ای است که باید به کد فراخوانی‌کننده برگردانده شود.</p></li>
+<li><p>کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">return</span></code> نشان می‌دهد که <code class="docutils literal notranslate"><span class="pre">abs_value</span></code> شیئی است که باید به کد فراخوانی‌کننده برگردانده شود.</p></li>
 </ul>
 <p>تمام این تعریف تابع توسط مفسر پایتون خوانده می‌شود و در حافظه ذخیره می‌شود.</p>
 <p>بیایید آن را فراخوانی کنیم تا بررسی کنیم که کار می‌کند:</p>
@@ -472,7 +492,7 @@
 </div>
 </div>
 <p>توجه کنید که یک تابع می‌تواند تعداد دلخواهی دستور <code class="docutils literal notranslate"><span class="pre">return</span></code> داشته باشد (از جمله صفر).</p>
-<p>اجرای تابع زمانی که به اولین return برسد، خاتمه می‌یابد و این امکان را می‌دهد که کدهایی مانند مثال زیر بنویسیم</p>
+<p>اجرای تابع زمانی که به اولین return برسد، خاتمه می‌یابد و این امکان را می‌دهد که کدهایی مانند مثال زیر بنویسیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -487,20 +507,20 @@
 <p>توابعی که دستور return ندارند، به طور خودکار شیء خاص پایتون به نام <code class="docutils literal notranslate"><span class="pre">None</span></code> را برمی‌گردانند.</p>
 </section>
 <section id="pos-args">
-<span id="id8"></span><h3><span class="section-number">4.3.2. </span>آرگومان‌های کلیدواژه‌ای<a class="headerlink" href="#pos-args" title="Link to this heading">#</a></h3>
+<span id="id6"></span><h3><span class="section-number">4.3.2. </span>آرگومان‌های کلیدواژه‌ای<a class="headerlink" href="#pos-args" title="Link to this heading">#</a></h3>
 <p id="index-1">در <a class="reference internal" href="python_by_example.html#python-by-example"><span class="std std-ref">درس قبلی</span></a>، با عبارت زیر مواجه شدید</p>
 <div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;white noise&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>در این فراخوانی تابع <code class="docutils literal notranslate"><span class="pre">plot</span></code> کتابخانه Matplotlib، توجه کنید که آخرین آرگومان با نحو <code class="docutils literal notranslate"><span class="pre">name=argument</span></code> ارسال می‌شود.</p>
-<p>این را یک <em>آرگومان کلیدواژه‌ای</em> می‌نامند، که <code class="docutils literal notranslate"><span class="pre">label</span></code> کلیدواژه است.</p>
-<p>آرگومان‌های غیر کلیدواژه‌ای را <em>آرگومان‌های موضعی</em> می‌نامند، زیرا معنای آنها با ترتیب مشخص می‌شود</p>
+<p>در فراخوانی تابع <code class="docutils literal notranslate"><span class="pre">plot</span></code> از کتابخانه Matplotlib، باید توجه داشته باشید که آخرین آرگومان با نحو <code class="docutils literal notranslate"><span class="pre">name=argument</span></code> ارسال می‌شود.</p>
+<p>این را یک <em>آرگومان کلیدواژه‌ای(keyword argument)</em> می‌نامند، که <code class="docutils literal notranslate"><span class="pre">label</span></code> همان کلیدواژه است.</p>
+<p>آرگومان‌های غیر کلیدواژه‌ای را <em>آرگومان‌های ترتیبی(positional argument)</em> می‌نامند، زیرا معنای آنها با ترتیب مشخص می‌شود.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">'b-')</span></code> با <code class="docutils literal notranslate"><span class="pre">plot('b-',</span> <span class="pre">x)</span></code> متفاوت است</p></li>
 </ul>
-<p>آرگومان‌های کلیدواژه‌ای به ویژه زمانی مفید هستند که یک تابع آرگومان‌های زیادی دارد، در این صورت به خاطر سپردن ترتیب صحیح سخت است.</p>
+<p>آرگومان‌های کلیدواژه‌ای زمانی کاربردی هستند که یک تابع آرگومان‌های زیادی دارد، در این صورت به خاطر سپردن ترتیب صحیح سخت است.</p>
 <p>شما می‌توانید آرگومان‌های کلیدواژه‌ای را در توابع تعریف شده توسط کاربر بدون مشکل به کار ببرید.</p>
-<p>مثال بعدی نحو را نشان می‌دهد</p>
+<p>به مثال بعدی توجه کنید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -509,7 +529,7 @@
 </div>
 </div>
 </div>
-<p>مقادیر آرگومان کلیدواژه‌ای که در تعریف <code class="docutils literal notranslate"><span class="pre">f</span></code> ارائه کردیم، به مقادیر پیش‌فرض تبدیل می‌شوند</p>
+<p>مقادیر آرگومان کلیدواژه‌ای که در تعریف تابع <code class="docutils literal notranslate"><span class="pre">f</span></code> مشخص شده‌اند، به عنوان مقادیر پیش‌فرض درنظر گرفته می‌شوند</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -522,7 +542,7 @@
 </div>
 </div>
 </div>
-<p>آنها را می‌توان به شکل زیر تغییر داد</p>
+<p>آنها را می‌توان به شکل زیر تغییر داد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -536,22 +556,22 @@
 </div>
 </div>
 </section>
-<section id="id9">
-<h3><span class="section-number">4.3.3. </span>انعطاف‌پذیری توابع پایتون<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3><span class="section-number">4.3.3. </span>انعطاف‌پذیری توابع پایتون<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>همانطور که در <a class="reference internal" href="python_by_example.html#python-by-example"><span class="std std-ref">درس قبلی</span></a> بحث کردیم، توابع پایتون بسیار انعطاف‌پذیر هستند.</p>
 <p>به طور خاص</p>
 <ul class="simple">
-<li><p>هر تعداد تابع می‌تواند در یک فایل معین تعریف شود.</p></li>
-<li><p>توابع می‌توانند (و اغلب) در داخل توابع دیگر تعریف شوند.</p></li>
-<li><p>هر شیء می‌تواند به عنوان آرگومان به یک تابع ارسال شود، از جمله توابع دیگر.</p></li>
+<li><p>هر تعداد تابع می‌تواند در یک فایل مشخص تعریف شود.</p></li>
+<li><p>توابع می‌توانند (و اغلب هم می شوند) در داخل توابع دیگر تعریف شوند.</p></li>
+<li><p>هر شیء می‌تواند به عنوان آرگومان به یک تابع داده شود، از جمله توابع دیگر.</p></li>
 <li><p>یک تابع می‌تواند هر نوع شیء را برگرداند، از جمله توابع.</p></li>
 </ul>
-<p>ما در بخش‌های بعدی مثال‌هایی از اینکه چقدر ساده است که یک تابع را به یک تابع دیگر ارسال کنیم، ارائه خواهیم داد.</p>
+<p>در بخش‌های بعدی، با مثال‌هایی نشان خواهیم داد که انتقال یک تابع به یک تابع دیگر تا چه حد  ساده است.</p>
 </section>
 <section id="lambda">
 <h3><span class="section-number">4.3.4. </span>توابع یک خطی: <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#lambda" title="Link to this heading">#</a></h3>
 <p id="index-2">کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">lambda</span></code> برای ایجاد توابع ساده در یک خط استفاده می‌شود.</p>
-<p>به عنوان مثال، تعریف‌های زیر</p>
+<p>برای نمونه، مثال های زیر کاملا معادل یکدیگر هستند:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -560,7 +580,6 @@
 </div>
 </div>
 </div>
-<p>و</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
@@ -568,11 +587,10 @@
 </div>
 </div>
 </div>
-<p>کاملاً معادل هستند.</p>
-<p>برای اینکه ببینیم چرا <code class="docutils literal notranslate"><span class="pre">lambda</span></code> مفید است، فرض کنید می‌خواهیم <span class="math notranslate nohighlight">\(\int_0^2 x^3 dx\)</span> را محاسبه کنیم (و حساب دبیرستانمان را فراموش کرده‌ایم).</p>
+<p>برای اینکه ببینیم چرا <code class="docutils literal notranslate"><span class="pre">lambda</span></code> کاربردی است، فرض کنید می‌خواهیم <span class="math notranslate nohighlight">\(\int_0^2 x^3 dx\)</span> را محاسبه کنیم (و حسابان دبیرستانمان را فراموش کرده‌ایم).</p>
 <p>کتابخانه SciPy تابعی به نام <code class="docutils literal notranslate"><span class="pre">quad</span></code> دارد که این محاسبه را برای ما انجام می‌دهد.</p>
 <p>نحو تابع <code class="docutils literal notranslate"><span class="pre">quad</span></code> به صورت <code class="docutils literal notranslate"><span class="pre">quad(f,</span> <span class="pre">a,</span> <span class="pre">b)</span></code> است که <code class="docutils literal notranslate"><span class="pre">f</span></code> یک تابع و <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> اعداد هستند.</p>
-<p>برای ایجاد تابع <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> می‌توانیم از <code class="docutils literal notranslate"><span class="pre">lambda</span></code> به شکل زیر استفاده کنیم</p>
+<p>برای ایجاد تابع <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> می‌توانیم از <code class="docutils literal notranslate"><span class="pre">lambda</span></code> به شکل زیر استفاده کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
@@ -587,24 +605,24 @@
 </div>
 </div>
 </div>
-<p>در اینجا تابع ایجاد شده توسط <code class="docutils literal notranslate"><span class="pre">lambda</span></code> <em>ناشناس</em> نامیده می‌شود زیرا هرگز نامی به آن داده نشده است.</p>
+<p>در اینجا تابع ایجاد شده توسط <code class="docutils literal notranslate"><span class="pre">lambda</span></code> <em>ناشناس(anonymous)</em> نامیده می‌شود زیرا هرگز نامی به آن داده نشده است.</p>
 </section>
-<section id="id10">
-<h3><span class="section-number">4.3.5. </span>چرا توابع بنویسیم؟<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<p>توابع تعریف شده توسط کاربر برای بهبود وضوح کد شما از طریق موارد زیر مهم هستند:</p>
+<section id="id8">
+<h3><span class="section-number">4.3.5. </span>چرا تابع بنویسیم؟<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>توابع تعریف شده توسط کاربر برای بهبود شفافیت و خوانایی کد شما اهمیت دارند، زیرا:</p>
 <ul class="simple">
-<li><p>جداسازی رشته‌های مختلف منطق</p></li>
-<li><p>تسهیل استفاده مجدد از کد</p></li>
+<li><p>جنبه‌های مختلف منطق برنامه را از هم جدا می‌کند</p></li>
+<li><p>امکان استفاده مجدد کد را فراهم می‌کنند</p></li>
 </ul>
-<p>(نوشتن یک چیز دو بار <a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">تقریباً همیشه ایده بدی است</a>)</p>
+<p>(نوشتن یک چیز یکسان برای دو بار <a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">تقریباً همیشه ایده بدی است</a>)</p>
 <p>ما بعداً بیشتر در این مورد صحبت خواهیم کرد.</p>
 <!-- TODO: Restore link once writing_good_code lecture is translated and merged: {doc}`بعداً <writing_good_code>` -->
 </section>
 </section>
-<section id="id11">
-<h2><span class="section-number">4.4. </span>کاربردها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
-<section id="id12">
-<h3><span class="section-number">4.4.1. </span>نمونه‌برداری تصادفی<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h2><span class="section-number">4.4. </span>کاربردها<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3><span class="section-number">4.4.1. </span>نمونه‌برداری تصادفی<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>دوباره به این کد از <a class="reference internal" href="python_by_example.html"><span class="doc">درس قبلی</span></a> نگاه کنید</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,7 +639,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/758c5ac29a9c5826535cf18302f194b8f0db9b8020ed91638a10fa9b56425baf.png" src="_images/758c5ac29a9c5826535cf18302f194b8f0db9b8020ed91638a10fa9b56425baf.png" />
+<img alt="_images/663ff48aeb4e0c0ebad8546913133c5d6fcca3cf85f8d33a518d973ccfcfc0c7.png" src="_images/663ff48aeb4e0c0ebad8546913133c5d6fcca3cf85f8d33a518d973ccfcfc0c7.png" />
 </div>
 </div>
 <p>ما این برنامه را به دو بخش تقسیم خواهیم کرد:</p>
@@ -651,16 +669,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/faf1cbbb7617ed5cf0e973e3d1e3f8578f895f7fbf07d93e1c8abd0fc56d07b9.png" src="_images/faf1cbbb7617ed5cf0e973e3d1e3f8578f895f7fbf07d93e1c8abd0fc56d07b9.png" />
+<img alt="_images/ca193b5c180fbe0a8b96318db46d77dd0aa89113660376f27320a08eaf617a24.png" src="_images/ca193b5c180fbe0a8b96318db46d77dd0aa89113660376f27320a08eaf617a24.png" />
 </div>
 </div>
 <p>وقتی مفسر به عبارت <code class="docutils literal notranslate"><span class="pre">generate_data(100)</span></code> می‌رسد، بدنه تابع را با <code class="docutils literal notranslate"><span class="pre">n</span></code> برابر با 100 اجرا می‌کند.</p>
-<p>نتیجه خالص این است که نام <code class="docutils literal notranslate"><span class="pre">data</span></code> به لیست <code class="docutils literal notranslate"><span class="pre">ϵ_values</span></code> برگردانده شده توسط تابع <em>متصل</em> می‌شود.</p>
+<p>نتیجه نهایی این است که نام <code class="docutils literal notranslate"><span class="pre">data</span></code> به لیست <code class="docutils literal notranslate"><span class="pre">ϵ_values</span></code> برگردانده شده توسط تابع <em>متصل</em> می‌شود.</p>
 </section>
-<section id="id13">
-<h3><span class="section-number">4.4.2. </span>اضافه کردن شرط‌ها<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
-<p id="index-3">تابع <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code> ما نسبتاً محدود است.</p>
-<p>بیایید آن را با دادن قابلیت برگرداندن یا متغیرهای تصادفی نرمال استاندارد یا متغیرهای تصادفی یکنواخت در <span class="math notranslate nohighlight">\((0, 1)\)</span> بر اساس نیاز، کمی مفیدتر کنیم.</p>
+<section id="id11">
+<h3><span class="section-number">4.4.2. </span>اضافه کردن شرط‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p id="index-3">تابع <code class="docutils literal notranslate"><span class="pre">()generate_data</span></code> ما نسبتاً محدود است.</p>
+<p>بیایید آن را با دادن قابلیت برگرداندن یا متغیرهای تصادفی نرمال استاندارد یا متغیرهای تصادفی یکنواخت در <span class="math notranslate nohighlight">\((0, 1)\)</span> بر اساس نیاز خودمان، کمی کاربردی‌تر کنیم.</p>
 <p>این کار در قطعه کد بعدی انجام می‌شود.</p>
 <div class="cell docutils container" id="funcloopprog2">
 <div class="cell_input docutils container">
@@ -681,22 +699,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/317f61b45a9edb0eda28fe81e7027277e20f8e94b251348388ad52eb44727c82.png" src="_images/317f61b45a9edb0eda28fe81e7027277e20f8e94b251348388ad52eb44727c82.png" />
+<img alt="_images/d7f677612d0c8ad9bf4c8ac9de0319193468708a2ae0ab9996ddb687872bbc29.png" src="_images/d7f677612d0c8ad9bf4c8ac9de0319193468708a2ae0ab9996ddb687872bbc29.png" />
 </div>
 </div>
-<p>امیدواریم نحو عبارت if/else خود توضیح‌دهنده باشد، با تورفتگی که دوباره محدوده بلوک‌های کد را مشخص می‌کند.</p>
-<p>نکات</p>
+<p>امیدواریم نحو عبارت if/else خودش گویا باشد؛ در اینجا نیز همانند قبل، تورفتگی محدوده بلوک‌های کد را مشخص می‌کند.</p>
+<p>نکات:</p>
 <ul class="simple">
-<li><p>ما آرگومان <code class="docutils literal notranslate"><span class="pre">U</span></code> را به عنوان یک رشته ارسال می‌کنیم، به همین دلیل آن را به صورت <code class="docutils literal notranslate"><span class="pre">'U'</span></code> می‌نویسیم.</p></li>
+<li><p>ما آرگومان <code class="docutils literal notranslate"><span class="pre">U</span></code> را به عنوان یک رشته بکار می‌بریم، به همین دلیل آن را به صورت <code class="docutils literal notranslate"><span class="pre">'U'</span></code> می‌نویسیم.</p></li>
 <li><p>توجه کنید که برابری با نحو <code class="docutils literal notranslate"><span class="pre">==</span></code> آزمایش می‌شود، نه <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
 <ul>
 <li><p>به عنوان مثال، دستور <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">10</span></code> نام <code class="docutils literal notranslate"><span class="pre">a</span></code> را به مقدار <code class="docutils literal notranslate"><span class="pre">10</span></code> اختصاص می‌دهد.</p></li>
-<li><p>عبارت <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">10</span></code> به <code class="docutils literal notranslate"><span class="pre">True</span></code> یا <code class="docutils literal notranslate"><span class="pre">False</span></code> ارزیابی می‌شود، بسته به مقدار <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p>عبارت <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">10</span></code>  با توجه به مقدار<code class="docutils literal notranslate"><span class="pre">a</span></code> میتواند <code class="docutils literal notranslate"><span class="pre">True</span></code> یا <code class="docutils literal notranslate"><span class="pre">False</span></code> ارزیابی شود .</p></li>
 </ul>
 </li>
 </ul>
 <p>حالا، چندین راه وجود دارد که می‌توانیم کد بالا را ساده کنیم.</p>
-<p>به عنوان مثال، می‌توانیم شرط‌ها را کاملاً حذف کنیم و فقط نوع تولیدکننده مورد نظر را <em>به عنوان یک تابع</em> ارسال کنیم.</p>
+<p>به عنوان مثال، می‌توانیم شرط‌ها را کاملاً حذف کنیم و فقط نوع خروجی مورد نظر را <em>به عنوان یک تابع</em> به برنامه بدهیم.</p>
 <p>برای درک این موضوع، نسخه زیر را در نظر بگیرید.</p>
 <div class="cell docutils container" id="test-program-6">
 <div class="cell_input docutils container">
@@ -714,16 +732,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/544cb3e6d5775d46d66ffc84248b4ba115f8b494d05b25529955d25cf04efa89.png" src="_images/544cb3e6d5775d46d66ffc84248b4ba115f8b494d05b25529955d25cf04efa89.png" />
+<img alt="_images/78f25ded6a2495dc7c3ac98f35d602d82f9de1f170167c069bcdebf097fced3d.png" src="_images/78f25ded6a2495dc7c3ac98f35d602d82f9de1f170167c069bcdebf097fced3d.png" />
 </div>
 </div>
-<p>حالا، وقتی تابع <code class="docutils literal notranslate"><span class="pre">generate_data()</span></code> را فراخوانی می‌کنیم، <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> را به عنوان آرگومان دوم ارسال می‌کنیم.</p>
+<p>حالا، وقتی تابع <code class="docutils literal notranslate"><span class="pre">()generate_data</span></code> را فراخوانی می‌کنیم، <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> را به عنوان آرگومان دوم ارسال می‌کنیم.</p>
 <p>این شیء یک <em>تابع</em> است.</p>
 <p>وقتی فراخوانی تابع <code class="docutils literal notranslate"><span class="pre">generate_data(100,</span> <span class="pre">np.random.uniform)</span></code> اجرا می‌شود، پایتون بلوک کد تابع را با <code class="docutils literal notranslate"><span class="pre">n</span></code> برابر با 100 و نام <code class="docutils literal notranslate"><span class="pre">generator_type</span></code> “متصل” به تابع <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> اجرا می‌کند.</p>
 <ul class="simple">
 <li><p>در حالی که این خطوط اجرا می‌شوند، نام‌های <code class="docutils literal notranslate"><span class="pre">generator_type</span></code> و <code class="docutils literal notranslate"><span class="pre">np.random.uniform</span></code> “مترادف” هستند و می‌توانند به روش‌های یکسان استفاده شوند.</p></li>
 </ul>
-<p>این اصل به طور کلی‌تر کار می‌کند—به عنوان مثال، قطعه کد زیر را در نظر بگیرید</p>
+<p>این اصل به طور کلی هم کار می‌کند؛ به عنوان مثال، قطعه کد زیر را در نظر بگیرید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>   <span class="c1"># max() is a built-in Python function</span>
@@ -749,16 +767,16 @@
 </div>
 </div>
 </div>
-<p>در اینجا ما نام دیگری برای تابع داخلی <code class="docutils literal notranslate"><span class="pre">max()</span></code> ایجاد کردیم که سپس می‌توانست به روش‌های یکسان استفاده شود.</p>
-<p>در زمینه برنامه ما، توانایی اتصال نام‌های جدید به توابع به این معنی است که هیچ مشکلی در <em>ارسال یک تابع به عنوان آرگومان به تابع دیگر</em> وجود ندارد—همانطور که در بالا انجام دادیم.</p>
+<p>در اینجا ما نام دیگری برای تابع داخلی <code class="docutils literal notranslate"><span class="pre">()max</span></code> ایجاد کردیم که سپس می‌توانست به روش‌های یکسان استفاده شود.</p>
+<p>در چارچوب برنامه ما، توانایی اتصال نام‌های جدید به توابع به این معنی است که هیچ مشکلی در <em>ارسال یک تابع به عنوان آرگومان به تابع دیگر</em> وجود ندارد؛همانطور که در بالا انجام دادیم.</p>
 </section>
 </section>
 <section id="recursive-functions">
-<span id="id14"></span><h2><span class="section-number">4.5. </span>فراخوانی‌های بازگشتی تابع (پیشرفته)<a class="headerlink" href="#recursive-functions" title="Link to this heading">#</a></h2>
-<p id="index-4">این یک موضوع پیشرفته است که می‌توانید آن را رد کنید.</p>
-<p>در عین حال، این ایده جالبی است که باید در مرحله‌ای از حرفه برنامه‌نویسی خود آن را یاد بگیرید.</p>
-<p>اساساً، یک تابع بازگشتی تابعی است که خودش را فراخوانی می‌کند.</p>
-<p>به عنوان مثال، مسئله محاسبه <span class="math notranslate nohighlight">\(x_t\)</span> برای برخی از t را در نظر بگیرید که</p>
+<span id="id12"></span><h2><span class="section-number">4.5. </span>فراخوانی‌ توابع بازگشتی (پیشرفته)<a class="headerlink" href="#recursive-functions" title="Link to this heading">#</a></h2>
+<p id="index-4">این یک مبحث پیشرفته است که می‌توانید از مطالعه آن صرفنظر کنید.</p>
+<p>با این حال، ایده‌ی جالبی است که در مراحل بعدی برنامه‌نویسی خود با آن آشنا شوید.</p>
+<p>اساساً، یک تابع بازگشتی(Recursive Function) تابعی است که خودش را فراخوانی می‌کند.</p>
+<p>به عنوان مثال، مسئله محاسبه <span class="math notranslate nohighlight">\(x_t\)</span> برای برخی از مقادیر t را در نظر بگیرید که</p>
 <div class="math notranslate nohighlight" id="equation-xseqdoub">
 <span class="eqno">(4.1)<a class="headerlink" href="#equation-xseqdoub" title="Link to this equation">#</a></span>\[x_{t+1} = 2 x_t, \quad x_0 = 1\]</div>
 <p>واضح است که جواب <span class="math notranslate nohighlight">\(2^t\)</span> است.</p>
@@ -774,7 +792,7 @@
 </div>
 </div>
 </div>
-<p>همچنین می‌توانیم از یک راه‌حل بازگشتی استفاده کنیم، به شرح زیر</p>
+<p>همچنین می‌توانیم از یک راه‌حل بازگشتی همانند زیر استفاده کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
@@ -786,20 +804,20 @@
 </div>
 </div>
 </div>
-<p>آنچه در اینجا اتفاق می‌افتد این است که هر فراخوانی متوالی از <em>فریم</em> خود در <em>پشته</em> استفاده می‌کند</p>
+<p>آنچه در اینجا اتفاق می‌افتد این است که هر فراخوانی متوالی، فریم(frame) مخصوص خودش را در پشته(stack) استفاده می‌کند.</p>
 <ul class="simple">
-<li><p>فریم جایی است که متغیرهای محلی یک فراخوانی تابع معین نگهداری می‌شود</p></li>
+<li><p>فریم جایی است که متغیرهای محلی یک فراخوانی تابع مشخص نگهداری می‌شود</p></li>
 <li><p>پشته حافظه‌ای است که برای پردازش فراخوانی‌های تابع استفاده می‌شود</p>
 <ul>
-<li><p>یک صف First In Last Out (FILO)</p></li>
+<li><p>و مانند یک صف ورود اول، خروج آخر یا First In Last Out  (FILO) عمل می کند.</p></li>
 </ul>
 </li>
 </ul>
-<p>این مثال تا حدودی ساختگی است، زیرا اولین راه‌حل (تکراری) معمولاً به راه‌حل بازگشتی ترجیح داده می‌شود.</p>
+<p>این مثال تا حدودی ساختگی است، زیرا معمولا راه‌حل تکراری(iterative) معمولاً به جای راه‌حل بازگشتی(recursive) ترجیح داده می‌شود.</p>
 <p>ما بعداً با کاربردهای کمتر ساختگی بازگشت آشنا خواهیم شد.</p>
 </section>
 <section id="factorial-exercise">
-<span id="id15"></span><h2><span class="section-number">4.6. </span>تمرینات<a class="headerlink" href="#factorial-exercise" title="Link to this heading">#</a></h2>
+<span id="id13"></span><h2><span class="section-number">4.6. </span>تمرینات<a class="headerlink" href="#factorial-exercise" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="func_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.1 </span></p>
@@ -815,7 +833,7 @@
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex1"> Exercise 4.1</a></p>
 <section id="solution-content">
-<p>در اینجا یک راه‌حل است:</p>
+<p>یک راه حل این است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -852,7 +870,7 @@
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex2"> Exercise 4.2</a></p>
 <section id="solution-content">
-<p>در اینجا یک راه‌حل است:</p>
+<p>یک راه حل این است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
@@ -870,7 +888,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -881,15 +899,15 @@
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.3 </span></p>
 <section id="exercise-content">
-<p>اولاً، تابعی بنویسید که یک تحقق از دستگاه تصادفی زیر را برگرداند</p>
+<p>ابتدا، تابعی بنویسید که یک نمونه از دستگاه تصادفی زیر را برگرداند:</p>
 <ol class="arabic simple">
-<li><p>یک سکه بی‌طرفانه را 10 بار پرتاب کنید.</p></li>
-<li><p>اگر شیر <code class="docutils literal notranslate"><span class="pre">k</span></code> بار یا بیشتر به طور متوالی در این دنباله حداقل یک بار رخ دهد، یک دلار پرداخت کنید.</p></li>
+<li><p>یک سکه را عادلانه 10 بار پرتاب کنید.</p></li>
+<li><p>اگر شیر <code class="docutils literal notranslate"><span class="pre">k</span></code> بار یا بیشتر به طور متوالی در این دنباله حداقل یک بار ظاهر شود، یک دلار پرداخت کنید.</p></li>
 <li><p>در غیر این صورت، چیزی پرداخت نکنید.</p></li>
 </ol>
-<p>ثانیاً، تابع دیگری بنویسید که همان کار را انجام دهد به جز اینکه قانون دوم دستگاه تصادفی بالا به این شکل تبدیل شود</p>
+<p>سپس، تابع دیگری بنویسید که همان کار را انجام دهد به جز اینکه قانون دوم دستگاه تصادفی بالا به این شکل تبدیل :شود</p>
 <ul class="simple">
-<li><p>اگر شیر <code class="docutils literal notranslate"><span class="pre">k</span></code> بار یا بیشتر در این دنباله رخ دهد، یک دلار پرداخت کنید.</p></li>
+<li><p>اگر شیر <code class="docutils literal notranslate"><span class="pre">k</span></code> بار یا بیشتر در این دنباله ظاهر شود، یک دلار پرداخت کنید.</p></li>
 </ul>
 <p>از هیچ import به جز <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy.random</span> <span class="pre">import</span> <span class="pre">uniform</span></code> استفاده نکنید.</p>
 </section>
@@ -898,7 +916,7 @@
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex3"> Exercise 4.3</a></p>
 <section id="solution-content">
-<p>در اینجا تابعی برای دستگاه تصادفی اول است.</p>
+<p>در اینجا تابعی برای دستگاه تصادفی اول آورده شده است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
@@ -922,24 +940,24 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
 0
 1
-2
-3
+0
+1
+0
+0
 0
 1
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
 </div>
-<p>در اینجا تابع دیگری برای دستگاه تصادفی دوم است.</p>
+<p>در اینجا تابع دیگری برای دستگاه تصادفی دوم وجود دارد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_new</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>  <span class="c1"># pays if k successes in a sequence</span>
@@ -961,16 +979,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+2
+2
 2
 3
-4
-4
-5
-5
-5
-6
-6
+3
+3
+3
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
@@ -981,9 +999,9 @@
 </section>
 </div>
 </section>
-<section id="id16">
-<h2><span class="section-number">4.7. </span>تمرینات پیشرفته<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
-<p>در تمرینات زیر، ما با هم توابع بازگشتی خواهیم نوشت.</p>
+<section id="id14">
+<h2><span class="section-number">4.7. </span>تمرینات پیشرفته<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<p>در تمرینات زیر، ما با هم توابع بازگشتی را خواهیم نوشت.</p>
 <div class="exercise admonition" id="func_ex4">
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.4 </span></p>
@@ -999,7 +1017,7 @@
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex4"> Exercise 4.4</a></p>
 <section id="solution-content">
-<p>در اینجا راه‌حل استاندارد است</p>
+<p>در اینجا راه‌حل استاندارد این مسئله را می توانید ببینید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
@@ -1032,14 +1050,14 @@
 
 <p class="admonition-title"><span class="caption-number">Exercise 4.5 </span></p>
 <section id="exercise-content">
-<p>تابع <code class="docutils literal notranslate"><span class="pre">factorial()</span></code> از <a class="reference internal" href="#factorial-exercise"><span class="std std-ref">تمرین 1</span></a> را با استفاده از بازگشت بازنویسی کنید.</p>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">()factorial</span></code> از <a class="reference internal" href="#factorial-exercise"><span class="std std-ref">تمرین 1</span></a> را با استفاده از بازگشت بازنویسی کنید.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="functions-solution-9">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#func_ex5"> Exercise 4.5</a></p>
 <section id="solution-content">
-<p>در اینجا راه‌حل استاندارد است</p>
+<p>در اینجا راه‌حل استاندارد را میتوانید ببینید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">recursion_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -1148,12 +1166,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_essentials.html">
-   5. اصول Python
+   5. اصول برنامه‌نویسی پایتون
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: اشیاء و متدها
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
   </a>
  </li>
  <li class="toctree-l1">

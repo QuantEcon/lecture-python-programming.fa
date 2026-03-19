@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -156,7 +156,25 @@
   </head>
 <body dir="rtl">
 
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
 
     <span id="top"></span>
 
@@ -168,7 +186,12 @@
 
                 <div class="qe-page__toc">
 
-                    <div class="inner">
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
 
                         
                         <div class="qe-page__toc-header">
@@ -213,10 +236,16 @@
                         <div class="qe-page__toc-footer">
                             
                             
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
+                            
+                            
                         </div>
 
                     </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
 
                 </div>
 
@@ -243,7 +272,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jan 29, 2026
+                            Last changed: Mar 19, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -254,11 +283,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c931be2" class="changelog-hash">c931be2</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">3 hours ago</span>
-                                <span class="changelog-message">Add lecture: Pandas <single: Pandas> (#30)</span>
+                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Update lecture markdown files (#54)</span>
                             </li>
                             
                         </ul>
@@ -290,7 +319,7 @@
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wbgapi
-  Downloading wbgapi-1.0.12-py3-none-any.whl.metadata (13 kB)
+  Downloading wbgapi-1.0.14-py3-none-any.whl.metadata (13 kB)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (2.32.5)
 Requirement already satisfied: PyYAML in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (6.0.3)
 Requirement already satisfied: tabulate in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (0.9.0)
@@ -298,11 +327,11 @@ Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/mi
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.11)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2.5.0)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2025.11.12)
-Downloading wbgapi-1.0.12-py3-none-any.whl (36 kB)
+Downloading wbgapi-1.0.14-py3-none-any.whl (36 kB)
 Installing collected packages: wbgapi
-Successfully installed wbgapi-1.0.12
+Successfully installed wbgapi-1.0.14
 Collecting yfinance
-  Downloading yfinance-1.1.0-py2.py3-none-any.whl.metadata (6.1 kB)
+  Downloading yfinance-1.2.0-py2.py3-none-any.whl.metadata (6.1 kB)
 Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.3.3)
 Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.3.5)
 Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.32.5)
@@ -310,17 +339,17 @@ Collecting multitasking&gt;=0.0.7 (from yfinance)
   Downloading multitasking-0.0.12.tar.gz (19 kB)
   Installing build dependencies ... ?25l-
  \
- |
  done
 ?25h  Getting requirements to build wheel ... ?25l-
  done
-?25h  Preparing metadata (pyproject.toml) ... ?25l- done
+?25h  Preparing metadata (pyproject.toml) ... ?25l-
+ done
 ?25hRequirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.5.0)
 Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2025.2)
 Collecting frozendict&gt;=2.3.4 (from yfinance)
   Downloading frozendict-2.4.7-py3-none-any.whl.metadata (23 kB)
 Collecting peewee&gt;=3.16.2 (from yfinance)
-  Downloading peewee-3.19.0-py3-none-any.whl.metadata (7.0 kB)
+  Downloading peewee-4.0.2-py3-none-any.whl.metadata (8.6 kB)
 Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.13.5)
 Collecting curl_cffi&lt;0.14,&gt;=0.7 (from yfinance)
   Downloading curl_cffi-0.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
@@ -338,18 +367,17 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.4)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.11)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.5.0)
-Downloading yfinance-1.1.0-py2.py3-none-any.whl (129 kB)
+Downloading yfinance-1.2.0-py2.py3-none-any.whl (130 kB)
 Downloading curl_cffi-0.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
-?25l
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/8.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.3/8.3 MB</span> <span class=" -Color -Color-Red">130.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/8.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.3/8.3 MB</span> <span class=" -Color -Color-Red">233.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading frozendict-2.4.7-py3-none-any.whl (16 kB)
-Downloading peewee-3.19.0-py3-none-any.whl (411 kB)
+Downloading peewee-4.0.2-py3-none-any.whl (143 kB)
 Downloading websockets-16.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
 Building wheels for collected packages: multitasking
   Building wheel for multitasking (pyproject.toml) ... ?25l-
  done
-?25h  Created wheel for multitasking: filename=multitasking-0.0.12-py3-none-any.whl size=15637 sha256=e64c62d7542e485dc72a0cadc4b31ea6d848f2147435bdf08f208dfe21cc5d8f
+?25h  Created wheel for multitasking: filename=multitasking-0.0.12-py3-none-any.whl size=15635 sha256=0a45d75233f5cc047743ebbccc43e53ce592fc5105662363fc8eb064d8904347
   Stored in directory: /home/runner/.cache/pip/wheels/1e/df/0f/e2bbb22d689b30c681feb5410ab64a2523437b34c8ecfc6476
 Successfully built multitasking
 Installing collected packages: peewee, multitasking, websockets, frozendict, curl_cffi, yfinance
@@ -357,7 +385,8 @@ Installing collected packages: peewee, multitasking, websockets, frozendict, cur
    ━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/6</span> [websockets]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4/6</span> [curl_cffi]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6/6</span> [yfinance]
-Successfully installed curl_cffi-0.13.0 frozendict-2.4.7 multitasking-0.0.12 peewee-3.19.0 websockets-16.0 yfinance-1.1.0
+
+Successfully installed curl_cffi-0.13.0 frozendict-2.4.7 multitasking-0.0.12 peewee-4.0.2 websockets-16.0 yfinance-1.2.0
 </pre></div>
 </div>
 </div>
@@ -414,10 +443,10 @@ Successfully installed curl_cffi-0.13.0 frozendict-2.4.7 multitasking-0.0.12 pee
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.678060
-1    0.006756
-2    1.310952
-3   -0.855765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -1.974648
+1   -0.125003
+2    0.599299
+3    0.562915
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -432,10 +461,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    167.805981
-1      0.675611
-2    131.095179
-3    -85.576549
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -197.464791
+1    -12.500297
+2     59.929936
+3     56.291535
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -448,10 +477,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.678060
-1    0.006756
-2    1.310952
-3    0.855765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.974648
+1    0.125003
+2    0.599299
+3    0.562915
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -467,13 +496,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean     0.535001
-std      1.172171
-min     -0.855765
-25%     -0.208874
-50%      0.658854
-75%      1.402729
-max      1.678060
+mean    -0.234359
+std      1.207090
+min     -1.974648
+25%     -0.587414
+50%      0.218956
+75%      0.572011
+max      0.599299
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -488,10 +517,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.678060
-AAPL    0.006756
-MSFT    1.310952
-GOOG   -0.855765
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -1.974648
+AAPL   -0.125003
+MSFT    0.599299
+GOOG    0.562915
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -506,7 +535,7 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6780598061788885)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-1.9746479103133006)
 </pre></div>
 </div>
 </div>
@@ -520,9 +549,9 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL    0.006756
-MSFT    1.310952
-GOOG   -0.855765
+AAPL   -0.125003
+MSFT    0.599299
+GOOG    0.562915
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -3800,12 +3829,12 @@ Name: 2021-12-30 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3055/1503263560.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3183/1503263560.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   price_change.sort_values(inplace=True)
-/tmp/ipykernel_3055/1503263560.py:2: SettingWithCopyWarning: 
+/tmp/ipykernel_3183/1503263560.py:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
@@ -4471,12 +4500,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_essentials.html">
-   5. اصول Python
+   5. اصول برنامه‌نویسی پایتون
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: اشیاء و متدها
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
   </a>
  </li>
  <li class="toctree-l1">

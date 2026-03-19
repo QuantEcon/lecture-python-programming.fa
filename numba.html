@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -158,7 +158,25 @@
   </head>
 <body dir="rtl">
 
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
 
     <span id="top"></span>
 
@@ -170,7 +188,12 @@
 
                 <div class="qe-page__toc">
 
-                    <div class="inner">
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
 
                         
                         <div class="qe-page__toc-header">
@@ -215,10 +238,16 @@
                         <div class="qe-page__toc-footer">
                             
                             
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
+                            
+                            
                         </div>
 
                     </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
 
                 </div>
 
@@ -245,7 +274,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jan 29, 2026
+                            Last changed: Mar 19, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -256,11 +285,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/097c055" class="changelog-hash">097c055</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">5 hours ago</span>
-                                <span class="changelog-message">Add lecture: Numba (#26)</span>
+                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Update lecture markdown files (#54)</span>
                             </li>
                             
                         </ul>
@@ -290,7 +319,7 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.1)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
@@ -400,7 +429,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.70 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7060 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -415,7 +444,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1458 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -431,7 +460,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0243 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -443,7 +472,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>141.00370501539217
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>152.33201360237553
 </pre></div>
 </div>
 </div>
@@ -511,7 +540,7 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0652 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0635 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -570,9 +599,9 @@ x_{t+1} = \alpha x_t (1 - x_t)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2831/315866846.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2944/315866846.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2831/315866846.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2944/315866846.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
 <span class=" -Color -Color-Bold">During: Pass nopython_type_inference</span> 
@@ -596,7 +625,7 @@ This error may have been caused by the following argument(s):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2574 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -822,7 +851,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/18928c19f5a0989d5b9628473628bae081c634f4c18d4a55ea16dd48cd1172aa.png" src="_images/18928c19f5a0989d5b9628473628bae081c634f4c18d4a55ea16dd48cd1172aa.png" />
+<img alt="_images/6af5a2d1f83251b94f01d473b1efd0b50b94bc1d342953248e36bd7fdc12a580.png" src="_images/6af5a2d1f83251b94f01d473b1efd0b50b94bc1d342953248e36bd7fdc12a580.png" />
 </div>
 </div>
 <p>حالا فرض کنیم که جمعیت زیادی از خانوارها داریم و می‌خواهیم بدانیم میانه ثروت چه خواهد بود.</p>
@@ -866,7 +895,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.60 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.5063 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -901,7 +930,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.28 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2633 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -952,7 +981,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.16 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1481 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -965,7 +994,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0263 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1047,7 +1076,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666589
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.664981
 </pre></div>
 </div>
 </div>
@@ -1062,7 +1091,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4872 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1084,7 +1113,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665599
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.669599
 </pre></div>
 </div>
 </div>
@@ -1098,7 +1127,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0141 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1181,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3963 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1165,7 +1194,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0054 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1352,12 +1381,12 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_essentials.html">
-   5. اصول Python
+   5. اصول برنامه‌نویسی پایتون
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: اشیاء و متدها
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
   </a>
  </li>
  <li class="toctree-l1">

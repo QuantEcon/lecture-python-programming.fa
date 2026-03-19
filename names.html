@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -129,7 +129,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="8. OOP II: ساخت کلاس‌ها" href="python_oop.html" />
-    <link rel="prev" title="6. OOP I: اشیاء و متدها" href="oop_intro.html" />
+    <link rel="prev" title="6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها" href="oop_intro.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -156,7 +156,25 @@
   </head>
 <body dir="rtl">
 
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
 
     <span id="top"></span>
 
@@ -168,7 +186,12 @@
 
                 <div class="qe-page__toc">
 
-                    <div class="inner">
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
 
                         
                         <div class="qe-page__toc-header">
@@ -178,15 +201,15 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.1. مرور کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">7.2. نام‌های متغیر در Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.3. فضاهای نام</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">7.4. مشاهده فضاهای نام</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.5. جلسات تعاملی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7.6. فضای نام عمومی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">7.7. فضاهای نام محلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#builtins">7.8. فضای نام <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7.9. تفکیک نام</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.1. مقدمه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#var-names">7.2. نام‌های متغیر در پایتون</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">7.3. فضاهای نام</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">7.4. مشاهده فضاهای نام</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">7.5. محیط تعاملی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-global-namespace">7.6. فضای نام سراسری یا جهانی(The Global Namespace)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-namespaces">7.7. فضای نام محلی(Local Namespaces)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-builtins-namespace">7.8. فضای نام داخلی (The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace )</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-resolution">7.9. Name Resolution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-vs-immutable">7.9.1. پارامترهای تغییرپذیر در مقابل تغییرناپذیر</a></li>
 </ul>
 </li>
@@ -209,10 +232,16 @@
                         <div class="qe-page__toc-footer">
                             
                             
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
+                            
+                            
                         </div>
 
                     </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
 
                 </div>
 
@@ -239,7 +268,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jan 29, 2026
+                            Last changed: Mar 19, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -250,11 +279,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/ac6d4a1" class="changelog-hash">ac6d4a1</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">5 hours ago</span>
-                                <span class="changelog-message">Add lecture: نام‌ها و فضاهای نام (#24)</span>
+                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Update lecture markdown files (#54)</span>
                             </li>
                             
                         </ul>
@@ -272,14 +301,14 @@
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">7. </span>نام‌ها و فضاهای نام<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">7.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>این درس تماماً درباره نام‌های متغیر، نحوه استفاده از آن‌ها و نحوه درک آن‌ها توسط مفسر Python است.</p>
-<p>ممکن است این موضوع کمی خسته‌کننده به نظر برسد، اما مدلی که Python برای مدیریت نام‌ها اتخاذ کرده است، ظریف و جالب است.</p>
-<p>علاوه بر این، اگر درک خوبی از نحوه کار نام‌ها در Python داشته باشید، ساعت‌های زیادی را از اشکال‌زدایی صرفه‌جویی خواهید کرد.</p>
+<h2><span class="section-number">7.1. </span>مقدمه<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>این درس کاملا درباره نام‌ متغیرها است،اینکه چگونه استفاده می‌شوند و مفسر پایتون چگونه آن ها را درک می‌کند.</p>
+<p>ممکن است این موضوع کمی خسته‌کننده به نظر برسد، اما مدلی که پایتون برای مدیریت نام‌ها اتخاذ کرده است، ظریف و جالب است.</p>
+<p>علاوه بر این، اگر درک خوبی از نحوه کار نام‌ها در پایتون داشته باشید، ساعت‌های زیادی را برای اشکال‌زدایی صرف نخواهید کرد.</p>
 </section>
-<section id="python">
-<span id="var-names"></span><h2><span class="section-number">7.2. </span>نام‌های متغیر در Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
-<p id="index-0">دستور Python زیر را در نظر بگیرید</p>
+<section id="var-names">
+<span id="id3"></span><h2><span class="section-number">7.2. </span>نام‌های متغیر در پایتون<a class="headerlink" href="#var-names" title="Link to this heading">#</a></h2>
+<p id="index-0">دستور پایتون زیر را در نظر بگیرید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
@@ -287,15 +316,15 @@
 </div>
 </div>
 </div>
-<p>اکنون می‌دانیم که وقتی این دستور اجرا می‌شود، Python یک شیء از نوع <code class="docutils literal notranslate"><span class="pre">int</span></code> در حافظه کامپیوتر شما ایجاد می‌کند که شامل موارد زیر است:</p>
+<p>اکنون می‌دانیم که وقتی این دستور اجرا می‌شود، پایتون یک شیء از نوع <code class="docutils literal notranslate"><span class="pre">int</span></code> در حافظه کامپیوتر شما ایجاد می‌کند که شامل موارد زیر است:</p>
 <ul class="simple">
 <li><p>مقدار <code class="docutils literal notranslate"><span class="pre">42</span></code></p></li>
 <li><p>برخی صفات مرتبط</p></li>
 </ul>
 <p>اما خود <code class="docutils literal notranslate"><span class="pre">x</span></code> چیست؟</p>
-<p>در Python، <code class="docutils literal notranslate"><span class="pre">x</span></code> یک <strong>نام</strong> نامیده می‌شود، و دستور <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> نام <code class="docutils literal notranslate"><span class="pre">x</span></code> را به شیء عدد صحیح که تازه در موردش صحبت کردیم <strong>متصل</strong> می‌کند.</p>
-<p>در پشت صحنه، این فرآیند اتصال نام‌ها به اشیاء به عنوان یک دیکشنری پیاده‌سازی می‌شود - بیشتر درباره این موضوع در ادامه خواهیم گفت.</p>
-<p>هیچ مشکلی برای اتصال دو یا چند نام به یک شیء وجود ندارد، صرف‌نظر از اینکه آن شیء چه باشد</p>
+<p>در پایتون، <code class="docutils literal notranslate"><span class="pre">x</span></code> یک <strong>نام</strong> نامیده می‌شود، و دستور <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> نام <code class="docutils literal notranslate"><span class="pre">x</span></code> را به شیء عدد صحیح که تازه در موردش صحبت کردیم <strong>متصل</strong> می‌کند.</p>
+<p>در پشت صحنه، این فرآیند اتصال نام‌ها به اشیاء به عنوان یک دیکشنری پیاده‌سازی می‌شود، که درباره این موضوع در ادامه بیشتر خواهیم گفت.</p>
+<p>هیچ مشکلی برای اتصال دو یا چند نام به یک شیء وجود ندارد، صرف‌نظر از اینکه آن شیء چه باشد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>      <span class="c1"># Create a function called f</span>
@@ -324,7 +353,7 @@
 </div>
 </div>
 </div>
-<p>در مرحله اول، یک شیء تابع ایجاد می‌شود و نام <code class="docutils literal notranslate"><span class="pre">f</span></code> به آن متصل می‌شود.</p>
+<p>در مرحله اول، یک شیء تابع(function object) ایجاد می‌شود و نام <code class="docutils literal notranslate"><span class="pre">f</span></code> به آن متصل(bind) می‌شود.</p>
 <p>پس از اتصال نام <code class="docutils literal notranslate"><span class="pre">g</span></code> به همان شیء، می‌توانیم از آن در هر جایی که از <code class="docutils literal notranslate"><span class="pre">f</span></code> استفاده می‌کنیم، استفاده کنیم.</p>
 <p>وقتی تعداد نام‌های متصل به یک شیء به صفر می‌رسد، چه اتفاقی می‌افتد؟</p>
 <p>در اینجا مثالی از این وضعیت آورده شده است، که در آن نام <code class="docutils literal notranslate"><span class="pre">x</span></code> ابتدا به یک شیء متصل می‌شود و سپس به شیء دیگری <strong>دوباره متصل</strong> می‌شود</p>
@@ -338,20 +367,20 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139838609662208
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140546408996592
 </pre></div>
 </div>
 </div>
 </div>
-<p>در این مورد، پس از اینکه <code class="docutils literal notranslate"><span class="pre">x</span></code> را مجدداً به <code class="docutils literal notranslate"><span class="pre">'bar'</span></code> متصل می‌کنیم، هیچ نامی به شیء اول <code class="docutils literal notranslate"><span class="pre">'foo'</span></code> متصل نیست.</p>
-<p>این یک محرک برای جمع‌آوری زباله <code class="docutils literal notranslate"><span class="pre">'foo'</span></code> است.</p>
+<p>در این مورد، پس از اینکه <code class="docutils literal notranslate"><span class="pre">x</span></code> را دوباره به <code class="docutils literal notranslate"><span class="pre">'bar'</span></code> متصل می‌کنیم، دیگر هیچ نامی به شیء اول یعنی <code class="docutils literal notranslate"><span class="pre">'foo'</span></code> متصل نیست.</p>
+<p>این وضعیت باعث می‌شود که <code class="docutils literal notranslate"><span class="pre">'foo'</span></code> وارد فرآیند جمع‌آوری زباله (garbage collection) شود.</p>
 <p>به عبارت دیگر، جای حافظه‌ای که آن شیء را ذخیره می‌کند، آزاد می‌شود و به سیستم عامل بازگردانده می‌شود.</p>
-<p>جمع‌آوری زباله در واقع یک حوزه تحقیقاتی فعال در علوم کامپیوتر است.</p>
+<p>جمع‌آوری زباله در واقع یکی از حوزه های فعال پژوهشی در علوم کامپیوتر است.</p>
 <p>اگر علاقه‌مند هستید، می‌توانید <a class="reference external" href="https://rushter.com/blog/python-garbage-collector/">بیشتر درباره جمع‌آوری زباله بخوانید</a>.</p>
 </section>
-<section id="id3">
-<h2><span class="section-number">7.3. </span>فضاهای نام<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p id="index-1">از بحث قبلی به یاد بیاورید که دستور</p>
+<section id="id4">
+<h2><span class="section-number">7.3. </span>فضاهای نام<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p id="index-1">در بحث قبلی دستور زیر را نوشتیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
@@ -359,16 +388,16 @@
 </div>
 </div>
 </div>
-<p>نام <code class="docutils literal notranslate"><span class="pre">x</span></code> را به شیء عدد صحیح در سمت راست متصل می‌کند.</p>
+<p>این دستور نام <code class="docutils literal notranslate"><span class="pre">x</span></code> را به عدد صحیح در سمت راست متصل می‌کند.</p>
 <p>همچنین ذکر کردیم که این فرآیند اتصال <code class="docutils literal notranslate"><span class="pre">x</span></code> به شیء صحیح به عنوان یک دیکشنری پیاده‌سازی می‌شود.</p>
 <p>این دیکشنری، فضای نام نامیده می‌شود.</p>
 <div class="admonition- admonition">
 <p class="admonition-title">تعریف</p>
-<p>یک <strong>فضای نام</strong> یک جدول نمادها است که نام‌ها را به اشیاء در حافظه نگاشت می‌کند.</p>
+<p>یک <strong>فضای نام</strong> یک جدول از نمادها است که به پایتون می‌گوید هر اسم مربوط به کدام شیء در حافظه است.</p>
 </div>
-<p>Python از چندین فضای نام استفاده می‌کند و در صورت لزوم آن‌ها را به صورت پویا ایجاد می‌کند.</p>
-<p>به عنوان مثال، هر بار که ماژولی را import می‌کنیم، Python یک فضای نام برای آن ماژول ایجاد می‌کند.</p>
-<p>برای مشاهده این موضوع در عمل، فرض کنید یک اسکریپت <code class="docutils literal notranslate"><span class="pre">mathfoo.py</span></code> با یک خط می‌نویسیم</p>
+<p>پایتون از چندین فضای نام استفاده می‌کند و در صورت لزوم آن‌ها را به صورت پویا ایجاد می‌کند.</p>
+<p>به عنوان مثال، هر بار که ماژولی را import می‌کنیم، پایتون یک فضای نام برای آن ماژول ایجاد می‌کند.</p>
+<p>برای مشاهده این موضوع در عمل، فرض کنید اسکریپتی به نام <code class="docutils literal notranslate"><span class="pre">mathfoo.py</span></code> می‌نویسیم که فقط یک خط دارد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> mathfoo.py
@@ -382,7 +411,7 @@
 </div>
 </div>
 </div>
-<p>حالا مفسر Python را شروع می‌کنیم و آن را import می‌کنیم</p>
+<p>حالا مفسر پایتون را شروع می‌کنیم و آن را import می‌کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mathfoo</span>
@@ -390,7 +419,7 @@
 </div>
 </div>
 </div>
-<p>بعد بیایید ماژول <code class="docutils literal notranslate"><span class="pre">math</span></code> را از کتابخانه استاندارد import کنیم</p>
+<p>بعد بیایید ماژول <code class="docutils literal notranslate"><span class="pre">math</span></code> را از کتابخانه استاندارد import کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -398,7 +427,7 @@
 </div>
 </div>
 </div>
-<p>هر دوی این ماژول‌ها یک صفت به نام <code class="docutils literal notranslate"><span class="pre">pi</span></code> دارند</p>
+<p>هر دوی این ماژول‌ها یک صفت به نام <code class="docutils literal notranslate"><span class="pre">pi</span></code> دارند:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
@@ -423,8 +452,8 @@
 </div>
 </div>
 </div>
-<p>این دو اتصال متفاوت <code class="docutils literal notranslate"><span class="pre">pi</span></code> در فضاهای نام متفاوتی وجود دارند که هر کدام به عنوان یک دیکشنری پیاده‌سازی شده‌اند.</p>
-<p>اگر بخواهید، می‌توانید مستقیماً به دیکشنری نگاه کنید، با استفاده از <code class="docutils literal notranslate"><span class="pre">module_name.__dict__</span></code>.</p>
+<p>این دو اتصال متفاوت <code class="docutils literal notranslate"><span class="pre">pi</span></code> در دو فضای نام جداگانه وجود دارند و هر کدام به صورت یک دیکشنری پیاده‌سازی شده‌اند.</p>
+<p>اگر بخواهید، می‌توانید این دیکشنری را مستقیما با استفاده از <code class="docutils literal notranslate"><span class="pre">module_name.__dict__</span></code> نگاه کنید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -434,7 +463,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f2eb8129910&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f2eb8129910&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fma&#39;, &lt;built-in function fma&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fd384329910&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fd384329910&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fma&#39;, &lt;built-in function fma&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
 </pre></div>
 </div>
 </div>
@@ -451,8 +480,8 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__name__&#39;: &#39;mathfoo&#39;,
  &#39;__doc__&#39;: None,
  &#39;__package__&#39;: &#39;&#39;,
- &#39;__loader__&#39;: &lt;_frozen_importlib_external.SourceFileLoader at 0x7f2eb0305310&gt;,
- &#39;__spec__&#39;: ModuleSpec(name=&#39;mathfoo&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7f2eb0305310&gt;, origin=&#39;/home/runner/work/lecture-python-programming.fa/lecture-python-programming.fa/lectures/mathfoo.py&#39;),
+ &#39;__loader__&#39;: &lt;_frozen_importlib_external.SourceFileLoader at 0x7fd37c4f1310&gt;,
+ &#39;__spec__&#39;: ModuleSpec(name=&#39;mathfoo&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x7fd37c4f1310&gt;, origin=&#39;/home/runner/work/lecture-python-programming.fa/lecture-python-programming.fa/lectures/mathfoo.py&#39;),
  &#39;__file__&#39;: &#39;/home/runner/work/lecture-python-programming.fa/lecture-python-programming.fa/lectures/mathfoo.py&#39;,
  &#39;__cached__&#39;: &#39;/home/runner/work/lecture-python-programming.fa/lecture-python-programming.fa/lectures/__pycache__/mathfoo.cpython-313.pyc&#39;,
  &#39;__builtins__&#39;: {&#39;__name__&#39;: &#39;builtins&#39;,
@@ -483,7 +512,7 @@
   &#39;hash&#39;: &lt;function hash(obj, /)&gt;,
   &#39;hex&#39;: &lt;function hex(number, /)&gt;,
   &#39;id&#39;: &lt;function id(obj, /)&gt;,
-  &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7f2eb56a7cb0&gt;&gt;,
+  &#39;input&#39;: &lt;bound method Kernel.raw_input of &lt;ipykernel.ipkernel.IPythonKernel object at 0x7fd381a8bcb0&gt;&gt;,
   &#39;isinstance&#39;: &lt;function isinstance(obj, class_or_tuple, /)&gt;,
   &#39;issubclass&#39;: &lt;function issubclass(cls, class_or_tuple, /)&gt;,
   &#39;iter&#39;: &lt;function iter&gt;,
@@ -628,13 +657,13 @@
   &#39;runfile&#39;: &lt;function _pydev_bundle.pydev_umd.runfile(filename, args=None, wdir=None, namespace=None)&gt;,
   &#39;__IPYTHON__&#39;: True,
   &#39;display&#39;: &lt;function IPython.core.display_functions.display(*objs, include=None, exclude=None, metadata=None, transient=None, display_id=None, raw=False, clear=False, **kwargs)&gt;,
-  &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7f2eb036cad0&gt;&gt;},
+  &#39;get_ipython&#39;: &lt;bound method InteractiveShell.get_ipython of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7fd37c558ad0&gt;&gt;},
  &#39;pi&#39;: &#39;foobar&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>همان‌طور که می‌دانید، ما با استفاده از نشانه‌گذاری صفت نقطه‌دار به عناصر فضای نام دسترسی پیدا می‌کنیم</p>
+<p>همان‌طور که می‌دانید، ما به عناصر موجود در فضای نام، با استفاده از نقطه‌گذاری صفات دسترسی پیدا می‌کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
@@ -647,7 +676,7 @@
 </div>
 </div>
 </div>
-<p>این کاملاً معادل <code class="docutils literal notranslate"><span class="pre">math.__dict__['pi']</span></code> است</p>
+<p>این دستور کاملاً معادل <code class="docutils literal notranslate"><span class="pre">math.__dict__['pi']</span></code> است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;pi&#39;</span><span class="p">]</span> 
@@ -661,10 +690,10 @@
 </div>
 </div>
 </section>
-<section id="id4">
-<h2><span class="section-number">7.4. </span>مشاهده فضاهای نام<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>همان‌طور که در بالا دیدیم، فضای نام <code class="docutils literal notranslate"><span class="pre">math</span></code> را می‌توان با تایپ کردن <code class="docutils literal notranslate"><span class="pre">math.__dict__</span></code> چاپ کرد.</p>
-<p>راه دیگر برای دیدن محتویات آن تایپ کردن <code class="docutils literal notranslate"><span class="pre">vars(math)</span></code> است</p>
+<section id="id5">
+<h2><span class="section-number">7.4. </span>مشاهده فضاهای نام<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>همان‌طور که در بالا دیدیم، فضای نام <code class="docutils literal notranslate"><span class="pre">math</span></code> را می‌توان با تایپ کردن <code class="docutils literal notranslate"><span class="pre">math.__dict__</span></code> چاپ (print)کرد.</p>
+<p>راه دیگر برای دیدن محتویات آن تایپ کردن <code class="docutils literal notranslate"><span class="pre">vars(math)</span></code> است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">vars</span><span class="p">(</span><span class="n">math</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
@@ -672,12 +701,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f2eb8129910&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7f2eb8129910&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fma&#39;, &lt;built-in function fma&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;__name__&#39;, &#39;math&#39;), (&#39;__doc__&#39;, &#39;This module provides access to the mathematical functions\ndefined by the C standard.&#39;), (&#39;__package__&#39;, &#39;&#39;), (&#39;__loader__&#39;, &lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fd384329910&gt;), (&#39;__spec__&#39;, ModuleSpec(name=&#39;math&#39;, loader=&lt;_frozen_importlib_external.ExtensionFileLoader object at 0x7fd384329910&gt;, origin=&#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;)), (&#39;acos&#39;, &lt;built-in function acos&gt;), (&#39;acosh&#39;, &lt;built-in function acosh&gt;), (&#39;asin&#39;, &lt;built-in function asin&gt;), (&#39;asinh&#39;, &lt;built-in function asinh&gt;), (&#39;atan&#39;, &lt;built-in function atan&gt;), (&#39;atan2&#39;, &lt;built-in function atan2&gt;), (&#39;atanh&#39;, &lt;built-in function atanh&gt;), (&#39;cbrt&#39;, &lt;built-in function cbrt&gt;), (&#39;ceil&#39;, &lt;built-in function ceil&gt;), (&#39;copysign&#39;, &lt;built-in function copysign&gt;), (&#39;cos&#39;, &lt;built-in function cos&gt;), (&#39;cosh&#39;, &lt;built-in function cosh&gt;), (&#39;degrees&#39;, &lt;built-in function degrees&gt;), (&#39;dist&#39;, &lt;built-in function dist&gt;), (&#39;erf&#39;, &lt;built-in function erf&gt;), (&#39;erfc&#39;, &lt;built-in function erfc&gt;), (&#39;exp&#39;, &lt;built-in function exp&gt;), (&#39;exp2&#39;, &lt;built-in function exp2&gt;), (&#39;expm1&#39;, &lt;built-in function expm1&gt;), (&#39;fabs&#39;, &lt;built-in function fabs&gt;), (&#39;factorial&#39;, &lt;built-in function factorial&gt;), (&#39;floor&#39;, &lt;built-in function floor&gt;), (&#39;fma&#39;, &lt;built-in function fma&gt;), (&#39;fmod&#39;, &lt;built-in function fmod&gt;), (&#39;frexp&#39;, &lt;built-in function frexp&gt;), (&#39;fsum&#39;, &lt;built-in function fsum&gt;), (&#39;gamma&#39;, &lt;built-in function gamma&gt;), (&#39;gcd&#39;, &lt;built-in function gcd&gt;), (&#39;hypot&#39;, &lt;built-in function hypot&gt;), (&#39;isclose&#39;, &lt;built-in function isclose&gt;), (&#39;isfinite&#39;, &lt;built-in function isfinite&gt;), (&#39;isinf&#39;, &lt;built-in function isinf&gt;), (&#39;isnan&#39;, &lt;built-in function isnan&gt;), (&#39;isqrt&#39;, &lt;built-in function isqrt&gt;), (&#39;lcm&#39;, &lt;built-in function lcm&gt;), (&#39;ldexp&#39;, &lt;built-in function ldexp&gt;), (&#39;lgamma&#39;, &lt;built-in function lgamma&gt;), (&#39;log&#39;, &lt;built-in function log&gt;), (&#39;log1p&#39;, &lt;built-in function log1p&gt;), (&#39;log10&#39;, &lt;built-in function log10&gt;), (&#39;log2&#39;, &lt;built-in function log2&gt;), (&#39;modf&#39;, &lt;built-in function modf&gt;), (&#39;pow&#39;, &lt;built-in function pow&gt;), (&#39;radians&#39;, &lt;built-in function radians&gt;), (&#39;remainder&#39;, &lt;built-in function remainder&gt;), (&#39;sin&#39;, &lt;built-in function sin&gt;), (&#39;sinh&#39;, &lt;built-in function sinh&gt;), (&#39;sqrt&#39;, &lt;built-in function sqrt&gt;), (&#39;tan&#39;, &lt;built-in function tan&gt;), (&#39;tanh&#39;, &lt;built-in function tanh&gt;), (&#39;sumprod&#39;, &lt;built-in function sumprod&gt;), (&#39;trunc&#39;, &lt;built-in function trunc&gt;), (&#39;prod&#39;, &lt;built-in function prod&gt;), (&#39;perm&#39;, &lt;built-in function perm&gt;), (&#39;comb&#39;, &lt;built-in function comb&gt;), (&#39;nextafter&#39;, &lt;built-in function nextafter&gt;), (&#39;ulp&#39;, &lt;built-in function ulp&gt;), (&#39;__file__&#39;, &#39;/home/runner/miniconda3/envs/quantecon/lib/python3.13/lib-dynload/math.cpython-313-x86_64-linux-gnu.so&#39;), (&#39;pi&#39;, 3.141592653589793), (&#39;e&#39;, 2.718281828459045), (&#39;tau&#39;, 6.283185307179586), (&#39;inf&#39;, inf), (&#39;nan&#39;, nan)])
 </pre></div>
 </div>
 </div>
 </div>
-<p>اگر فقط می‌خواهید نام‌ها را ببینید، می‌توانید تایپ کنید</p>
+<p>اگر فقط می‌خواهید نام‌ها را ببینید، می‌توانید دستور زیر را تایپ کنید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first 10 names</span>
@@ -701,7 +730,7 @@
 </div>
 </div>
 <p>به نام‌های ویژه <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> و <code class="docutils literal notranslate"><span class="pre">__name__</span></code> توجه کنید.</p>
-<p>این‌ها در فضای نام هنگام import کردن هر ماژول مقداردهی اولیه می‌شوند</p>
+<p>این‌ نام ها به محض import شدن هر ماژول، به طور خودکار در فضای نام ایجاد و مقداردهی می‌شوند:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">__doc__</span></code> رشته مستندسازی ماژول است</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code> نام ماژول است</p></li>
@@ -732,12 +761,12 @@ defined by the C standard.
 </div>
 </div>
 </section>
-<section id="id5">
-<h2><span class="section-number">7.5. </span>جلسات تعاملی<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p id="index-2">در Python، <strong>تمام</strong> کدهایی که توسط مفسر اجرا می‌شوند در ماژولی اجرا می‌شوند.</p>
-<p>در مورد دستوراتی که در prompt تایپ می‌شوند چطور؟</p>
-<p>این‌ها نیز به عنوان اجرا شده در یک ماژول در نظر گرفته می‌شوند - در این مورد، ماژولی به نام <code class="docutils literal notranslate"><span class="pre">__main__</span></code>.</p>
-<p>برای بررسی این موضوع، می‌توانیم نام ماژول فعلی را از طریق مقدار <code class="docutils literal notranslate"><span class="pre">__name__</span></code> که در prompt داده می‌شود مشاهده کنیم</p>
+<section id="id6">
+<h2><span class="section-number">7.5. </span>محیط تعاملی<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p id="index-2">در پایتون، <strong>تمام</strong> کدهایی که توسط مفسر اجرا می‌شوند داخل یک ماژول اجرا می‌شوند.</p>
+<p>اما دستوراتی که مستقیما در محیط تعاملی (prompt) تایپ می‌کنیم چطور؟</p>
+<p>این‌ دستورها هم به عنوان کدی در نظر گرفته می‌شوند که داخل یک ماژول اجرا می‌شود؛ در این حالت، آن ماژول <code class="docutils literal notranslate"><span class="pre">__main__</span></code> نام دارد.</p>
+<p>برای بررسی این موضوع، می‌توانیم مقدار <code class="docutils literal notranslate"><span class="pre">__name__</span></code>را درprompt چاپ کنیم تا نام ماژول فعلی را ببینیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -751,7 +780,7 @@ defined by the C standard.
 </div>
 </div>
 <p>وقتی یک اسکریپت را با استفاده از دستور <code class="docutils literal notranslate"><span class="pre">run</span></code> در IPython اجرا می‌کنیم، محتویات فایل نیز به عنوان بخشی از <code class="docutils literal notranslate"><span class="pre">__main__</span></code> اجرا می‌شوند.</p>
-<p>برای مشاهده این موضوع، بیایید یک فایل <code class="docutils literal notranslate"><span class="pre">mod.py</span></code> ایجاد کنیم که صفت <code class="docutils literal notranslate"><span class="pre">__name__</span></code> خودش را چاپ کند</p>
+<p>برای مشاهده این موضوع، بیایید یک فایل <code class="docutils literal notranslate"><span class="pre">mod.py</span></code> ایجاد کنیم که صفت <code class="docutils literal notranslate"><span class="pre">__name__</span></code> خودش را چاپ کند:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> mod.py
@@ -765,7 +794,7 @@ defined by the C standard.
 </div>
 </div>
 </div>
-<p>حالا بیایید دو روش متفاوت اجرای آن را در IPython ببینیم</p>
+<p>حالا بیایید دو روش متفاوت اجرای آن را در IPython ببینیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mod</span>  <span class="c1"># Standard import</span>
@@ -791,9 +820,9 @@ defined by the C standard.
 </div>
 </div>
 <p>در حالت دوم، کد به عنوان بخشی از <code class="docutils literal notranslate"><span class="pre">__main__</span></code> اجرا می‌شود، بنابراین <code class="docutils literal notranslate"><span class="pre">__name__</span></code> برابر با <code class="docutils literal notranslate"><span class="pre">__main__</span></code> است.</p>
-<p>برای دیدن محتویات فضای نام <code class="docutils literal notranslate"><span class="pre">__main__</span></code> از <code class="docutils literal notranslate"><span class="pre">vars()</span></code> به جای <code class="docutils literal notranslate"><span class="pre">vars(__main__)</span></code> استفاده می‌کنیم.</p>
-<p>اگر این کار را در IPython انجام دهید، تعداد زیادی متغیر خواهید دید که IPython به آن‌ها نیاز دارد و هنگام شروع جلسه مقداردهی اولیه کرده است.</p>
-<p>اگر ترجیح می‌دهید فقط متغیرهایی که شما مقداردهی اولیه کرده‌اید را ببینید، از <code class="docutils literal notranslate"><span class="pre">%whos</span></code> استفاده کنید</p>
+<p>برای دیدن محتویات فضای نام <code class="docutils literal notranslate"><span class="pre">__main__</span></code> از <code class="docutils literal notranslate"><span class="pre">()vars</span></code> به جای <code class="docutils literal notranslate"><span class="pre">vars(__main__)</span></code> استفاده می‌کنیم.</p>
+<p>اگر این کار را در IPython انجام دهید، تعداد زیادی متغیر خواهید دید که IPython به آن‌ها نیاز دارد و هنگام شروع جلسه مقداردهی اولیه را انجام داده است.</p>
+<p>اگر ترجیح می‌دهید فقط متغیرهایی که شما مقداردهی اولیه کرده‌اید را ببینید، از <code class="docutils literal notranslate"><span class="pre">whos%</span></code> استفاده کنید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
@@ -808,8 +837,8 @@ defined by the C standard.
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable   Type        Data/Info
 --------------------------------
-f          function    &lt;function f at 0x7f2eb0117d80&gt;
-g          function    &lt;function f at 0x7f2eb0117d80&gt;
+f          function    &lt;function f at 0x7fd37c4f7d80&gt;
+g          function    &lt;function f at 0x7fd37c4f7d80&gt;
 math       module      &lt;module &#39;math&#39; from &#39;/hom&lt;...&gt;313-x86_64-linux-gnu.so&#39;&gt;
 mathfoo    module      &lt;module &#39;mathfoo&#39; from &#39;/&lt;...&gt;.fa/lectures/mathfoo.py&#39;&gt;
 mod        module      &lt;module &#39;mod&#39; from &#39;/home&lt;...&gt;ming.fa/lectures/mod.py&#39;&gt;
@@ -821,29 +850,29 @@ y          int         3
 </div>
 </div>
 </section>
-<section id="id6">
-<h2><span class="section-number">7.6. </span>فضای نام عمومی<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p id="index-3">مستندات Python اغلب به “فضای نام عمومی” اشاره می‌کند.</p>
-<p>فضای نام عمومی <em>فضای نام ماژولی است که در حال حاضر در حال اجرا است</em>.</p>
-<p>به عنوان مثال، فرض کنید که مفسر را شروع می‌کنیم و شروع به انجام انتسابات می‌کنیم.</p>
-<p>اکنون ما در ماژول <code class="docutils literal notranslate"><span class="pre">__main__</span></code> کار می‌کنیم، و از این رو فضای نام برای <code class="docutils literal notranslate"><span class="pre">__main__</span></code> فضای نام عمومی است.</p>
-<p>سپس، ماژولی به نام <code class="docutils literal notranslate"><span class="pre">amodule</span></code> را import می‌کنیم</p>
+<section id="the-global-namespace">
+<h2><span class="section-number">7.6. </span>فضای نام سراسری یا جهانی(The Global Namespace)<a class="headerlink" href="#the-global-namespace" title="Link to this heading">#</a></h2>
+<p id="index-3">مستندات پایتون اغلب به “فضای نام سراسری” اشاره می‌کند.</p>
+<p>فضای نام سراسری <em>فضای نام ماژولی است که در حال حاضر در حال اجرا است</em>.</p>
+<p>به عنوان مثال، فرض کنید که مفسر را باز می‌کنیم و شروع به انجام تخصیص ها(assignments) می‌کنیم.</p>
+<p>اکنون ما در ماژول <code class="docutils literal notranslate"><span class="pre">__main__</span></code> کار می‌کنیم، و از این رو فضای نام برای <code class="docutils literal notranslate"><span class="pre">__main__</span></code> همان فضای نام سراسری است.</p>
+<p>سپس، ماژولی به نام <code class="docutils literal notranslate"><span class="pre">amodule</span></code> را import می‌کنیم:</p>
 <div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">amodule</span>
 </pre></div>
 </div>
 <p>در این نقطه، مفسر یک فضای نام برای ماژول <code class="docutils literal notranslate"><span class="pre">amodule</span></code> ایجاد می‌کند و شروع به اجرای دستورات در ماژول می‌کند.</p>
-<p>در حالی که این اتفاق می‌افتد، فضای نام <code class="docutils literal notranslate"><span class="pre">amodule.__dict__</span></code> فضای نام عمومی است.</p>
+<p>در حالی که این اتفاق می‌افتد، فضای نام <code class="docutils literal notranslate"><span class="pre">amodule.__dict__</span></code> فضای نام سراسری است.</p>
 <p>پس از اتمام اجرای ماژول، مفسر به ماژولی که دستور import از آن صادر شده بود بازمی‌گردد.</p>
-<p>در این مورد <code class="docutils literal notranslate"><span class="pre">__main__</span></code> است، بنابراین فضای نام <code class="docutils literal notranslate"><span class="pre">__main__</span></code> دوباره فضای نام عمومی می‌شود.</p>
+<p>در این مثال، این ماژول <code class="docutils literal notranslate"><span class="pre">__main__</span></code> است، بنابراین دوباره فضای نام مربوط به <code class="docutils literal notranslate"><span class="pre">__main__</span></code> به عنوان فضای نام سراسری درنظر گرفته می‌شود.</p>
 </section>
-<section id="id7">
-<h2><span class="section-number">7.7. </span>فضاهای نام محلی<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="local-namespaces">
+<h2><span class="section-number">7.7. </span>فضای نام محلی(Local Namespaces)<a class="headerlink" href="#local-namespaces" title="Link to this heading">#</a></h2>
 <p id="index-4">نکته مهم: وقتی یک تابع را فراخوانی می‌کنیم، مفسر یک <em>فضای نام محلی</em> برای آن تابع ایجاد می‌کند و متغیرها را در آن فضای نام ثبت می‌کند.</p>
 <p>دلیل این امر در همین لحظه توضیح داده خواهد شد.</p>
 <p>متغیرهای موجود در فضای نام محلی <em>متغیرهای محلی</em> نامیده می‌شوند.</p>
 <p>پس از بازگشت تابع، فضای نام آزاد می‌شود و از بین می‌رود.</p>
-<p>در حالی که تابع در حال اجرا است، می‌توانیم محتویات فضای نام محلی را با <code class="docutils literal notranslate"><span class="pre">locals()</span></code> مشاهده کنیم.</p>
-<p>به عنوان مثال، در نظر بگیرید</p>
+<p>در حالی که تابع در حال اجرا است، می‌توانیم محتویات فضای نام محلی را با <code class="docutils literal notranslate"><span class="pre">()locals</span></code> مشاهده کنیم.</p>
+<p>به عنوان مثال، دستور زیر را در نظر بگیرید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -854,7 +883,7 @@ y          int         3
 </div>
 </div>
 </div>
-<p>حالا بیایید تابع را فراخوانی کنیم</p>
+<p>حالا بیایید تابع را فراخوانی کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -872,13 +901,13 @@ y          int         3
 </div>
 <p>می‌توانید فضای نام محلی <code class="docutils literal notranslate"><span class="pre">f</span></code> را قبل از نابود شدن ببینید.</p>
 </section>
-<section id="builtins">
-<h2><span class="section-number">7.8. </span>فضای نام <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code><a class="headerlink" href="#builtins" title="Link to this heading">#</a></h2>
-<p id="index-5">ما از توابع داخلی مختلفی مانند <code class="docutils literal notranslate"><span class="pre">max(),</span> <span class="pre">dir(),</span> <span class="pre">str(),</span> <span class="pre">list(),</span> <span class="pre">len(),</span> <span class="pre">range(),</span> <span class="pre">type()</span></code> و غیره استفاده کرده‌ایم.</p>
-<p>دسترسی به این نام‌ها چگونه کار می‌کند؟</p>
+<section id="the-builtins-namespace">
+<h2><span class="section-number">7.8. </span>فضای نام داخلی (The <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> Namespace )<a class="headerlink" href="#the-builtins-namespace" title="Link to this heading">#</a></h2>
+<p id="index-5">ما از توابع داخلی مختلفی مانند <code class="docutils literal notranslate"><span class="pre">()max</span></code> و <code class="docutils literal notranslate"><span class="pre">()dir</span></code> و <code class="docutils literal notranslate"><span class="pre">()str</span></code>و <code class="docutils literal notranslate"><span class="pre">()list</span></code> و <code class="docutils literal notranslate"><span class="pre">()len</span></code> و <code class="docutils literal notranslate"><span class="pre">()range</span></code> و <code class="docutils literal notranslate"><span class="pre">()type</span></code>و غیره، استفاده کرده‌ایم.</p>
+<p>اما دسترسی به این نام‌ها چگونه امکان پذیر است؟</p>
 <ul class="simple">
 <li><p>این تعاریف در ماژولی به نام <code class="docutils literal notranslate"><span class="pre">__builtin__</span></code> ذخیره شده‌اند.</p></li>
-<li><p>آن‌ها فضای نام خاص خود را به نام <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> دارند.</p></li>
+<li><p>آن‌ها فضای نام مخصوص به خود را دارند که به آن <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> گفته می‌شود.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,7 +944,7 @@ y          int         3
 </div>
 </div>
 </div>
-<p>می‌توانیم به عناصر فضای نام به صورت زیر دسترسی پیدا کنیم</p>
+<p>می‌توانیم به عناصر فضای نام به صورت زیر دسترسی پیدا کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__builtins__</span><span class="o">.</span><span class="n">max</span>
@@ -928,7 +957,7 @@ y          int         3
 </div>
 </div>
 </div>
-<p>اما <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> ویژه است، زیرا همیشه می‌توانیم مستقیماً به آن‌ها نیز دسترسی پیدا کنیم</p>
+<p>اما <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> خاص است، چون همیشه می‌توانیم مستقیماً به آن‌ها هم دسترسی داشته باشیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span>
@@ -953,28 +982,28 @@ y          int         3
 </div>
 </div>
 </div>
-<p>بخش بعدی توضیح می‌دهد که این چگونه کار می‌کند …</p>
+<p>بخش بعدی توضیح می‌دهد که این کار چگونه امکان پذیر است …</p>
 </section>
-<section id="id8">
-<h2><span class="section-number">7.9. </span>تفکیک نام<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="name-resolution">
+<h2><span class="section-number">7.9. </span>Name Resolution<a class="headerlink" href="#name-resolution" title="Link to this heading">#</a></h2>
 <p id="index-6">فضاهای نام عالی هستند زیرا به ما کمک می‌کنند تا نام‌های متغیر را سازماندهی کنیم.</p>
 <p>(در prompt عبارت <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code> را تایپ کنید و به آخرین موردی که چاپ می‌شود نگاه کنید)</p>
-<p>با این حال، ما باید بفهمیم که مفسر Python چگونه با فضاهای نام متعدد کار می‌کند.</p>
-<p>درک جریان اجرا به ما کمک می‌کند تا بررسی کنیم که کدام متغیرها در محدوده هستند و چگونه می‌توانیم هنگام نوشتن و اشکال‌زدایی برنامه‌ها بر روی آن‌ها عمل کنیم.</p>
-<p>در هر نقطه از اجرا، در واقع حداقل دو فضای نام وجود دارند که می‌توان به طور مستقیم به آن‌ها دسترسی پیدا کرد.</p>
+<p>با این حال، ما باید بفهمیم که مفسر پایتون چگونه با فضاهای نام متعدد کار می‌کند.</p>
+<p>درک جریان اجرا به ما کمک می‌کند تا بررسی کنیم که کدام متغیرها در دسترس هستند و چگونه می‌توانیم هنگام نوشتن و اشکال‌زدایی برنامه‌ها با آن‌ها کار کنیم.</p>
+<p>در هر نقطه از اجرای برنامه، در واقع حداقل دو فضای نام وجود دارند که می‌توان به طور مستقیم به آن‌ها دسترسی داشت.</p>
 <p>(“دسترسی مستقیم” به معنای بدون استفاده از نقطه است، مانند <code class="docutils literal notranslate"><span class="pre">pi</span></code> به جای <code class="docutils literal notranslate"><span class="pre">math.pi</span></code>)</p>
-<p>این فضاهای نام عبارتند از</p>
+<p>این فضاهای نام عبارتند از:</p>
 <ul class="simple">
-<li><p>فضای نام عمومی (ماژولی که در حال اجرا است)</p></li>
-<li><p>فضای نام builtin</p></li>
+<li><p>فضای نام سراسری (ماژولی که در حال اجرا است)</p></li>
+<li><p>فضای نام داخلی یا builtin</p></li>
 </ul>
-<p>اگر مفسر در حال اجرای یک تابع است، آنگاه فضاهای نام قابل دسترسی مستقیم عبارتند از</p>
+<p>اگر مفسر در حال اجرای یک تابع باشد، آنگاه فضاهای نامی که مستقیما قابل دسترسی هستند، عبارتند از:</p>
 <ul class="simple">
 <li><p>فضای نام محلی تابع</p></li>
-<li><p>فضای نام عمومی (ماژولی که در حال اجرا است)</p></li>
-<li><p>فضای نام builtin</p></li>
+<li><p>فضای نام سراسری (ماژولی که در حال اجرا است)</p></li>
+<li><p>فضای نام داخلی یا builtin</p></li>
 </ul>
-<p>گاهی اوقات توابع در داخل توابع دیگر تعریف می‌شوند، مانند این</p>
+<p>گاهی اوقات توابع در داخل توابع دیگر تعریف می‌شوند، مانند مثال زیر:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
@@ -987,21 +1016,21 @@ y          int         3
 </div>
 </div>
 </div>
-<p>در اینجا <code class="docutils literal notranslate"><span class="pre">f</span></code> تابع <em>احاطه‌کننده</em> برای <code class="docutils literal notranslate"><span class="pre">g</span></code> است و هر تابع فضای نام خود را دارد.</p>
-<p>حالا می‌توانیم قانون نحوه کار تفکیک فضای نام را بیان کنیم:</p>
-<p>ترتیبی که مفسر برای جستجوی نام‌ها دنبال می‌کند عبارت است از</p>
+<p>در اینجا <code class="docutils literal notranslate"><span class="pre">f</span></code> تابع <em>بستار یا دربرگیرنده</em> برای <code class="docutils literal notranslate"><span class="pre">g</span></code> است و هر تابع فضای نام خود را دارد.</p>
+<p>حالا می‌توانیم قانون نحوه کار Name Resolution را در فضای نام توضیح دهیم:</p>
+<p>ترتیبی که مفسر برای جستجوی نام‌ها دنبال می‌کند عبارت است از:</p>
 <ol class="arabic simple">
 <li><p>فضای نام محلی (اگر وجود داشته باشد)</p></li>
-<li><p>سلسله مراتب فضاهای نام احاطه‌کننده (اگر وجود داشته باشند)</p></li>
-<li><p>فضای نام عمومی</p></li>
-<li><p>فضای نام builtin</p></li>
+<li><p>زنجیره فضاهای نام توابع بستار (اگر وجود داشته باشند)</p></li>
+<li><p>فضای نام سراسری</p></li>
+<li><p>فضای نام داخلی یا builtin</p></li>
 </ol>
 <p>اگر نام در هیچ یک از این فضاهای نام نباشد، مفسر یک <code class="docutils literal notranslate"><span class="pre">NameError</span></code> ایجاد می‌کند.</p>
 <p>این قانون <strong>LEGB</strong> نامیده می‌شود (local, enclosing, global, builtin).</p>
-<p>در اینجا مثالی آورده شده است که کمک می‌کند تا توضیح داده شود.</p>
-<p>تجسم‌های اینجا توسط <a class="reference external" href="https://github.com/lgpage/nbtutor">nbtutor</a> در یک نوت‌بوک Jupyter ایجاد شده‌اند.</p>
-<p>آن‌ها می‌توانند به شما کمک کنند تا برنامه خود را بهتر درک کنید وقتی که در حال یادگیری یک زبان جدید هستید.</p>
-<p>اسکریپت <code class="docutils literal notranslate"><span class="pre">test.py</span></code> را در نظر بگیرید که به صورت زیر است</p>
+<p>در ادامه یک مثال برای روشن شدن موضوع آورده شده است.</p>
+<p>تصاویر و نمودارهای این مثال توسط <a class="reference external" href="https://github.com/lgpage/nbtutor">nbtutor</a> در یک ژوپیترنوت‌بوک  ایجاد شده‌اند.</p>
+<p>آن‌ها می‌توانند به شما کمک کنند تا برنامه خود را بهتر درک کنید، مخصوصا زمانی که در حال یادگیری یک زبان برنامه نویسی جدید هستید.</p>
+<p>فرض کنید اسکریپتی به نام <code class="docutils literal notranslate"><span class="pre">test.py</span></code> داریم که به صورت زیر است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> test.py
@@ -1035,41 +1064,41 @@ y          int         3
 </div>
 </div>
 </div>
-<p>ابتدا،</p>
+<p>ابتدا:</p>
 <ul class="simple">
-<li><p>فضای نام عمومی <code class="docutils literal notranslate"><span class="pre">{}</span></code> ایجاد می‌شود.</p></li>
+<li><p>فضای نام سراسری با مقدار <code class="docutils literal notranslate"><span class="pre">{}</span></code> ایجاد می‌شود.</p></li>
 </ul>
 <figure class="align-default">
 <img alt="_images/global.png" src="_images/global.png" />
 </figure>
 <ul class="simple">
-<li><p>شیء تابع ایجاد می‌شود و <code class="docutils literal notranslate"><span class="pre">g</span></code> در فضای نام عمومی به آن متصل می‌شود.</p></li>
-<li><p>نام <code class="docutils literal notranslate"><span class="pre">a</span></code> به <code class="docutils literal notranslate"><span class="pre">0</span></code> متصل می‌شود، دوباره در فضای نام عمومی.</p></li>
+<li><p>یک تابع ساخته می‌شود و نام <code class="docutils literal notranslate"><span class="pre">g</span></code> در فضای نام سراسری به آن متصل می‌شود.</p></li>
+<li><p>نام <code class="docutils literal notranslate"><span class="pre">a</span></code>هم در فضای سراسری به مقدار  <code class="docutils literal notranslate"><span class="pre">0</span></code> متصل می‌شود.</p></li>
 </ul>
 <figure class="align-default">
 <img alt="_images/global2.png" src="_images/global2.png" />
 </figure>
-<p>بعد <code class="docutils literal notranslate"><span class="pre">g</span></code> از طریق <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">g(10)</span></code> فراخوانی می‌شود که منجر به توالی زیر از اقدامات می‌شود</p>
+<p>سپس <code class="docutils literal notranslate"><span class="pre">g</span></code> از طریق <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">g(10)</span></code> فراخوانی می‌شود که منجر به دنباله ای از اقدامات زیر می‌شود:</p>
 <ul class="simple">
 <li><p>فضای نام محلی برای تابع ایجاد می‌شود.</p></li>
 <li><p>نام‌های محلی <code class="docutils literal notranslate"><span class="pre">x</span></code> و <code class="docutils literal notranslate"><span class="pre">a</span></code> متصل می‌شوند، به طوری که فضای نام محلی به <code class="docutils literal notranslate"><span class="pre">{'x':</span> <span class="pre">10,</span> <span class="pre">'a':</span> <span class="pre">1}</span></code> تبدیل می‌شود.</p></li>
 </ul>
-<p>توجه کنید که <code class="docutils literal notranslate"><span class="pre">a</span></code> عمومی تحت تأثیر <code class="docutils literal notranslate"><span class="pre">a</span></code> محلی قرار نگرفت.</p>
+<p>توجه کنید که فضای نام سراسری <code class="docutils literal notranslate"><span class="pre">a</span></code> تحت تأثیر فضای نام محلی <code class="docutils literal notranslate"><span class="pre">a</span></code> قرار نگرفت.</p>
 <figure class="align-default">
 <img alt="_images/local1.png" src="_images/local1.png" />
 </figure>
 <ul class="simple">
-<li><p>دستور <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code> از <code class="docutils literal notranslate"><span class="pre">a</span></code> محلی و <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی برای محاسبه <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code> استفاده می‌کند و نام محلی <code class="docutils literal notranslate"><span class="pre">x</span></code> را به نتیجه متصل می‌کند.</p></li>
-<li><p>این مقدار بازگردانده می‌شود و <code class="docutils literal notranslate"><span class="pre">y</span></code> در فضای نام عمومی به آن متصل می‌شود.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> و <code class="docutils literal notranslate"><span class="pre">a</span></code> محلی دور انداخته می‌شوند (و فضای نام محلی آزاد می‌شود).</p></li>
+<li><p>دستور <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code> از نام های محلی <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">x</span></code> برای محاسبه <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">a</span></code> استفاده می‌کند و نام محلی <code class="docutils literal notranslate"><span class="pre">x</span></code> به نتیجه آن متصل می‌کند.</p></li>
+<li><p>این مقدار بازگردانده می‌شود و نام <code class="docutils literal notranslate"><span class="pre">y</span></code> در فضای نام سراسری به آن متصل می‌شود.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> و <code class="docutils literal notranslate"><span class="pre">a</span></code> محلی حذف می‌شوند (و فضای نام محلی آزاد می‌شود).</p></li>
 </ul>
 <figure class="align-default">
 <img alt="_images/local_return.png" src="_images/local_return.png" />
 </figure>
 <section id="mutable-vs-immutable">
-<span id="id9"></span><h3><span class="section-number">7.9.1. </span>پارامترهای <span class="target" id="index-7"></span>تغییرپذیر در مقابل <span class="target" id="index-8"></span>تغییرناپذیر<a class="headerlink" href="#mutable-vs-immutable" title="Link to this heading">#</a></h3>
-<p>این زمان خوبی است که کمی بیشتر درباره اشیاء تغییرپذیر در مقابل تغییرناپذیر صحبت کنیم.</p>
-<p>بخش کد زیر را در نظر بگیرید</p>
+<span id="id7"></span><h3><span class="section-number">7.9.1. </span>پارامترهای <span class="target" id="index-7"></span>تغییرپذیر در مقابل <span class="target" id="index-8"></span>تغییرناپذیر<a class="headerlink" href="#mutable-vs-immutable" title="Link to this heading">#</a></h3>
+<p>این زمان خوبی است که کمی بیشتر درباره اشیاء تغییرپذیر و تغییرناپذیر صحبت کنیم.</p>
+<p>فرض کنید قطعه کد زیر را داریم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1087,12 +1116,12 @@ y          int         3
 </div>
 </div>
 </div>
-<p>اکنون می‌فهمیم که اینجا چه اتفاقی می‌افتد: کد <code class="docutils literal notranslate"><span class="pre">2</span></code> را به عنوان مقدار <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> و <code class="docutils literal notranslate"><span class="pre">1</span></code> را به عنوان مقدار <code class="docutils literal notranslate"><span class="pre">x</span></code> چاپ می‌کند.</p>
-<p>ابتدا <code class="docutils literal notranslate"><span class="pre">f</span></code> و <code class="docutils literal notranslate"><span class="pre">x</span></code> در فضای نام عمومی ثبت می‌شوند.</p>
+<p>اکنون می‌فهمیم که اینجا چه اتفاقی می‌افتد: کد مقدار <code class="docutils literal notranslate"><span class="pre">2</span></code> را به عنوان خروجی <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> و مقدار <code class="docutils literal notranslate"><span class="pre">1</span></code> را به عنوان مقدار <code class="docutils literal notranslate"><span class="pre">x</span></code> چاپ می‌کند.</p>
+<p>ابتدا <code class="docutils literal notranslate"><span class="pre">f</span></code> و <code class="docutils literal notranslate"><span class="pre">x</span></code> در فضای نام سراسری ثبت می‌شوند.</p>
 <p>فراخوانی <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> یک فضای نام محلی ایجاد می‌کند و <code class="docutils literal notranslate"><span class="pre">x</span></code> را به آن اضافه می‌کند که به <code class="docutils literal notranslate"><span class="pre">1</span></code> متصل است.</p>
-<p>بعد، این <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی به شیء عدد صحیح جدید <code class="docutils literal notranslate"><span class="pre">2</span></code> دوباره متصل می‌شود و این مقدار بازگردانده می‌شود.</p>
-<p>هیچ یک از این‌ها بر <code class="docutils literal notranslate"><span class="pre">x</span></code> عمومی تأثیر نمی‌گذارد.</p>
-<p>با این حال، وقتی از یک نوع داده <strong>تغییرپذیر</strong> مانند لیست استفاده می‌کنیم، داستان متفاوت است</p>
+<p>سپس، این <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی دوباره به شیء عدد صحیح جدید <code class="docutils literal notranslate"><span class="pre">2</span></code> متصل می‌شود و این مقدار بازگردانده می‌شود.</p>
+<p>هیچ یک از تغییرات، بر <code class="docutils literal notranslate"><span class="pre">x</span></code> سراسری تأثیر نمی‌گذارد.</p>
+<p>با این حال، وقتی از یک نوع داده <strong>تغییرپذیر</strong> مانند لیست استفاده می‌کنیم، داستان متفاوت است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1110,22 +1139,22 @@ y          int         3
 </div>
 </div>
 </div>
-<p>این <code class="docutils literal notranslate"><span class="pre">[2]</span></code> را به عنوان مقدار <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> و <em>همان</em> را برای <code class="docutils literal notranslate"><span class="pre">x</span></code> چاپ می‌کند.</p>
-<p>در اینجا چه اتفاقی می‌افتد</p>
+<p>این کد <code class="docutils literal notranslate"><span class="pre">[2]</span></code> را به عنوان مقدار <code class="docutils literal notranslate"><span class="pre">f(x)</span></code> چاپ می‌کند و <em>همان</em> مقدار برای <code class="docutils literal notranslate"><span class="pre">x</span></code> سراسری هم نمایش داده می‌شود.</p>
+<p>در اینجا چه اتفاقی می‌افتد:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> به عنوان یک تابع در فضای نام عمومی ثبت می‌شود</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> به عنوان یک تابع در فضای نام سراسری ثبت می‌شود</p></li>
 </ul>
 <figure class="align-default">
 <img alt="_images/mutable1.png" src="_images/mutable1.png" />
 </figure>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> به <code class="docutils literal notranslate"><span class="pre">[1]</span></code> در فضای نام عمومی متصل می‌شود</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> به <code class="docutils literal notranslate"><span class="pre">[1]</span></code> در فضای نام سراسری متصل می‌شود</p></li>
 </ul>
 <figure class="align-default">
 <img alt="_images/mutable2.png" src="_images/mutable2.png" />
 </figure>
 <ul class="simple">
-<li><p>فراخوانی <code class="docutils literal notranslate"><span class="pre">f(x)</span></code></p>
+<li><p>فراخوانی <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>:</p>
 <ul>
 <li><p>یک فضای نام محلی ایجاد می‌کند</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> را به فضای نام محلی اضافه می‌کند که به <code class="docutils literal notranslate"><span class="pre">[1]</span></code> متصل است</p></li>
@@ -1137,9 +1166,9 @@ y          int         3
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">x</span></code> عمومی و <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی به همان <code class="docutils literal notranslate"><span class="pre">[1]</span></code> اشاره می‌کنند</p>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> سراسری و <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی به همان لیست <code class="docutils literal notranslate"><span class="pre">[1]</span></code> اشاره می‌کنند.</p>
 </div>
-<p>می‌توانیم ببینیم که هویت <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی و هویت <code class="docutils literal notranslate"><span class="pre">x</span></code> عمومی یکسان است</p>
+<p>می‌توانیم ببینیم که شناسه <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی و <code class="docutils literal notranslate"><span class="pre">x</span></code> سراسری یکسان است.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1154,18 +1183,18 @@ y          int         3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the identity of global x is 139838246023488
-the identity of local x is 139838246023488
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the identity of global x is 140546297852416
+the identity of local x is 140546297852416
 [2] [2]
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>در داخل <code class="docutils literal notranslate"><span class="pre">f(x)</span></code></p>
+<li><p>در داخل <code class="docutils literal notranslate"><span class="pre">f(x)</span></code>:</p>
 <ul>
 <li><p>لیست <code class="docutils literal notranslate"><span class="pre">[1]</span></code> به <code class="docutils literal notranslate"><span class="pre">[2]</span></code> تغییر می‌کند</p></li>
-<li><p>لیست <code class="docutils literal notranslate"><span class="pre">[2]</span></code> را برمی‌گرداند</p></li>
+<li><p>لیست <code class="docutils literal notranslate"><span class="pre">[2]</span></code> بازگردانده می‌شود.</p></li>
 </ul>
 </li>
 </ul>
@@ -1178,8 +1207,8 @@ the identity of local x is 139838246023488
 <figure class="align-default">
 <img alt="_images/mutable5.png" src="_images/mutable5.png" />
 </figure>
-<p>اگر می‌خواهید <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی و <code class="docutils literal notranslate"><span class="pre">x</span></code> عمومی را به طور جداگانه تغییر دهید، می‌توانید یک <a class="reference external" href="https://docs.python.org/3/library/copy.html"><em>کپی</em></a> از لیست ایجاد کنید و کپی را به <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی اختصاص دهید.</p>
-<p>این را برای شما برای کاوش باقی می‌گذاریم.</p>
+<p>اگر می‌خواهید <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی و <code class="docutils literal notranslate"><span class="pre">x</span></code> سراسری را به طور جداگانه تغییر دهید، می‌توانید یک نسخه <a class="reference external" href="https://docs.python.org/3/library/copy.html"><em>کپی</em></a> از لیست بسازید و آن نسخه کپی را به <code class="docutils literal notranslate"><span class="pre">x</span></code> محلی اختصاص دهید.</p>
+<p>این مورد را به عنوان تمرین به شما می‌سپاریم تا بررسی کنید.</p>
 </section>
 </section>
 </section>
@@ -1263,12 +1292,12 @@ the identity of local x is 139838246023488
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_essentials.html">
-   5. اصول Python
+   5. اصول برنامه‌نویسی پایتون
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="oop_intro.html">
-   6. OOP I: اشیاء و متدها
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
   </a>
  </li>
  <li class="toctree-l1 current active active">

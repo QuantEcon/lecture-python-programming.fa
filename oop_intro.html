@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. OOP I: اشیاء و متدها &#8212; Python Programming for Economics and Finance</title>
+    <title>6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=22b71a9b445b7b2b6a277c0a48ea72bf6e7c90d9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=65b86b9423025043228643fcfb616ce846cb91c1"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -129,7 +129,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. نام‌ها و فضاهای نام" href="names.html" />
-    <link rel="prev" title="5. اصول Python" href="python_essentials.html" />
+    <link rel="prev" title="5. اصول برنامه‌نویسی پایتون" href="python_essentials.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -139,13 +139,13 @@
 <!-- Twitter tags -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@quantecon" />
-<meta name="twitter:title" content="OOP I: اشیاء و متدها"/>
+<meta name="twitter:title" content="برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها"/>
 <meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
 <meta name="twitter:creator" content="@quantecon">
 <meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
 
 <!-- Opengraph tags -->
-<meta property="og:title" content="OOP I: اشیاء و متدها" />
+<meta property="og:title" content="برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://python-programming-fa.quantecon.org/oop_intro.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
@@ -156,7 +156,25 @@
   </head>
 <body dir="rtl">
 
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
 <!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
 
     <span id="top"></span>
 
@@ -168,7 +186,12 @@
 
                 <div class="qe-page__toc">
 
-                    <div class="inner">
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
 
                         
                         <div class="qe-page__toc-header">
@@ -178,10 +201,10 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.1. مروری کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.2. اشیاء</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">6.2.1. نوع</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identity">6.2.2. شناسه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.1. مقدمه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2. اشیاء</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">6.2.1. نوع (Type)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-identity">6.2.2. شناسه (Unique Identity)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.2.3. محتوای شیء: داده‌ها و ویژگی‌ها</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">6.2.4. متدها</a></li>
 </ul>
@@ -209,10 +232,16 @@
                         <div class="qe-page__toc-footer">
                             
                             
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                            
+                            
+                            
                         </div>
 
                     </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
 
                 </div>
 
@@ -239,7 +268,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jan 29, 2026
+                            Last changed: Mar 19, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -250,11 +279,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/f4c02a1" class="changelog-hash">f4c02a1</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">3 hours ago</span>
-                                <span class="changelog-message">Add lecture: OOP I: اشیاء و متدها (#29)</span>
+                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">Update lecture markdown files (#54)</span>
                             </li>
                             
                         </ul>
@@ -269,35 +298,35 @@
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="oop-i">
-<h1><span class="section-number">6. </span>OOP I: اشیاء و متدها<a class="headerlink" href="#oop-i" title="Link to this heading">#</a></h1>
-<section id="id1">
-<h2><span class="section-number">6.1. </span>مروری کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>پارادایم سنتی برنامه‌نویسی (مانند Fortran، C، MATLAB و غیره) <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">رویه‌ای</a> نامیده می‌شود.</p>
-<p>این پارادایم به شرح زیر عمل می‌کند</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">6. </span>برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">6.1. </span>مقدمه<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>در گذشته، بیشتر زبان های برنامه‌نویسی مانند (Fortran، C، MATLAB و غیره) بر اساس پارادایمی به نام «برنامه‌نویسی <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">رویه‌ای</a>» طراحی شده بودند. در این پارادایم، برنامه به صورت مجموعه‌ای از دستورالعمل ها و توابع نوشته می‌شود که به ترتیب اجرا شده و داده‌ها را پردازش می‌کند.</p>
+<p>این پارادایم به شرح زیر عمل می‌کند:</p>
 <ul class="simple">
-<li><p>برنامه دارای یک وضعیت متناظر با مقادیر متغیرهای خود است.</p></li>
-<li><p>توابع فراخوانی می‌شوند تا بر روی وضعیت عمل کرده و آن را تغییر دهند.</p></li>
-<li><p>خروجی‌های نهایی از طریق توالی‌ای از فراخوانی‌های تابع تولید می‌شوند.</p></li>
+<li><p>برنامه دارای یک وضعیت است که متناظر با مقادیر متغیرهای خود است.</p></li>
+<li><p>توابع فراخوانی می‌شوند تا بر روی این وضعیت عمل کرده و آن را تغییر دهند.</p></li>
+<li><p>خروجی‌های نهایی از طریق دنباله‌ای از فراخوانی‌های توابع تولید می‌شوند.</p></li>
 </ul>
 <p>دو پارادایم مهم دیگر، <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming">برنامه‌نویسی شی‌گرا</a> (OOP) و <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">برنامه‌نویسی تابعی</a> هستند.</p>
-<p>در پارادایم OOP، داده‌ها و توابع با هم در “اشیاء” بسته‌بندی می‌شوند — و توابع در این زمینه به عنوان <strong>متدها</strong> شناخته می‌شوند.</p>
+<p>در پارادایم OOP، داده‌ها و توابع در قالب “اشیاء” با یکدیگر ترکیب می‌شوند، و توابع در این زمینه به عنوان <strong>متدها</strong> شناخته می‌شوند.</p>
 <p>متدها برای تغییر داده‌های موجود در شیء فراخوانی می‌شوند.</p>
 <ul class="simple">
-<li><p>به یک لیست Python فکر کنید که حاوی داده است و متدهایی مانند <code class="docutils literal notranslate"><span class="pre">append()</span></code> و <code class="docutils literal notranslate"><span class="pre">pop()</span></code> دارد که داده را تغییر می‌دهند.</p></li>
+<li><p>به یک لیست پایتون فکر کنید که حاوی داده است و متدهایی مانند <code class="docutils literal notranslate"><span class="pre">()append</span></code> و <code class="docutils literal notranslate"><span class="pre">()pop</span></code> دارد که داده را تغییر می‌دهند.</p></li>
 </ul>
-<p>زبان‌های برنامه‌نویسی تابعی بر اساس ایده ترکیب توابع ساخته شده‌اند.</p>
+<p>زبان‌های برنامه‌نویسی تابعی، بر اساس ایده ترکیب توابع ساخته شده‌اند.</p>
 <ul class="simple">
-<li><p>نمونه‌های تأثیرگذار شامل <a class="reference external" href="https://en.wikipedia.org/wiki/Common_Lisp">Lisp</a>، <a class="reference external" href="https://en.wikipedia.org/wiki/Haskell">Haskell</a> و <a class="reference external" href="https://en.wikipedia.org/wiki/Elixir_(programming_language)">Elixir</a> هستند.</p></li>
+<li><p>نمونه‌های معروف این دسته شامل <a class="reference external" href="https://en.wikipedia.org/wiki/Common_Lisp">Lisp</a>، <a class="reference external" href="https://en.wikipedia.org/wiki/Haskell">Haskell</a> و <a class="reference external" href="https://en.wikipedia.org/wiki/Elixir_(programming_language)">Elixir</a> هستند.</p></li>
 </ul>
-<p>پس Python در کدام یک از این دسته‌ها قرار می‌گیرد؟</p>
-<p>در واقع Python یک زبان عمل‌گرا است که سبک‌های شی‌گرا، تابعی و رویه‌ای را ترکیب می‌کند، به جای اینکه رویکردی خالص داشته باشد.</p>
-<p>از یک طرف، این امکان را به Python و کاربران آن می‌دهد تا جنبه‌های خوب پارادایم‌های مختلف را انتخاب کنند.</p>
-<p>از طرف دیگر، فقدان خلوص ممکن است گاهی اوقات منجر به برخی سردرگمی‌ها شود.</p>
-<p>خوشبختانه این سردرگمی به حداقل می‌رسد اگر درک کنید که، در سطح بنیادی، Python شی‌گرا <em>است</em>.</p>
-<p>منظور ما این است که، در Python، <em>همه چیز یک شیء است</em>.</p>
-<p>در این سخنرانی، توضیح می‌دهیم که این گزاره به چه معناست و چرا اهمیت دارد.</p>
-<p>ما از کتابخانه شخص ثالث زیر استفاده خواهیم کرد</p>
+<p>پس پایتون در کدام یک از این دسته‌ها قرار می‌گیرد؟</p>
+<p>در واقع پایتون یک زبان عمل‌گرا است که به جای پیروی سخت گیرانه از یک رویکرد خالص، سبک‌های شی‌گرا، تابعی و رویه‌ای را با یکدیگر ترکیب می‌کند.</p>
+<p>از یک طرف، این ویژگی به پایتون و کاربرانش اجازه می‌دهد تا جنبه‌های خوب پارادایم‌های مختلف را انتخاب کنند.</p>
+<p>و از طرف دیگر، همین نبود خلوص پارادایمی ممکن است گاهی اوقات منجر به برخی سردرگمی‌ها شود.</p>
+<p>خوشبختانه اگر بدانیم که در سطح بنیادی، پایتون یک زبان شی‌گرا <em>است</em>، این سردرگمی تا حد زیادی به حداقل می‌رسد.</p>
+<p>منظور ما این است که، در پایتون، <em>همه چیز یک شیء است</em>.</p>
+<p>در این درس، توضیح می‌دهیم که این گزاره به چه معناست و چرا اهمیت دارد.</p>
+<p>ما از کتابخانه خارجی زیر استفاده خواهیم کرد:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>rich
@@ -320,20 +349,20 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </details>
 </div>
 </section>
-<section id="id2">
-<h2><span class="section-number">6.2. </span>اشیاء<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p id="index-0">در Python، یک <em>شیء</em> مجموعه‌ای از داده‌ها و دستورالعمل‌های نگهداری‌شده در حافظه کامپیوتر است که شامل موارد زیر می‌شود</p>
+<section id="id3">
+<h2><span class="section-number">6.2. </span>اشیاء<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p id="index-0">در پایتون، یک <em>شیء</em> مجموعه‌ای از داده‌ها و دستورالعمل‌های نگهداری‌شده در حافظه کامپیوتر است که شامل موارد زیر می‌شود:</p>
 <ol class="arabic simple">
-<li><p>یک نوع</p></li>
-<li><p>یک شناسه منحصر به فرد</p></li>
+<li><p>یک نوع(Type)</p></li>
+<li><p>یک شناسه منحصر به فرد(Unique Identity)</p></li>
 <li><p>داده (یعنی محتوا)</p></li>
-<li><p>متدها</p></li>
+<li><p>متدها(Methods)</p></li>
 </ol>
-<p>این مفاهیم به ترتیب تعریف و بحث می‌شوند.</p>
+<p>این مفاهیم به ترتیب تعریف و بررسی می‌شوند.</p>
 <section id="type">
-<span id="id3"></span><h3><span class="section-number">6.2.1. </span>نوع<a class="headerlink" href="#type" title="Link to this heading">#</a></h3>
-<p id="index-1">Python برای انواع مختلف اشیاء فراهم می‌کند تا دسته‌های مختلف داده را در بر گیرد.</p>
-<p>به عنوان مثال</p>
+<span id="id4"></span><h3><span class="section-number">6.2.1. </span>نوع (Type)<a class="headerlink" href="#type" title="Link to this heading">#</a></h3>
+<p id="index-1">پایتون انواع مختلفی از اشیاء را فراهم می‌کند تا بتواند دسته‌های مختلفی از داده ها را پشتیبانی کند.</p>
+<p>به عنوان مثال:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;This is a string&#39;</span>
@@ -361,7 +390,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 <p>نوع یک شیء برای بسیاری از عبارات مهم است.</p>
-<p>به عنوان مثال، عملگر جمع بین دو رشته به معنای الحاق است</p>
+<p>به عنوان مثال، عملگر جمع بین دو رشته متنی به معنای به هم پیوند دادن آنها است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="s1">&#39;cc&#39;</span>
@@ -374,7 +403,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>از طرف دیگر، بین دو عدد به معنای جمع معمولی است</p>
+<p>از طرف دیگر، بین دو عدد به معنای جمع معمولی است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">300</span> <span class="o">+</span> <span class="mi">400</span>
@@ -387,7 +416,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>عبارت زیر را در نظر بگیرید</p>
+<p>عبارت زیر را در نظر بگیرید:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;300&#39;</span> <span class="o">+</span> <span class="mi">400</span>
@@ -405,18 +434,18 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>در اینجا ما در حال ترکیب انواع هستیم، و برای Python مشخص نیست که آیا کاربر می‌خواهد</p>
+<p>در اینجا ما در حال ترکیب انواع متفاوتی از مقادیر هستیم، و برای پایتون مشخص نیست که آیا کاربر می‌خواهد:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">'300'</span></code> را به عدد صحیح تبدیل کند و سپس آن را به <code class="docutils literal notranslate"><span class="pre">400</span></code> اضافه کند، یا</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> را به رشته تبدیل کند و سپس آن را با <code class="docutils literal notranslate"><span class="pre">'300'</span></code> الحاق کند</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> را به رشته تبدیل کند و سپس آن را به <code class="docutils literal notranslate"><span class="pre">'300'</span></code> متصل کند.</p></li>
 </ul>
-<p>برخی زبان‌ها ممکن است سعی کنند حدس بزنند اما Python <em>به شدت تایپ‌شده</em> است</p>
+<p>برخی زبان‌ها ممکن است سعی کنند حدس بزنند، اما پایتون یک زبان <em>تایپ قوی (strongly typed)</em> است.</p>
 <ul class="simple">
-<li><p>نوع مهم است، و تبدیل ضمنی نوع نادر است.</p></li>
-<li><p>Python در عوض با بالا آوردن یک <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> پاسخ می‌دهد.</p></li>
+<li><p>نوع داده اهمیت زیادی دارد و تبدیل ضمنی نوع در پایتون به ندرت انجام می‌شود.</p></li>
+<li><p>در نتیجه پایتون به جای حدس زدن، با نشان دادن یک خطای <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> پاسخ می‌دهد.</p></li>
 </ul>
-<p>برای جلوگیری از خطا، باید با تغییر نوع مربوطه توضیح دهید.</p>
-<p>به عنوان مثال،</p>
+<p>برای جلوگیری از این خطا، باید با تغییر نوع داده مربوطه، منظور خود را به صورت صریح وشفاف مشخص کنید.</p>
+<p>به عنوان مثال:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;300&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">400</span>   <span class="c1"># برای جمع به عنوان اعداد، رشته را به عدد صحیح تبدیل کنید</span>
@@ -430,10 +459,10 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </section>
-<section id="identity">
-<span id="id4"></span><h3><span class="section-number">6.2.2. </span>شناسه<a class="headerlink" href="#identity" title="Link to this heading">#</a></h3>
-<p id="index-2">در Python، هر شیء یک شناسه منحصر به فرد دارد که به Python (و ما) کمک می‌کند تا شیء را پیگیری کند.</p>
-<p>شناسه یک شیء را می‌توان از طریق تابع <code class="docutils literal notranslate"><span class="pre">id()</span></code> به دست آورد</p>
+<section id="unique-identity">
+<span id="identity"></span><h3><span class="section-number">6.2.2. </span>شناسه (Unique Identity)<a class="headerlink" href="#unique-identity" title="Link to this heading">#</a></h3>
+<p id="index-2">در پایتون، هر شیء یک شناسه منحصر به فرد دارد که به پایتون (و ما) کمک می‌کند تا شیء را ردیابی و تشخیص دهیم.</p>
+<p>شناسه یک شیء را می‌توان از طریق تابع <code class="docutils literal notranslate"><span class="pre">()id</span></code> به دست آورد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mf">2.5</span>
@@ -443,7 +472,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139975949295952
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140086667911344
 </pre></div>
 </div>
 </div>
@@ -455,18 +484,18 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139975949296432
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140086667910416
 </pre></div>
 </div>
 </div>
 </div>
-<p>در این مثال، <code class="docutils literal notranslate"><span class="pre">y</span></code> و <code class="docutils literal notranslate"><span class="pre">z</span></code> اتفاقاً مقدار یکسانی (یعنی <code class="docutils literal notranslate"><span class="pre">2.5</span></code>) دارند، اما آن‌ها یک شیء نیستند.</p>
+<p>در این مثال، <code class="docutils literal notranslate"><span class="pre">y</span></code> و <code class="docutils literal notranslate"><span class="pre">z</span></code> با اینکه مقدار یکسانی (یعنی <code class="docutils literal notranslate"><span class="pre">2.5</span></code>) دارند، اما آن‌ها یک شیء نیستند.</p>
 <p>شناسه یک شیء در واقع فقط آدرس شیء در حافظه است.</p>
 </section>
 <section id="id5">
 <h3><span class="section-number">6.2.3. </span>محتوای شیء: داده‌ها و ویژگی‌ها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p id="index-3">اگر <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> را تنظیم کنیم، یک شیء از نوع <code class="docutils literal notranslate"><span class="pre">int</span></code> ایجاد می‌کنیم که حاوی داده <code class="docutils literal notranslate"><span class="pre">42</span></code> است.</p>
-<p>در واقع، حاوی چیزهای بیشتری است، همانطور که مثال زیر نشان می‌دهد</p>
+<p id="index-3">اگر <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">42</span></code> را قرار دهیم، یک شیء از نوع <code class="docutils literal notranslate"><span class="pre">int</span></code> ایجاد می‌کنیم که حاوی داده <code class="docutils literal notranslate"><span class="pre">42</span></code> است.</p>
+<p>در واقع، همانطور که مثال زیر نشان می‌دهد، حاوی اطلاعات بیشتری نیز هست:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
@@ -504,19 +533,19 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>وقتی Python این شیء عدد صحیح را ایجاد می‌کند، اطلاعات کمکی مختلفی مانند قسمت موهومی و نوع را با آن ذخیره می‌کند.</p>
-<p>هر نامی که بعد از نقطه می‌آید یک <em>ویژگی</em> از شیء سمت چپ نقطه نامیده می‌شود.</p>
+<p>وقتی پایتون این شیء که از نوع عدد صحیح است را ایجاد می‌کند، اطلاعات کمکی مختلفی مانند قسمت موهومی(imaginary) و نوع(type) شیء را با آن ذخیره می‌کند.</p>
+<p>هر نامی که بعد از نقطه بیاید <em>ویژگی(attribute)</em> شیء سمت چپ نقطه نامیده می‌شود.</p>
 <ul class="simple">
 <li><p>به عنوان مثال، <code class="docutils literal notranslate"><span class="pre">imag</span></code> و <code class="docutils literal notranslate"><span class="pre">__class__</span></code> ویژگی‌های <code class="docutils literal notranslate"><span class="pre">x</span></code> هستند.</p></li>
 </ul>
 <p>از این مثال می‌بینیم که اشیاء دارای ویژگی‌هایی هستند که حاوی اطلاعات کمکی هستند.</p>
-<p>آن‌ها همچنین دارای ویژگی‌هایی هستند که مانند توابع عمل می‌کنند، به نام <em>متدها</em>.</p>
-<p>این ویژگی‌ها مهم هستند، بنابراین بیایید آن‌ها را به طور عمیق بحث کنیم.</p>
+<p>همچنین، ویژگی‌هایی وجود دارند که مانند توابع عمل می‌کنند و <em>متد(methods)</em> نامیده می‌شوند</p>
+<p>این ویژگی‌ها مهم هستند، بنابراین بیایید آن‌ها را به طور عمیق بررسی کنیم.</p>
 </section>
 <section id="methods">
 <span id="id6"></span><h3><span class="section-number">6.2.4. </span>متدها<a class="headerlink" href="#methods" title="Link to this heading">#</a></h3>
-<p id="index-4">متدها <em>توابعی هستند که با اشیاء بسته‌بندی می‌شوند</em>.</p>
-<p>به طور رسمی، متدها ویژگی‌های اشیاء هستند که <strong>قابل فراخوانی</strong> هستند – یعنی ویژگی‌هایی که می‌توانند به عنوان تابع فراخوانی شوند</p>
+<p id="index-4">متدها <em>توابعی هستند که به طور مستقیم با یک شیء مرتبط شده و جزئی از آن شیء محسوب می‌شوند</em>.</p>
+<p>به طور رسمی، متدها ویژگی‌های اشیاء هستند که <strong>قابل فراخوانی</strong> هستند، یعنی ویژگی‌هایی که می‌توان آن ها را مانند توابع فراخوانی کرد.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span>
@@ -542,7 +571,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>متدها معمولاً بر روی داده‌های موجود در شیئی که به آن تعلق دارند عمل می‌کنند، یا آن داده را با داده‌های دیگر ترکیب می‌کنند</p>
+<p>متدها معمولاً بر روی داده‌های موجود در شیئی که به آن تعلق دارند عمل می‌کنند، یا آن داده را با داده‌های دیگر ترکیب می‌کنند:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
@@ -582,12 +611,12 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>بخش بزرگی از قابلیت‌های Python حول فراخوانی‌های متد سازماندهی شده است.</p>
-<p>به عنوان مثال، کد زیر را در نظر بگیرید</p>
+<p>بخش بزرگی از قابلیت‌های پایتون حول فراخوانی‌های متدها سازماندهی شده است.</p>
+<p>به عنوان مثال، کد زیر را در نظر بگیرید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;aa&#39;</span>  <span class="c1"># انتساب آیتم با استفاده از نماد براکت مربعی</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;aa&#39;</span>  <span class="c1"># تغییر آیتم با استفاده از براکت</span>
 <span class="n">x</span>
 </pre></div>
 </div>
@@ -598,8 +627,8 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>به نظر نمی‌رسد که در اینجا از هیچ متدی استفاده شده باشد، اما در واقع نماد انتساب براکت مربعی فقط یک رابط راحت برای فراخوانی متد است.</p>
-<p>آنچه در واقع اتفاق می‌افتد این است که Python متد <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> را فراخوانی می‌کند، به شرح زیر</p>
+<p>با اینکه به نظر می‌رسد که در اینجا از هیچ متدی استفاده نشده باشد، اما در واقع استفاده از براکت ها برای تغییر دادن مقادیر فقط یک رابط ساده و راحت برای فراخوانی یک متد است.</p>
+<p>آنچه در واقع اتفاق می‌افتد این است که پایتون متد <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> را به شرح زیر فراخوانی می‌کند:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
@@ -614,13 +643,13 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>(اگر بخواهید می‌توانید متد <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> را تغییر دهید، به طوری که انتساب براکت مربعی کار کاملاً متفاوتی انجام دهد)</p>
+<p>(اگر بخواهید می‌توانید متد <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> را تغییر دهید، به طوری که استفاده از براکت ها برای مقادیر کار کاملاً متفاوتی انجام دهد)</p>
 </section>
 </section>
 <section id="rich">
 <h2><span class="section-number">6.3. </span>بازرسی با استفاده از Rich<a class="headerlink" href="#rich" title="Link to this heading">#</a></h2>
-<p>یک بسته خوب به نام <a class="reference external" href="https://github.com/Textualize/rich">rich</a> وجود دارد که به ما کمک می‌کند محتویات یک شیء را مشاهده کنیم.</p>
-<p>به عنوان مثال،</p>
+<p>یک بسته بسیار کاربردی به نام <a class="reference external" href="https://github.com/Textualize/rich">rich</a> وجود دارد که به ما کمک می‌کند محتویات یک شیء را به صورت خوانا مشاهده کنیم.</p>
+<p>به عنوان مثال:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rich</span><span class="w"> </span><span class="kn">import</span> <span class="n">inspect</span>
@@ -646,7 +675,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </pre>
 </div></div>
 </div>
-<p>اگر بخواهیم متدها را نیز ببینیم، می‌توانیم استفاده کنیم</p>
+<p>برای دیدن متدها هم میتوانیم از این روش استفاده کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inspect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -679,12 +708,12 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </pre>
 </div></div>
 </div>
-<p>در واقع متدهای بیشتری وجود دارند، همانطور که می‌توانید ببینید اگر <code class="docutils literal notranslate"><span class="pre">inspect(10,</span> <span class="pre">all=True)</span></code> را اجرا کنید.</p>
+<p>در واقع متدهای بیشتری هم وجود دارند، و شما می‌توانید با اجرای <code class="docutils literal notranslate"><span class="pre">inspect(10,</span> <span class="pre">all=True)</span></code> آنها را مشاهده کنید.</p>
 </section>
 <section id="id7">
 <h2><span class="section-number">6.4. </span>یک معمای کوچک<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>در این سخنرانی ادعا کردیم که Python، در قلب، یک زبان شی‌گرا است.</p>
-<p>اما در اینجا مثالی وجود دارد که بیشتر رویه‌ای به نظر می‌رسد.</p>
+<p>در این سخنرانی ادعا کردیم که پایتون، در ذات خود یک زبان شی‌گرا است.</p>
+<p>اما در اینجا مثالی وجود دارد که بیشتر رویه‌ای به نظر می‌رسد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
@@ -699,17 +728,17 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>اگر Python شی‌گرا است، چرا از <code class="docutils literal notranslate"><span class="pre">x.len()</span></code> استفاده نمی‌کنیم؟</p>
-<p>پاسخ به این واقعیت مربوط است که Python برای خوانایی و سبک ثابت تلاش می‌کند.</p>
-<p>در Python، معمول است که کاربران اشیاء سفارشی بسازند — ما نحوه انجام این کار را <a class="reference internal" href="python_oop.html"><span class="doc">بعداً</span></a> بحث می‌کنیم.</p>
-<p>کاملاً رایج است که کاربران متدهایی به اشیاء خود اضافه کنند که طول شیء را، به طور مناسب تعریف شده، اندازه‌گیری کنند.</p>
-<p>هنگام نام‌گذاری چنین متدی، انتخاب‌های طبیعی <code class="docutils literal notranslate"><span class="pre">len()</span></code> و <code class="docutils literal notranslate"><span class="pre">length()</span></code> هستند.</p>
-<p>اگر برخی از کاربران <code class="docutils literal notranslate"><span class="pre">len()</span></code> و دیگران <code class="docutils literal notranslate"><span class="pre">length()</span></code> را انتخاب کنند، سبک ناسازگار و سخت‌تر برای به خاطر سپردن خواهد بود.</p>
-<p>برای جلوگیری از این امر، سازنده Python تصمیم گرفت <code class="docutils literal notranslate"><span class="pre">len()</span></code> را به عنوان یک تابع داخلی اضافه کند، تا به تأکید بر اینکه <code class="docutils literal notranslate"><span class="pre">len()</span></code> قرارداد است کمک کند.</p>
-<p>حالا، با گفتن همه این‌ها، Python همچنان در زیر پوشش شی‌گرا <em>است</em>.</p>
-<p>در واقع، لیست <code class="docutils literal notranslate"><span class="pre">x</span></code> مورد بحث بالا دارای متدی به نام <code class="docutils literal notranslate"><span class="pre">__len__()</span></code> است.</p>
-<p>تنها کاری که تابع <code class="docutils literal notranslate"><span class="pre">len()</span></code> انجام می‌دهد فراخوانی این متد است.</p>
-<p>به عبارت دیگر، کد زیر معادل است:</p>
+<p>اگر پایتون شی‌گرا است، چرا از <code class="docutils literal notranslate"><span class="pre">()x.len</span></code> استفاده نمی‌کنیم؟</p>
+<p>پاسخ به این نکته مربوط می‌شود به اینکه پایتون به قابلیت خوانایی و سبک ثابت و یکسان اهمیت می‌دهد.</p>
+<p>در پایتون، معمولا کاربران اشیاء سفارشی می‌سازند، ما نیز نحوه انجام این کار را <a class="reference internal" href="python_oop.html"><span class="doc">بعداً</span></a> بررسی خواهیم.</p>
+<p>معمولا کاربران متدهایی به اشیاء خود اضافه می‌کنند که طول شیء را، به طوریکه برای شیء مناسب باشد، اندازه‌گیری کنند.</p>
+<p>هنگام نام‌گذاری چنین متدی، انتخاب‌های طبیعی <code class="docutils literal notranslate"><span class="pre">()len</span></code> و <code class="docutils literal notranslate"><span class="pre">()length</span></code> هستند.</p>
+<p>اگر برخی از کاربران <code class="docutils literal notranslate"><span class="pre">()len</span></code> و برخی دیگر <code class="docutils literal notranslate"><span class="pre">()length</span></code> را انتخاب کنند، سبک ناسازگار و ناهماهنگ شده و به خاطر سپردن آن سخت تر خواهد بود.</p>
+<p>برای جلوگیری از این امر، سازنده پایتون تصمیم گرفت <code class="docutils literal notranslate"><span class="pre">()len</span></code> را به عنوان یک تابع داخلی اضافه کند، تا تأکید کند بر اینکه استفاده از <code class="docutils literal notranslate"><span class="pre">()len</span></code> قراردادی است.</p>
+<p>حالا، با گفتن همه این‌ها، پایتون همچنان در پشت صحنه شی‌گرا <em>است</em>.</p>
+<p>در واقع، لیست <code class="docutils literal notranslate"><span class="pre">x</span></code> که پیشتر بررسی شد، دارای متدی به نام <code class="docutils literal notranslate"><span class="pre">()__len__</span></code> است.</p>
+<p>و تنها کاری که تابع <code class="docutils literal notranslate"><span class="pre">()len</span></code> انجام می‌دهد فراخوانی این متد است.</p>
+<p>به عبارت دیگر، معادل کد زیر  است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
@@ -740,18 +769,18 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </section>
 <section id="id8">
 <h2><span class="section-number">6.5. </span>خلاصه<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<p>پیام این سخنرانی واضح است:</p>
+<p>نکته اصلی این درس این است:</p>
 <ul class="simple">
-<li><p>در Python، <em>همه چیز در حافظه به عنوان یک شیء در نظر گرفته می‌شود</em>.</p></li>
+<li><p>در پایتون، <em>همه چیز در حافظه به عنوان یک شیء در نظر گرفته می‌شود</em>.</p></li>
 </ul>
-<p>این شامل نه فقط لیست‌ها، رشته‌ها و غیره، بلکه چیزهای کمتر آشکار، مانند</p>
+<p>و این فقط شامل لیست‌ها، رشته‌ها و غیره نیست، بلکه مواردی که کمتر مورد توجه قرار میگیرد را نیز شامل می‌شود، مانند:</p>
 <ul class="simple">
-<li><p>توابع (پس از خواندن در حافظه)</p></li>
-<li><p>ماژول‌ها (همان‌طور)</p></li>
+<li><p>توابع (پس از بارگذاری در حافظه)</p></li>
+<li><p>ماژول‌ها</p></li>
 <li><p>فایل‌های باز شده برای خواندن یا نوشتن</p></li>
 <li><p>اعداد صحیح و غیره</p></li>
 </ul>
-<p>به یاد داشتن اینکه همه چیز یک شیء است به شما کمک می‌کند تا با برنامه‌های خود تعامل کنید و کد Pythonic واضحی بنویسید.</p>
+<p>به یاد داشتن اینکه همه چیز یک شیء است به شما کمک می‌کند تا با برنامه‌های خود تعامل داشته باشید و کد پایتونی واضحی بنویسید.</p>
 </section>
 <section id="id9">
 <h2><span class="section-number">6.6. </span>تمرین‌ها<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
@@ -760,7 +789,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 <p class="admonition-title"><span class="caption-number">Exercise 6.1 </span></p>
 <section id="exercise-content">
 <p>ما قبلاً با <a class="reference internal" href="python_essentials.html#boolean"><span class="std std-ref">نوع داده بولین</span></a> آشنا شدیم.</p>
-<p>با استفاده از آنچه در این سخنرانی آموختیم، لیستی از متدهای شیء بولین <code class="docutils literal notranslate"><span class="pre">True</span></code> را چاپ کنید.</p>
+<p>با استفاده از آنچه در این درس آموختیم، لیستی از متدهای شیء بولین <code class="docutils literal notranslate"><span class="pre">True</span></code> را چاپ کنید.</p>
 <div class="dropdown admonition hint">
 <p class="admonition-title">Hint</p>
 <p>می‌توانید از <code class="docutils literal notranslate"><span class="pre">callable()</span></code> برای آزمایش اینکه آیا یک ویژگی از یک شیء می‌تواند به عنوان تابع فراخوانی شود، استفاده کنید</p>
@@ -771,7 +800,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#oop_intro_ex1"> Exercise 6.1</a></p>
 <section id="solution-content">
-<p>ابتدا، باید همه ویژگی‌های <code class="docutils literal notranslate"><span class="pre">True</span></code> را پیدا کنیم، که می‌تواند از طریق این انجام شود</p>
+<p>ابتدا، باید همه ویژگی‌های <code class="docutils literal notranslate"><span class="pre">True</span></code> را پیدا کنیم، که با کد زیر میتوانید پیدا کنید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="kc">True</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">()))</span>
@@ -797,7 +826,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>از آنجایی که نوع داده بولین یک نوع اولیه است، می‌توانید آن را در فضای نام داخلی نیز پیدا کنید</p>
+<p>از آنجایی که نوع داده بولین یک نوع  داده اولیه است، می‌توانید آن را در مجموعه پیش فرض توابع و نام ها (built-in) نیز پیدا کنید:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">bool</span><span class="p">))</span>
@@ -810,7 +839,7 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
 </div>
 </div>
 </div>
-<p>در اینجا از یک حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> برای فیلتر کردن ویژگی‌هایی که قابل فراخوانی هستند استفاده می‌کنیم</p>
+<p>در اینجا از یک حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> برای فیلتر کردن ویژگی‌هایی که قابل فراخوانی هستند استفاده می‌کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
@@ -914,12 +943,12 @@ Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quante
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_essentials.html">
-   5. اصول Python
+   5. اصول برنامه‌نویسی پایتون
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   6. OOP I: اشیاء و متدها
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
   </a>
  </li>
  <li class="toctree-l1">
