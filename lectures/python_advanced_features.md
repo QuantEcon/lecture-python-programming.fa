@@ -8,30 +8,30 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  overview: مروری کلی
-  iterables-and-iterators: Iterableها و Iteratorها
-  iterators: Iteratorها
-  iterators-in-for-loops: Iteratorها در حلقه‌های For
-  iterables: Iterableها
-  iterators-and-built-ins: Iteratorها و توابع داخلی
-  '-and-operators': عملگرهای `*` و `**`
-  unpacking-arguments: باز کردن آرگومان‌ها
-  arbitrary-arguments: آرگومان‌های دلخواه
-  decorators-and-descriptors: Decoratorها و Descriptorها
-  decorators: Decoratorها
-  an-example: یک مثال
-  enter-decorators: Decoratorها وارد می‌شوند
-  descriptors: Descriptorها
-  a-solution: یک راه‌حل
-  how-it-works: چگونه کار می‌کند
-  decorators-and-properties: Decoratorها و Propertyها
-  generators: Generatorها
-  generator-expressions: عبارات Generator
-  generator-functions: توابع Generator
-  example-1: مثال 1
-  example-2: مثال 2
-  advantages-of-iterators: مزایای Iteratorها
-  exercises: تمرین‌ها
+  Overview: مروری کلی
+  Iterables and Iterators: Iterableها و Iteratorها
+  Iterables and Iterators::Iterators: Iteratorها
+  Iterables and Iterators::Iterators in For Loops: Iteratorها در حلقه‌های For
+  Iterables and Iterators::Iterables: Iterableها
+  Iterables and Iterators::Iterators and built-ins: Iteratorها و توابع داخلی
+  '`*` and `**` Operators': عملگرهای `*` و `**`
+  '`*` and `**` Operators::Unpacking Arguments': باز کردن آرگومان‌ها
+  '`*` and `**` Operators::Arbitrary Arguments': آرگومان‌های دلخواه
+  Decorators and Descriptors: Decoratorها و Descriptorها
+  Decorators and Descriptors::Decorators: Decoratorها
+  Decorators and Descriptors::Decorators::An Example: یک مثال
+  Decorators and Descriptors::Decorators::Enter Decorators: Decoratorها وارد می‌شوند
+  Decorators and Descriptors::Descriptors: Descriptorها
+  Decorators and Descriptors::Descriptors::A Solution: یک راه‌حل
+  Decorators and Descriptors::Descriptors::How it Works: چگونه کار می‌کند
+  Decorators and Descriptors::Descriptors::Decorators and Properties: Decoratorها و Propertyها
+  Generators: Generatorها
+  Generators::Generator Expressions: عبارات Generator
+  Generators::Generator Functions: توابع Generator
+  Generators::Generator Functions::Example 1: مثال 1
+  Generators::Generator Functions::Example 2: مثال 2
+  Generators::Advantages of Iterators: مزایای Iteratorها
+  Exercises: تمرین‌ها
 ---
 
 (python_advanced_features)=

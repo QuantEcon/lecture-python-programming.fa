@@ -7,10 +7,39 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+heading-map:
+  Overview: مقدمه
+  'The Task: Plotting a White Noise Process': هدف:رسم یک فرآیند نویز سفید
+  Version 1: روش اول
+  Version 1::Imports: Imports
+  Version 1::Imports::Why So Many Imports?: چرا در برنامه نویسی پایتون، از Importهای متعددی استفاده می شود؟
+  Version 1::Imports::Packages: پکیج ها(Packages)
+  Version 1::Imports::Subpackages: زیرپکیج ها (Subpackages)
+  Version 1::Importing Names Directly: وارد کردن مستقیم توابع یا متغیرها از یک پکیج
+  Version 1::Random Draws: نمونه گیری تصادفی
+  Alternative Implementations: روش های دیگر پیاده سازی برنامه
+  Alternative Implementations::A Version with a For Loop: یک نسخه با حلقه تکرار For
+  Alternative Implementations::Lists: لیست ها
+  Alternative Implementations::The For Loop: حلقه For
+  Alternative Implementations::A Comment on Indentation: یادداشتی درباره تورفتگی (Indentation)
+  Alternative Implementations::While Loops: حلقه های While
+  Another Application: یک کاربرد دیگر
+  Exercises: تمرینات
 ---
 
 (python_by_example)=
+```{raw} jupyter
+<div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div>
+```
+
 # یک مثال مقدماتی
+
+```{index} single: Python; Introductory Example
+```
 
 ## مقدمه
 
@@ -22,15 +51,14 @@ kernelspec:
 
 پیش از شروع این درس، باید جلسه ی قبل را مطالعه کرده باشید.
 
+
 ## هدف:رسم یک فرآیند نویز سفید
 
 فرض کنید می‌خواهیم فرآیند نویز سفید $\epsilon_0, \epsilon_1, \ldots, \epsilon_T$ را شبیه‌سازی و رسم کنیم، که در آن هر نقطه $\epsilon_t$ مستقل و نرمال استاندارد است.
 
  به بیان دیگر، می خواهیم نمودارهایی همانند نمودار زیر تولید کنیم:
 
-```{figure} _static/lecture_specific/python_by_example/test_program_1_updated.png
-:name: pbe_white_noise
-:figclass: auto
+```{figure} /_static/lecture_specific/python_by_example/test_program_1_updated.png
 :scale: 120
 ```
 
@@ -81,6 +109,7 @@ np.sqrt(4)
 np.log(4)
 ```
 
+
 #### چرا در برنامه نویسی پایتون، از Importهای متعددی استفاده می شود؟
 
 برنامه های پایتون معمولا به چندین دستور `import` نیاز دارند.
@@ -89,7 +118,11 @@ np.log(4)
 
 وقتی بخواهید کارهای جالب تر و پیشرفته تری با پایتون انجام دهید، تقریبا همیشه باید قابلیت های اضافی را با استفاده از `import` به برنامه اضافه کنید.
 
+
 #### پکیج ها(Packages)
+
+```{index} single: Python; Packages
+```
 
 همانطور که پیشتر گفته شد، NumPy یک پکیج پایتونی است.
 
@@ -116,6 +149,9 @@ print(np.__file__)
 ```
 
 #### زیرپکیج ها (Subpackages)
+
+```{index} single: Python; Subpackages
+```
 
 به خط حاوی `ϵ_values = np.random.randn(100)` در کد توجه کنید.
 
@@ -165,15 +201,15 @@ plt.show()
 
 ## روش های دیگر پیاده سازی برنامه
 
-بیایید چندتا نسخه ی جایگزین برای اولین برنامه مان بنویسیم؛ برنامه ای که مقادیر تصادفی مستقل و با توزیع یکسان (IID) از توزیع نرمال استاندارد را رسم می کرد.
+بیایید چندتا نسخه ی جایگزین برای {ref}`اولین برنامه مان <ourfirstprog>` بنویسیم؛ برنامه ای که مقادیر تصادفی مستقل و با توزیع یکسان (IID) از توزیع نرمال استاندارد را رسم می کرد.
 
 برنامه هایی که در ادامه می بینید، نسبت به نسخه اصلی کارایی کمتری دارند و از این نظر کمی غیرطبیعی هستند. اما آنها به ما کمک می کنند تا برخی از سینتکس ها و معانی مهم پایتون را در یک محیط آشنا نشان دهیم.
 
 ### یک نسخه با حلقه تکرار For
 
-(firstloopprog)=
-این نسخه حلقه های `For` و لیست های پایتون را نشان می دهد.
+در اینجا نسخه ای آمده که حلقه های `for` و لیست های پایتون را نشان می دهد.
 
+(firstloopprog)=
 ```{code-cell} python3
 ts_length = 100
 ϵ_values = []   # empty list
@@ -204,6 +240,9 @@ plt.show()
 
 (lists_ref)=
 ### لیست ها
+
+```{index} single: Python; Lists
+```
 
 دستور `ϵ_values = []` را در نظر بگیرید، این دستور یک لیست خالی ایجاد می کند.
 
@@ -265,7 +304,10 @@ x[1]   # second element of x
 
 ### حلقه For
 
-حالا بیایید حلقه `for` از برنامه ای که قبلا نوشتیم را دوباره بررسی کنیم:
+```{index} single: Python; For loop
+```
+
+حالا بیایید حلقه `for` از {ref}`برنامه ای که قبلا نوشتیم <firstloopprog>` را دوباره بررسی کنیم:
 
 ```{code-cell} python3
 for i in range(ts_length):
@@ -302,7 +344,11 @@ for variable_name in sequence:
 
 * برای هر عنصر از دنباله `sequence`، نام متغیر `variable_name` را به آن عنصر متصل (blind) می کند و سپس بلوک کد را اجرا می کند.
 
+
 ### یادداشتی درباره تورفتگی (Indentation)
+
+```{index} single: Python; Indentation
+```
 
 در بحث درباره حلقه `for` توضیح دادیم که بلوک های کدی که در حلقه تکرار می شوند با تورفتگی (indentation) مشخص می شوند.
 
@@ -324,18 +370,22 @@ for variable_name in sequence:
     * `for i in range(10):`
     * `if x > y:`
     * `while x < 100:`
+    * و غیره.
 
 * همه ی خطوط داخل یک بلوک کد باید مقدار یکسانی تورفتگی داشته باشند.
 
 * استاندارد پایتون برای تورفتگی، 4 فاصله (space) است و شما هم باید از همین مقدار استقاده کنید.
 
-(whileloopprog)=
 ### حلقه های While
+
+```{index} single: Python; While loop
+```
 
 حلقه `for` رایج ترین تکنیک برای تکرار در پایتون است.
 
-اما برای توضیح بهتر، اجازه دهید برنامه ای را که قبلا نوشتیم، تغییر دهیم و از یک حلقه `while` به جای آن استقاده کنیم.
+اما برای توضیح بهتر، اجازه دهید {ref}`برنامه ای را که قبلا نوشتیم <firstloopprog>` تغییر دهیم و از یک حلقه `while` به جای آن استقاده کنیم.
 
+(whileloopprog)=
 ```{code-cell} python3
 ts_length = 100
 ϵ_values = []
@@ -454,6 +504,7 @@ plt.show()
 ```{solution-end}
 ```
 
+
 ```{exercise-start}
 :label: pbe_ex2
 
@@ -545,6 +596,7 @@ plt.show()
 
 ```{solution-end}
 ```
+
 
 ```{exercise-start}
 :label: pbe_ex4
