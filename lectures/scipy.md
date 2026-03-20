@@ -8,23 +8,23 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  overview: مروری کلی
-  indexscipy-single-scipy-versus-indexnumpy-single-numpy: '{index}`SciPy <single: SciPy>` در مقابل {index}`NumPy <single: NumPy>`'
-  statistics: آمار
-  random-variables-and-distributions: متغیرهای تصادفی و توزیع‌ها
-  alternative-syntax: نحو جایگزین
-  other-goodies-in-scipystats: چیزهای مفید دیگر در scipy.stats
-  roots-and-fixed-points: ریشه‌ها و نقاط ثابت
-  indexbisection-single-bisection: '{index}`Bisection <single: Bisection>`'
-  the-indexnewton-raphson-method-single-newton-raphson-method: 'روش {index}`Newton-Raphson Method <single: Newton-Raphson Method>`'
-  hybrid-methods: روش‌های ترکیبی
-  multivariate-root-finding: یافتن ریشه چند متغیره
-  fixed-points: نقاط ثابت
-  indexoptimization-single-optimization: '{index}`Optimization <single: Optimization>`'
-  multivariate-optimization: بهینه‌سازی چند متغیره
-  indexintegration-single-integration: '{index}`Integration <single: Integration>`'
-  indexlinear-algebra-single-linear-algebra: '{index}`Linear Algebra <single: Linear Algebra>`'
-  exercises: تمرین‌ها
+  Overview: مروری کلی
+  '{index}`SciPy <single: SciPy>` versus {index}`NumPy <single: NumPy>`': '{index}`SciPy <single: SciPy>` در مقابل {index}`NumPy <single: NumPy>`'
+  Statistics: آمار
+  Statistics::Random Variables and Distributions: متغیرهای تصادفی و توزیع‌ها
+  Statistics::Alternative Syntax: نحو جایگزین
+  Statistics::Other Goodies in scipy.stats: چیزهای مفید دیگر در scipy.stats
+  Roots and Fixed Points: ریشه‌ها و نقاط ثابت
+  'Roots and Fixed Points::{index}`Bisection <single: Bisection>`': '{index}`Bisection <single: Bisection>`'
+  'Roots and Fixed Points::The {index}`Newton-Raphson Method <single: Newton-Raphson Method>`': 'روش {index}`Newton-Raphson Method <single: Newton-Raphson Method>`'
+  Roots and Fixed Points::Hybrid Methods: روش‌های ترکیبی
+  Roots and Fixed Points::Multivariate Root-Finding: یافتن ریشه چند متغیره
+  Roots and Fixed Points::Fixed Points: نقاط ثابت
+  '{index}`Optimization <single: Optimization>`': '{index}`Optimization <single: Optimization>`'
+  '{index}`Optimization <single: Optimization>`::Multivariate Optimization': بهینه‌سازی چند متغیره
+  '{index}`Integration <single: Integration>`': '{index}`Integration <single: Integration>`'
+  '{index}`Linear Algebra <single: Linear Algebra>`': '{index}`Linear Algebra <single: Linear Algebra>`'
+  Exercises: تمرین‌ها
 ---
 
 (sp)=

@@ -1,0 +1,4 @@
+source-language: en
+target-language: fa
+docs-folder: lectures
+tool-version: 0.10.0

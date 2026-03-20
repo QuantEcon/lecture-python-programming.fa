@@ -8,27 +8,27 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  overview: مقدمه
-  data-types: انواع داده
-  primitive-data-types: انواع داده ابتدایی
-  boolean-values: مقادیر Boolean
-  numeric-types: انواع داده عددی
-  containers: ظرف ها
-  slice-notation: نشانه‌گذاری Slice
-  sets-and-dictionaries: مجموعه‌ها و دیکشنری ها
-  input-and-output: ورودی و خروجی
-  paths: مسیرها
-  iterating: تکرار
-  looping-over-different-objects: حلقه تکرار اشیاء مختلف
-  looping-without-indices: حلقه تکرار بدون ایندکس‌ها
-  list-comprehensions: خلاصه لیست‌ها
-  comparisons-and-logical-operators: عملگرهای مقایسه‌ای و منطقی
-  comparisons: عملگرهای مقایسه‌ای
-  combining-expressions: ترکیب عبارات
-  coding-style-and-documentation: سبک کدنویسی و مستندسازی
-  python-style-guidelines-pep8: راهنمای سبک کدنویسی پایتون: PEP8
-  docstrings: داک‌استرینگ‌ها (docstring)
-  exercises: تمرین‌ها
+  Overview: مقدمه
+  Data Types: انواع داده
+  Data Types::Primitive Data Types: انواع داده اولیه (Primitive Data Types)
+  Data Types::Primitive Data Types::Boolean Values: مقادیر بولی (Boolean)
+  Data Types::Primitive Data Types::Numeric Types: انواع داده‌های عددی
+  Data Types::Containers: ظرف ها یا ساختارهای نگه دارنده(Containers)
+  Data Types::Containers::Slice Notation: نشانه گذاری برش (Slice Notation)
+  Data Types::Containers::Sets and Dictionaries: مجموعه‌ها و دیکشنری‌ها (Sets and Dictionaries)
+  Input and Output: ورودی و خروجی (Input and Output)
+  Input and Output::Paths: مسیرها (Paths)
+  Iterating: تکرار(Iteration)
+  Iterating::Looping over Different Objects: حلقه تکرار روی اشیاء مختلف
+  Iterating::Looping without Indices: حلقه تکرار بدون ایندکس‌ها
+  Iterating::List Comprehensions: ‌خلاصه لیست (List Comprehension)
+  Comparisons and Logical Operators: عملگرهای مقایسه‌ای و منطقی
+  Comparisons and Logical Operators::Comparisons: عملگرهای مقایسه‌ای
+  Comparisons and Logical Operators::Combining Expressions: ترکیب عبارات
+  Coding Style and Documentation: سبک کدنویسی و مستندسازی
+  'Coding Style and Documentation::Python Style Guidelines: PEP8': 'راهنمای سبک کدنویسی پایتون: PEP8'
+  Coding Style and Documentation::Docstrings: داک‌استرینگ‌ها (docstring)
+  Exercises: تمرین‌ها
 ---
 
 (python_done_right)=

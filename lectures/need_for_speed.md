@@ -8,34 +8,35 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  overview: مرور کلی
-  major-scientific-libraries: کتابخانه‌های علمی اصلی
-  why-do-we-need-them: چرا به آنها نیاز داریم؟
-  pythons-scientific-ecosystem: اکوسیستم علمی پایتون
-  pure-python-is-slow: پایتون خالص کند است
-  high-vs-low-level-code: کد سطح بالا در مقابل سطح پایین
-  where-are-the-bottlenecks: گلوگاه‌ها کجا هستند؟
-  dynamic-typing: تایپ کردن پویا
-  static-types: انواع ایستا
-  data-access: دسترسی به داده
-  summing-with-compiled-code: جمع کردن با کد کامپایل شده
-  summing-in-pure-python: جمع کردن در پایتون خالص
-  summary: خلاصه
-  accelerating-python: تسریع پایتون
-  indexvectorization-single-vectorization: '{index}`برداری‌سازی <single: Vectorization>`'
-  vectorization-vs-for-pure-python-loops: برداری‌سازی در مقابل حلقه‌های پایتون خالص
-  jit-compilers: کامپایلرهای JIT
-  parallelization: موازی‌سازی
-  parallelization-on-cpus: موازی‌سازی بر روی CPUها
-  multiprocessing: چندپردازشی
-  multithreading: چندرشته‌ای
-  advantages-and-disadvantages: مزایا و معایب
-  hardware-accelerators: شتاب‌دهنده‌های سخت‌افزاری
-  gpus-and-tpus: GPUها و TPUها
-  why-tpusgpus-matter-: چرا TPU/GPU مهم هستند
-  single-gpus-vs-gpu-servers: GPUهای تکی در مقابل سرورهای GPU
-  single-gpu-systems: سیستم‌های GPU تکی
-  multi-gpu-servers: سرورهای چند GPU
+  Overview: مرور کلی
+  Major Scientific Libraries: کتابخانه‌های علمی اصلی
+  Major Scientific Libraries::Why do we need them?: چرا به آنها نیاز داریم؟
+  Major Scientific Libraries::Python's Scientific Ecosystem: اکوسیستم علمی پایتون
+  Pure Python is slow: پایتون خالص کند است
+  Pure Python is slow::High vs low level code: کد سطح بالا در مقابل سطح پایین
+  Pure Python is slow::Where are the bottlenecks?: گلوگاه‌ها کجا هستند؟
+  Pure Python is slow::Where are the bottlenecks?::Dynamic typing: تایپ کردن پویا
+  Pure Python is slow::Where are the bottlenecks?::Static types: انواع ایستا
+  Pure Python is slow::Data Access: دسترسی به داده
+  Pure Python is slow::Data Access::Summing with Compiled Code: جمع کردن با کد کامپایل شده
+  Pure Python is slow::Data Access::Summing in Pure Python: جمع کردن در پایتون خالص
+  Pure Python is slow::Summary: خلاصه
+  Accelerating Python: تسریع پایتون
+  'Accelerating Python::{index}`Vectorization <single: Vectorization>`': '{index}`برداری‌سازی <single: Vectorization>`'
+  Accelerating Python::Vectorization vs for pure Python loops: برداری‌سازی در مقابل حلقه‌های پایتون خالص
+  Accelerating Python::JIT compilers: کامپایلرهای JIT
+  Parallelization: موازی‌سازی
+  Parallelization::Parallelization on CPUs: موازی‌سازی بر روی CPUها
+  Parallelization::Parallelization on CPUs::Multiprocessing: چندپردازشی
+  Parallelization::Parallelization on CPUs::Multithreading: چندرشته‌ای
+  Parallelization::Parallelization on CPUs::Advantages and Disadvantages: مزایا و معایب
+  Parallelization::Hardware Accelerators: شتاب‌دهنده‌های سخت‌افزاری
+  Parallelization::Hardware Accelerators::GPUs and TPUs: GPUها و TPUها
+  Parallelization::Hardware Accelerators::Why TPUs/GPUs Matter: چرا TPU/GPU مهم هستند
+  Parallelization::Single GPUs vs GPU Servers: GPUهای تکی در مقابل سرورهای GPU
+  Parallelization::Single GPUs vs GPU Servers::Single GPU Systems: سیستم‌های GPU تکی
+  Parallelization::Single GPUs vs GPU Servers::Multi-GPU Servers: سرورهای چند GPU
+  Parallelization::Summary: خلاصه
 ---
 
 (speed)=

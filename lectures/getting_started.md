@@ -7,6 +7,33 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+heading-map:
+  Overview: مقدمه
+  Python in the Cloud: پایتون در فضای ابری
+  Local Install: نصب محلی
+  Local Install::The Anaconda Distribution: توزیع آناکوندا
+  Local Install::Installing Anaconda: نصب آناکوندا
+  Local Install::Updating `conda`: به روزرسانی آناکوندا
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`': '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`'
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Starting the Jupyter Notebook': راه اندازی ژوپیتر نوت بوک
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Notebook Basics': اصول اولیه نوت بوک
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Notebook Basics::Running Cells': اجرای سلول ها
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Notebook Basics::Modal Editing': ویرایش در حالت های مختلف
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Notebook Basics::Inserting Unicode (e.g., Greek Letters)': وارد کردن یونیکد (مثلا حروف یونانی)
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Notebook Basics::A Test Program': یک برنامه ی آزمایشی
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Working with the Notebook': کارکردن با نوت بوک
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Working with the Notebook::Tab Completion': تکمیل خودکار با کلید Tab
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Working with the Notebook::On-Line Help': راهنمای آنلاین
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Working with the Notebook::Other Content': سایر محتواها
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Debugging Code': اشکال زدایی کد
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::Sharing Notebooks': اشتراک گذاری نوت بوک ها
+  '{index}`Jupyter Notebooks <single: Jupyter Notebooks>`::QuantEcon Notes': سایت QuantEcon Note
+  Installing Libraries: نصب کتابخانه ها
+  Working with Python Files: کار با فایل های پایتون
+  Working with Python Files::Editing and Execution: ویرایش و اجرا
+  'Working with Python Files::Editing and Execution::Option 1: {index}`JupyterLab <single: JupyterLab>`': 'گزینه اول: JupyterLab'
+  'Working with Python Files::Editing and Execution::Option 2: Using a Text Editor': 'گزینه دوم: استفاده از یک ویرایشگر متن'
+  Exercises: تمرینات
 ---
 
 (getting_started)=
