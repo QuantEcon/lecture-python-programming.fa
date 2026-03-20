@@ -10,18 +10,18 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  overview: مرور کلی
-  series: Series
-  dataframes: DataFrames
-  select-data-by-position: انتخاب داده بر اساس موقعیت
-  select-data-by-conditions: انتخاب داده بر اساس شرایط
-  apply-method: متد Apply
-  make-changes-in-dataframes: ایجاد تغییرات در DataFrames
-  standardization-and-visualization: استانداردسازی و بصری‌سازی
-  on-line-data-sources: منابع داده آنلاین
-  accessing-data-with-indexrequests-single-requests: 'دسترسی به داده با {index}`requests <single: requests>`'
-  using-indexwbgapi-single-wbgapi-and-indexyfinance-single-yfinance-to-access-data: 'استفاده از {index}`wbgapi <single: wbgapi>` و {index}`yfinance <single: yfinance>` برای دسترسی به داده'
-  exercises: تمرین‌ها
+  Overview: مرور کلی
+  Series: Series
+  DataFrames: DataFrames
+  DataFrames::Select Data by Position: انتخاب داده بر اساس موقعیت
+  DataFrames::Select Data by Conditions: انتخاب داده بر اساس شرایط
+  DataFrames::Apply Method: متد Apply
+  DataFrames::Make Changes in DataFrames: ایجاد تغییرات در DataFrames
+  DataFrames::Standardization and Visualization: استانداردسازی و بصری‌سازی
+  On-Line Data Sources: منابع داده آنلاین
+  'On-Line Data Sources::Accessing Data with {index}`requests <single: requests>`': 'دسترسی به داده با {index}`requests <single: requests>`'
+  'On-Line Data Sources::Using {index}`wbgapi <single: wbgapi>` and {index}`yfinance <single: yfinance>` to Access Data': 'استفاده از {index}`wbgapi <single: wbgapi>` و {index}`yfinance <single: yfinance>` برای دسترسی به داده'
+  Exercises: تمرین‌ها
 ---
 
 (pd)=

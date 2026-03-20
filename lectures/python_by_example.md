@@ -7,6 +7,24 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+heading-map:
+  Overview: مقدمه
+  'The Task: Plotting a White Noise Process': هدف:رسم یک فرآیند نویز سفید
+  Version 1: روش اول
+  Version 1::Imports: Imports
+  Version 1::Imports::Why So Many Imports?: چرا در برنامه نویسی پایتون، از Importهای متعددی استفاده می شود؟
+  Version 1::Imports::Packages: پکیج ها(Packages)
+  Version 1::Imports::Subpackages: زیرپکیج ها (Subpackages)
+  Version 1::Importing Names Directly: وارد کردن مستقیم توابع یا متغیرها از یک پکیج
+  Version 1::Random Draws: نمونه گیری تصادفی
+  Alternative Implementations: روش های دیگر پیاده سازی برنامه
+  Alternative Implementations::A Version with a For Loop: یک نسخه با حلقه تکرار For
+  Alternative Implementations::Lists: لیست ها
+  Alternative Implementations::The For Loop: حلقه For
+  Alternative Implementations::A Comment on Indentation: یادداشتی درباره تورفتگی (Indentation)
+  Alternative Implementations::While Loops: حلقه های While
+  Another Application: یک کاربرد دیگر
+  Exercises: تمرینات
 ---
 
 (python_by_example)=

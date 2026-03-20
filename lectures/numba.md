@@ -10,18 +10,18 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  overview: مروری کلی
-  indexcompiling-functions-single-compiling-functions: '{index}`کامپایل توابع <single: Compiling Functions>`'
-  an-example: یک مثال
-  how-and-when-it-works: چگونه و چه زمانی کار می‌کند
-  decorator-notation: نماد Decorator
-  type-inference: استنتاج نوع
-  compiling-classes: کامپایل کلاس‌ها
-  dangers-and-limitations: خطرات و محدودیت‌ها
-  limitations: محدودیت‌ها
-  a-gotcha-global-variables: 'یک مشکل: متغیرهای سراسری'
-  multithreaded-loops-in-numba: حلقه‌های چندنخی در Numba
-  exercises: تمرین‌ها
+  Overview: مروری کلی
+  '{index}`Compiling Functions <single: Compiling Functions>`': '{index}`کامپایل توابع <single: Compiling Functions>`'
+  '{index}`Compiling Functions <single: Compiling Functions>`::An Example': یک مثال
+  '{index}`Compiling Functions <single: Compiling Functions>`::How and When it Works': چگونه و چه زمانی کار می‌کند
+  Decorator Notation: نماد Decorator
+  Type Inference: استنتاج نوع
+  Compiling Classes: کامپایل کلاس‌ها
+  Dangers and Limitations: خطرات و محدودیت‌ها
+  Dangers and Limitations::Limitations: محدودیت‌ها
+  'Dangers and Limitations::A Gotcha: Global Variables': 'یک مشکل: متغیرهای سراسری'
+  Multithreaded Loops in Numba: حلقه‌های چندنخی در Numba
+  Exercises: تمرین‌ها
 ---
 
 (speed)=

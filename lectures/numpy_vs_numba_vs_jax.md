@@ -8,19 +8,20 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  vectorized-operations: عملیات برداری شده
-  problem-statement: بیان مسئله
-  numpy-vectorization: برداری‌سازی NumPy
-  a-comparison-with-numba: مقایسه با Numba
-  parallelized-numba: Numba موازی شده
-  vectorized-code-with-jax: کد برداری شده با JAX
-  jax-plus-vmap: JAX به علاوه vmap
-  version-1: نسخه 1
-  vmap-version-2: نسخه 2 vmap
-  summary: خلاصه
-  sequential-operations: عملیات ترتیبی
-  numba-version: نسخه Numba
-  jax-version: نسخه JAX
+  Vectorized operations: عملیات برداری شده
+  Vectorized operations::Problem Statement: بیان مسئله
+  Vectorized operations::NumPy vectorization: برداری‌سازی NumPy
+  Vectorized operations::A Comparison with Numba: مقایسه با Numba
+  Vectorized operations::Parallelized Numba: Numba موازی شده
+  Vectorized operations::Vectorized code with JAX: کد برداری شده با JAX
+  Vectorized operations::JAX plus vmap: JAX به علاوه vmap
+  Vectorized operations::JAX plus vmap::Version 1: نسخه 1
+  Vectorized operations::vmap version 2: نسخه 2 vmap
+  Vectorized operations::Summary: خلاصه
+  Sequential operations: عملیات ترتیبی
+  Sequential operations::Numba Version: نسخه Numba
+  Sequential operations::JAX Version: نسخه JAX
+  Sequential operations::Summary: خلاصه
 ---
 
 (parallel)=
