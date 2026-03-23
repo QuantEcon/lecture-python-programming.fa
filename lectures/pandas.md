@@ -10,6 +10,7 @@ kernelspec:
   language: python
   name: python3
 heading-map:
+  '{index}`Pandas <single: Pandas>`': '{index}`Pandas <single: Pandas>`'
   Overview: مرور کلی
   Series: Series
   DataFrames: DataFrames
@@ -23,6 +24,17 @@ heading-map:
   'On-Line Data Sources::Using {index}`wbgapi <single: wbgapi>` and {index}`yfinance <single: yfinance>` to Access Data': 'استفاده از {index}`wbgapi <single: wbgapi>` و {index}`yfinance <single: yfinance>` برای دسترسی به داده'
   Exercises: تمرین‌ها
 ---
+
+(pd)=
+```{raw} jupyter
+<div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div>
+```
+
+# {index}`Pandas <single: Pandas>`
 
 (pd)=
 ```{raw} jupyter
@@ -172,7 +184,7 @@ s
 ما این را از یک URL با استفاده از تابع `read_csv` در `pandas` خواهیم خواند.
 
 ```{code-cell} ipython3
-df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/pandas/data/test_pwt.csv')
 type(df)
 ```
 
