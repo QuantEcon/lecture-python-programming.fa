@@ -10,6 +10,7 @@ kernelspec:
   language: python
   name: python3
 heading-map:
+  '{index}`Pandas <single: Pandas>`': '{index}`Pandas <single: Pandas>`'
   Overview: مرور کلی
   Series: Series
   DataFrames: DataFrames
