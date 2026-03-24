@@ -8,29 +8,30 @@ kernelspec:
   language: python
   name: python3
 heading-map:
+  More Language Features: ویژگی‌های بیشتر زبان
   Overview: مروری کلی
-  Iterables and Iterators: Iterableها و Iteratorها
-  Iterables and Iterators::Iterators: Iteratorها
-  Iterables and Iterators::Iterators in For Loops: Iteratorها در حلقه‌های For
-  Iterables and Iterators::Iterables: Iterableها
-  Iterables and Iterators::Iterators and built-ins: Iteratorها و توابع داخلی
-  '`*` and `**` Operators': عملگرهای `*` و `**`
-  '`*` and `**` Operators::Unpacking Arguments': باز کردن آرگومان‌ها
-  '`*` and `**` Operators::Arbitrary Arguments': آرگومان‌های دلخواه
-  Decorators and Descriptors: Decoratorها و Descriptorها
-  Decorators and Descriptors::Decorators: Decoratorها
-  Decorators and Descriptors::Decorators::An Example: یک مثال
-  Decorators and Descriptors::Decorators::Enter Decorators: Decoratorها وارد می‌شوند
-  Decorators and Descriptors::Descriptors: Descriptorها
-  Decorators and Descriptors::Descriptors::A Solution: یک راه‌حل
-  Decorators and Descriptors::Descriptors::How it Works: چگونه کار می‌کند
-  Decorators and Descriptors::Descriptors::Decorators and Properties: Decoratorها و Propertyها
+  Iterables and iterators: Iterableها و Iteratorها
+  Iterables and iterators::Iterators: Iteratorها
+  Iterables and iterators::Iterators in for loops: Iteratorها در حلقه‌های For
+  Iterables and iterators::Iterables: Iterableها
+  Iterables and iterators::Iterators and built-ins: Iteratorها و توابع داخلی
+  '`*` and `**` operators': عملگرهای `*` و `**`
+  '`*` and `**` operators::Unpacking arguments': باز کردن آرگومان‌ها
+  '`*` and `**` operators::Arbitrary arguments': آرگومان‌های دلخواه
+  Decorators and descriptors: Decoratorها و Descriptorها
+  Decorators and descriptors::Decorators: Decoratorها
+  Decorators and descriptors::Decorators::An example: یک مثال
+  Decorators and descriptors::Decorators::Enter decorators: Decoratorها وارد می‌شوند
+  Decorators and descriptors::Descriptors: Descriptorها
+  Decorators and descriptors::Descriptors::A solution: یک راه‌حل
+  Decorators and descriptors::Descriptors::How it works: چگونه کار می‌کند
+  Decorators and descriptors::Descriptors::Decorators and properties: Decoratorها و Propertyها
   Generators: Generatorها
-  Generators::Generator Expressions: عبارات Generator
-  Generators::Generator Functions: توابع Generator
-  Generators::Generator Functions::Example 1: مثال 1
-  Generators::Generator Functions::Example 2: مثال 2
-  Generators::Advantages of Iterators: مزایای Iteratorها
+  Generators::Generator expressions: عبارات Generator
+  Generators::Generator functions: توابع Generator
+  Generators::Generator functions::Example 1: مثال 1
+  Generators::Generator functions::Example 2: مثال 2
+  Generators::Advantages of iterators: مزایای Iteratorها
   Exercises: تمرین‌ها
 ---
 
@@ -66,6 +67,7 @@ heading-map:
 اکنون بیایید دقیق‌تر به نحوه کار آن نگاه کنیم، با تمرکز بر پیاده‌سازی Python از حلقه `for`.
 
 (iterators)=
+
 ### Iteratorها
 
 ```{index} single: Python; Iterators
@@ -316,7 +318,6 @@ max(y)
 `*` و `**` ابزارهای مناسب و پرکاربردی برای باز کردن لیست‌ها و tupleها و اجازه دادن به کاربران برای تعریف توابعی هستند که تعداد دلخواه آرگومان را به عنوان ورودی می‌گیرند.
 
 در این بخش، نحوه استفاده از آن‌ها و تمایز موارد استفاده آن‌ها را بررسی خواهیم کرد.
-
 
 ### باز کردن آرگومان‌ها
 
@@ -656,6 +657,7 @@ def g(x):
 به نظر بسیاری از افراد، این نحو decorator را به یک بهبود قابل توجه برای زبان تبدیل می‌کند.
 
 (descriptors)=
+
 ### Descriptorها
 
 ```{index} single: Python; Descriptors
@@ -814,6 +816,7 @@ class Car:
 برای اطلاعات بیشتر می‌توانید به [مستندات descriptor](https://docs.python.org/3/howto/descriptor.html) مراجعه کنید.
 
 (paf_generators)=
+
 ## Generatorها
 
 ```{index} single: Python; Generators
@@ -1084,7 +1087,6 @@ sum(draws)
 * نیاز به ایجاد لیست‌ها/tupleهای بزرگ را از بین می‌برند، و
 * یک رابط یکنواخت برای تکرار فراهم می‌کنند که می‌تواند به صورت شفاف در حلقه‌های `for` استفاده شود
 
-
 ## تمرین‌ها
 
 
@@ -1092,7 +1094,7 @@ sum(draws)
 :label: paf_ex1
 ```
 
-کد زیر را کامل کنید و آن را با استفاده از [این فایل csv](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv) تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید
+کد زیر را کامل کنید و آن را با استفاده از [این فایل csv](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/python_advanced_features/test_table.csv) تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید
 
 ```{code-block} python3
 :class: no-execute
