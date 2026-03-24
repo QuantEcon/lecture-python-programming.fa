@@ -8,29 +8,33 @@ kernelspec:
   language: python
   name: python3
 heading-map:
+  More Language Features: ویژگی‌های بیشتر زبان
   Overview: مروری کلی
-  Iterables and Iterators: Iterableها و Iteratorها
-  Iterables and Iterators::Iterators: Iteratorها
-  Iterables and Iterators::Iterators in For Loops: Iteratorها در حلقه‌های For
-  Iterables and Iterators::Iterables: Iterableها
-  Iterables and Iterators::Iterators and built-ins: Iteratorها و توابع داخلی
-  '`*` and `**` Operators': عملگرهای `*` و `**`
-  '`*` and `**` Operators::Unpacking Arguments': باز کردن آرگومان‌ها
-  '`*` and `**` Operators::Arbitrary Arguments': آرگومان‌های دلخواه
-  Decorators and Descriptors: Decoratorها و Descriptorها
-  Decorators and Descriptors::Decorators: Decoratorها
-  Decorators and Descriptors::Decorators::An Example: یک مثال
-  Decorators and Descriptors::Decorators::Enter Decorators: Decoratorها وارد می‌شوند
-  Decorators and Descriptors::Descriptors: Descriptorها
-  Decorators and Descriptors::Descriptors::A Solution: یک راه‌حل
-  Decorators and Descriptors::Descriptors::How it Works: چگونه کار می‌کند
-  Decorators and Descriptors::Descriptors::Decorators and Properties: Decoratorها و Propertyها
+  Iterables and iterators: Iterableها و Iteratorها
+  Iterables and iterators::Iterators: Iteratorها
+  Iterables and iterators::Iterators in for loops: Iteratorها در حلقه‌های For
+  Iterables and iterators::Iterables: Iterableها
+  Iterables and iterators::Iterators and built-ins: Iteratorها و توابع داخلی
+  '`*` and `**` operators': عملگرهای `*` و `**`
+  '`*` and `**` operators::Unpacking arguments': باز کردن آرگومان‌ها
+  '`*` and `**` operators::Arbitrary arguments': آرگومان‌های دلخواه
+  Type hints: Decoratorها و Descriptorها
+  Type hints::Basic syntax: Decoratorها
+  Type hints::Common types: Descriptorها
+  Decorators and descriptors: Decoratorها و Descriptorها
+  Decorators and descriptors::Decorators: Decoratorها
+  Decorators and descriptors::Decorators::An example: یک مثال
+  Decorators and descriptors::Decorators::Enter decorators: Decoratorها وارد می‌شوند
+  Decorators and descriptors::Descriptors: Descriptorها
+  Decorators and descriptors::Descriptors::A solution: یک راه‌حل
+  Decorators and descriptors::Descriptors::How it works: چگونه کار می‌کند
+  Decorators and descriptors::Descriptors::Decorators and properties: Decoratorها و Propertyها
   Generators: Generatorها
-  Generators::Generator Expressions: عبارات Generator
-  Generators::Generator Functions: توابع Generator
-  Generators::Generator Functions::Example 1: مثال 1
-  Generators::Generator Functions::Example 2: مثال 2
-  Generators::Advantages of Iterators: مزایای Iteratorها
+  Generators::Generator expressions: عبارات Generator
+  Generators::Generator functions: توابع Generator
+  Generators::Generator functions::Example 1: مثال 1
+  Generators::Generator functions::Example 2: مثال 2
+  Generators::Advantages of iterators: مزایای Iteratorها
   Exercises: تمرین‌ها
 ---
 
@@ -66,6 +70,7 @@ heading-map:
 اکنون بیایید دقیق‌تر به نحوه کار آن نگاه کنیم، با تمرکز بر پیاده‌سازی Python از حلقه `for`.
 
 (iterators)=
+
 ### Iteratorها
 
 ```{index} single: Python; Iterators
@@ -316,7 +321,6 @@ max(y)
 `*` و `**` ابزارهای مناسب و پرکاربردی برای باز کردن لیست‌ها و tupleها و اجازه دادن به کاربران برای تعریف توابعی هستند که تعداد دلخواه آرگومان را به عنوان ورودی می‌گیرند.
 
 در این بخش، نحوه استفاده از آن‌ها و تمایز موارد استفاده آن‌ها را بررسی خواهیم کرد.
-
 
 ### باز کردن آرگومان‌ها
 
@@ -656,6 +660,7 @@ def g(x):
 به نظر بسیاری از افراد، این نحو decorator را به یک بهبود قابل توجه برای زبان تبدیل می‌کند.
 
 (descriptors)=
+
 ### Descriptorها
 
 ```{index} single: Python; Descriptors
@@ -814,6 +819,339 @@ class Car:
 برای اطلاعات بیشتر می‌توانید به [مستندات descriptor](https://docs.python.org/3/howto/descriptor.html) مراجعه کنید.
 
 (paf_generators)=
+
+## Decoratorها و Descriptorها
+
+```{index} single: Python; Decorators
+```
+
+```{index} single: Python; Descriptors
+```
+
+بیایید به برخی از عناصر نحوی خاص نگاه کنیم که به طور معمول توسط توسعه‌دهندگان Python استفاده می‌شوند.
+
+ممکن است بلافاصله به مفاهیم زیر نیاز نداشته باشید، اما آن‌ها را در کد دیگران خواهید دید.
+
+از این رو در مرحله‌ای از آموزش Python خود باید آن‌ها را درک کنید.
+
+### Decoratorها
+
+```{index} single: Python; Decorators
+```
+
+Decoratorها کمی نحو شیرین هستند که، اگرچه به راحتی قابل اجتناب هستند، محبوب شده‌اند.
+
+بسیار آسان است بگوییم که decoratorها چه کاری انجام می‌دهند.
+
+از طرف دیگر توضیح اینکه *چرا* ممکن است از آن‌ها استفاده کنید، کمی تلاش می‌طلبد.
+
+#### یک مثال
+
+فرض کنید روی برنامه‌ای کار می‌کنیم که شبیه این است
+
+```{code-cell} python3
+import numpy as np
+
+def f(x):
+    return np.log(np.log(x))
+
+def g(x):
+    return np.sqrt(42 * x)
+
+# Program continues with various calculations using f and g
+```
+
+اکنون فرض کنید مشکلی وجود دارد: گاهی اوقات اعداد منفی به `f` و `g` در محاسباتی که دنبال می‌شود، وارد می‌شوند.
+
+اگر امتحان کنید، خواهید دید که وقتی این توابع با اعداد منفی فراخوانی می‌شوند، یک شیء NumPy به نام `nan` را برمی‌گردانند.
+
+این مخفف "not a number" است (و نشان می‌دهد که شما در حال ارزیابی یک تابع ریاضی در نقطه‌ای هستید که تعریف نشده است).
+
+شاید این همان چیزی نیست که می‌خواهیم، زیرا مشکلات دیگری را ایجاد می‌کند که بعداً سخت قابل تشخیص هستند.
+
+فرض کنید به جای آن می‌خواهیم برنامه هر زمان که این اتفاق می‌افتد خاتمه یابد، با یک پیام خطای معقول.
+
+این تغییر به اندازه کافی آسان برای پیاده‌سازی است
+
+```{code-cell} python3
+import numpy as np
+
+def f(x):
+    assert x >= 0, "Argument must be nonnegative"
+    return np.log(np.log(x))
+
+def g(x):
+    assert x >= 0, "Argument must be nonnegative"
+    return np.sqrt(42 * x)
+
+# Program continues with various calculations using f and g
+```
+
+با این حال متوجه شوید که اینجا کمی تکرار وجود دارد، به شکل دو خط یکسان کد.
+
+تکرار کد ما را طولانی‌تر و سخت‌تر برای نگهداری می‌کند، و از این رو چیزی است که سخت تلاش می‌کنیم از آن اجتناب کنیم.
+
+اینجا مشکل بزرگی نیست، اما حالا تصور کنید به جای فقط `f` و `g`، ما 20 تابع داریم که باید دقیقاً به همین شکل تغییر کنیم.
+
+این یعنی باید منطق تست (یعنی خط `assert` که غیرمنفی بودن را تست می‌کند) را 20 بار تکرار کنیم.
+
+وضعیت حتی بدتر است اگر منطق تست طولانی‌تر و پیچیده‌تر باشد.
+
+در این نوع سناریو رویکرد زیر منظم‌تر خواهد بود
+
+```{code-cell} python3
+import numpy as np
+
+def check_nonneg(func):
+    def safe_function(x):
+        assert x >= 0, "Argument must be nonnegative"
+        return func(x)
+    return safe_function
+
+def f(x):
+    return np.log(np.log(x))
+
+def g(x):
+    return np.sqrt(42 * x)
+
+f = check_nonneg(f)
+g = check_nonneg(g)
+# Program continues with various calculations using f and g
+```
+
+این پیچیده به نظر می‌رسد، پس بیایید آرام آرام روی آن کار کنیم.
+
+برای باز کردن منطق، در نظر بگیرید چه اتفاقی می‌افتد وقتی می‌گوییم `f = check_nonneg(f)`.
+
+این تابع `check_nonneg` را با پارامتر `func` برابر با `f` فراخوانی می‌کند.
+
+اکنون `check_nonneg` یک تابع جدید به نام `safe_function` ایجاد می‌کند که
+`x` را به عنوان غیرمنفی تأیید می‌کند و سپس `func` را روی آن فراخوانی می‌کند (که همان `f` است).
+
+در نهایت، نام سراسری `f` برابر با `safe_function` قرار می‌گیرد.
+
+اکنون رفتار `f` همان‌طور که می‌خواهیم است، و همینطور برای `g`.
+
+در عین حال، منطق تست فقط یک بار نوشته شده است.
+
+#### Decoratorها وارد می‌شوند
+
+```{index} single: Python; Decorators
+```
+
+نسخه آخر کد ما هنوز ایده‌آل نیست.
+
+به عنوان مثال، اگر کسی کد ما را بخواند و بخواهد بداند که
+`f` چگونه کار می‌کند، به دنبال تعریف تابع خواهد گشت، که این است
+
+```{code-cell} python3
+def f(x):
+    return np.log(np.log(x))
+```
+
+ممکن است خط `f = check_nonneg(f)` را از دست بدهند.
+
+به این و دلایل دیگر، decoratorها به Python معرفی شدند.
+
+با decoratorها، می‌توانیم خطوط
+
+```{code-cell} python3
+def f(x):
+    return np.log(np.log(x))
+
+def g(x):
+    return np.sqrt(42 * x)
+
+f = check_nonneg(f)
+g = check_nonneg(g)
+```
+
+را با
+
+```{code-cell} python3
+@check_nonneg
+def f(x):
+    return np.log(np.log(x))
+
+@check_nonneg
+def g(x):
+    return np.sqrt(42 * x)
+```
+
+جایگزین کنیم
+
+این دو قطعه کد دقیقاً همان کار را انجام می‌دهند.
+
+اگر همان کار را انجام می‌دهند، آیا واقعاً به نحو decorator نیاز داریم؟
+
+خب، توجه کنید که decoratorها دقیقاً بالای تعاریف تابع قرار دارند.
+
+بنابراین هر کسی که به تعریف تابع نگاه می‌کند، آن‌ها را خواهد دید و از
+اینکه تابع تغییر یافته است، آگاه خواهد شد.
+
+به نظر بسیاری از افراد، این نحو decorator را به یک بهبود قابل توجه برای زبان تبدیل می‌کند.
+
+(descriptors)=
+
+### Descriptorها
+
+```{index} single: Python; Descriptors
+```
+
+Descriptorها مشکل رایجی را در مورد مدیریت متغیرها حل می‌کنند.
+
+برای درک موضوع، یک کلاس `Car` را در نظر بگیرید که یک ماشین را شبیه‌سازی می‌کند.
+
+فرض کنید این کلاس متغیرهای `miles` و `kms` را تعریف می‌کند که به ترتیب فاصله طی شده به مایل
+و کیلومتر را نشان می‌دهند.
+
+یک نسخه بسیار ساده‌شده از کلاس ممکن است به شکل زیر باشد
+
+```{code-cell} python3
+class Car:
+
+    def __init__(self, miles=1000):
+        self.miles = miles
+        self.kms = miles * 1.61
+
+    # Some other functionality, details omitted
+```
+
+یک مشکل احتمالی که ممکن است اینجا داشته باشیم این است که کاربر یکی از این
+متغیرها را تغییر دهد اما دیگری را نه
+
+```{code-cell} python3
+car = Car()
+car.miles
+```
+
+```{code-cell} python3
+car.kms
+```
+
+```{code-cell} python3
+car.miles = 6000
+car.kms
+```
+
+در دو خط آخر می‌بینیم که `miles` و `kms` همگام نیستند.
+
+آنچه واقعاً می‌خواهیم یک مکانیسم است که به موجب آن هر زمان که کاربر یکی از این متغیرها را تنظیم می‌کند، *دیگری به طور خودکار به‌روز شود*.
+
+#### یک راه‌حل
+
+در Python، این موضوع با استفاده از *descriptorها* حل می‌شود.
+
+یک descriptor فقط یک شیء Python است که متدهای خاصی را پیاده‌سازی می‌کند.
+
+این متدها زمانی فعال می‌شوند که شیء از طریق نشانه‌گذاری ویژگی نقطه‌دار قابل دسترسی باشد.
+
+بهترین راه برای درک این موضوع دیدن آن در عمل است.
+
+این نسخه جایگزین از کلاس `Car` را در نظر بگیرید
+
+```{code-cell} python3
+class Car:
+
+    def __init__(self, miles=1000):
+        self._miles = miles
+        self._kms = miles * 1.61
+
+    def set_miles(self, value):
+        self._miles = value
+        self._kms = value * 1.61
+
+    def set_kms(self, value):
+        self._kms = value
+        self._miles = value / 1.61
+
+    def get_miles(self):
+        return self._miles
+
+    def get_kms(self):
+        return self._kms
+
+    miles = property(get_miles, set_miles)
+    kms = property(get_kms, set_kms)
+```
+
+ابتدا بیایید بررسی کنیم که رفتار مورد نظر را دریافت می‌کنیم
+
+```{code-cell} python3
+car = Car()
+car.miles
+```
+
+```{code-cell} python3
+car.miles = 6000
+car.kms
+```
+
+بله، این همان چیزی است که می‌خواهیم --- `car.kms` به طور خودکار به‌روز می‌شود.
+
+#### چگونه کار می‌کند
+
+نام‌های `_miles` و `_kms` نام‌های دلخواهی هستند که برای ذخیره مقادیر متغیرها استفاده می‌کنیم.
+
+اشیاء `miles` و `kms` *propertyها* هستند، نوع رایجی از descriptor.
+
+متدهای `get_miles`، `set_miles`، `get_kms` و `set_kms` تعریف
+می‌کنند که چه اتفاقی می‌افتد وقتی این متغیرها را دریافت (یعنی دسترسی) یا تنظیم (اتصال) می‌کنید
+
+* متدهای به اصطلاح "getter" و "setter".
+
+تابع داخلی Python به نام `property` متدهای getter و setter را می‌گیرد و یک property ایجاد می‌کند.
+
+به عنوان مثال، بعد از اینکه `car` به عنوان یک نمونه از `Car` ایجاد شد، شیء `car.miles` یک property است.
+
+به عنوان یک property، وقتی مقدار آن را از طریق `car.miles = 6000` تنظیم می‌کنیم، متد setter
+آن فعال می‌شود --- در این مورد `set_miles`.
+
+#### Decoratorها و Propertyها
+
+```{index} single: Python; Decorators
+```
+
+```{index} single: Python; Properties
+```
+
+این روزها بسیار رایج است که تابع `property` را از طریق یک decorator ببینید.
+
+اینجا نسخه دیگری از کلاس `Car` ما است که مانند قبل کار می‌کند اما حالا از
+decoratorها برای تنظیم propertyها استفاده می‌کند
+
+```{code-cell} python3
+class Car:
+
+    def __init__(self, miles=1000):
+        self._miles = miles
+        self._kms = miles * 1.61
+
+    @property
+    def miles(self):
+        return self._miles
+
+    @property
+    def kms(self):
+        return self._kms
+
+    @miles.setter
+    def miles(self, value):
+        self._miles = value
+        self._kms = value * 1.61
+
+    @kms.setter
+    def kms(self, value):
+        self._kms = value
+        self._miles = value / 1.61
+```
+
+از همه جزئیات اینجا نمی‌گذریم.
+
+برای اطلاعات بیشتر می‌توانید به [مستندات descriptor](https://docs.python.org/3/howto/descriptor.html) مراجعه کنید.
+
+(paf_generators)=
+
 ## Generatorها
 
 ```{index} single: Python; Generators
@@ -1083,7 +1421,6 @@ sum(draws)
 
 * نیاز به ایجاد لیست‌ها/tupleهای بزرگ را از بین می‌برند، و
 * یک رابط یکنواخت برای تکرار فراهم می‌کنند که می‌تواند به صورت شفاف در حلقه‌های `for` استفاده شود
-
 
 ## تمرین‌ها
 
