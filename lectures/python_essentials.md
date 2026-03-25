@@ -7,28 +7,30 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  Overview: مقدمه
-  Data Types: انواع داده
-  Data Types::Primitive Data Types: انواع داده اولیه (Primitive Data Types)
-  Data Types::Primitive Data Types::Boolean Values: مقادیر بولی (Boolean)
-  Data Types::Primitive Data Types::Numeric Types: انواع داده‌های عددی
-  Data Types::Containers: ظرف ها یا ساختارهای نگه دارنده(Containers)
-  Data Types::Containers::Slice Notation: نشانه گذاری برش (Slice Notation)
-  Data Types::Containers::Sets and Dictionaries: مجموعه‌ها و دیکشنری‌ها (Sets and Dictionaries)
-  Input and Output: ورودی و خروجی (Input and Output)
-  Input and Output::Paths: مسیرها (Paths)
-  Iterating: تکرار(Iteration)
-  Iterating::Looping over Different Objects: حلقه تکرار روی اشیاء مختلف
-  Iterating::Looping without Indices: حلقه تکرار بدون ایندکس‌ها
-  Iterating::List Comprehensions: ‌خلاصه لیست (List Comprehension)
-  Comparisons and Logical Operators: عملگرهای مقایسه‌ای و منطقی
-  Comparisons and Logical Operators::Comparisons: عملگرهای مقایسه‌ای
-  Comparisons and Logical Operators::Combining Expressions: ترکیب عبارات
-  Coding Style and Documentation: سبک کدنویسی و مستندسازی
-  'Coding Style and Documentation::Python Style Guidelines: PEP8': 'راهنمای سبک کدنویسی پایتون: PEP8'
-  Coding Style and Documentation::Docstrings: داک‌استرینگ‌ها (docstring)
-  Exercises: تمرین‌ها
+translation:
+  title: اصول برنامه‌نویسی پایتون
+  headings:
+    Overview: مقدمه
+    Data Types: انواع داده
+    Data Types::Primitive Data Types: انواع داده اولیه (Primitive Data Types)
+    Data Types::Primitive Data Types::Boolean Values: مقادیر بولی (Boolean)
+    Data Types::Primitive Data Types::Numeric Types: انواع داده‌های عددی
+    Data Types::Containers: ظرف ها یا ساختارهای نگه دارنده(Containers)
+    Data Types::Containers::Slice Notation: نشانه گذاری برش (Slice Notation)
+    Data Types::Containers::Sets and Dictionaries: مجموعه‌ها و دیکشنری‌ها (Sets and Dictionaries)
+    Input and Output: ورودی و خروجی (Input and Output)
+    Input and Output::Paths: مسیرها (Paths)
+    Iterating: تکرار(Iteration)
+    Iterating::Looping over Different Objects: حلقه تکرار روی اشیاء مختلف
+    Iterating::Looping without Indices: حلقه تکرار بدون ایندکس‌ها
+    Iterating::List Comprehensions: ‌خلاصه لیست (List Comprehension)
+    Comparisons and Logical Operators: عملگرهای مقایسه‌ای و منطقی
+    Comparisons and Logical Operators::Comparisons: عملگرهای مقایسه‌ای
+    Comparisons and Logical Operators::Combining Expressions: ترکیب عبارات
+    Coding Style and Documentation: سبک کدنویسی و مستندسازی
+    'Coding Style and Documentation::Python Style Guidelines: PEP8': 'راهنمای سبک کدنویسی پایتون: PEP8'
+    Coding Style and Documentation::Docstrings: داک‌استرینگ‌ها (docstring)
+    Exercises: تمرین‌ها
 ---
 
 (python_done_right)=

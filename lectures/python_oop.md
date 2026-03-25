@@ -7,21 +7,23 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  Overview: مرور کلی
-  OOP Review: مرور OOP
-  OOP Review::Key Concepts: مفاهیم کلیدی
-  OOP Review::Why is OOP Useful?: چرا OOP مفید است؟
-  Defining Your Own Classes: تعریف کلاس‌های خودتان
-  'Defining Your Own Classes::Example: A Consumer Class': 'مثال: کلاس مصرف‌کننده'
-  'Defining Your Own Classes::Example: A Consumer Class::Usage': استفاده
-  'Defining Your Own Classes::Example: A Consumer Class::Self': Self
-  'Defining Your Own Classes::Example: A Consumer Class::Details': جزئیات
-  'Defining Your Own Classes::Example: The Solow Growth Model': 'مثال: مدل رشد سولو'
-  'Defining Your Own Classes::Example: A Market': 'مثال: یک بازار'
-  'Defining Your Own Classes::Example: Chaos': 'مثال: آشوب'
-  Special Methods: متدهای ویژه
-  Exercises: تمرین‌ها
+translation:
+  title: 'OOP II: ساخت کلاس‌ها'
+  headings:
+    Overview: مرور کلی
+    OOP Review: مرور OOP
+    OOP Review::Key Concepts: مفاهیم کلیدی
+    OOP Review::Why is OOP Useful?: چرا OOP مفید است؟
+    Defining Your Own Classes: تعریف کلاس‌های خودتان
+    'Defining Your Own Classes::Example: A Consumer Class': 'مثال: کلاس مصرف‌کننده'
+    'Defining Your Own Classes::Example: A Consumer Class::Usage': استفاده
+    'Defining Your Own Classes::Example: A Consumer Class::Self': Self
+    'Defining Your Own Classes::Example: A Consumer Class::Details': جزئیات
+    'Defining Your Own Classes::Example: The Solow Growth Model': 'مثال: مدل رشد سولو'
+    'Defining Your Own Classes::Example: A Market': 'مثال: یک بازار'
+    'Defining Your Own Classes::Example: Chaos': 'مثال: آشوب'
+    Special Methods: متدهای ویژه
+    Exercises: تمرین‌ها
 ---
 
 (python_oop)=

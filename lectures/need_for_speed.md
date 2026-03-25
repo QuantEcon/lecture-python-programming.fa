@@ -7,36 +7,38 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  Overview: مرور کلی
-  Major Scientific Libraries: کتابخانه‌های علمی اصلی
-  Major Scientific Libraries::Why do we need them?: چرا به آنها نیاز داریم؟
-  Major Scientific Libraries::Python's Scientific Ecosystem: اکوسیستم علمی پایتون
-  Pure Python is slow: پایتون خالص کند است
-  Pure Python is slow::High vs low level code: کد سطح بالا در مقابل سطح پایین
-  Pure Python is slow::Where are the bottlenecks?: گلوگاه‌ها کجا هستند؟
-  Pure Python is slow::Where are the bottlenecks?::Dynamic typing: تایپ کردن پویا
-  Pure Python is slow::Where are the bottlenecks?::Static types: انواع ایستا
-  Pure Python is slow::Data Access: دسترسی به داده
-  Pure Python is slow::Data Access::Summing with Compiled Code: جمع کردن با کد کامپایل شده
-  Pure Python is slow::Data Access::Summing in Pure Python: جمع کردن در پایتون خالص
-  Pure Python is slow::Summary: خلاصه
-  Accelerating Python: تسریع پایتون
-  'Accelerating Python::{index}`Vectorization <single: Vectorization>`': '{index}`برداری‌سازی <single: Vectorization>`'
-  Accelerating Python::Vectorization vs for pure Python loops: برداری‌سازی در مقابل حلقه‌های پایتون خالص
-  Accelerating Python::JIT compilers: کامپایلرهای JIT
-  Parallelization: موازی‌سازی
-  Parallelization::Parallelization on CPUs: موازی‌سازی بر روی CPUها
-  Parallelization::Parallelization on CPUs::Multiprocessing: چندپردازشی
-  Parallelization::Parallelization on CPUs::Multithreading: چندرشته‌ای
-  Parallelization::Parallelization on CPUs::Advantages and Disadvantages: مزایا و معایب
-  Parallelization::Hardware Accelerators: شتاب‌دهنده‌های سخت‌افزاری
-  Parallelization::Hardware Accelerators::GPUs and TPUs: GPUها و TPUها
-  Parallelization::Hardware Accelerators::Why TPUs/GPUs Matter: چرا TPU/GPU مهم هستند
-  Parallelization::Single GPUs vs GPU Servers: GPUهای تکی در مقابل سرورهای GPU
-  Parallelization::Single GPUs vs GPU Servers::Single GPU Systems: سیستم‌های GPU تکی
-  Parallelization::Single GPUs vs GPU Servers::Multi-GPU Servers: سرورهای چند GPU
-  Parallelization::Summary: خلاصه
+translation:
+  title: پایتون برای محاسبات علمی
+  headings:
+    Overview: مرور کلی
+    Major Scientific Libraries: کتابخانه‌های علمی اصلی
+    Major Scientific Libraries::Why do we need them?: چرا به آنها نیاز داریم؟
+    Major Scientific Libraries::Python's Scientific Ecosystem: اکوسیستم علمی پایتون
+    Pure Python is slow: پایتون خالص کند است
+    Pure Python is slow::High vs low level code: کد سطح بالا در مقابل سطح پایین
+    Pure Python is slow::Where are the bottlenecks?: گلوگاه‌ها کجا هستند؟
+    Pure Python is slow::Where are the bottlenecks?::Dynamic typing: تایپ کردن پویا
+    Pure Python is slow::Where are the bottlenecks?::Static types: انواع ایستا
+    Pure Python is slow::Data Access: دسترسی به داده
+    Pure Python is slow::Data Access::Summing with Compiled Code: جمع کردن با کد کامپایل شده
+    Pure Python is slow::Data Access::Summing in Pure Python: جمع کردن در پایتون خالص
+    Pure Python is slow::Summary: خلاصه
+    Accelerating Python: تسریع پایتون
+    'Accelerating Python::{index}`Vectorization <single: Vectorization>`': '{index}`برداری‌سازی <single: Vectorization>`'
+    Accelerating Python::Vectorization vs for pure Python loops: برداری‌سازی در مقابل حلقه‌های پایتون خالص
+    Accelerating Python::JIT compilers: کامپایلرهای JIT
+    Parallelization: موازی‌سازی
+    Parallelization::Parallelization on CPUs: موازی‌سازی بر روی CPUها
+    Parallelization::Parallelization on CPUs::Multiprocessing: چندپردازشی
+    Parallelization::Parallelization on CPUs::Multithreading: چندرشته‌ای
+    Parallelization::Parallelization on CPUs::Advantages and Disadvantages: مزایا و معایب
+    Parallelization::Hardware Accelerators: شتاب‌دهنده‌های سخت‌افزاری
+    Parallelization::Hardware Accelerators::GPUs and TPUs: GPUها و TPUها
+    Parallelization::Hardware Accelerators::Why TPUs/GPUs Matter: چرا TPU/GPU مهم هستند
+    Parallelization::Single GPUs vs GPU Servers: GPUهای تکی در مقابل سرورهای GPU
+    Parallelization::Single GPUs vs GPU Servers::Single GPU Systems: سیستم‌های GPU تکی
+    Parallelization::Single GPUs vs GPU Servers::Multi-GPU Servers: سرورهای چند GPU
+    Parallelization::Summary: خلاصه
 ---
 
 (speed)=

@@ -7,38 +7,39 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  More Language Features: ویژگی‌های بیشتر زبان
-  Overview: مروری کلی
-  Iterables and iterators: Iterableها و Iteratorها
-  Iterables and iterators::Iterators: Iteratorها
-  Iterables and iterators::Iterators in for loops: Iteratorها در حلقه‌های for
-  Iterables and iterators::Iterables: Iterableها
-  Iterables and iterators::Iterators and built-ins: Iteratorها و توابع داخلی
-  '`*` and `**` operators': عملگرهای `*` و `**`
-  '`*` and `**` operators::Unpacking arguments': باز کردن آرگومان‌ها
-  '`*` and `**` operators::Arbitrary arguments': آرگومان‌های دلخواه
-  Type hints: راهنمای نوع (Type Hints)
-  Type hints::Basic syntax: نحو پایه
-  Type hints::Common types: نوع‌های رایج
-  Type hints::Hints don't enforce types: راهنماها نوع‌ها را اجبار نمی‌کنند
-  Type hints::Why use type hints?: چرا از راهنمای نوع استفاده کنیم؟
-  Type hints::Type hints in scientific Python: راهنمای نوع در پایتون علمی
-  Decorators and descriptors: Decoratorها و Descriptorها
-  Decorators and descriptors::Decorators: Decoratorها
-  Decorators and descriptors::Decorators::An example: یک مثال
-  Decorators and descriptors::Decorators::Enter decorators: decoratorها وارد می‌شوند
-  Decorators and descriptors::Descriptors: Descriptorها
-  Decorators and descriptors::Descriptors::A solution: یک راه‌حل
-  Decorators and descriptors::Descriptors::How it works: چگونه کار می‌کند
-  Decorators and descriptors::Descriptors::Decorators and properties: decoratorها و propertyها
-  Generators: Generatorها
-  Generators::Generator expressions: عبارات generator
-  Generators::Generator functions: توابع generator
-  Generators::Generator functions::Example 1: مثال 1
-  Generators::Generator functions::Example 2: مثال 2
-  Generators::Advantages of iterators: مزایای iteratorها
-  Exercises: تمرین‌ها
+translation:
+  title: ویژگی‌های بیشتر زبان
+  headings:
+    Overview: مروری کلی
+    Iterables and iterators: Iterableها و Iteratorها
+    Iterables and iterators::Iterators: Iteratorها
+    Iterables and iterators::Iterators in for loops: Iteratorها در حلقه‌های for
+    Iterables and iterators::Iterables: Iterableها
+    Iterables and iterators::Iterators and built-ins: Iteratorها و توابع داخلی
+    '`*` and `**` operators': عملگرهای `*` و `**`
+    '`*` and `**` operators::Unpacking arguments': باز کردن آرگومان‌ها
+    '`*` and `**` operators::Arbitrary arguments': آرگومان‌های دلخواه
+    Type hints: راهنمای نوع (Type Hints)
+    Type hints::Basic syntax: نحو پایه
+    Type hints::Common types: نوع‌های رایج
+    Type hints::Hints don't enforce types: راهنماها نوع‌ها را اجبار نمی‌کنند
+    Type hints::Why use type hints?: چرا از راهنمای نوع استفاده کنیم؟
+    Type hints::Type hints in scientific Python: راهنمای نوع در پایتون علمی
+    Decorators and descriptors: Decoratorها و Descriptorها
+    Decorators and descriptors::Decorators: Decoratorها
+    Decorators and descriptors::Decorators::An example: یک مثال
+    Decorators and descriptors::Decorators::Enter decorators: decoratorها وارد می‌شوند
+    Decorators and descriptors::Descriptors: Descriptorها
+    Decorators and descriptors::Descriptors::A solution: یک راه‌حل
+    Decorators and descriptors::Descriptors::How it works: چگونه کار می‌کند
+    Decorators and descriptors::Descriptors::Decorators and properties: decoratorها و propertyها
+    Generators: Generatorها
+    Generators::Generator expressions: عبارات generator
+    Generators::Generator functions: توابع generator
+    Generators::Generator functions::Example 1: مثال 1
+    Generators::Generator functions::Example 2: مثال 2
+    Generators::Advantages of iterators: مزایای iteratorها
+    Exercises: تمرین‌ها
 ---
 
 (python_advanced_features)=
