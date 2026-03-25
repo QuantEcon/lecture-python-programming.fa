@@ -8,7 +8,6 @@ kernelspec:
   language: python
   name: python3
 heading-map:
-  More Language Features: ویژگی‌های بیشتر زبان
   Overview: مروری کلی
   Iterables and iterators: Iterableها و Iteratorها
   Iterables and iterators::Iterators: Iteratorها
