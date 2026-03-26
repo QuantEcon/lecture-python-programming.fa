@@ -13,9 +13,9 @@ translation:
   title: Numba
   headings:
     Overview: مروری کلی
-    '{index}`Compiling Functions <single: Compiling Functions>`': '{index}`کامپایل توابع <single: Compiling Functions>`'
-    '{index}`Compiling Functions <single: Compiling Functions>`::An Example': یک مثال
-    '{index}`Compiling Functions <single: Compiling Functions>`::How and When it Works': چگونه و چه زمانی کار می‌کند
+    Compiling Functions: کامپایل توابع
+    Compiling Functions::An Example: یک مثال
+    Compiling Functions::How and When it Works: چگونه و چه زمانی کار می‌کند
     Decorator Notation: نماد Decorator
     Type Inference: استنتاج نوع
     Compiling Classes: کامپایل کلاس‌ها

@@ -11,21 +11,21 @@ translation:
   title: SciPy
   headings:
     Overview: مروری کلی
-    '{index}`SciPy <single: SciPy>` versus {index}`NumPy <single: NumPy>`': '{index}`SciPy <single: SciPy>` در مقابل {index}`NumPy <single: NumPy>`'
+    SciPy versus NumPy: SciPy در مقابل NumPy
     Statistics: آمار
     Statistics::Random Variables and Distributions: متغیرهای تصادفی و توزیع‌ها
     Statistics::Alternative Syntax: نحو جایگزین
     Statistics::Other Goodies in scipy.stats: چیزهای مفید دیگر در scipy.stats
     Roots and Fixed Points: ریشه‌ها و نقاط ثابت
-    'Roots and Fixed Points::{index}`Bisection <single: Bisection>`': '{index}`Bisection <single: Bisection>`'
-    'Roots and Fixed Points::The {index}`Newton-Raphson Method <single: Newton-Raphson Method>`': 'روش {index}`Newton-Raphson Method <single: Newton-Raphson Method>`'
+    Roots and Fixed Points::Bisection: Bisection
+    Roots and Fixed Points::The Newton-Raphson Method: روش Newton-Raphson Method
     Roots and Fixed Points::Hybrid Methods: روش‌های ترکیبی
     Roots and Fixed Points::Multivariate Root-Finding: یافتن ریشه چند متغیره
     Roots and Fixed Points::Fixed Points: نقاط ثابت
-    '{index}`Optimization <single: Optimization>`': '{index}`Optimization <single: Optimization>`'
-    '{index}`Optimization <single: Optimization>`::Multivariate Optimization': بهینه‌سازی چند متغیره
-    '{index}`Integration <single: Integration>`': '{index}`Integration <single: Integration>`'
-    '{index}`Linear Algebra <single: Linear Algebra>`': '{index}`Linear Algebra <single: Linear Algebra>`'
+    Optimization: Optimization
+    Optimization::Multivariate Optimization: بهینه‌سازی چند متغیره
+    Integration: Integration
+    Linear Algebra: Linear Algebra
     Exercises: تمرین‌ها
 ---
 

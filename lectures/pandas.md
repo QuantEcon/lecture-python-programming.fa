@@ -21,8 +21,8 @@ translation:
     DataFrames::Make Changes in DataFrames: ایجاد تغییرات در DataFrames
     DataFrames::Standardization and Visualization: استانداردسازی و بصری‌سازی
     On-Line Data Sources: منابع داده آنلاین
-    'On-Line Data Sources::Accessing Data with {index}`requests <single: requests>`': 'دسترسی به داده با {index}`requests <single: requests>`'
-    'On-Line Data Sources::Using {index}`wbgapi <single: wbgapi>` and {index}`yfinance <single: yfinance>` to Access Data': 'استفاده از {index}`wbgapi <single: wbgapi>` و {index}`yfinance <single: yfinance>` برای دسترسی به داده'
+    On-Line Data Sources::Accessing Data with requests: دسترسی به داده با requests
+    On-Line Data Sources::Using wbgapi and yfinance to Access Data: استفاده از wbgapi و yfinance برای دسترسی به داده
     Exercises: تمرین‌ها
 ---
 

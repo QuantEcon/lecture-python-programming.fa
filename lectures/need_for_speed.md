@@ -24,7 +24,7 @@ translation:
     Pure Python is slow::Data Access::Summing in Pure Python: جمع کردن در پایتون خالص
     Pure Python is slow::Summary: خلاصه
     Accelerating Python: تسریع پایتون
-    'Accelerating Python::{index}`Vectorization <single: Vectorization>`': '{index}`برداری‌سازی <single: Vectorization>`'
+    Accelerating Python::Vectorization: برداری‌سازی
     Accelerating Python::Vectorization vs for pure Python loops: برداری‌سازی در مقابل حلقه‌های پایتون خالص
     Accelerating Python::JIT compilers: کامپایلرهای JIT
     Parallelization: موازی‌سازی

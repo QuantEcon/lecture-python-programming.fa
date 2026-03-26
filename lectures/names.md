@@ -19,7 +19,7 @@ translation:
     Local Namespaces: فضای نام محلی(Local Namespaces)
     The `__builtins__` Namespace: فضای نام داخلی (The `__builtins__` Namespace )
     Name Resolution: Name Resolution
-    'Name Resolution::{index}`Mutable <single: Mutable>` Versus {index}`Immutable <single: Immutable>` Parameters': 'پارامترهای {index}`تغییرپذیر <single: Mutable>` در مقابل {index}`تغییرناپذیر <single: Immutable>`'
+    Name Resolution::Mutable Versus Immutable Parameters: پارامترهای تغییرپذیر در مقابل تغییرناپذیر
 ---
 
 (oop_names)=
