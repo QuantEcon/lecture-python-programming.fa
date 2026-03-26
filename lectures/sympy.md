@@ -9,25 +9,27 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-heading-map:
-  Overview: مروری کلی
-  Getting Started: شروع به کار
-  Symbolic algebra: جبر نمادین
-  Symbolic algebra::Symbols: نمادها
-  Symbolic algebra::Expressions: عبارات
-  Symbolic algebra::Equations: معادلات
-  'Symbolic algebra::Equations::Example: fixed point computation': 'مثال: محاسبه نقطه ثابت'
-  Symbolic algebra::Inequalities and logic: نامساوی‌ها و منطق
-  Symbolic algebra::Series: سری‌ها
-  'Symbolic algebra::Series::Example: bank deposits': 'مثال: سپرده‌های بانکی'
-  'Symbolic algebra::Series::Example: discrete random variable': 'مثال: متغیر تصادفی گسسته'
-  Symbolic Calculus: حساب دیفرانسیل و انتگرال نمادین
-  Symbolic Calculus::Limits: حدها
-  Symbolic Calculus::Derivatives: مشتقات
-  Symbolic Calculus::Integrals: انتگرال‌ها
-  Plotting: ترسیم نمودار
-  'Application: Two-person Exchange Economy': 'کاربرد: اقتصاد مبادله دو نفره'
-  Exercises: تمرینات
+translation:
+  title: SymPy
+  headings:
+    Overview: مروری کلی
+    Getting Started: شروع به کار
+    Symbolic algebra: جبر نمادین
+    Symbolic algebra::Symbols: نمادها
+    Symbolic algebra::Expressions: عبارات
+    Symbolic algebra::Equations: معادلات
+    'Symbolic algebra::Equations::Example: fixed point computation': 'مثال: محاسبه نقطه ثابت'
+    Symbolic algebra::Inequalities and logic: نامساوی‌ها و منطق
+    Symbolic algebra::Series: سری‌ها
+    'Symbolic algebra::Series::Example: bank deposits': 'مثال: سپرده‌های بانکی'
+    'Symbolic algebra::Series::Example: discrete random variable': 'مثال: متغیر تصادفی گسسته'
+    Symbolic Calculus: حساب دیفرانسیل و انتگرال نمادین
+    Symbolic Calculus::Limits: حدها
+    Symbolic Calculus::Derivatives: مشتقات
+    Symbolic Calculus::Integrals: انتگرال‌ها
+    Plotting: ترسیم نمودار
+    'Application: Two-person Exchange Economy': 'کاربرد: اقتصاد مبادله دو نفره'
+    Exercises: تمرینات
 ---
 
 (sympy)=

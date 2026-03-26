@@ -7,18 +7,20 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  Overview: مرور کلی
-  An Example of Poor Code: نمونه‌ای از کد ضعیف
-  Good Coding Practice: شیوه‌های کدنویسی خوب
-  Good Coding Practice::Don't Use Magic Numbers: از اعداد جادویی استفاده نکنید
-  Good Coding Practice::Don't Repeat Yourself: خودتان را تکرار نکنید
-  Good Coding Practice::Minimize Global Variables: متغیرهای سراسری را به حداقل برسانید
-  Good Coding Practice::Minimize Global Variables::JIT Compilation: کامپایل JIT
-  Good Coding Practice::Use Functions or Classes: از توابع یا کلاس‌ها استفاده کنید
-  Good Coding Practice::Use Functions or Classes::Which One, Functions or Classes?: کدام یک، توابع یا کلاس‌ها؟
-  Revisiting the Example: بازبینی مثال
-  Exercises: تمرین‌ها
+translation:
+  title: نوشتن کد خوب
+  headings:
+    Overview: مرور کلی
+    An Example of Poor Code: نمونه‌ای از کد ضعیف
+    Good Coding Practice: شیوه‌های کدنویسی خوب
+    Good Coding Practice::Don't Use Magic Numbers: از اعداد جادویی استفاده نکنید
+    Good Coding Practice::Don't Repeat Yourself: خودتان را تکرار نکنید
+    Good Coding Practice::Minimize Global Variables: متغیرهای سراسری را به حداقل برسانید
+    Good Coding Practice::Minimize Global Variables::JIT Compilation: کامپایل JIT
+    Good Coding Practice::Use Functions or Classes: از توابع یا کلاس‌ها استفاده کنید
+    Good Coding Practice::Use Functions or Classes::Which One, Functions or Classes?: کدام یک، توابع یا کلاس‌ها؟
+    Revisiting the Example: بازبینی مثال
+    Exercises: تمرین‌ها
 ---
 
 (writing_good_code)=

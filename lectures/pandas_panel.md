@@ -9,13 +9,15 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-heading-map:
-  Overview: مروری کلی
-  Slicing and Reshaping Data: برش و تغییر شکل داده‌ها
-  Merging Dataframes and Filling NaNs: ادغام Dataframe ها و پر کردن NaN ها
-  Grouping and Summarizing Data: گروه‌بندی و خلاصه کردن داده‌ها
-  Final Remarks: نکات پایانی
-  Exercises: تمرین‌ها
+translation:
+  title: Pandas برای داده‌های پانلی
+  headings:
+    Overview: مروری کلی
+    Slicing and Reshaping Data: برش و تغییر شکل داده‌ها
+    Merging Dataframes and Filling NaNs: ادغام Dataframe ها و پر کردن NaN ها
+    Grouping and Summarizing Data: گروه‌بندی و خلاصه کردن داده‌ها
+    Final Remarks: نکات پایانی
+    Exercises: تمرین‌ها
 ---
 
 ```{raw} jupyter

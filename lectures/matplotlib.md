@@ -7,21 +7,23 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  Overview: مروری کلی
-  Overview::Matplotlib's Split Personality: شخصیت دوگانه Matplotlib
-  The APIs: APIها
-  The APIs::The MATLAB-style API: API به سبک MATLAB
-  The APIs::The Object-Oriented API: API شی‌گرا
-  The APIs::Tweaks: تنظیمات ریز
-  More Features: ویژگی‌های بیشتر
-  More Features::Multiple Plots on One Axis: نمودارهای چندگانه روی یک محور
-  More Features::Multiple Subplots: زیرنمودارهای چندگانه
-  More Features::3D Plots: نمودارهای سه بعدی
-  More Features::A Customizing Function: یک تابع سفارشی‌سازی
-  More Features::Style Sheets: برگه‌های سبک
-  Further Reading: مطالعه بیشتر
-  Exercises: تمرین‌ها
+translation:
+  title: Matplotlib
+  headings:
+    Overview: مروری کلی
+    Overview::Matplotlib's Split Personality: شخصیت دوگانه Matplotlib
+    The APIs: APIها
+    The APIs::The MATLAB-style API: API به سبک MATLAB
+    The APIs::The Object-Oriented API: API شی‌گرا
+    The APIs::Tweaks: تنظیمات ریز
+    More Features: ویژگی‌های بیشتر
+    More Features::Multiple Plots on One Axis: نمودارهای چندگانه روی یک محور
+    More Features::Multiple Subplots: زیرنمودارهای چندگانه
+    More Features::3D Plots: نمودارهای سه بعدی
+    More Features::A Customizing Function: یک تابع سفارشی‌سازی
+    More Features::Style Sheets: برگه‌های سبک
+    Further Reading: مطالعه بیشتر
+    Exercises: تمرین‌ها
 ---
 
 (matplotlib)=

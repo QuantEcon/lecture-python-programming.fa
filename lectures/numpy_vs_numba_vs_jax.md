@@ -7,21 +7,23 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  Vectorized operations: عملیات برداری شده
-  Vectorized operations::Problem Statement: بیان مسئله
-  Vectorized operations::NumPy vectorization: برداری‌سازی NumPy
-  Vectorized operations::A Comparison with Numba: مقایسه با Numba
-  Vectorized operations::Parallelized Numba: Numba موازی شده
-  Vectorized operations::Vectorized code with JAX: کد برداری شده با JAX
-  Vectorized operations::JAX plus vmap: JAX به علاوه vmap
-  Vectorized operations::JAX plus vmap::Version 1: نسخه 1
-  Vectorized operations::vmap version 2: نسخه 2 vmap
-  Vectorized operations::Summary: خلاصه
-  Sequential operations: عملیات ترتیبی
-  Sequential operations::Numba Version: نسخه Numba
-  Sequential operations::JAX Version: نسخه JAX
-  Sequential operations::Summary: خلاصه
+translation:
+  title: NumPy در مقابل Numba در مقابل JAX
+  headings:
+    Vectorized operations: عملیات برداری شده
+    Vectorized operations::Problem Statement: بیان مسئله
+    Vectorized operations::NumPy vectorization: برداری‌سازی NumPy
+    Vectorized operations::A Comparison with Numba: مقایسه با Numba
+    Vectorized operations::Parallelized Numba: Numba موازی شده
+    Vectorized operations::Vectorized code with JAX: کد برداری شده با JAX
+    Vectorized operations::JAX plus vmap: JAX به علاوه vmap
+    Vectorized operations::JAX plus vmap::Version 1: نسخه 1
+    Vectorized operations::vmap version 2: نسخه 2 vmap
+    Vectorized operations::Summary: خلاصه
+    Sequential operations: عملیات ترتیبی
+    Sequential operations::Numba Version: نسخه Numba
+    Sequential operations::JAX Version: نسخه JAX
+    Sequential operations::Summary: خلاصه
 ---
 
 (parallel)=

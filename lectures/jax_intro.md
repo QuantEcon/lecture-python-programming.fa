@@ -9,34 +9,36 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-heading-map:
-  JAX as a NumPy Replacement: JAX به عنوان جایگزین NumPy
-  JAX as a NumPy Replacement::Similarities: شباهت‌ها
-  JAX as a NumPy Replacement::Differences: تفاوت‌ها
-  JAX as a NumPy Replacement::Differences::Precision: دقت
-  JAX as a NumPy Replacement::Differences::Immutability: تغییرناپذیری
-  JAX as a NumPy Replacement::Differences::A workaround: راه‌حل جایگزین
-  Functional Programming: برنامه‌نویسی تابعی
-  Functional Programming::Pure functions: توابع خالص
-  Functional Programming::Examples: مثال‌ها
-  Random numbers: اعداد تصادفی
-  Random numbers::Random number generation: تولید اعداد تصادفی
-  Random numbers::Why explicit random state?: چرا وضعیت تصادفی صریح؟
-  Random numbers::Why explicit random state?::NumPy's approach: رویکرد NumPy
-  Random numbers::Why explicit random state?::JAX's approach: رویکرد JAX
-  JIT compilation: کامپایل JIT
-  JIT compilation::A simple example: یک مثال ساده
-  JIT compilation::A simple example::With NumPy: با NumPy
-  JIT compilation::A simple example::With JAX: با JAX
-  JIT compilation::A simple example::Changing array sizes: تغییر اندازه آرایه‌ها
-  JIT compilation::Evaluating a more complicated function: ارزیابی یک تابع پیچیده‌تر
-  JIT compilation::Evaluating a more complicated function::With NumPy: با NumPy
-  JIT compilation::Evaluating a more complicated function::With JAX: با JAX
-  JIT compilation::Compiling the Whole Function: کامپایل کل تابع
-  JIT compilation::Compiling non-pure functions: کامپایل توابع غیرخالص
-  JIT compilation::Summary: خلاصه
-  Gradients: گرادیان‌ها
-  Exercises: تمرین‌ها
+translation:
+  title: JAX
+  headings:
+    JAX as a NumPy Replacement: JAX به عنوان جایگزین NumPy
+    JAX as a NumPy Replacement::Similarities: شباهت‌ها
+    JAX as a NumPy Replacement::Differences: تفاوت‌ها
+    JAX as a NumPy Replacement::Differences::Precision: دقت
+    JAX as a NumPy Replacement::Differences::Immutability: تغییرناپذیری
+    JAX as a NumPy Replacement::Differences::A workaround: راه‌حل جایگزین
+    Functional Programming: برنامه‌نویسی تابعی
+    Functional Programming::Pure functions: توابع خالص
+    Functional Programming::Examples: مثال‌ها
+    Random numbers: اعداد تصادفی
+    Random numbers::Random number generation: تولید اعداد تصادفی
+    Random numbers::Why explicit random state?: چرا وضعیت تصادفی صریح؟
+    Random numbers::Why explicit random state?::NumPy's approach: رویکرد NumPy
+    Random numbers::Why explicit random state?::JAX's approach: رویکرد JAX
+    JIT compilation: کامپایل JIT
+    JIT compilation::A simple example: یک مثال ساده
+    JIT compilation::A simple example::With NumPy: با NumPy
+    JIT compilation::A simple example::With JAX: با JAX
+    JIT compilation::A simple example::Changing array sizes: تغییر اندازه آرایه‌ها
+    JIT compilation::Evaluating a more complicated function: ارزیابی یک تابع پیچیده‌تر
+    JIT compilation::Evaluating a more complicated function::With NumPy: با NumPy
+    JIT compilation::Evaluating a more complicated function::With JAX: با JAX
+    JIT compilation::Compiling the Whole Function: کامپایل کل تابع
+    JIT compilation::Compiling non-pure functions: کامپایل توابع غیرخالص
+    JIT compilation::Summary: خلاصه
+    Gradients: گرادیان‌ها
+    Exercises: تمرین‌ها
 ---
 
 # JAX
