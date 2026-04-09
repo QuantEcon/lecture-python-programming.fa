@@ -1200,7 +1200,7 @@ sum(draws)
 :label: paf_ex1
 ```
 
-کد زیر را کامل کنید و آن را با استفاده از [این فایل csv](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv) تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید
+کد زیر را کامل کنید و آن را با استفاده از [این فایل csv](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/python_advanced_features/test_table.csv) تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید
 
 ```{code-block} python3
 :class: no-execute
