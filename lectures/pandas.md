@@ -174,7 +174,7 @@ s
 ما این را از یک URL با استفاده از تابع `read_csv` در `pandas` خواهیم خواند.
 
 ```{code-cell} ipython3
-df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/pandas/data/test_pwt.csv')
 type(df)
 ```
 
