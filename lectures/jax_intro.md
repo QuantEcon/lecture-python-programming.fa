@@ -15,9 +15,9 @@ translation:
     JAX as a NumPy Replacement: JAX به عنوان جایگزین NumPy
     JAX as a NumPy Replacement::Similarities: شباهت‌ها
     JAX as a NumPy Replacement::Differences: تفاوت‌ها
-    JAX as a NumPy Replacement::Differences::Precision: دقت
-    JAX as a NumPy Replacement::Differences::Immutability: تغییرناپذیری
-    JAX as a NumPy Replacement::Differences::A workaround: راه‌حل جایگزین
+    JAX as a NumPy Replacement::Differences::Speed!: دقت
+    JAX as a NumPy Replacement::Differences::Precision: تغییرناپذیری
+    JAX as a NumPy Replacement::Differences::Immutability: راه‌حل جایگزین
     Functional Programming: برنامه‌نویسی تابعی
     Functional Programming::Pure functions: توابع خالص
     Functional Programming::Examples: مثال‌ها
@@ -26,18 +26,12 @@ translation:
     Random numbers::Why explicit random state?: چرا وضعیت تصادفی صریح؟
     Random numbers::Why explicit random state?::NumPy's approach: رویکرد NumPy
     Random numbers::Why explicit random state?::JAX's approach: رویکرد JAX
-    JIT compilation: کامپایل JIT
-    JIT compilation::A simple example: یک مثال ساده
-    JIT compilation::A simple example::With NumPy: با NumPy
-    JIT compilation::A simple example::With JAX: با JAX
-    JIT compilation::A simple example::Changing array sizes: تغییر اندازه آرایه‌ها
-    JIT compilation::Evaluating a more complicated function: ارزیابی یک تابع پیچیده‌تر
-    JIT compilation::Evaluating a more complicated function::With NumPy: با NumPy
-    JIT compilation::Evaluating a more complicated function::With JAX: با JAX
-    JIT compilation::How JIT compilation works: نحوه کار کامپایل JIT
-    JIT compilation::Compiling the whole function: کامپایل کل تابع
-    JIT compilation::Compiling non-pure functions: کامپایل توابع غیرخالص
-    JIT compilation::Summary: خلاصه
+    JIT Compilation: کامپایل JIT
+    JIT Compilation::With NumPy: با NumPy
+    JIT Compilation::With JAX: با JAX
+    JIT Compilation::Compiling the Whole Function: کامپایل کل تابع
+    JIT Compilation::How JIT compilation works: نحوه کار کامپایل JIT
+    JIT Compilation::Compiling non-pure functions: کامپایل توابع غیرخالص
     Vectorization with `vmap`: برداری‌سازی با `vmap`
     Vectorization with `vmap`::A simple example: یک مثال ساده
     Vectorization with `vmap`::Combining transformations: ترکیب تبدیل‌ها
@@ -541,111 +535,9 @@ random_sum_jax(key)
 
 کامپایلر just-in-time (JIT) JAX اجرا را با تولید کد ماشین کارآمد که با هم اندازه وظیفه و هم سخت‌افزار متفاوت است، تسریع می‌کند.
 
-### یک مثال ساده
+قدرت کامپایلر JIT JAX در ترکیب با سخت‌افزار موازی را {ref}`بالاتر <jax_speed>` دیدیم، هنگامی که `cos` را روی یک آرایه بزرگ اعمال کردیم.
 
-فرض کنید می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.
-
-```{code-cell}
-n = 50_000_000
-x = np.linspace(0, 10, n)
-```
-
-#### با NumPy
-
-بیایید ابتدا با NumPy امتحان کنیم
-
-```{code-cell}
-with qe.Timer():
-    y = np.cos(x)
-```
-
-و یک بار دیگر.
-
-```{code-cell}
-with qe.Timer():
-    y = np.cos(x)
-```
-
-در اینجا NumPy از یک فایل باینری از پیش ساخته شده، کامپایل شده از کد سطح پایین نوشته شده با دقت، برای اعمال کسینوس به یک آرایه از اعداد اعشاری استفاده می‌کند.
-
-این فایل باینری با NumPy ارسال می‌شود.
-
-#### با JAX
-
-اکنون بیایید با JAX امتحان کنیم.
-
-```{code-cell}
-x = jnp.linspace(0, 10, n)
-```
-
-بیایید همان روش را زمان‌بندی کنیم.
-
-```{code-cell}
-with qe.Timer():
-    y = jnp.cos(x)
-    jax.block_until_ready(y);
-```
-
-```{note}
-در اینجا، به منظور اندازه‌گیری سرعت واقعی، از متد `block_until_ready` استفاده می‌کنیم تا مفسر را تا زمانی که نتایج محاسبات برگردانده شوند، نگه دارد.
-
-این امر ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که به مفسر Python اجازه می‌دهد از محاسبات عددی جلوتر برود.
-
-برای کدهای زمان‌بندی نشده، می‌توانید خط حاوی `block_until_ready` را حذف کنید.
-```
-
-
-و بیایید دوباره آن را زمان‌بندی کنیم.
-
-
-```{code-cell}
-with qe.Timer():
-    y = jnp.cos(x)
-    jax.block_until_ready(y);
-```
-
-روی GPU، این کد بسیار سریع‌تر از معادل NumPy آن اجرا می‌شود.
-
-همچنین، معمولاً، اجرای دوم سریع‌تر از اولین اجرا به دلیل کامپایل JIT است.
-
-این به این دلیل است که حتی توابع داخلی مانند `jnp.cos` نیز JIT-کامپایل می‌شوند --- و اجرای اول شامل زمان کامپایل است.
-
-چرا JAX می‌خواهد توابع داخلی مانند `jnp.cos` را به جای ارائه نسخه‌های از پیش کامپایل شده، مانند NumPy، JIT-کامپایل کند؟
-
-دلیل این است که کامپایلر JIT می‌خواهد روی *اندازه* آرایه در حال استفاده (و همچنین نوع داده) تخصصی شود.
-
-اندازه برای تولید کد بهینه شده اهمیت دارد زیرا موازی‌سازی کارآمد نیاز به تطبیق اندازه وظیفه با سخت‌افزار موجود دارد.
-
-به همین دلیل است که JAX منتظر می‌ماند تا اندازه آرایه را قبل از کامپایل ببیند --- که نیاز به یک رویکرد JIT-کامپایل شده به جای ارائه باینری‌های از پیش کامپایل شده دارد.
-
-#### تغییر اندازه آرایه‌ها
-
-در اینجا اندازه ورودی را تغییر می‌دهیم و زمان‌های اجرا را مشاهده می‌کنیم.
-
-```{code-cell}
-x = jnp.linspace(0, 10, n + 1)
-```
-
-```{code-cell}
-with qe.Timer():
-    y = jnp.cos(x)
-    jax.block_until_ready(y);
-```
-
-
-```{code-cell}
-with qe.Timer():
-    y = jnp.cos(x)
-    jax.block_until_ready(y);
-```
-
-معمولاً، زمان اجرا افزایش می‌یابد و سپس دوباره کاهش می‌یابد (این روی GPU واضح‌تر خواهد بود).
-
-این به این دلیل است که کامپایلر JIT روی اندازه آرایه تخصصی می‌شود تا موازی‌سازی را بهره‌برداری کند --- و از این رو کد کامپایل شده جدیدی را هنگام تغییر اندازه آرایه تولید می‌کند.
-
-### ارزیابی یک تابع پیچیده‌تر
-
-بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم.
+بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم:
 
 ```{code-cell}
 def f(x):
@@ -653,7 +545,7 @@ def f(x):
     return y
 ```
 
-#### با NumPy
+### با NumPy
 
 ابتدا با NumPy امتحان خواهیم کرد
 
@@ -664,10 +556,11 @@ x = np.linspace(0, 10, n)
 
 ```{code-cell}
 with qe.Timer():
+    # Time NumPy code
     y = f(x)
 ```
 
-#### با JAX
+### با JAX
 
 اکنون بیایید دوباره با JAX امتحان کنیم.
 
@@ -677,86 +570,36 @@ with qe.Timer():
 def f(x):
     y = jnp.cos(2 * x**2) + jnp.sqrt(jnp.abs(x)) + 2 * jnp.sin(x**4) - x**2
     return y
+
+
+x = jnp.linspace(0, 10, n)
 ```
 
 اکنون بیایید آن را زمان‌بندی کنیم.
 
 ```{code-cell}
-x = jnp.linspace(0, 10, n)
-```
-
-```{code-cell}
 with qe.Timer():
+    # First call
     y = f(x)
+    # Hold interpreter
     jax.block_until_ready(y);
 ```
 
 ```{code-cell}
 with qe.Timer():
+    # Second call
     y = f(x)
+    # Hold interpreter
     jax.block_until_ready(y);
 ```
 
 نتیجه مشابه مثال `cos` است --- JAX سریع‌تر است، به ویژه در اجرای دوم پس از کامپایل JIT.
 
-علاوه بر این، با JAX، ترفند دیگری در آستین داریم --- می‌توانیم *کل* تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.
-
-### نحوه کار کامپایل JIT
-
-هنگامی که `jax.jit` را به یک تابع اعمال می‌کنیم، JAX آن را *ردیابی* می‌کند: به جای اجرای فوری عملیات‌ها، دنباله عملیات‌ها را به صورت یک گراف محاسباتی ثبت می‌کند و آن گراف را به کامپایلر [XLA](https://openxla.org/xla) تحویل می‌دهد.
-
-سپس XLA عملیات‌ها را در یک هسته کامپایل شده واحد بهینه‌سازی و ادغام می‌کند که متناسب با سخت‌افزار موجود (CPU، GPU، یا TPU) طراحی شده است.
-
-نمودار زیر این خط لوله را برای یک تابع ساده نشان می‌دهد:
-
-```{code-cell} ipython3
-:tags: [hide-input]
-
-fig, ax = plt.subplots(figsize=(7, 2))
-ax.set_xlim(-0.2, 7.2)
-ax.set_ylim(0.2, 2.2)
-ax.axis('off')
-
-# Boxes for pipeline stages
-stages = [
-    (0.7, 1.2, "Python\nfunction"),
-    (2.6, 1.2, "computational\ngraph"),
-    (4.5, 1.2, "optimized\nkernel"),
-    (6.4, 1.2, "fast\nexecution"),
-]
-
-colors = ["#e3f2fd", "#fff9c4", "#f3e5f5", "#d4edda"]
-
-for (x, y, label), color in zip(stages, colors):
-    box = mpatches.FancyBboxPatch(
-        (x - 0.7, y - 0.5), 1.4, 1.0,
-        boxstyle="round,pad=0.15",
-        facecolor=color, edgecolor="black", linewidth=1.5)
-    ax.add_patch(box)
-    ax.text(x, y, label, ha='center', va='center', fontsize=9)
-
-# Arrows with labels
-arrows = [
-    (1.4, 1.9, "trace"),
-    (3.3, 3.8, "XLA"),
-    (5.2, 5.7, "run"),
-]
-
-for x_start, x_end, label in arrows:
-    ax.annotate("", xy=(x_end, 1.2), xytext=(x_start, 1.2),
-                arrowprops=dict(arrowstyle="->", lw=1.5, color="gray"))
-    ax.text((x_start + x_end) / 2, 1.55, label,
-            ha='center', fontsize=8, color='gray')
-
-plt.tight_layout()
-plt.show()
-```
-
-اولین فراخوانی به یک تابع JIT-کامپایل شده سربار کامپایل دارد، اما فراخوانی‌های بعدی با همان شکل‌ها و نوع‌های ورودی از کد کامپایل شده کش‌شده استفاده می‌کنند و با سرعت کامل اجرا می‌شوند.
+علاوه بر این، با JAX، ترفند دیگری در آستین داریم --- می‌توانیم کل تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.
 
 ### کامپایل کل تابع
 
-کامپایلر just-in-time (JIT) JAX می‌تواند اجرا را در درون توابع با ادغام عملیات جبر خطی در یک هسته بهینه شده واحد تسریع کند.
+کامپایلر just-in-time (JIT) JAX می‌تواند اجرا را در درون توابع با ادغام عملیات آرایه‌ای در یک هسته بهینه شده واحد تسریع کند.
 
 بیایید این را با تابع `f` امتحان کنیم:
 
@@ -766,20 +609,23 @@ f_jax = jax.jit(f)
 
 ```{code-cell}
 with qe.Timer():
+    # First run
     y = f_jax(x)
+    # Hold interpreter
     jax.block_until_ready(y);
 ```
 
 ```{code-cell}
 with qe.Timer():
+    # Second run
     y = f_jax(x)
+    # Hold interpreter
     jax.block_until_ready(y);
 ```
 
 زمان اجرا دوباره بهبود یافته است --- اکنون به این دلیل که تمام عملیات را ادغام کردیم و به کامپایلر اجازه دادیم به طور تهاجمی‌تری بهینه‌سازی کند.
 
 برای مثال، کامپایلر می‌تواند چندین فراخوانی به شتاب‌دهنده سخت‌افزاری و ایجاد تعدادی آرایه میانی را حذف کند.
-
 
 اتفاقاً، نحو رایج‌تر هنگام هدف قرار دادن یک تابع برای کامپایلر JIT این است
 
@@ -788,6 +634,14 @@ with qe.Timer():
 def f(x):
     pass # put function body here
 ```
+
+### نحوه کار کامپایل JIT
+
+هنگامی که `jax.jit` را به یک تابع اعمال می‌کنیم، JAX آن را *ردیابی* می‌کند: به جای اجرای فوری عملیات‌ها، دنباله عملیات‌ها را به صورت یک گراف محاسباتی ثبت می‌کند و آن گراف را به کامپایلر [XLA](https://openxla.org/xla) تحویل می‌دهد.
+
+سپس XLA عملیات‌ها را در یک هسته کامپایل شده واحد بهینه‌سازی و ادغام می‌کند که متناسب با سخت‌افزار موجود (CPU، GPU، یا TPU) طراحی شده است.
+
+اولین فراخوانی به یک تابع JIT-کامپایل شده سربار کامپایل دارد، اما فراخوانی‌های بعدی با همان شکل‌ها و نوع‌های ورودی از کد کامپایل شده کش‌شده استفاده می‌کنند و با سرعت کامل اجرا می‌شوند.
 
 ### کامپایل توابع غیرخالص
 
@@ -836,22 +690,6 @@ f(x)
 ```
 
 درس اخلاقی داستان: هنگام استفاده از JAX، توابع خالص بنویسید!
-
-### خلاصه
-
-اکنون می‌توانیم ببینیم که چرا هم توسعه‌دهندگان و هم کامپایلرها از توابع خالص بهره می‌برند.
-
-ما توابع خالص را دوست داریم زیرا آنها
-
-* به تست کمک می‌کنند: هر تابع می‌تواند به صورت جداگانه عمل کند
-* رفتار قطعی و از این رو تکرارپذیری را ترویج می‌کنند
-* از باگ‌هایی که از تغییر وضعیت مشترک ناشی می‌شوند، جلوگیری می‌کنند
-
-کامپایلر توابع خالص و برنامه‌نویسی تابعی را دوست دارد زیرا
-
-* وابستگی‌های داده صریح هستند، که به بهینه‌سازی محاسبات پیچیده کمک می‌کند
-* توابع خالص راحت‌تر قابل تمایز هستند (autodiff)
-* توابع خالص راحت‌تر موازی‌سازی و بهینه‌سازی می‌شوند (به وضعیت قابل تغییر مشترک وابسته نیستند)
 
 ## برداری‌سازی با `vmap`
 
