@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -155,6 +155,9 @@
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
+
+
+
   </head>
 <body dir="rtl">
 
@@ -203,7 +206,7 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1. مقدمه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-0">3.1. مقدمه</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2. هدف:رسم یک فرآیند نویز سفید</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.3. روش اول</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">3.3.1. Imports</a><ul class="nav section-nav flex-column">
@@ -281,7 +284,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -292,11 +295,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -311,10 +314,10 @@
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="python-by-example">
-<span id="id1"></span><h1><span class="section-number">3. </span>یک مثال مقدماتی<a class="headerlink" href="#python-by-example" title="Link to this heading">#</a></h1>
-<section id="id2">
-<h2><span class="section-number">3.1. </span>مقدمه<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">3. </span>یک مثال مقدماتی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="index-0">
+<span id="id2"></span><h2><span class="section-number">3.1. </span>مقدمه<a class="headerlink" href="#index-0" title="Link to this heading">#</a></h2>
 <p>حال ما آماده ایم تا یادگیری زبان برنامه نویسی پایتون را آغاز کنیم.</p>
 <p>در این بخش، ابتدا چند کد کوتاه پایتون می نویسیم و سپس آنها را بررسی و تحلیل می کنیم.</p>
 <p>هدف این درس، آشنایی شما با نحو(syntax) پایه ای پایتون و ساختارهای داده ای آن است و با مباحث پیچیده تر در جلسات بعد آشنا خواهیم شد.</p>
@@ -324,7 +327,7 @@
 <h2><span class="section-number">3.2. </span>هدف:رسم یک فرآیند نویز سفید<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>فرض کنید می‌خواهیم فرآیند نویز سفید <span class="math notranslate nohighlight">\(\epsilon_0, \epsilon_1, \ldots, \epsilon_T\)</span> را شبیه‌سازی و رسم کنیم، که در آن هر نقطه <span class="math notranslate nohighlight">\(\epsilon_t\)</span> مستقل و نرمال استاندارد است.</p>
 <p>به بیان دیگر، می خواهیم نمودارهایی همانند نمودار زیر تولید کنیم:</p>
-<figure class="auto align-default" id="pbe-white-noise">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/test_program_1_updated.png"><img alt="_images/test_program_1_updated.png" src="_images/test_program_1_updated.png" style="width: 444.0px; height: 297.59999999999997px;" />
 </a>
 </figure>
@@ -346,7 +349,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/db95d178308c33880b11388e0647912eb86f83fed7a2ab81920557c27b50d92d.png" src="_images/db95d178308c33880b11388e0647912eb86f83fed7a2ab81920557c27b50d92d.png" />
+<img alt="_images/29cb0cb3dd33be2bf580f9177b698a399e6deaf09cdc1f9182495f30f1e2f8b6.png" src="_images/29cb0cb3dd33be2bf580f9177b698a399e6deaf09cdc1f9182495f30f1e2f8b6.png" />
 </div>
 </div>
 <p>بیایید این برنامه را تجزیه و تحلیل کنیم و ببینیم چگونه کار میکند.</p>
@@ -394,7 +397,7 @@
 </section>
 <section id="packages">
 <h4><span class="section-number">3.3.1.2. </span>پکیج ها(Packages)<a class="headerlink" href="#packages" title="Link to this heading">#</a></h4>
-<p>همانطور که پیشتر گفته شد، NumPy یک پکیج پایتونی است.</p>
+<p id="index-1">همانطور که پیشتر گفته شد، NumPy یک پکیج پایتونی است.</p>
 <p>پکیج ها ابزاری هستند که توسعه دهندگان برای سازمان دهی کدی که می خواهند به اشتراک بگذارند از آن ها استفاده می کنند.</p>
 <p>در واقع، یک <strong>پکیج</strong> چیزی نیست جز یک پوشه (دایرکتوری) که شامل موارد زیر است:</p>
 <ol class="arabic simple">
@@ -411,7 +414,7 @@
 </section>
 <section id="subpackages">
 <h4><span class="section-number">3.3.1.3. </span>زیرپکیج ها (Subpackages)<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h4>
-<p>به خط حاوی <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">np.random.randn(100)</span></code> در کد توجه کنید.</p>
+<p id="index-2">به خط حاوی <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">np.random.randn(100)</span></code> در کد توجه کنید.</p>
 <p>در این دستور، <code class="docutils literal notranslate"><span class="pre">np</span></code> به پکیج NumPY اشاره دارد، و <code class="docutils literal notranslate"><span class="pre">random</span></code> یک زیرپکیج از NumPY است.</p>
 <p>زیرپکیج ها در واقع همان پکیج هایی هستند که به صورت زیرپوشه(ساب دایرکتوری) درون یک پکیج دیگر قرار دارند.</p>
 <p>برای مثال اگر به ساختار پکیج NumPY نگاه کنید، می توانید پوشه ای به نام <code class="docutils literal notranslate"><span class="pre">random</span></code> را درون آن پیدا کنید.</p>
@@ -466,7 +469,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/355f293a3e3b5597f8329e179eb29db7232ba0856a83ad9483e04fc788c47dd1.png" src="_images/355f293a3e3b5597f8329e179eb29db7232ba0856a83ad9483e04fc788c47dd1.png" />
+<img alt="_images/92f2774e9263b5ef4d65324cc59741617a03dc2abbd234b21ac94a55ff1b6a67.png" src="_images/92f2774e9263b5ef4d65324cc59741617a03dc2abbd234b21ac94a55ff1b6a67.png" />
 </div>
 </div>
 <p>خط اول 100 عدد نرمال استاندارد (تقریبا) مستقل تولید می کند و آن ها را در متغیر <code class="docutils literal notranslate"><span class="pre">ϵ_values</span></code> ذخیره می کند.</p>
@@ -476,12 +479,12 @@
 </section>
 <section id="id8">
 <h2><span class="section-number">3.4. </span>روش های دیگر پیاده سازی برنامه<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<p>بیایید چندتا نسخه ی جایگزین برای اولین برنامه مان بنویسیم؛ برنامه ای که مقادیر تصادفی مستقل و با توزیع یکسان (IID) از توزیع نرمال استاندارد را رسم می کرد.</p>
+<p>بیایید چندتا نسخه ی جایگزین برای <a class="reference internal" href="#ourfirstprog"><span class="std std-ref">اولین برنامه مان</span></a> بنویسیم؛ برنامه ای که مقادیر تصادفی مستقل و با توزیع یکسان (IID) از توزیع نرمال استاندارد را رسم می کرد.</p>
 <p>برنامه هایی که در ادامه می بینید، نسبت به نسخه اصلی کارایی کمتری دارند و از این نظر کمی غیرطبیعی هستند. اما آنها به ما کمک می کنند تا برخی از سینتکس ها و معانی مهم پایتون را در یک محیط آشنا نشان دهیم.</p>
 <section id="for">
 <h3><span class="section-number">3.4.1. </span>یک نسخه با حلقه تکرار For<a class="headerlink" href="#for" title="Link to this heading">#</a></h3>
-<p id="firstloopprog">این نسخه حلقه های <code class="docutils literal notranslate"><span class="pre">For</span></code> و لیست های پایتون را نشان می دهد.</p>
-<div class="cell docutils container">
+<p>در اینجا نسخه ای آمده که حلقه های <code class="docutils literal notranslate"><span class="pre">for</span></code> و لیست های پایتون را نشان می دهد.</p>
+<div class="cell docutils container" id="firstloopprog">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_length</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># empty list</span>
@@ -496,7 +499,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/34fe493271df88f1759c1ca17efe3f601305d085f87985b72a8632e25ae5828a.png" src="_images/34fe493271df88f1759c1ca17efe3f601305d085f87985b72a8632e25ae5828a.png" />
+<img alt="_images/439f3c4072323552e4fd6367c5030e573397bcc3a898e8749bcb7c1ff779ea7d.png" src="_images/439f3c4072323552e4fd6367c5030e573397bcc3a898e8749bcb7c1ff779ea7d.png" />
 </div>
 </div>
 <p>به طور خلاصه:</p>
@@ -511,7 +514,7 @@
 </section>
 <section id="lists-ref">
 <span id="id9"></span><h3><span class="section-number">3.4.2. </span>لیست ها<a class="headerlink" href="#lists-ref" title="Link to this heading">#</a></h3>
-<p>دستور <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">[]</span></code> را در نظر بگیرید، این دستور یک لیست خالی ایجاد می کند.</p>
+<p id="index-3">دستور <code class="docutils literal notranslate"><span class="pre">ϵ_values</span> <span class="pre">=</span> <span class="pre">[]</span></code> را در نظر بگیرید، این دستور یک لیست خالی ایجاد می کند.</p>
 <p>لیست ها یک ساختار داده داخلی در پایتون هستند که برای گروه بندی مجموعه ای از اشیا استفاده می شوند.</p>
 <p>همچنین لیست ها ترتیب عناصر را حفظ می کنند و اجازه وجود داده های تکراری را نیز می دهند.</p>
 <p>برای مثال، این کد را امتحان کنید:</p>
@@ -626,7 +629,7 @@
 </section>
 <section id="id10">
 <h3><span class="section-number">3.4.3. </span>حلقه For<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<p>حالا بیایید حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> از برنامه ای که قبلا نوشتیم را دوباره بررسی کنیم:</p>
+<p id="index-4">حالا بیایید حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> از <a class="reference internal" href="#firstloopprog"><span class="std std-ref">برنامه ای که قبلا نوشتیم</span></a> را دوباره بررسی کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ts_length</span><span class="p">):</span>
@@ -669,7 +672,7 @@ The plural of bird is birds
 </section>
 <section id="indentation">
 <h3><span class="section-number">3.4.4. </span>یادداشتی درباره تورفتگی (Indentation)<a class="headerlink" href="#indentation" title="Link to this heading">#</a></h3>
-<p>در بحث درباره حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> توضیح دادیم که بلوک های کدی که در حلقه تکرار می شوند با تورفتگی (indentation) مشخص می شوند.</p>
+<p id="index-5">در بحث درباره حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> توضیح دادیم که بلوک های کدی که در حلقه تکرار می شوند با تورفتگی (indentation) مشخص می شوند.</p>
 <p>در واقع در پایتون، <strong>همه</strong> بلوک های کد (شامل آن هایی که درون حلقه ها، شروط if، تعریف توابع و موارد مشابه قرار دارند) با تورفتگی از یکدیگر متمایز می شوند.</p>
 <p>برخلاف اکثر زبان های برنامه نویسی دیگر، فاصله های سفید (whitespace) در کد پایتون مستقیما بر خروجی برنامه تاثیر می گذارند.</p>
 <p>یکبار که از آن اساده کنید، مزایای کار با آن برایتان آشکار می شود؛ زیرا این قابلیت:</p>
@@ -684,6 +687,7 @@ The plural of bird is birds
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(10):</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y:</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">100:</span></code></p></li>
+<li><p>و غیره.</p></li>
 </ul>
 </li>
 <li><p>همه ی خطوط داخل یک بلوک کد باید مقدار یکسانی تورفتگی داشته باشند.</p></li>
@@ -691,10 +695,10 @@ The plural of bird is birds
 </ul>
 </section>
 <section id="while">
-<span id="whileloopprog"></span><h3><span class="section-number">3.4.5. </span>حلقه های While<a class="headerlink" href="#while" title="Link to this heading">#</a></h3>
-<p>حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> رایج ترین تکنیک برای تکرار در پایتون است.</p>
-<p>اما برای توضیح بهتر، اجازه دهید برنامه ای را که قبلا نوشتیم، تغییر دهیم و از یک حلقه <code class="docutils literal notranslate"><span class="pre">while</span></code> به جای آن استقاده کنیم.</p>
-<div class="cell docutils container">
+<h3><span class="section-number">3.4.5. </span>حلقه های While<a class="headerlink" href="#while" title="Link to this heading">#</a></h3>
+<p id="index-6">حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> رایج ترین تکنیک برای تکرار در پایتون است.</p>
+<p>اما برای توضیح بهتر، اجازه دهید <a class="reference internal" href="#firstloopprog"><span class="std std-ref">برنامه ای را که قبلا نوشتیم</span></a> تغییر دهیم و از یک حلقه <code class="docutils literal notranslate"><span class="pre">while</span></code> به جای آن استقاده کنیم.</p>
+<div class="cell docutils container" id="whileloopprog">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_length</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
@@ -709,7 +713,7 @@ The plural of bird is birds
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dd512916b0a80c009f334e84c78230028295bb965474f927aedc4ba08c069256.png" src="_images/dd512916b0a80c009f334e84c78230028295bb965474f927aedc4ba08c069256.png" />
+<img alt="_images/25991df35725042f56430818878f9b4db4733d75b173f7d1bbe5fca5394793f0.png" src="_images/25991df35725042f56430818878f9b4db4733d75b173f7d1bbe5fca5394793f0.png" />
 </div>
 </div>
 <p>حلقه while به اجرای بلوک کد (که با تورفتگی مشخص شده است)ادامه می دهد تا زمانی که شرط (<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">ts_length</span></code>) برقرار باشد.</p>
@@ -817,7 +821,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e19919aa64e3250a71519439a2ace4c80dfc63ade38a47e6676863e4dbc75885.png" src="_images/e19919aa64e3250a71519439a2ace4c80dfc63ade38a47e6676863e4dbc75885.png" />
+<img alt="_images/fbbf209c789fbc9bfb7146b968f495de5752a5ee0246bc3639a525351eef38a8.png" src="_images/fbbf209c789fbc9bfb7146b968f495de5752a5ee0246bc3639a525351eef38a8.png" />
 </div>
 </div>
 </section>
@@ -860,7 +864,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9a25b4227f503c8f8757ccad7c95aacd529376129876ea70ec211e2c7f59f53e.png" src="_images/9a25b4227f503c8f8757ccad7c95aacd529376129876ea70ec211e2c7f59f53e.png" />
+<img alt="_images/fc3123a07c30ca8cacbfd5fbc728aff2672232e73099f682e92d7a0d212ab602.png" src="_images/fc3123a07c30ca8cacbfd5fbc728aff2672232e73099f682e92d7a0d212ab602.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -907,7 +911,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/27aeb60fb7e6ea143991078324ab55b819cd662c0bab65f9a557adc4325a7f2b.png" src="_images/27aeb60fb7e6ea143991078324ab55b819cd662c0bab65f9a557adc4325a7f2b.png" />
+<img alt="_images/eedba5ad47e16d869b33c26bcb6c1ec1f7ab0ace87e870c2d2ac99f5065c122c.png" src="_images/eedba5ad47e16d869b33c26bcb6c1ec1f7ab0ace87e870c2d2ac99f5065c122c.png" />
 </div>
 </div>
 </section>
@@ -974,7 +978,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2da1e758d1c2e672dafeae9147211d16b2c39ae909a1d698b8acc51f96192377.png" src="_images/2da1e758d1c2e672dafeae9147211d16b2c39ae909a1d698b8acc51f96192377.png" />
+<img alt="_images/2196b91fd0430fd4da7be6fc409894a51d5c81f9eb6fb7bba331ec36df904171.png" src="_images/2196b91fd0430fd4da7be6fc409894a51d5c81f9eb6fb7bba331ec36df904171.png" />
 </div>
 </div>
 <p>در اینجا نیز روش کوتاه تری برای نوشتن همان برنامه وجود دارد:</p>
@@ -995,7 +999,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e36089bb08162a5e1d611d699c498f1f5c63757e32ca5134012981c26fe7ebc.png" src="_images/6e36089bb08162a5e1d611d699c498f1f5c63757e32ca5134012981c26fe7ebc.png" />
+<img alt="_images/6642b5532f5910e79d0b0f5a688359113977d55cf709c8ea16dcb2fb801e2090.png" src="_images/6642b5532f5910e79d0b0f5a688359113977d55cf709c8ea16dcb2fb801e2090.png" />
 </div>
 </div>
 </section>
@@ -1062,7 +1066,7 @@ x_0 = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.140304
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.144416
 </pre></div>
 </div>
 </div>
@@ -1218,6 +1222,11 @@ x_0 = 0
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1227,12 +1236,12 @@ x_0 = 0
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -1244,27 +1253,27 @@ x_0 = 0
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -1276,12 +1285,12 @@ x_0 = 0
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1324,6 +1333,8 @@ x_0 = 0
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/python_by_example.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

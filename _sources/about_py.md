@@ -7,6 +7,25 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+translation:
+  title: درباره ی این دوره
+  headings:
+    Overview: مقدمه
+    Overview::Can't I Just Use LLMs?: آیا نمیتوانم فقط از مدل های زبانی بزرگ (LLM) استفاده کنم؟
+    Overview::Isn't MATLAB Better?: آیا Matlab بهتر نیست؟
+    Introducing Python: برنامه نویسی پایتون چیست؟
+    Introducing Python::Common Uses: کاربردهای رایج پایتون
+    Introducing Python::Relative Popularity: جایگاه محبوبیت
+    Introducing Python::Features: ویژگی ها
+    Introducing Python::Syntax and Design: نحو و طراحی
+    Introducing Python::The AI Connection: ارتباط با هوش مصنوعی
+    Scientific Programming with Python: برنامه نویسی علمی با پایتون
+    Scientific Programming with Python::NumPy: NumPy
+    Scientific Programming with Python::NumPy Alternatives: جایگزین های NumPy
+    Scientific Programming with Python::SciPy: SciPy
+    Scientific Programming with Python::Graphics: گرافیک
+    Scientific Programming with Python::Networks and Graphs: شبکه ها و نمودارها
+    Scientific Programming with Python::Other Scientific Libraries: سایرکتابخانه های علمی
 ---
 
 #  درباره ی این دوره

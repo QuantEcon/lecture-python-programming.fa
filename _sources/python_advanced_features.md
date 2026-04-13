@@ -7,31 +7,39 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  overview: مروری کلی
-  iterables-and-iterators: Iterableها و Iteratorها
-  iterators: Iteratorها
-  iterators-in-for-loops: Iteratorها در حلقه‌های For
-  iterables: Iterableها
-  iterators-and-built-ins: Iteratorها و توابع داخلی
-  '-and-operators': عملگرهای `*` و `**`
-  unpacking-arguments: باز کردن آرگومان‌ها
-  arbitrary-arguments: آرگومان‌های دلخواه
-  decorators-and-descriptors: Decoratorها و Descriptorها
-  decorators: Decoratorها
-  an-example: یک مثال
-  enter-decorators: Decoratorها وارد می‌شوند
-  descriptors: Descriptorها
-  a-solution: یک راه‌حل
-  how-it-works: چگونه کار می‌کند
-  decorators-and-properties: Decoratorها و Propertyها
-  generators: Generatorها
-  generator-expressions: عبارات Generator
-  generator-functions: توابع Generator
-  example-1: مثال 1
-  example-2: مثال 2
-  advantages-of-iterators: مزایای Iteratorها
-  exercises: تمرین‌ها
+translation:
+  title: ویژگی‌های بیشتر زبان
+  headings:
+    Overview: مروری کلی
+    Iterables and iterators: Iterableها و Iteratorها
+    Iterables and iterators::Iterators: Iteratorها
+    Iterables and iterators::Iterators in for loops: Iteratorها در حلقه‌های for
+    Iterables and iterators::Iterables: Iterableها
+    Iterables and iterators::Iterators and built-ins: Iteratorها و توابع داخلی
+    '`*` and `**` operators': عملگرهای `*` و `**`
+    '`*` and `**` operators::Unpacking arguments': باز کردن آرگومان‌ها
+    '`*` and `**` operators::Arbitrary arguments': آرگومان‌های دلخواه
+    Type hints: راهنمای نوع (Type Hints)
+    Type hints::Basic syntax: نحو پایه
+    Type hints::Common types: نوع‌های رایج
+    Type hints::Hints don't enforce types: راهنماها نوع‌ها را اجبار نمی‌کنند
+    Type hints::Why use type hints?: چرا از راهنمای نوع استفاده کنیم؟
+    Type hints::Type hints in scientific Python: راهنمای نوع در پایتون علمی
+    Decorators and descriptors: Decoratorها و Descriptorها
+    Decorators and descriptors::Decorators: Decoratorها
+    Decorators and descriptors::Decorators::An example: یک مثال
+    Decorators and descriptors::Decorators::Enter decorators: decoratorها وارد می‌شوند
+    Decorators and descriptors::Descriptors: Descriptorها
+    Decorators and descriptors::Descriptors::A solution: یک راه‌حل
+    Decorators and descriptors::Descriptors::How it works: چگونه کار می‌کند
+    Decorators and descriptors::Descriptors::Decorators and properties: decoratorها و propertyها
+    Generators: Generatorها
+    Generators::Generator expressions: عبارات generator
+    Generators::Generator functions: توابع generator
+    Generators::Generator functions::Example 1: مثال 1
+    Generators::Generator functions::Example 2: مثال 2
+    Generators::Advantages of iterators: مزایای iteratorها
+    Exercises: تمرین‌ها
 ---
 
 (python_advanced_features)=
@@ -47,14 +55,14 @@ heading-map:
 
 ## مروری کلی
 
-توصیه ما برای این سخنرانی آخر این است که **در مرور اول آن را رد کنید**، مگر اینکه میل شدیدی به خواندن آن داشته باشید.
+توصیه ما برای این درس آخر این است که *در مرور اول آن را رد کنید*، مگر اینکه میل شدیدی به خواندن آن داشته باشید.
 
-این سخنرانی اینجاست
+این درس اینجاست
 
 1. به عنوان مرجع، تا بتوانیم در صورت نیاز به آن لینک دهیم، و
 1. برای کسانی که تعدادی از کاربردها را انجام داده‌اند و اکنون می‌خواهند بیشتر درباره زبان Python یاد بگیرند
 
-موضوعات متنوعی در این سخنرانی بررسی می‌شوند، از جمله iteratorها، decoratorها و descriptorها، و generatorها.
+موضوعات متنوعی در این درس بررسی می‌شوند، از جمله iteratorها، type hintها، decoratorها و descriptorها، و generatorها.
 
 ## Iterableها و Iteratorها
 
@@ -155,7 +163,7 @@ next(nikkei_data)
 next(nikkei_data)
 ```
 
-### Iteratorها در حلقه‌های For
+### Iteratorها در حلقه‌های for
 
 ```{index} single: Python; Iterators
 ```
@@ -316,7 +324,6 @@ max(y)
 `*` و `**` ابزارهای مناسب و پرکاربردی برای باز کردن لیست‌ها و tupleها و اجازه دادن به کاربران برای تعریف توابعی هستند که تعداد دلخواه آرگومان را به عنوان ورودی می‌گیرند.
 
 در این بخش، نحوه استفاده از آن‌ها و تمایز موارد استفاده آن‌ها را بررسی خواهیم کرد.
-
 
 ### باز کردن آرگومان‌ها
 
@@ -484,6 +491,108 @@ arb(l1=l1, l2=l2, l3=l3)
 
 تفاوت این است که توابع با `*args` قادر خواهند بود *آرگومان‌های موضعی* با اندازه دلخواه بپذیرند، در حالی که `**kargs` به توابع اجازه می‌دهد تعداد دلخواه *آرگومان‌های کلیدواژه‌ای* بپذیرند.
 
+## راهنمای نوع (Type Hints)
+
+```{index} single: Python; Type Hints
+```
+
+پایتون یک زبان *با نوع‌دهی پویا* است، به این معنی که نیازی به اعلان نوع متغیرها ندارید.
+
+(بحث {doc}`پیشین <need_for_speed>` ما درباره نوع‌های پویا در برابر استاتیک را ببینید.)
+
+با این حال، پایتون از **راهنمای نوع** (type hints) اختیاری (که به آن حاشیه‌نویسی نوع نیز گفته می‌شود) پشتیبانی می‌کند که به شما امکان می‌دهد نوع‌های مورد انتظار متغیرها، پارامترهای تابع، و مقادیر بازگشتی را مشخص کنید.
+
+راهنمای نوع از پایتون ۳.۵ معرفی شد و در نسخه‌های بعدی تکامل یافت.
+تمام نحو نشان‌داده‌شده در اینجا در پایتون ۳.۹ و بعد از آن کار می‌کند.
+
+```{note}
+راهنمای نوع *در زمان اجرا توسط مفسر پایتون نادیده گرفته می‌شود* --- آن‌ها بر نحوه اجرای کد شما تأثیری ندارند. آن‌ها صرفاً اطلاعاتی هستند و به عنوان مستندات برای انسان‌ها و ابزارها عمل می‌کنند.
+```
+
+### نحو پایه
+
+راهنمای نوع از دونقطه `:` برای حاشیه‌نویسی متغیرها و پارامترها، و از پیکان `->` برای حاشیه‌نویسی نوع‌های بازگشتی استفاده می‌کند.
+
+در اینجا یک مثال ساده آمده است:
+
+```{code-cell} python3
+def greet(name: str, times: int) -> str:
+    return (name + '! ') * times
+
+greet('hello', 3)
+```
+
+در این تعریف تابع:
+
+- `name: str` نشان می‌دهد که `name` انتظار می‌رود یک رشته باشد
+- `times: int` نشان می‌دهد که `times` انتظار می‌رود یک عدد صحیح باشد
+- `-> str` نشان می‌دهد که تابع یک رشته برمی‌گرداند
+
+همچنین می‌توانید متغیرها را مستقیماً حاشیه‌نویسی کنید:
+
+```{code-cell} python3
+x: int = 10
+y: float = 3.14
+name: str = 'Python'
+```
+
+### نوع‌های رایج
+
+پرکاربردترین راهنمای نوع، نوع‌های داخلی (built-in) هستند:
+
+| نوع      | مثال                          |
+|-----------|----------------------------------|
+| `int`     | `x: int = 5`                    |
+| `float`   | `x: float = 3.14`              |
+| `str`     | `x: str = 'hello'`             |
+| `bool`    | `x: bool = True`               |
+| `list`    | `x: list = [1, 2, 3]`          |
+| `dict`    | `x: dict = {'a': 1}`           |
+
+برای ظروف (containers)، می‌توانید نوع‌های عناصر آن‌ها را مشخص کنید:
+
+```{code-cell} python3
+prices: list[float] = [9.99, 4.50, 2.89]
+counts: dict[str, int] = {'apples': 3, 'oranges': 5}
+```
+
+### راهنماها نوع‌ها را اجبار نمی‌کنند
+
+یک نکته مهم برای برنامه‌نویسان جدید پایتون: راهنمای نوع در زمان اجرا *اجبار نمی‌شوند*.
+
+پایتون در صورت ارسال نوع «اشتباه» خطایی ایجاد نمی‌کند:
+
+```{code-cell} python3
+def add(x: int, y: int) -> int:
+    return x + y
+
+# Passes floats — Python doesn't complain
+add(1.5, 2.7)
+```
+
+راهنماها می‌گویند `int`، اما پایتون با خوشحالی آرگومان‌های `float` را می‌پذیرد و `4.2` برمی‌گرداند --- که آن هم `int` نیست.
+
+این تفاوت کلیدی با زبان‌های با نوع‌دهی ایستا مانند C یا Java است، که در آن‌ها عدم تطابق نوع‌ها باعث خطاهای کامپایل می‌شود.
+
+### چرا از راهنمای نوع استفاده کنیم؟
+
+اگر پایتون آن‌ها را نادیده می‌گیرد، چرا زحمت بکشیم؟
+
+1. **خوانایی**: راهنمای نوع امضای تابع را خوددستنویس (self-documenting) می‌کند. خواننده فوراً می‌داند که یک تابع چه نوع‌هایی را انتظار دارد و چه نوع‌هایی برمی‌گرداند.
+2. **پشتیبانی ویرایشگر**: IDEهایی مانند VS Code از راهنمای نوع برای ارائه تکمیل خودکار بهتر، تشخیص خطا، و مستندات درخطی استفاده می‌کنند.
+3. **بررسی خطا**: ابزارهایی مانند [mypy](https://mypy.readthedocs.io/en/stable/) و [pyrefly](https://pyrefly.org/) راهنمای نوع را تجزیه‌وتحلیل می‌کنند تا اشکالات را *قبل از* اجرای کد شناسایی کنند.
+4. **کد تولیدشده توسط LLM**: مدل‌های زبانی بزرگ اغلب کدی با راهنمای نوع تولید می‌کنند، بنابراین درک نحو به شما کمک می‌کند خروجی آن‌ها را بخوانید و استفاده کنید.
+
+### راهنمای نوع در پایتون علمی
+
+راهنمای نوع به بحث {doc}`نیاز به سرعت <need_for_speed>` ارتباط دارد:
+
+* کتابخانه‌های پرکارایی مانند [JAX](https://docs.jax.dev/en/latest/) و [Numba](https://numba.pydata.org/) برای کامپایل کد ماشین سریع به دانستن نوع متغیرها متکی هستند.
+* در حالی که این کتابخانه‌ها نوع‌ها را در زمان اجرا استنتاج می‌کنند نه اینکه مستقیماً راهنمای نوع پایتون را بخوانند، *مفهوم* یکسان است --- اطلاعات صریح نوع، بهینه‌سازی را ممکن می‌سازد.
+* با تکامل اکوسیستم پایتون، انتظار می‌رود ارتباط بین راهنمای نوع و ابزارهای کارایی بیشتر شود.
+
+در حال حاضر، مزیت اصلی راهنمای نوع در پایتون روزمره *وضوح و پشتیبانی ابزار* است، که با افزایش اندازه برنامه‌ها ارزش آن بیشتر می‌شود.
+
 ## Decoratorها و Descriptorها
 
 ```{index} single: Python; Decorators
@@ -598,7 +707,7 @@ g = check_nonneg(g)
 
 در عین حال، منطق تست فقط یک بار نوشته شده است.
 
-#### Decoratorها وارد می‌شوند
+#### decoratorها وارد می‌شوند
 
 ```{index} single: Python; Decorators
 ```
@@ -770,7 +879,7 @@ car.kms
 به عنوان یک property، وقتی مقدار آن را از طریق `car.miles = 6000` تنظیم می‌کنیم، متد setter
 آن فعال می‌شود --- در این مورد `set_miles`.
 
-#### Decoratorها و Propertyها
+#### decoratorها و propertyها
 
 ```{index} single: Python; Decorators
 ```
@@ -823,7 +932,7 @@ class Car:
 
 دو راه برای ساخت generatorها مطالعه خواهیم کرد: عبارات generator و توابع generator.
 
-### عبارات Generator
+### عبارات generator
 
 ساده‌ترین راه برای ساخت generatorها استفاده از *عبارات generator* است.
 
@@ -879,7 +988,7 @@ sum((x * x for x in range(10)))
 sum(x * x for x in range(10))
 ```
 
-### توابع Generator
+### توابع generator
 
 ```{index} single: Python; Generator Functions
 ```
@@ -1026,7 +1135,7 @@ def g(x):
         x = x * x
 ```
 
-### مزایای Iteratorها
+### مزایای iteratorها
 
 مزیت استفاده از iterator اینجا چیست؟
 
@@ -1084,7 +1193,6 @@ sum(draws)
 * نیاز به ایجاد لیست‌ها/tupleهای بزرگ را از بین می‌برند، و
 * یک رابط یکنواخت برای تکرار فراهم می‌کنند که می‌تواند به صورت شفاف در حلقه‌های `for` استفاده شود
 
-
 ## تمرین‌ها
 
 
@@ -1092,7 +1200,7 @@ sum(draws)
 :label: paf_ex1
 ```
 
-کد زیر را کامل کنید و آن را با استفاده از [این فایل csv](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/master/source/_static/lecture_specific/python_advanced_features/test_table.csv) تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید
+کد زیر را کامل کنید و آن را با استفاده از [این فایل csv](https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/python_advanced_features/test_table.csv) تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید
 
 ```{code-block} python3
 :class: no-execute

@@ -7,18 +7,20 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  overview: مرور کلی
-  debugging: اشکال‌زدایی
-  the-debug-magic: دستور جادویی `debug`
-  setting-a-break-point: تنظیم یک نقطه توقف
-  other-useful-magics: دستورات جادویی مفید دیگر
-  handling-errors: مدیریت خطاها
-  errors-in-python: خطاها در Python
-  assertions: ادعاها
-  handling-errors-during-runtime: مدیریت خطاها در حین اجرا
-  catching-exceptions: گرفتن استثناها
-  exercises: تمرین‌ها
+translation:
+  title: اشکال‌زدایی و مدیریت خطاها
+  headings:
+    Overview: مرور کلی
+    Debugging: اشکال‌زدایی
+    Debugging::The `debug` Magic: دستور جادویی `debug`
+    Debugging::Setting a Break Point: تنظیم یک نقطه توقف
+    Debugging::Other Useful Magics: دستورات جادویی مفید دیگر
+    Handling Errors: مدیریت خطاها
+    Handling Errors::Errors in Python: خطاها در Python
+    Handling Errors::Assertions: ادعاها
+    Handling Errors::Handling Errors During Runtime: مدیریت خطاها در حین اجرا
+    Handling Errors::Handling Errors During Runtime::Catching Exceptions: گرفتن استثناها
+    Exercises: تمرین‌ها
 ---
 
 (debugging)=

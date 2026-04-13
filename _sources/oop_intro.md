@@ -7,17 +7,19 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  overview: مقدمه
-  objects: اشیاء
-  type: نوع
-  identity: شناسه
-  object-content-data-and-attributes: 'محتوای شیء: داده‌ها و ویژگی‌ها'
-  methods: متدها
-  inspection-using-rich: بازرسی با استفاده از Rich
-  a-little-mystery: یک معمای کوچک
-  summary: خلاصه
-  exercises: تمرین‌ها
+translation:
+  title: 'برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها'
+  headings:
+    Overview: مقدمه
+    Objects: اشیاء
+    Objects::Type: نوع (Type)
+    Objects::Identity: شناسه (Unique Identity)
+    'Objects::Object Content: Data and Attributes': 'محتوای شیء: داده‌ها و ویژگی‌ها'
+    Objects::Methods: متدها
+    Inspection Using Rich: بازرسی با استفاده از Rich
+    A Little Mystery: یک معمای کوچک
+    Summary: خلاصه
+    Exercises: تمرین‌ها
 ---
 
 (oop_intro)=

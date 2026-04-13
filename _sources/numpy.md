@@ -7,26 +7,28 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  overview: مروری کلی
-  numpy-arrays: آرایه‌های NumPy
-  basics: مبانی
-  shape-and-dimension: شکل و بعد
-  creating-arrays: ایجاد آرایه‌ها
-  array-indexing: نمایه‌گذاری آرایه
-  array-methods: متدهای آرایه
-  arithmetic-operations: عملیات حسابی
-  matrix-multiplication: ضرب ماتریسی
-  broadcasting: Broadcasting
-  mutability-and-copying-arrays: قابلیت تغییر و کپی کردن آرایه‌ها
-  mutability: قابلیت تغییر
-  making-copies: ایجاد کپی
-  additional-features: ویژگی‌های اضافی
-  universal-functions: توابع جهانی
-  comparisons: مقایسه‌ها
-  sub-packages: بسته‌های فرعی
-  implicit-multithreading-: چندنخی ضمنی
-  exercises: تمرین‌ها
+translation:
+  title: NumPy
+  headings:
+    Overview: مروری کلی
+    NumPy Arrays: آرایه‌های NumPy
+    NumPy Arrays::Basics: مبانی
+    NumPy Arrays::Shape and Dimension: شکل و بعد
+    NumPy Arrays::Creating Arrays: ایجاد آرایه‌ها
+    NumPy Arrays::Array Indexing: نمایه‌گذاری آرایه
+    NumPy Arrays::Array Methods: متدهای آرایه
+    Arithmetic Operations: عملیات حسابی
+    Matrix Multiplication: ضرب ماتریسی
+    Broadcasting: Broadcasting
+    Mutability and Copying Arrays: قابلیت تغییر و کپی کردن آرایه‌ها
+    Mutability and Copying Arrays::Mutability: قابلیت تغییر
+    Mutability and Copying Arrays::Making Copies: ایجاد کپی
+    Additional Features: ویژگی‌های اضافی
+    Additional Features::Universal Functions: توابع جهانی
+    Additional Features::Comparisons: مقایسه‌ها
+    Additional Features::Sub-packages: بسته‌های فرعی
+    Additional Features::Implicit Multithreading: چندنخی ضمنی
+    Exercises: تمرین‌ها
 ---
 
 (np)=

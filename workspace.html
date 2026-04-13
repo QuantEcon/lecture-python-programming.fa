@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. نوشتن برنامه‌های طولانی‌تر &#8212; Python Programming for Economics and Finance</title>
+    <title>20. نوشتن برنامه‌های طولانی‌تر &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -128,8 +128,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="20. ویژگی‌های بیشتر زبان" href="python_advanced_features.html" />
-    <link rel="prev" title="18. نوشتن کد خوب" href="writing_good_code.html" />
+    <link rel="next" title="21. ویژگی‌های بیشتر زبان" href="python_advanced_features.html" />
+    <link rel="prev" title="19. نوشتن کد خوب" href="writing_good_code.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -152,6 +152,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -201,20 +204,20 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">19.1. مروری کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">19.2. کار با فایل‌های Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">19.3. محیط‌های توسعه</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks-jupyterlab">19.4. یک قدم جلوتر از Jupyter Notebooks: JupyterLab</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.4.1. استفاده از دستورات جادویی</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.4.2. استفاده از ترمینال</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">20.2. کار با فایل‌های Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.3. محیط‌های توسعه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks-jupyterlab">20.4. یک قدم جلوتر از Jupyter Notebooks: JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.4.1. استفاده از دستورات جادویی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">20.4.2. استفاده از ترمینال</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">19.5. گشت و گذاری در Visual Studio Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run">19.5.1. استفاده از دکمه run</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.5.2. استفاده از ترمینال</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">20.5. گشت و گذاری در Visual Studio Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run">20.5.1. استفاده از دکمه run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">20.5.2. استفاده از ترمینال</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">19.6. Git را امتحان کنید</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">20.6. Git را امتحان کنید</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -270,7 +273,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -281,11 +284,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -301,9 +304,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">19. </span>نوشتن برنامه‌های طولانی‌تر<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>نوشتن برنامه‌های طولانی‌تر<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">19.1. </span>مروری کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>مروری کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>تا کنون، استفاده از Jupyter Notebooks را در نوشتن و اجرای کد Python بررسی کرده‌ایم.</p>
 <p>در حالی که آنها هنگام کار با قطعات کوچک کد کارآمد و سازگار هستند، Notebooks بهترین انتخاب برای برنامه‌ها و اسکریپت‌های طولانی‌تر نیستند.</p>
 <p>Jupyter Notebooks برای محاسبات تعاملی (یعنی گردش کارهای علم داده) مناسب هستند و می‌توانند به اجرای قطعات کد یکی یکی کمک کنند.</p>
@@ -323,7 +326,7 @@
 </div>
 </section>
 <section id="python">
-<h2><span class="section-number">19.2. </span>کار با فایل‌های Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>کار با فایل‌های Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
 <p>فایل‌های Python هنگام نوشتن بلوک‌های بلند و قابل استفاده مجدد کد استفاده می‌شوند - طبق قرارداد، آنها پسوند <code class="docutils literal notranslate"><span class="pre">.py</span></code> دارند.</p>
 <p>بیایید با کار با مثال زیر شروع کنیم.</p>
 <div class="cell docutils container">
@@ -392,7 +395,7 @@
 <p>برای اطلاعات بیشتر در مورد import کردن قابلیت‌ها، به استفاده از <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">ماژول‌ها</a> و <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">بسته‌ها</a> نگاه کنید.</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">19.3. </span>محیط‌های توسعه<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>محیط‌های توسعه<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>یک محیط توسعه یک فضای کاری یکپارچه است که در آن می‌توانید</p>
 <ul class="simple">
 <li><p>کد خود را ویرایش و اجرا کنید</p></li>
@@ -402,7 +405,7 @@
 <p>این سخنرانی شما را با نحوه کار دو محیط توسعه آشنا می‌کند.</p>
 </section>
 <section id="jupyter-notebooks-jupyterlab">
-<h2><span class="section-number">19.4. </span>یک قدم جلوتر از Jupyter Notebooks: JupyterLab<a class="headerlink" href="#jupyter-notebooks-jupyterlab" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>یک قدم جلوتر از Jupyter Notebooks: JupyterLab<a class="headerlink" href="#jupyter-notebooks-jupyterlab" title="Link to this heading">#</a></h2>
 <p>JupyterLab یک محیط توسعه مبتنی بر مرورگر برای Jupyter Notebooks، اسکریپت‌های کد و فایل‌های داده است.</p>
 <p>اگر می‌خواهید قبل از نصب محلی آن را آزمایش کنید، می‌توانید <a class="reference external" href="https://jupyter.org/try-jupyter/lab/">JupyterLab را در مرورگر امتحان کنید</a>.</p>
 <p>می‌توانید JupyterLab را با استفاده از pip نصب کنید</p>
@@ -442,7 +445,7 @@
 <li><p>استفاده از ترمینال</p></li>
 </ul>
 <section id="id4">
-<h3><span class="section-number">19.4.1. </span>استفاده از دستورات جادویی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.4.1. </span>استفاده از دستورات جادویی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Jupyter Notebooks و JupyterLab از استفاده از <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">دستورات جادویی</a> پشتیبانی می‌کنند - دستوراتی که قابلیت‌های یک Jupyter Notebook استاندارد را گسترش می‌دهند.</p>
 <p>دستور جادویی <code class="docutils literal notranslate"><span class="pre">%run</span></code> به شما امکان می‌دهد یک اسکریپت Python را از درون یک Notebook اجرا کنید.</p>
 <p>این یک راه راحت برای اجرای اسکریپت‌هایی است که در همان دایرکتوری Notebook خود روی آنها کار می‌کنید و خروجی‌ها را در داخل Notebook ارائه می‌دهید.</p>
@@ -451,7 +454,7 @@
 </figure>
 </section>
 <section id="id5">
-<h3><span class="section-number">19.4.2. </span>استفاده از ترمینال<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.4.2. </span>استفاده از ترمینال<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>با این حال، اگر فقط به دنبال اجرای فایل <code class="docutils literal notranslate"><span class="pre">.py</span></code> هستید، گاهی اوقات استفاده از ترمینال آسان‌تر است.</p>
 <p>از راه‌انداز یک ترمینال باز کنید و دستور زیر را اجرا کنید.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">file</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
@@ -472,7 +475,7 @@
 </section>
 </section>
 <section id="visual-studio-code">
-<h2><span class="section-number">19.5. </span>گشت و گذاری در Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>گشت و گذاری در Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
 <p>Visual Studio Code (VS Code) یک ویرایشگر کد و فضای کاری توسعه است که می‌تواند</p>
 <ul class="simple">
 <li><p>در <a class="reference external" href="https://vscode.dev/">مرورگر</a> اجرا شود.</p></li>
@@ -525,7 +528,7 @@
 <li><p>استفاده از ترمینال</p></li>
 </ul>
 <section id="run">
-<h3><span class="section-number">19.5.1. </span>استفاده از دکمه run<a class="headerlink" href="#run" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.5.1. </span>استفاده از دکمه run<a class="headerlink" href="#run" title="Link to this heading">#</a></h3>
 <p>می‌توانید اسکریپت را با کلیک بر روی دکمه run در گوشه بالا سمت راست ویرایشگر اجرا کنید.</p>
 <figure class="auto align-default">
 <img alt="_images/vs_code_run.png" src="_images/vs_code_run.png" />
@@ -537,7 +540,7 @@
 <p>این یک کنسول ipykernel ایجاد می‌کند و اسکریپت را اجرا می‌کند.</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">19.5.2. </span>استفاده از ترمینال<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.5.2. </span>استفاده از ترمینال<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>دستور <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">file.py&gt;</span></code> بر روی کنسول انتخابی شما اجرا می‌شود.</p>
 <p>اگر از یک دستگاه Windows استفاده می‌کنید، می‌توانید یا از Anaconda Prompt یا Command Prompt استفاده کنید - اما به طور کلی نه از PowerShell.</p>
 <p>در اینجا یک اجرای کد قبلی آمده است.</p>
@@ -552,7 +555,7 @@
 </section>
 </section>
 <section id="git">
-<h2><span class="section-number">19.6. </span>Git را امتحان کنید<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span>Git را امتحان کنید<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
 <p>این بخش شما را با git و GitHub آشنا می‌کند.</p>
 <p><a class="reference external" href="https://git-scm.com/">Git</a> یک <em>سیستم کنترل نسخه</em> است — نرم‌افزاری که برای مدیریت پروژه‌های دیجیتال مانند کتابخانه‌های کد استفاده می‌شود.</p>
 <p>در بسیاری از موارد، مجموعه‌های مرتبط فایل‌ها — که <em>مخازن</em> نامیده می‌شوند — بر روی <a class="reference external" href="https://github.com/">GitHub</a> ذخیره می‌شوند.</p>
@@ -744,6 +747,11 @@
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -753,12 +761,12 @@
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -770,27 +778,27 @@
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -802,12 +810,12 @@
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -850,6 +858,8 @@
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/workspace.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

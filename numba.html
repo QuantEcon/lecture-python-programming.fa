@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -155,6 +155,9 @@
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
+
+
+
   </head>
 <body dir="rtl">
 
@@ -204,21 +207,22 @@
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">13.1. مروری کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numba-link">13.2. کامپایل توابع</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quad-map-eg">13.2.1. یک مثال</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">13.2.2. چگونه و چه زمانی کار می‌کند</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numba-link">13.2. کامپایل کردن توابع</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quad-map-eg">13.2.1. یک مثال</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">13.2.1.1. نسخه پایه</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">13.2.1.2. شتاب‌دهی از طریق Numba</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator">13.3. نماد Decorator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">13.4. استنتاج نوع</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">13.5. کامپایل کلاس‌ها</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.6. خطرات و محدودیت‌ها</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">13.6.1. محدودیت‌ها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">13.6.2. یک مشکل: متغیرهای سراسری</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">13.2.2. چگونگی و شرایط عملکرد آن</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multithreading">13.7. حلقه‌های چندنخی در Numba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">13.8. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.3. نکات ظریف</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">13.3.1. تعیین نوع</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">13.3.2. متغیرهای سراسری</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multithreading">13.4. حلقه‌های چندنخی در Numba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">13.5. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -274,7 +278,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -285,11 +289,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -319,7 +323,7 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.2)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
@@ -349,43 +353,45 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 <section id="id1">
 <h2><span class="section-number">13.1. </span>مروری کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>در یک <a class="reference internal" href="need_for_speed.html"><span class="doc">درس قبلی</span></a> درباره برداری‌سازی یاد گرفتیم، که یک روش برای بهبود سرعت و کارایی در کار عددی است.</p>
-<p>برداری‌سازی شامل ارسال عملیات پردازش آرایه به صورت دسته‌ای به کد کارآمد سطح پایین است.</p>
-<p>با این حال، همانطور که <a class="reference internal" href="need_for_speed.html#numba-p-c-vectorization"><span class="std std-ref">قبلاً بحث شد</span></a>، برداری‌سازی چندین نقطه ضعف دارد.</p>
-<p>یکی این است که هنگام کار با حجم زیادی از داده‌ها، بسیار حافظه‌بر است.</p>
-<p>دیگری این است که مجموعه الگوریتم‌هایی که می‌توانند به طور کامل برداری شوند، جهانی نیست.</p>
-<p>در واقع، برای برخی الگوریتم‌ها، برداری‌سازی ناکارآمد است.</p>
-<p>خوشبختانه، یک کتابخانه جدید Python به نام <a class="reference external" href="https://numba.pydata.org/">Numba</a>
-بسیاری از این مشکلات را حل می‌کند.</p>
-<p>این کار را از طریق چیزی به نام <strong>کامپایل در زمان اجرا (JIT compilation)</strong> انجام می‌دهد.</p>
-<p>ایده کلیدی، کامپایل کردن توابع به دستورالعمل‌های کد ماشین بومی در حین اجرا است.</p>
-<p>وقتی موفق می‌شود، کد کامپایل شده بسیار سریع است.</p>
-<p>فراتر از افزایش سرعت ناشی از کامپایل، Numba به طور خاص برای کار عددی طراحی شده است و می‌تواند ترفندهای دیگری مانند <a class="reference internal" href="#multithreading"><span class="std std-ref">چندنخی</span></a> نیز انجام دهد.</p>
+<p>در یک <a class="reference internal" href="need_for_speed.html"><span class="doc">درس قبلی</span></a> درباره برداری‌سازی بحث کردیم،
+که می‌تواند سرعت اجرا را با ارسال دسته‌ای عملیات پردازش آرایه به کد کارآمد سطح پایین بهبود بخشد.</p>
+<p>با این حال، همانطور که <a class="reference internal" href="need_for_speed.html#numba-p-c-vectorization"><span class="std std-ref">قبلاً بحث شد</span></a>، طرح‌های سنتی برداری‌سازی چندین نقطه ضعف دارند:</p>
+<ul class="simple">
+<li><p>بسیار حافظه‌بر برای عملیات ترکیبی آرایه</p></li>
+<li><p>ناکارآمد یا غیرممکن برای برخی الگوریتم‌ها</p></li>
+</ul>
+<p>یک راه برای دور زدن این مشکلات، استفاده از <a class="reference external" href="https://numba.pydata.org/">Numba</a> است، یک
+<strong>کامپایلر در زمان اجرا (JIT)</strong> برای Python.</p>
+<p>Numba توابع را در زمان اجرا به دستورالعمل‌های کد ماشین بومی کامپایل می‌کند.</p>
+<p>وقتی موفق می‌شود، نتیجه عملکردی قابل مقایسه با C یا Fortran کامپایل‌شده است.</p>
+<p>علاوه بر این، Numba می‌تواند ترفندهای مفیدی مانند <a class="reference internal" href="#multithreading"><span class="std std-ref">چندنخی</span></a> نیز انجام دهد.</p>
 <p>این درس ایده‌های اصلی را معرفی می‌کند.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>برخی خوانندگان ممکن است کنجکاو رابطه بین Numba و <a class="reference external" href="https://julialang.org/">Julia</a> باشند،
+که کامپایلر JIT خود را دارد. در حالی که این دو کامپایلر از بسیاری جهات مشابه هستند،
+Numba کمتر بلندپروازانه است و تنها تلاش می‌کند زیرمجموعه کوچکی از
+زبان Python را کامپایل کند. هرچند این ممکن است یک نقص به نظر برسد، اما یک مزیت نیز هست:
+ماهیت محدودتر Numba استفاده از آن را آسان و در آنچه انجام می‌دهد کارآمد می‌کند.</p>
+</div>
 </section>
 <section id="numba-link">
-<span id="id2"></span><h2><span class="section-number">13.2. </span><span class="target" id="index-0"></span>کامپایل توابع<a class="headerlink" href="#numba-link" title="Link to this heading">#</a></h2>
-<p id="index-1">همانطور که در بالا گفته شد، استفاده اصلی Numba کامپایل کردن توابع به کد ماشین بومی سریع در طول زمان اجرا است.</p>
+<span id="id2"></span><h2><span class="section-number">13.2. </span><span class="target" id="index-0"></span>کامپایل کردن توابع<a class="headerlink" href="#numba-link" title="Link to this heading">#</a></h2>
 <section id="quad-map-eg">
-<span id="id3"></span><h3><span class="section-number">13.2.1. </span>یک مثال<a class="headerlink" href="#quad-map-eg" title="Link to this heading">#</a></h3>
-<p>بیایید مسئله‌ای را در نظر بگیریم که برداری‌سازی آن دشوار است: تولید مسیر یک معادله تفاضلی با توجه به یک شرط اولیه.</p>
-<p>معادله تفاضلی را نگاشت درجه دو در نظر خواهیم گرفت</p>
+<span id="index-1"></span><span id="id3"></span><h3><span class="section-number">13.2.1. </span>یک مثال<a class="headerlink" href="#quad-map-eg" title="Link to this heading">#</a></h3>
+<p>بیایید مسئله‌ای را در نظر بگیریم که برداری‌سازی آن دشوار است (یعنی واگذاری آن به عملیات پردازش آرایه).</p>
+<p>این مسئله شامل تولید مسیر از طریق نگاشت درجه دوم است:</p>
 <div class="math notranslate nohighlight">
 \[
-x_{t+1} = \alpha x_t (1 - x_t)
+    x_{t+1} = \alpha x_t (1 - x_t)
 \]</div>
-<p>در آنچه در ادامه می‌آید، تنظیم می‌کنیم</p>
+<p>در ادامه، <span class="math notranslate nohighlight">\(\alpha = 4\)</span> تعیین می‌کنیم.</p>
+<section id="id4">
+<h4><span class="section-number">13.2.1.1. </span>نسخه پایه<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>در اینجا نمودار یک مسیر معمولی نشان داده شده است، که از <span class="math notranslate nohighlight">\(x_0 = 0.1\)</span> شروع می‌شود، با <span class="math notranslate nohighlight">\(t\)</span> روی محور افقی:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span> <span class="o">=</span> <span class="mf">4.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>در اینجا نمودار یک مسیر معمولی است که از <span class="math notranslate nohighlight">\(x_0 = 0.1\)</span> شروع می‌شود، با <span class="math notranslate nohighlight">\(t\)</span> روی محور x</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -405,106 +411,35 @@ x_{t+1} = \alpha x_t (1 - x_t)
 <img alt="_images/7ee1041b5cfbccf2c054e0d597571f59456d08103b80b433cd2523aa05b6a94a.png" src="_images/7ee1041b5cfbccf2c054e0d597571f59456d08103b80b433cd2523aa05b6a94a.png" />
 </div>
 </div>
-<p>برای تسریع تابع <code class="docutils literal notranslate"><span class="pre">qm</span></code> با استفاده از Numba، اولین قدم ما این است</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
-
-<span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>تابع <code class="docutils literal notranslate"><span class="pre">qm_numba</span></code> نسخه‌ای از <code class="docutils literal notranslate"><span class="pre">qm</span></code> است که برای کامپایل JIT “هدف‌گیری” شده است.</p>
-<p>به زودی توضیح خواهیم داد که این به چه معناست.</p>
-<p>بیایید زمان‌سنجی کرده و فراخوانی‌های تابع یکسان را در این دو نسخه مقایسه کنیم، با شروع از تابع اصلی <code class="docutils literal notranslate"><span class="pre">qm</span></code>:</p>
+<p>بیایید ببینیم برای <span class="math notranslate nohighlight">\(n\)</span> بزرگ، اجرای این کد چقدر زمان می‌برد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 
 <span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer1</span><span class="p">:</span>
-    <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">time1</span> <span class="o">=</span> <span class="n">timer1</span><span class="o">.</span><span class="n">elapsed</span>
+    <span class="c1"># Time Python base version</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7060 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7018 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>حالا بیایید qm_numba را امتحان کنیم</p>
+</section>
+<section id="id5">
+<h4><span class="section-number">13.2.1.2. </span>شتاب‌دهی از طریق Numba<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>برای تسریع تابع <code class="docutils literal notranslate"><span class="pre">qm</span></code> با استفاده از Numba، ابتدا تابع <code class="docutils literal notranslate"><span class="pre">jit</span></code> را وارد می‌کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer2</span><span class="p">:</span>
-    <span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">time2</span> <span class="o">=</span> <span class="n">timer2</span><span class="o">.</span><span class="n">elapsed</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1458 seconds elapsed
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>این از قبل یک افزایش سرعت بسیار بزرگ است.</p>
-<p>در واقع، دفعه بعد و تمام دفعات بعدی حتی سریعتر اجرا می‌شود زیرا تابع کامپایل شده و در حافظه است:</p>
-<div class="cell docutils container" id="qm-numba-result">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer3</span><span class="p">:</span>
-    <span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="n">time3</span> <span class="o">=</span> <span class="n">timer3</span><span class="o">.</span><span class="n">elapsed</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0243 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time1</span> <span class="o">/</span> <span class="n">time3</span>  <span class="c1"># محاسبه افزایش سرعت</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>152.33201360237553
-</pre></div>
-</div>
-</div>
-</div>
-<p>این نوع افزایش سرعت نسبت به سادگی و وضوح تغییر، چشمگیر است.</p>
-</section>
-<section id="id4">
-<h3><span class="section-number">13.2.2. </span>چگونه و چه زمانی کار می‌کند<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>Numba تلاش می‌کند کد ماشین سریع با استفاده از زیرساخت ارائه شده توسط <a class="reference external" href="https://llvm.org/">پروژه LLVM</a> تولید کند.</p>
-<p>این کار را با استنتاج اطلاعات نوع در حین اجرا انجام می‌دهد.</p>
-<p>(برای بحث درباره انواع، <a class="reference internal" href="need_for_speed.html"><span class="doc">درس قبلی</span></a> ما درباره محاسبات علمی را ببینید.)</p>
-<p>ایده اصلی این است:</p>
-<ul class="simple">
-<li><p>Python بسیار انعطاف‌پذیر است و از این رو می‌توانیم تابع qm را با انواع مختلف فراخوانی کنیم.</p>
-<ul>
-<li><p>مثلاً، <code class="docutils literal notranslate"><span class="pre">x0</span></code> می‌تواند یک آرایه NumPy یا یک لیست باشد، <code class="docutils literal notranslate"><span class="pre">n</span></code> می‌تواند یک عدد صحیح یا یک اعشاری باشد و غیره.</p></li>
-</ul>
-</li>
-<li><p>این باعث می‌شود <em>پیش</em>-کامپایل کردن تابع (یعنی کامپایل قبل از زمان اجرا) دشوار باشد.</p></li>
-<li><p>با این حال، وقتی واقعاً تابع را فراخوانی می‌کنیم، مثلاً با اجرای <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code>، انواع <code class="docutils literal notranslate"><span class="pre">x0</span></code> و <code class="docutils literal notranslate"><span class="pre">n</span></code> مشخص می‌شوند.</p></li>
-<li><p>علاوه بر این، انواع سایر متغیرها در <code class="docutils literal notranslate"><span class="pre">qm</span></code> می‌توانند پس از مشخص شدن انواع ورودی استنتاج شوند.</p></li>
-<li><p>بنابراین استراتژی Numba و سایر کامپایلرهای JIT این است که تا این لحظه صبر کنند و <em>سپس</em> تابع را کامپایل کنند.</p></li>
-</ul>
-<p>به همین دلیل است که به آن کامپایل “درست در زمان” می‌گویند.</p>
-<p>توجه داشته باشید که اگر فراخوانی <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code> را انجام دهید و سپس آن را با <code class="docutils literal notranslate"><span class="pre">qm(0.9,</span> <span class="pre">20)</span></code> دنبال کنید، کامپایل فقط در فراخوانی اول اتفاق می‌افتد.</p>
-<p>کد کامپایل شده سپس ذخیره و در صورت نیاز بازیافت می‌شود.</p>
-<p>به همین دلیل است که در کد بالا، <code class="docutils literal notranslate"><span class="pre">time3</span></code> کوچکتر از <code class="docutils literal notranslate"><span class="pre">time2</span></code> است.</p>
-</section>
-</section>
-<section id="decorator">
-<h2><span class="section-number">13.3. </span>نماد Decorator<a class="headerlink" href="#decorator" title="Link to this heading">#</a></h2>
-<p>در کد بالا، نسخه کامپایل شده JIT از <code class="docutils literal notranslate"><span class="pre">qm</span></code> را از طریق فراخوانی ایجاد کردیم</p>
+<p>اکنون آن را روی <code class="docutils literal notranslate"><span class="pre">qm</span></code> اعمال می‌کنیم تا تابع جدیدی تولید شود:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qm_numba</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
@@ -512,85 +447,111 @@ x_{t+1} = \alpha x_t (1 - x_t)
 </div>
 </div>
 </div>
-<p>در عمل، این معمولاً با استفاده از یک سینتکس جایگزین <em>decorator</em> انجام می‌شود.</p>
-<p>(ما decoratorها را در یک <a class="reference internal" href="python_advanced_features.html"><span class="doc">درس جداگانه</span></a> بحث می‌کنیم اما می‌توانید جزئیات را در این مرحله رد کنید.)</p>
-<p>بیایید ببینیم چگونه این کار انجام می‌شود.</p>
-<p>برای هدف‌گیری یک تابع برای کامپایل JIT، می‌توانیم <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> را قبل از تعریف تابع قرار دهیم.</p>
-<p>در اینجا نحوه انجام این کار برای <code class="docutils literal notranslate"><span class="pre">qm</span></code> آمده است</p>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">qm_numba</span></code> نسخه‌ای از <code class="docutils literal notranslate"><span class="pre">qm</span></code> است که برای کامپایل JIT «هدف‌گذاری» شده است.</p>
+<p>معنای این موضوع را به زودی توضیح خواهیم داد.</p>
+<p>بیایید زمان این نسخه جدید را اندازه بگیریم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">qm</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>این معادل افزودن <code class="docutils literal notranslate"><span class="pre">qm</span> <span class="pre">=</span> <span class="pre">jit(qm)</span></code> بعد از تعریف تابع است.</p>
-<p>موارد زیر اکنون از نسخه jitted استفاده می‌کنند:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer2</span><span class="p">:</span>
+    <span class="c1"># Time jitted version</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0635 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1372 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>این یک افزایش سرعت قابل توجه است.</p>
+<p>در واقع، در دفعه بعد و تمام اجراهای بعدی، حتی سریع‌تر اجرا می‌شود؛ زیرا تابع کامپایل شده و در حافظه ذخیره است:</p>
+<div class="cell docutils container" id="qm-numba-result">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">timer3</span><span class="p">:</span>
+    <span class="c1"># Second run</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">qm_numba</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0002 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0245 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>Numba همچنین چندین آرگومان برای decoratorها جهت تسریع محاسبات و ذخیره‌سازی cache توابع ارائه می‌دهد – <a class="reference external" href="https://numba.readthedocs.io/en/stable/user/performance-tips.html">اینجا</a> را ببینید.</p>
+<p>در اینجا میزان افزایش سرعت نشان داده شده است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timer1</span><span class="o">.</span><span class="n">elapsed</span> <span class="o">/</span>  <span class="n">timer3</span><span class="o">.</span><span class="n">elapsed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>151.05076319911277
+</pre></div>
+</div>
+</div>
+</div>
+<p>این یک بهبود چشمگیر با تغییری اندک در کد اصلی ماست.</p>
+<p>بیایید بررسی کنیم که این چگونه کار می‌کند.</p>
 </section>
-<section id="id5">
-<h2><span class="section-number">13.4. </span>استنتاج نوع<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>استنتاج موفقیت‌آمیز نوع، بخش کلیدی کامپایل JIT است.</p>
-<p>همانطور که می‌توانید تصور کنید، استنتاج انواع برای اشیاء ساده Python (مثلاً انواع داده اسکالر ساده مانند اعشاری و صحیح) آسان‌تر است.</p>
-<p>Numba همچنین با آرایه‌های NumPy که انواع به خوبی تعریف شده دارند، به خوبی کار می‌کند.</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">13.2.2. </span>چگونگی و شرایط عملکرد آن<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Numba تلاش می‌کند با استفاده از زیرساخت ارائه‌شده توسط <a class="reference external" href="https://llvm.org/">پروژه LLVM</a>، کد ماشین سریع تولید کند.</p>
+<p>این کار را از طریق استنتاج اطلاعات نوع به صورت پویا انجام می‌دهد.</p>
+<p>(برای بحث درباره انواع داده، به <a class="reference internal" href="need_for_speed.html"><span class="doc">درس قبلی</span></a> ما در مورد محاسبات علمی مراجعه کنید.)</p>
+<p>ایده اصلی به این شرح است:</p>
+<ul class="simple">
+<li><p>پایتون بسیار انعطاف‌پذیر است و از این رو می‌توان تابع qm را با انواع داده مختلفی فراخواند.</p>
+<ul>
+<li><p>برای مثال، <code class="docutils literal notranslate"><span class="pre">x0</span></code> می‌تواند یک آرایه NumPy یا یک لیست باشد، <code class="docutils literal notranslate"><span class="pre">n</span></code> می‌تواند عدد صحیح یا اعشاری باشد و غیره.</p></li>
+</ul>
+</li>
+<li><p>این موضوع تولید کد ماشین کارآمد <em>از پیش</em> (یعنی قبل از زمان اجرا) را بسیار دشوار می‌سازد.</p></li>
+<li><p>اما هنگامی که تابع را واقعاً <em>فراخوانی</em> می‌کنیم، مثلاً با اجرای <code class="docutils literal notranslate"><span class="pre">qm(0.5,</span> <span class="pre">10)</span></code>، انواع <code class="docutils literal notranslate"><span class="pre">x0</span></code>، <code class="docutils literal notranslate"><span class="pre">α</span></code> و <code class="docutils literal notranslate"><span class="pre">n</span></code> مشخص می‌شوند.</p></li>
+<li><p>علاوه بر این، انواع <em>سایر متغیرها</em> در <code class="docutils literal notranslate"><span class="pre">qm</span></code> <em>پس از مشخص شدن انواع ورودی قابل استنتاج هستند</em>.</p></li>
+<li><p>پس راهبرد Numba و سایر کامپایلرهای JIT این است که <em>تا زمان فراخوانی تابع صبر کنند</em> و سپس آن را کامپایل کنند.</p></li>
+</ul>
+<p>این روش «کامپایل درست به موقع» (just-in-time) نامیده می‌شود.</p>
+<p>توجه داشته باشید که اگر <code class="docutils literal notranslate"><span class="pre">qm_numba(0.5,</span> <span class="pre">10)</span></code> را فراخوانی کنید و سپس <code class="docutils literal notranslate"><span class="pre">qm_numba(0.9,</span> <span class="pre">20)</span></code> را اجرا کنید، کامپایل فقط در اولین فراخوانی انجام می‌شود.</p>
+<p>این به این دلیل است که کد کامپایل‌شده در حافظه نهان ذخیره می‌شود و در صورت نیاز مجدداً استفاده می‌شود.</p>
+<p>به همین دلیل است که در کد بالا، اجرای دوم <code class="docutils literal notranslate"><span class="pre">qm_numba</span></code> سریع‌تر است.</p>
+<div class="admonition- admonition">
+<p class="admonition-title">توضیح</p>
+<p>در عمل، به جای نوشتن <code class="docutils literal notranslate"><span class="pre">qm_numba</span> <span class="pre">=</span> <span class="pre">jit(qm)</span></code>، معمولاً از نحو
+<em>دکوراتور</em> استفاده می‌کنیم و <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> را قبل از تعریف تابع قرار می‌دهیم. این
+معادل افزودن <code class="docutils literal notranslate"><span class="pre">qm</span> <span class="pre">=</span> <span class="pre">jit(qm)</span></code> پس از تعریف است.</p>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">13.3. </span>نکات ظریف<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>استفاده از Numba نسبتاً آسان است، اما همیشه بی‌دردسر نیست.</p>
+<p>بیایید برخی از مشکلاتی که کاربران با آن‌ها مواجه می‌شوند را مرور کنیم.</p>
+<section id="id8">
+<h3><span class="section-number">13.3.1. </span>تعیین نوع<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>استنتاج موفق نوع، کلید کامپایل JIT است.</p>
 <p>در یک محیط ایده‌آل، Numba می‌تواند تمام اطلاعات نوع لازم را استنتاج کند.</p>
-<p>این به آن اجازه می‌دهد تا کد ماشین بومی تولید کند، بدون نیاز به فراخوانی محیط زمان اجرای Python.</p>
-<p>در چنین محیطی، Numba با کد ماشین از زبان‌های سطح پایین برابری می‌کند.</p>
-<p>وقتی Numba نمی‌تواند تمام اطلاعات نوع را استنتاج کند، خطا ایجاد می‌کند.</p>
-<p>به عنوان مثال، در تنظیم (مصنوعی) زیر، Numba قادر به تعیین نوع تابع <code class="docutils literal notranslate"><span class="pre">mean</span></code> هنگام کامپایل تابع <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> نیست</p>
+<p>زمانی که Numba <em>نتواند</em> تمام اطلاعات نوع را استنتاج کند، خطا صادر می‌کند.</p>
+<p>برای مثال، در حالت زیر، Numba قادر به تعیین نوع تابع <code class="docutils literal notranslate"><span class="pre">g</span></code> هنگام کامپایل <code class="docutils literal notranslate"><span class="pre">iterate</span></code> نیست.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">statistics</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">bootstrap_stat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_resamples</span><span class="p">):</span>
-        <span class="n">resample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">bootstrap_stat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">statistics</span><span class="p">(</span><span class="n">resample</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">bootstrap_stat</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">iterate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
 
-<span class="c1"># هیچ decorator اینجا نیست.</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1"># Not jitted</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">))</span>
-<span class="n">n_resamples</span> <span class="o">=</span> <span class="mi">10</span>
-
-<span class="c1"># این کد خطا ایجاد می‌کند</span>
+<span class="c1"># This code throws an error</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">n_resamples</span><span class="p">)</span>
+    <span class="n">iterate</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
@@ -599,161 +560,42 @@ x_{t+1} = \alpha x_t (1 - x_t)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2944/315866846.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2959/946716698.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2944/315866846.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2959/946716698.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
 <span class=" -Color -Color-Bold">During: Pass nopython_type_inference</span> 
 
 This error may have been caused by the following argument(s):
-- argument 1: <span class=" -Color -Color-Bold">Cannot determine Numba type of &lt;class &#39;function&#39;&gt;</span>
+- argument 0: <span class=" -Color -Color-Bold">Cannot determine Numba type of &lt;class &#39;function&#39;&gt;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>می‌توانیم این خطا را در این مورد به راحتی با کامپایل کردن <code class="docutils literal notranslate"><span class="pre">mean</span></code> برطرف کنیم.</p>
+<p>در این حالت، می‌توانیم این مشکل را به‌راحتی با کامپایل کردن <code class="docutils literal notranslate"><span class="pre">g</span></code> برطرف کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">bootstrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">n_resamples</span><span class="p">)</span>
+<span class="n">iterate</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2574 seconds elapsed
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.223875299559663
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id6">
-<h2><span class="section-number">13.5. </span>کامپایل کلاس‌ها<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>همانطور که در بالا ذکر شد، در حال حاضر Numba فقط می‌تواند زیرمجموعه‌ای از Python را کامپایل کند.</p>
-<p>با این حال، آن زیرمجموعه همیشه در حال گسترش است.</p>
-<p>به ویژه، Numba اکنون در کامپایل کلاس‌ها بسیار موثر است.</p>
-<p>اگر یک کلاس با موفقیت کامپایل شود، متدهای آن به عنوان توابع کامپایل شده JIT عمل می‌کنند.</p>
-<p>برای ارائه یک مثال، بیایید کلاس تحلیل مدل رشد Solow که در <a class="reference internal" href="python_oop.html"><span class="doc">این درس</span></a> ایجاد کردیم را در نظر بگیریم.</p>
-<p>برای کامپایل این کلاس از decorator <code class="docutils literal notranslate"><span class="pre">&#64;jitclass</span></code> استفاده می‌کنیم:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">float64</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">numba.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">jitclass</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>توجه داشته باشید که چیزی به نام <code class="docutils literal notranslate"><span class="pre">float64</span></code> نیز import کردیم.</p>
-<p>این یک نوع داده است که نشان‌دهنده اعداد اعشاری استاندارد است.</p>
-<p>ما اینجا آن را import می‌کنیم زیرا Numba هنگام تلاش برای برخورد با کلاس‌ها به کمک بیشتری با انواع نیاز دارد.</p>
-<p>در اینجا کد ما است:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solow_data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;δ&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;α&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">float64</span><span class="p">)</span>
-<span class="p">]</span>
-
-<span class="nd">@jitclass</span><span class="p">(</span><span class="n">solow_data</span><span class="p">)</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solow</span><span class="p">:</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    مدل رشد Solow را با قانون به‌روزرسانی پیاده‌سازی می‌کند</span>
-
-<span class="sd">        k_{t+1} = [(s z k^α_t) + (1 - δ)k_t] /(1 + n)</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># نرخ رشد جمعیت</span>
-                       <span class="n">s</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>  <span class="c1"># نرخ پس‌انداز</span>
-                       <span class="n">δ</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>   <span class="c1"># نرخ استهلاک</span>
-                       <span class="n">α</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>   <span class="c1"># سهم نیروی کار</span>
-                       <span class="n">z</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>   <span class="c1"># بهره‌وری</span>
-                       <span class="n">k</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>  <span class="c1"># موجودی سرمایه فعلی</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">&quot;تابع h را ارزیابی کن&quot;</span>
-        <span class="c1"># پارامترها را باز کن (self را حذف کن تا نماد ساده شود)</span>
-        <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
-        <span class="c1"># قانون به‌روزرسانی را اعمال کن</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">**</span><span class="n">α</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">δ</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">&quot;وضعیت فعلی (یعنی موجودی سرمایه) را به‌روزرسانی کن.&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">steady_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s2">&quot;مقدار حالت پایدار سرمایه را محاسبه کن.&quot;</span>
-        <span class="c1"># پارامترها را باز کن (self را حذف کن تا نماد ساده شود)</span>
-        <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">δ</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">α</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
-        <span class="c1"># حالت پایدار را محاسبه و برگردان</span>
-        <span class="k">return</span> <span class="p">((</span><span class="n">s</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">δ</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">α</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">generate_sequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-        <span class="s2">&quot;یک سری زمانی با طول t تولید و برگردان&quot;</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">path</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>ابتدا انواع داده‌های instance برای کلاس را در <code class="docutils literal notranslate"><span class="pre">solow_data</span></code> مشخص کردیم.</p>
-<p>پس از آن، هدف‌گیری کلاس برای کامپایل JIT فقط نیاز به افزودن <code class="docutils literal notranslate"><span class="pre">&#64;jitclass(solow_data)</span></code> قبل از تعریف کلاس دارد.</p>
-<p>وقتی متدها در کلاس را فراخوانی می‌کنیم، متدها دقیقاً مانند توابع کامپایل می‌شوند.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">Solow</span><span class="p">()</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="n">Solow</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mf">8.0</span><span class="p">)</span>
-
-<span class="n">T</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="c1"># مقدار حالت پایدار مشترک سرمایه را رسم کن</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">s1</span><span class="o">.</span><span class="n">steady_state</span><span class="p">()]</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;steady state&#39;</span><span class="p">)</span>
-
-<span class="c1"># سری زمانی را برای هر اقتصاد رسم کن</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span>
-    <span class="n">lb</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;capital series from initial state </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">k</span><span class="si">}</span><span class="s1">&#39;</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">generate_sequence</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lb</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_</span><span class="si">{t}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/decc4d424ff6630fc041fc010f7dceffb2e31c1a9533554e747aef941cebe8f3.png" src="_images/decc4d424ff6630fc041fc010f7dceffb2e31c1a9533554e747aef941cebe8f3.png" />
-</div>
-</div>
-</section>
-<section id="id7">
-<h2><span class="section-number">13.6. </span>خطرات و محدودیت‌ها<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<p>بیایید موارد بالا را مرور کنیم و برخی یادداشت‌های احتیاطی اضافه کنیم.</p>
-<section id="id8">
-<h3><span class="section-number">13.6.1. </span>محدودیت‌ها<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>همانطور که دیدیم، Numba باید اطلاعات نوع را روی تمام متغیرها استنتاج کند تا دستورالعمل‌های سریع سطح ماشین تولید کند.</p>
-<p>برای روال‌های ساده، Numba انواع را بسیار خوب استنتاج می‌کند.</p>
-<p>برای روال‌های بزرگتر، یا برای روال‌هایی که از کتابخانه‌های خارجی استفاده می‌کنند، به راحتی می‌تواند شکست بخورد.</p>
-<p>از این رو، هنگام استفاده از Numba، محتاطانه است که روی تسریع قطعات کوچک و حیاتی کد تمرکز کنید.</p>
-<p>این به شما عملکرد بسیار بهتری نسبت به پوشاندن برنامه‌های Python خود با عبارت‌های <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> می‌دهد.</p>
+<p>در موارد دیگر، مانند زمانی که می‌خواهیم از توابع کتابخانه‌های خارجی مانند <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> استفاده کنیم، ممکن است هیچ راه‌حل آسانی وجود نداشته باشد.</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">13.6.2. </span>یک مشکل: متغیرهای سراسری<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<p>چیز دیگری که هنگام استفاده از Numba باید مراقب آن باشید در اینجا است.</p>
-<p>مثال زیر را در نظر بگیرید</p>
+<h3><span class="section-number">13.3.2. </span>متغیرهای سراسری<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>نکته دیگری که هنگام استفاده از Numba باید به آن توجه کرد، نحوه مدیریت متغیرهای سراسری است.</p>
+<p>برای مثال، کد زیر را در نظر بگیرید.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -786,16 +628,15 @@ This error may have been caused by the following argument(s):
 </div>
 </div>
 </div>
-<p>توجه داشته باشید که تغییر global هیچ تأثیری بر مقدار برگشتی توسط تابع نداشت.</p>
-<p>وقتی Numba کد ماشین را برای توابع کامپایل می‌کند، متغیرهای سراسری را به عنوان ثابت برای اطمینان از پایداری نوع درمان می‌کند.</p>
+<p>توجه کنید که تغییر متغیر سراسری هیچ تأثیری بر مقدار بازگردانده‌شده توسط تابع نداشت 😱.</p>
+<p>هنگامی که Numba کد ماشین را برای توابع کامپایل می‌کند، متغیرهای سراسری را به‌عنوان ثابت در نظر می‌گیرد تا پایداری نوع را تضمین کند.</p>
+<p>برای جلوگیری از این مشکل، به‌جای تکیه بر متغیرهای سراسری، مقادیر را به‌عنوان آرگومان‌های تابع ارسال کنید.</p>
 </section>
 </section>
 <section id="multithreading">
-<span id="id10"></span><h2><span class="section-number">13.7. </span>حلقه‌های چندنخی در Numba<a class="headerlink" href="#multithreading" title="Link to this heading">#</a></h2>
-<p>علاوه بر کامپایل JIT، Numba پشتیبانی قدرتمندی برای محاسبات موازی در CPUها ارائه می‌دهد.</p>
-<p>با توزیع محاسبات در چندین هسته CPU، می‌توانیم افزایش سرعت قابل توجهی برای بسیاری از الگوریتم‌های عددی به دست آوریم.</p>
+<span id="id10"></span><h2><span class="section-number">13.4. </span>حلقه‌های چندنخی در Numba<a class="headerlink" href="#multithreading" title="Link to this heading">#</a></h2>
+<p>علاوه بر کامپایل JIT، Numba پشتیبانی از محاسبات موازی در CPUها ارائه می‌دهد.</p>
 <p>ابزار کلیدی برای موازی‌سازی در Numba تابع <code class="docutils literal notranslate"><span class="pre">prange</span></code> است که به Numba می‌گوید تا تکرارهای حلقه را به صورت موازی در هسته‌های CPU موجود اجرا کند.</p>
-<p>این رویکرد چندنخی برای طیف گسترده‌ای از مسائل در محاسبات علمی و اقتصاد کمی به خوبی کار می‌کند.</p>
 <p>برای نمایش، ابتدا به یک قطعه کد ساده تک‌نخی (یعنی غیرموازی) نگاه می‌کنیم.</p>
 <p>کد، به‌روزرسانی ثروت <span class="math notranslate nohighlight">\(w_t\)</span> یک خانوار را از طریق قانون شبیه‌سازی می‌کند</p>
 <div class="math notranslate nohighlight">
@@ -812,20 +653,13 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p>در اینجا کد است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randn</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">njit</span>
-
-<span class="nd">@njit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">v1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">v2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    ثروت خانوار را به‌روزرسانی می‌کند.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># شوک‌ها را بکش</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">v1</span> <span class="o">*</span> <span class="n">randn</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">v2</span> <span class="o">*</span> <span class="n">randn</span><span class="p">())</span>
-
-    <span class="c1"># ثروت را به‌روزرسانی کن</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">v1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">v2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="s2">&quot; Updates household wealth. &quot;</span>
+    <span class="c1"># Draw shocks</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">v1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">v2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span>
+    <span class="c1"># Update wealth</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">s</span> <span class="o">*</span> <span class="n">w</span> <span class="o">+</span> <span class="n">y</span>
     <span class="k">return</span> <span class="n">w</span>
 </pre></div>
@@ -841,7 +675,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">w</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+    <span class="n">w</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
@@ -851,36 +685,30 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6af5a2d1f83251b94f01d473b1efd0b50b94bc1d342953248e36bd7fdc12a580.png" src="_images/6af5a2d1f83251b94f01d473b1efd0b50b94bc1d342953248e36bd7fdc12a580.png" />
+<img alt="_images/76e7dd98b86fbf34c2dd7b0baf35bfc42688845ce28437a9c5c37dc86350fa05.png" src="_images/76e7dd98b86fbf34c2dd7b0baf35bfc42688845ce28437a9c5c37dc86350fa05.png" />
 </div>
 </div>
 <p>حالا فرض کنیم که جمعیت زیادی از خانوارها داریم و می‌خواهیم بدانیم میانه ثروت چه خواهد بود.</p>
-<p>حل این موضوع با مداد و کاغذ آسان نیست، بنابراین به جای آن از شبیه‌سازی استفاده خواهیم کرد.</p>
-<p>به طور خاص، تعداد زیادی از خانوارها را شبیه‌سازی می‌کنیم و سپس میانه ثروت را برای این گروه محاسبه می‌کنیم.</p>
-<p>معلوم می‌شود که برای مشخصاتی که در بالا انتخاب کرده‌ایم، می‌توانیم این را با گرفتن یک عکس یک دوره‌ای از آنچه برای میانه ثروت گروه در پایان یک شبیه‌سازی طولانی اتفاق افتاده محاسبه کنیم.</p>
-<p>علاوه بر این، به شرطی که دوره شبیه‌سازی به اندازه کافی طولانی باشد، شرایط اولیه اهمیتی ندارند.</p>
-<ul class="simple">
-<li><p>این به دلیل چیزی به نام ارگودیسیتی است که <a class="reference external" href="https://python.quantecon.org/finite_markov.html#id15">بعداً</a> آن را بحث خواهیم کرد.</p></li>
-</ul>
-<p>بنابراین، به طور خلاصه، قصد داریم 50,000 خانوار را شبیه‌سازی کنیم با</p>
+<p>حل این موضوع با مداد و کاغذ آسان نیست، بنابراین به جای آن از شبیه‌سازی استفاده خواهیم کرد:</p>
 <ol class="arabic simple">
-<li><p>تنظیم خودسرانه ثروت اولیه به 1 و</p></li>
-<li><p>شبیه‌سازی رو به جلو در زمان برای 1,000 دوره.</p></li>
+<li><p>تعداد زیادی از خانوارها را در طول زمان شبیه‌سازی می‌کنیم</p></li>
+<li><p>میانه ثروت را محاسبه می‌کنیم</p></li>
 </ol>
-<p>سپس میانه ثروت را در پایان دوره محاسبه خواهیم کرد.</p>
 <p>در اینجا کد است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@njit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compute_long_run_median</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
-
     <span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_reps</span><span class="p">)</span>
+    <span class="c1"># For each household</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_reps</span><span class="p">):</span>
+        <span class="c1"># Set the initial condition and run forward in time</span>
         <span class="n">w</span> <span class="o">=</span> <span class="n">w0</span>
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-            <span class="n">w</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="c1"># Record the final value</span>
         <span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
-
+    <span class="c1"># Take the median of all final values</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -890,12 +718,27 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Warm up</span>
     <span class="n">compute_long_run_median</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.5063 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.5278 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
+    <span class="n">compute_long_run_median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.6222 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -906,16 +749,16 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">prange</span>
 
-<span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">compute_long_run_median_parallel</span><span class="p">(</span><span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span><span class="p">):</span>
-
+<span class="nd">@jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_long_run_median_parallel</span><span class="p">(</span>
+        <span class="n">w0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">num_reps</span><span class="o">=</span><span class="mi">50_000</span>
+    <span class="p">):</span>
     <span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">num_reps</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">num_reps</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">num_reps</span><span class="p">):</span>  <span class="c1"># Parallelize over households</span>
         <span class="n">w</span> <span class="o">=</span> <span class="n">w0</span>
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-            <span class="n">w</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
         <span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
-
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -925,20 +768,37 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Warm up</span>
     <span class="n">compute_long_run_median_parallel</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2633 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3603 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
+    <span class="n">compute_long_run_median_parallel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9270 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <p>افزایش سرعت قابل توجه است.</p>
+<p>توجه داشته باشید که موازی‌سازی را در سطح خانوارها انجام می‌دهیم نه در طول زمان – به‌روزرسانی‌های یک خانوار منفرد در طول دوره‌های زمانی ذاتاً ترتیبی هستند.</p>
+<p>برای موازی‌سازی مبتنی بر GPU، به <a class="reference internal" href="jax_intro.html"><span class="doc">درس‌های ما درباره JAX</span></a> مراجعه کنید.</p>
 </section>
 <section id="id11">
-<h2><span class="section-number">13.8. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="speed_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 13.1 </span></p>
@@ -955,13 +815,11 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p>در اینجا یک راه‌حل است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
-
-<span class="nd">@jit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -981,7 +839,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1481 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1532 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -994,13 +852,13 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0263 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0266 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>اگر کامپایل JIT را با حذف <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code> خاموش کنیم، کد حدود 150 برابر بیشتر در دستگاه ما طول می‌کشد.</p>
-<p>بنابراین با افزودن چهار کاراکتر، افزایش سرعت 2 مرتبه بزرگی – که بسیار زیاد است – به دست می‌آوریم.</p>
+<p>اگر کامپایل JIT را با حذف <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> خاموش کنیم، کد حدود 150 برابر بیشتر در دستگاه ما طول می‌کشد.</p>
+<p>بنابراین با افزودن چهار کاراکتر، افزایش سرعت 2 مرتبه بزرگی به دست می‌آوریم.</p>
 </section>
 </div>
 <div class="exercise admonition" id="speed_ex2">
@@ -1027,7 +885,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p class="admonition-title">Hint</p>
 <ul class="simple">
 <li><p>حالت پایین را به عنوان 0 و حالت بالا را به عنوان 1 نمایش دهید.</p></li>
-<li><p>اگر می‌خواهید اعداد صحیح را در یک آرایه NumPy ذخیره کنید و سپس کامپایل JIT اعمال کنید، از <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.empty(n,</span> <span class="pre">dtype=np.int_)</span></code> استفاده کنید.</p></li>
+<li><p>اگر می‌خواهید اعداد صحیح را در یک آرایه NumPy ذخیره کنید و سپس کامپایل JIT اعمال کنید، از <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.empty(n,</span> <span class="pre">dtype=np.int64)</span></code> استفاده کنید.</p></li>
 </ul>
 </div>
 </section>
@@ -1052,7 +910,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># در حالت 1 شروع کن</span>
     <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -1076,7 +934,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.664981
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666927
 </pre></div>
 </div>
 </div>
@@ -1091,7 +949,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4872 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4686 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1113,7 +971,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.669599
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666481
 </pre></div>
 </div>
 </div>
@@ -1155,13 +1013,11 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p>در اینجا یک راه‌حل است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
-
-<span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1181,7 +1037,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3963 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4098 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1194,12 +1050,12 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0054 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0052 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>با روشن و خاموش کردن موازی‌سازی (انتخاب <code class="docutils literal notranslate"><span class="pre">True</span></code> یا <code class="docutils literal notranslate"><span class="pre">False</span></code> در annotation <code class="docutils literal notranslate"><span class="pre">&#64;njit</span></code>)، می‌توانیم افزایش سرعتی که چندنخی علاوه بر کامپایل JIT فراهم می‌کند را آزمایش کنیم.</p>
+<p>با روشن و خاموش کردن موازی‌سازی (انتخاب <code class="docutils literal notranslate"><span class="pre">True</span></code> یا <code class="docutils literal notranslate"><span class="pre">False</span></code> در annotation <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code>)، می‌توانیم افزایش سرعتی که چندنخی علاوه بر کامپایل JIT فراهم می‌کند را آزمایش کنیم.</p>
 <p>در ایستگاه کاری ما، می‌بینیم که موازی‌سازی سرعت اجرا را با ضریب 2 یا 3 افزایش می‌دهد.</p>
 <p>(اگر به صورت محلی اجرا می‌کنید، اعداد متفاوتی خواهید گرفت که عمدتاً به تعداد CPUها در دستگاه شما بستگی دارد.)</p>
 </section>
@@ -1262,13 +1118,12 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <p>با استفاده از این واقعیت، راه‌حل را می‌توان به شرح زیر نوشت.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randn</span>
-<span class="n">M</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 
 <span class="n">n</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">100</span>
 <span class="n">μ</span><span class="p">,</span> <span class="n">ρ</span><span class="p">,</span> <span class="n">ν</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">h0</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span>
 
-<span class="nd">@njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nd">@jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compute_call_price_parallel</span><span class="p">(</span><span class="n">β</span><span class="o">=</span><span class="n">β</span><span class="p">,</span>
                                 <span class="n">μ</span><span class="o">=</span><span class="n">μ</span><span class="p">,</span>
                                 <span class="n">S0</span><span class="o">=</span><span class="n">S0</span><span class="p">,</span>
@@ -1285,10 +1140,10 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
         <span class="n">h</span> <span class="o">=</span> <span class="n">h0</span>
         <span class="c1"># شبیه‌سازی رو به جلو در زمان</span>
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">μ</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">randn</span><span class="p">()</span>
-            <span class="n">h</span> <span class="o">=</span> <span class="n">ρ</span> <span class="o">*</span> <span class="n">h</span> <span class="o">+</span> <span class="n">ν</span> <span class="o">*</span> <span class="n">randn</span><span class="p">()</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">μ</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">ρ</span> <span class="o">*</span> <span class="n">h</span> <span class="o">+</span> <span class="n">ν</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
         <span class="c1"># و مقدار max{S_n - K, 0} را به current_sum اضافه کن</span>
-        <span class="n">current_sum</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">current_sum</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">β</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">current_sum</span> <span class="o">/</span> <span class="n">M</span>
 </pre></div>
@@ -1448,6 +1303,11 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1457,12 +1317,12 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -1474,27 +1334,27 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -1506,12 +1366,12 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1554,6 +1414,8 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/numba.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

@@ -7,6 +7,25 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+translation:
+  title: توابع
+  headings:
+    Overview: مقدمه
+    Function Basics: اصول اولیه توابع
+    Function Basics::Built-In Functions: توابع داخلی(Built-In)
+    Function Basics::Third Party Functions: توابع خارجی(Third Party)
+    Defining Functions: تعریف توابع
+    Defining Functions::Basic Syntax: نحو پایه
+    Defining Functions::Keyword Arguments: آرگومان‌های کلیدواژه‌ای
+    Defining Functions::The Flexibility of Python Functions: انعطاف‌پذیری توابع پایتون
+    'Defining Functions::One-Line Functions: `lambda`': 'توابع یک خطی: `lambda`'
+    Defining Functions::Why Write Functions?: چرا تابع بنویسیم؟
+    Applications: کاربردها
+    Applications::Random Draws: نمونه‌برداری تصادفی
+    Applications::Adding Conditions: اضافه کردن شرط‌ها
+    Recursive Function Calls (Advanced): فراخوانی‌ توابع بازگشتی (پیشرفته)
+    Exercises: تمرینات
+    Advanced Exercises: تمرینات پیشرفته
 ---
 
 (functions)=

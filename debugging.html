@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>21. اشکال‌زدایی و مدیریت خطاها &#8212; Python Programming for Economics and Finance</title>
+    <title>22. اشکال‌زدایی و مدیریت خطاها &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -130,8 +130,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="22. SymPy" href="sympy.html" />
-    <link rel="prev" title="20. ویژگی‌های بیشتر زبان" href="python_advanced_features.html" />
+    <link rel="next" title="23. SymPy" href="sympy.html" />
+    <link rel="prev" title="21. ویژگی‌های بیشتر زبان" href="python_advanced_features.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -154,6 +154,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -203,23 +206,23 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">21.1. مرور کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">21.2. اشکال‌زدایی</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debug">21.2.1. دستور جادویی <code class="docutils literal notranslate"><span class="pre">debug</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">21.2.2. تنظیم یک نقطه توقف</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">21.2.3. دستورات جادویی مفید دیگر</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">22.1. مرور کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">22.2. اشکال‌زدایی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debug">22.2.1. دستور جادویی <code class="docutils literal notranslate"><span class="pre">debug</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">22.2.2. تنظیم یک نقطه توقف</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">22.2.3. دستورات جادویی مفید دیگر</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">21.3. مدیریت خطاها</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">21.3.1. خطاها در Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">21.3.2. ادعاها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">21.3.3. مدیریت خطاها در حین اجرا</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">21.3.3.1. گرفتن استثناها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">22.3. مدیریت خطاها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">22.3.1. خطاها در Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">22.3.2. ادعاها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">22.3.3. مدیریت خطاها در حین اجرا</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">22.3.3.1. گرفتن استثناها</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">21.4. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">22.4. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -275,7 +278,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Mar 26, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -286,11 +289,29 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e09d083" class="changelog-hash">e09d083</a>
                                 
-                                <span class="changelog-author">Zahra</span>
-                                <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 weeks ago</span>
+                                <span class="changelog-message">chore: migrate heading-map → translation frontmatter (#83)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/3f9c65e" class="changelog-hash">3f9c65e</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 weeks ago</span>
+                                <span class="changelog-message">Setup action-translation v0.11.0 infrastructure (#67)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/43acfa8" class="changelog-hash">43acfa8</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 months ago</span>
+                                <span class="changelog-message">Add lecture: اشکال‌زدایی و مدیریت خطاها (#21)</span>
                             </li>
                             
                         </ul>
@@ -306,14 +327,14 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">21. </span>اشکال‌زدایی و مدیریت خطاها<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>اشکال‌زدایی و مدیریت خطاها<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph" id="index-0">
 <div><p>“اشکال‌زدایی دو برابر سخت‌تر از نوشتن کد در مرحله اول است.
 بنابراین، اگر کد را تا حد ممکن هوشمندانه بنویسید، طبق تعریف،
 به اندازه کافی باهوش نیستید که آن را اشکال‌زدایی کنید.” – Brian Kernighan</p>
 </div></blockquote>
 <section id="id2">
-<h2><span class="section-number">21.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>آیا شما یکی از آن برنامه‌نویس‌هایی هستید که هنگام تلاش برای اشکال‌زدایی برنامه‌های خود، کد خود را پر از دستورات <code class="docutils literal notranslate"><span class="pre">print</span></code> می‌کنند؟</p>
 <p>هی، همه ما قبلاً این کار را می‌کردیم.</p>
 <p>(خوب، گاهی اوقات هنوز این کار را انجام می‌دهیم…)</p>
@@ -322,7 +343,7 @@
 <p>در این سخنرانی، درباره چگونگی اشکال‌زدایی برنامه‌های خود و بهبود مدیریت خطاها بحث خواهیم کرد.</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">21.2. </span>اشکال‌زدایی<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>اشکال‌زدایی<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p id="index-1">ابزارهای اشکال‌زدایی برای Python در پلتفرم‌ها، IDE‌ها و ویرایشگرها متفاوت است.</p>
 <p>به عنوان مثال، یک <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/debugger.html">اشکال‌زدای بصری</a> در JupyterLab موجود است.</p>
 <p>در اینجا بر Jupyter Notebook تمرکز خواهیم کرد و شما را وا می‌گذاریم تا تنظیمات دیگر را کشف کنید.</p>
@@ -336,7 +357,7 @@
 </div>
 </div>
 <section id="debug">
-<span id="debug-magic"></span><h3><span class="section-number">21.2.1. </span>دستور جادویی <code class="docutils literal notranslate"><span class="pre">debug</span></code><a class="headerlink" href="#debug" title="Link to this heading">#</a></h3>
+<span id="debug-magic"></span><h3><span class="section-number">22.2.1. </span>دستور جادویی <code class="docutils literal notranslate"><span class="pre">debug</span></code><a class="headerlink" href="#debug" title="Link to this heading">#</a></h3>
 <p>بیایید یک مثال ساده (و نسبتاً ساختگی) را در نظر بگیریم</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -477,7 +498,7 @@
 </div>
 </section>
 <section id="id4">
-<h3><span class="section-number">21.2.2. </span>تنظیم یک نقطه توقف<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.2. </span>تنظیم یک نقطه توقف<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>رویکرد قبلی مفید است اما گاهی ناکافی است.</p>
 <p>نسخه اصلاح‌شده زیر از تابع بالا را در نظر بگیرید</p>
 <div class="cell tag_raises-exception docutils container">
@@ -531,7 +552,7 @@
 <p>برای خروج از اشکال‌زدا، از <code class="docutils literal notranslate"><span class="pre">q</span></code> استفاده کنید.</p>
 </section>
 <section id="id5">
-<h3><span class="section-number">21.2.3. </span>دستورات جادویی مفید دیگر<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.3. </span>دستورات جادویی مفید دیگر<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>در این سخنرانی، از دستور جادویی IPython به نام <code class="docutils literal notranslate"><span class="pre">%debug</span></code> استفاده کردیم.</p>
 <p>بسیاری از دستورات جادویی مفید دیگر وجود دارند:</p>
 <ul class="simple">
@@ -543,7 +564,7 @@
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">21.3. </span>مدیریت خطاها<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>مدیریت خطاها<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p id="index-2">گاهی اوقات ممکن است هنگام نوشتن کد، باگ‌ها و خطاها را پیش‌بینی کنیم.</p>
 <p>به عنوان مثال، واریانس نمونه بی‌طرفانه نمونه <span class="math notranslate nohighlight">\(y_1, \ldots, y_n\)</span>
 به صورت زیر تعریف می‌شود</p>
@@ -565,7 +586,7 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 </ul>
 <p>در این بخش، انواع مختلف خطاها در Python و تکنیک‌هایی برای مدیریت خطاهای احتمالی در برنامه‌های خود را بحث خواهیم کرد.</p>
 <section id="python">
-<h3><span class="section-number">21.3.1. </span>خطاها در Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.3.1. </span>خطاها در Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
 <p>ما <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> و <code class="docutils literal notranslate"><span class="pre">NameError</span></code> را در <a class="reference internal" href="#debug-magic"><span class="std std-ref">مثال‌های قبلی خود</span></a> دیده‌ایم.</p>
 <p>در Python، دو نوع خطا وجود دارد – خطاهای نحوی و استثناها.</p>
 <p id="index-3">در اینجا مثالی از یک نوع خطای رایج آورده شده است</p>
@@ -666,7 +687,7 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 <p>در Python، این خطاها <em>استثناها</em> نامیده می‌شوند.</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">21.3.2. </span>ادعاها<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.3.2. </span>ادعاها<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p id="index-4">گاهی اوقات خطاها را می‌توان با بررسی اینکه آیا برنامه شما همانطور که انتظار می‌رود اجرا می‌شود، از آنها جلوگیری کرد.</p>
 <p>یک روش نسبتاً آسان برای مدیریت بررسی‌ها با کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">assert</span></code> است.</p>
 <p>به عنوان مثال، برای یک لحظه وانمود کنید که تابع <code class="docutils literal notranslate"><span class="pre">np.var</span></code> وجود
@@ -713,13 +734,13 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 </ul>
 </section>
 <section id="id8">
-<h3><span class="section-number">21.3.3. </span>مدیریت خطاها در حین اجرا<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.3.3. </span>مدیریت خطاها در حین اجرا<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p id="index-5">رویکرد استفاده شده در بالا کمی محدود است، زیرا همیشه منجر به
 خاتمه می‌شود.</p>
 <p>گاهی اوقات می‌توانیم خطاها را با ظرافت بیشتری، با رفتار با موارد خاص، مدیریت کنیم.</p>
 <p>بیایید ببینیم چگونه این کار انجام می‌شود.</p>
 <section id="id9">
-<h4><span class="section-number">21.3.3.1. </span>گرفتن استثناها<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.3.3.1. </span>گرفتن استثناها<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>می‌توانیم استثناها را با استفاده از بلوک‌های <code class="docutils literal notranslate"><span class="pre">try</span></code> – <code class="docutils literal notranslate"><span class="pre">except</span></code> بگیریم و با آنها برخورد کنیم.</p>
 <p>در اینجا یک مثال ساده است</p>
 <div class="cell docutils container">
@@ -880,10 +901,10 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">21.4. </span>تمرین‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>تمرین‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="debug_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 21.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 22.1 </span></p>
 <section id="exercise-content">
 <p>فرض کنید ما یک فایل متنی <code class="docutils literal notranslate"><span class="pre">numbers.txt</span></code> داریم که شامل خطوط زیر است</p>
 <div class="no-execute highlight-none notranslate"><div class="highlight"><pre><span></span>prices
@@ -900,7 +921,7 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 </div>
 <div class="solution dropdown admonition" id="debugging-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#debug_ex1"> Exercise 21.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#debug_ex1"> Exercise 22.1</a></p>
 <section id="solution-content">
 <p>بیایید ابتدا داده را ذخیره کنیم</p>
 <div class="cell docutils container">
@@ -1095,6 +1116,11 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1104,12 +1130,12 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -1121,27 +1147,27 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -1153,12 +1179,12 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1201,6 +1227,8 @@ s^2 := \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar y)^2
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/debugging.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

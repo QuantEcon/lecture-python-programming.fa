@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -130,7 +130,7 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="16. Pandas" href="pandas.html" />
+    <link rel="next" title="16. ماجراهایی با مشتق‌گیری خودکار" href="autodiff.html" />
     <link rel="prev" title="14. JAX" href="jax_intro.html" />
 
 <!-- Normal Meta Tags -->
@@ -154,6 +154,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -203,18 +206,14 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.1. عملیات برداری شده</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">15.1.1. بیان مسئله</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">15.1. عملیات برداری شده</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">15.1.1. بیان مسئله</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">15.1.2. برداری‌سازی NumPy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numba">15.1.3. مقایسه با Numba</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">15.1.4. Numba موازی شده</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">15.1.4. Numba موازی شده</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax">15.1.5. کد برداری شده با JAX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-vmap">15.1.6. JAX به علاوه vmap</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">15.1.6.1. نسخه 1</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmap">15.1.7. نسخه 2 vmap</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">15.1.8. خلاصه</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-vmap">15.1.6. JAX به علاوه vmap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">15.1.7. خلاصه</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">15.2. عملیات ترتیبی</a><ul class="nav section-nav flex-column">
@@ -223,6 +222,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">15.2.3. خلاصه</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">15.3. توصیه‌های کلی</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -278,7 +278,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -289,11 +289,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -308,8 +308,8 @@
                     
                     <div>
                         
-  <section class="tex2jax_ignore mathjax_ignore" id="numpy-numba-jax">
-<h1><span class="section-number">15. </span>NumPy در مقابل Numba در مقابل JAX<a class="headerlink" href="#numpy-numba-jax" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">15. </span>NumPy در مقابل Numba در مقابل JAX<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>در سخنرانی‌های قبلی، سه کتابخانه اصلی برای محاسبات علمی و عددی را بحث کردیم:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="numpy.html"><span class="doc std std-doc">NumPy</span></a></p></li>
@@ -334,7 +334,7 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.2)
 Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.9.2)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
@@ -370,23 +370,27 @@ that you can access as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numba</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d.axes3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">cm</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">lax</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="id1">
-<h2><span class="section-number">15.1. </span>عملیات برداری شده<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2><span class="section-number">15.1. </span>عملیات برداری شده<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>برخی عملیات را می‌توان به طور کامل برداری کرد — تمام حلقه‌ها به راحتی حذف می‌شوند و عملیات عددی به محاسبات روی آرایه‌ها تقلیل می‌یابند.</p>
 <p>در این حالت، کدام رویکرد بهترین است؟</p>
-<section id="id2">
-<h3><span class="section-number">15.1.1. </span>بیان مسئله<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3><span class="section-number">15.1.1. </span>بیان مسئله<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>مسئله بیشینه‌سازی تابع <span class="math notranslate nohighlight">\(f\)</span> از دو متغیر <span class="math notranslate nohighlight">\((x,y)\)</span> روی مربع <span class="math notranslate nohighlight">\([-a, a] \times [-a, a]\)</span> را در نظر بگیرید.</p>
 <p>برای <span class="math notranslate nohighlight">\(f\)</span> و <span class="math notranslate nohighlight">\(a\)</span> بیایید انتخاب کنیم</p>
 <div class="math notranslate nohighlight">
@@ -411,7 +415,7 @@ a = 3
                 <span class="n">y</span><span class="p">,</span>
                 <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
                 <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span>
                 <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
                 <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
@@ -422,7 +426,7 @@ a = 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f81230dfd2db59b9579d7268015e4d55429d25d6bbef97d4ad76ccef8d805797.png" src="_images/f81230dfd2db59b9579d7268015e4d55429d25d6bbef97d4ad76ccef8d805797.png" />
+<img alt="_images/bc7e88114f630ebda3baf940462d130b53d7e12731ecdccedad9c07d74547d30.png" src="_images/bc7e88114f630ebda3baf940462d130b53d7e12731ecdccedad9c07d74547d30.png" />
 </div>
 </div>
 <p>به خاطر این تمرین، ما از روش brute force برای بیشینه‌سازی استفاده خواهیم کرد.</p>
@@ -455,7 +459,7 @@ a = 3
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
     <span class="n">z_max_numpy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NumPy result: </span><span class="si">{</span><span class="n">z_max_numpy</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -463,7 +467,7 @@ a = 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15403843 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1665 seconds elapsed
 NumPy result: 0.999998
 </pre></div>
 </div>
@@ -478,29 +482,33 @@ NumPy result: 0.999998
 <p>حالا بیایید ببینیم آیا می‌توانیم با استفاده از Numba با یک حلقه ساده به عملکرد بهتری دست یابیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numba</span>
-
-<span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
             <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
-                <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بیایید آن را آزمایش کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
 
-<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
+    <span class="n">z_max_numba</span> <span class="o">=</span> <span class="n">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_max_numpy</span> <span class="o">=</span> <span class="n">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numba result: </span><span class="si">{</span><span class="n">z_max_numpy</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numba result: </span><span class="si">{</span><span class="n">z_max_numba</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23172164 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2352 seconds elapsed
 Numba result: 0.999998
 </pre></div>
 </div>
@@ -509,25 +517,26 @@ Numba result: 0.999998
 <p>بیایید دوباره اجرا کنیم تا زمان کامپایل حذف شود.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
     <span class="n">compute_max_numba</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10740042 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1074 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>بسته به دستگاه شما، نسخه Numba می‌تواند کمی کندتر یا کمی سریعتر از NumPy باشد.</p>
-<p>از یک طرف، NumPy محاسبات کارآمد (مانند Numba) را با مقداری چندنخی (برخلاف این کد Numba) ترکیب می‌کند که مزیتی فراهم می‌کند.</p>
+<p>بسته به دستگاه شما، نسخه Numba ممکن است کندتر یا سریعتر از NumPy باشد.</p>
+<p>در اکثر موارد، Numba کمی بهتر است.</p>
+<p>از یک طرف، NumPy محاسبات کارآمد را با مقداری چندنخی ترکیب می‌کند که مزیتی فراهم می‌کند.</p>
 <p>از طرف دیگر، روال Numba از حافظه بسیار کمتری استفاده می‌کند، زیرا ما فقط با یک شبکه یک‌بعدی کار می‌کنیم.</p>
 </section>
-<section id="id3">
-<h3><span class="section-number">15.1.4. </span>Numba موازی شده<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3><span class="section-number">15.1.4. </span>Numba موازی شده<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>حالا بیایید موازی‌سازی با Numba را با استفاده از <code class="docutils literal notranslate"><span class="pre">prange</span></code> امتحان کنیم:</p>
-<p>در اینجا یک تلاش ساده و <em>نادرست</em> آمده است.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -539,76 +548,41 @@ Numba result: 0.999998
             <span class="n">x</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
-                <span class="n">m</span> <span class="o">=</span> <span class="n">z</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">m</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>معمولاً این نتیجه نادرستی برمی‌گرداند:</p>
+<p>در اینجا یک اجرای گرم‌کننده و آزمایش آمده است.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_max_parallel_incorrect</span> <span class="o">=</span> <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numba result: </span><span class="si">{</span><span class="n">z_max_parallel_incorrect</span><span class="si">}</span><span class="s2"> 😱&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numba result: -inf 😱
-</pre></div>
-</div>
-</div>
-</div>
-<p>دلیل این است که متغیر <code class="docutils literal notranslate"><span class="pre">m</span></code> بین نخ‌ها مشترک است و به درستی کنترل نمی‌شود.</p>
-<p>وقتی چندین نخ سعی می‌کنند همزمان <code class="docutils literal notranslate"><span class="pre">m</span></code> را بخوانند و بنویسند، با یکدیگر تداخل می‌کنند.</p>
-<p>نخ‌ها مقادیر قدیمی <code class="docutils literal notranslate"><span class="pre">m</span></code> را می‌خوانند یا به‌روزرسانی‌های یکدیگر را بازنویسی می‌کنند — یا <code class="docutils literal notranslate"><span class="pre">m</span></code> هرگز از مقدار اولیه خود به‌روزرسانی نمی‌شود.</p>
-<p>در اینجا یک نسخه با دقت بیشتری نوشته شده است.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-    <span class="n">row_maxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">row_max</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">row_max</span><span class="p">:</span>
-                <span class="n">row_max</span> <span class="o">=</span> <span class="n">z</span>
-        <span class="n">row_maxes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_max</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">row_maxes</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>اکنون بلوک کدی که <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">numba.prange(n)</span></code> روی آن عمل می‌کند بین <code class="docutils literal notranslate"><span class="pre">i</span></code> ها مستقل است.</p>
-<p>هر نخ به یک عنصر جداگانه از آرایه <code class="docutils literal notranslate"><span class="pre">row_maxes</span></code> می‌نویسد و موازی‌سازی ایمن است.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_max_parallel</span> <span class="o">=</span> <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
+    <span class="n">z_max_parallel</span> <span class="o">=</span> <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numba result: </span><span class="si">{</span><span class="n">z_max_parallel</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numba result: 0.999998
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5855 seconds elapsed
+Numba result: 0.999998
 </pre></div>
 </div>
 </div>
 </div>
-<p>در اینجا زمان‌بندی آمده است.</p>
+<p>در اینجا زمان‌بندی برای نسخه از پیش کامپایل شده آمده است.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
     <span class="n">compute_max_numba_parallel</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04463077 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0450 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -620,7 +594,7 @@ Numba result: 0.999998
 <h3><span class="section-number">15.1.5. </span>کد برداری شده با JAX<a class="headerlink" href="#jax" title="Link to this heading">#</a></h3>
 <p>در ظاهر، کد برداری شده در JAX شبیه به کد NumPy است.</p>
 <p>اما تفاوت‌هایی نیز وجود دارد که در اینجا آنها را برجسته می‌کنیم.</p>
-<p>بیایید با تابع شروع کنیم.</p>
+<p>بیایید با تابع شروع کنیم که <code class="docutils literal notranslate"><span class="pre">np</span></code> را به <code class="docutils literal notranslate"><span class="pre">jnp</span></code> تغییر می‌دهد و <code class="docutils literal notranslate"><span class="pre">jax.jit</span></code> را اضافه می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
@@ -634,10 +608,18 @@ Numba result: 0.999998
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3_000</span><span class="p">)</span>
-<span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
-
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>حالا بیایید اجرا و زمان‌بندی کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
     <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">))</span>
+    <span class="c1"># Hold interpreter</span>
     <span class="n">z_max</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plain vanilla JAX result: </span><span class="si">{</span><span class="n">z_max</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -645,7 +627,7 @@ Numba result: 0.999998
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08639002 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0745 seconds elapsed
 Plain vanilla JAX result: 0.999998
 </pre></div>
 </div>
@@ -654,19 +636,21 @@ Plain vanilla JAX result: 0.999998
 <p>بیایید دوباره اجرا کنیم تا زمان کامپایل حذف شود.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
     <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x_mesh</span><span class="p">,</span> <span class="n">y_mesh</span><span class="p">))</span>
+    <span class="c1"># Hold interpreter</span>
     <span class="n">z_max</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03524017 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0285 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>پس از کامپایل، JAX به دلیل شتاب GPU به طور قابل توجهی سریعتر از NumPy است.</p>
+<p>پس از کامپایل، JAX به ویژه روی GPU به طور قابل توجهی سریعتر از NumPy است.</p>
 <p>سربار کامپایل یک هزینه یک‌بار مصرف است که زمانی که تابع به طور مکرر فراخوانی می‌شود، بازگشت سرمایه دارد.</p>
 </section>
 <section id="jax-vmap">
@@ -700,9 +684,8 @@ Plain vanilla JAX result: 0.999998
 </div>
 <p>این استفاده اضافی از حافظه می‌تواند یک مشکل بزرگ در محاسبات تحقیقاتی واقعی باشد.</p>
 <p>خوشبختانه، JAX رویکرد متفاوتی را با استفاده از <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.vmap.html">jax.vmap</a> می‌پذیرد.</p>
-<section id="id4">
-<h4><span class="section-number">15.1.6.1. </span>نسخه 1<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
-<p>در اینجا یک راه برای اعمال <code class="docutils literal notranslate"><span class="pre">vmap</span></code> آمده است.</p>
+<p>ایده <code class="docutils literal notranslate"><span class="pre">vmap</span></code> این است که برداری‌سازی را به مراحل تقسیم کند و تابعی که روی مقادیر تکی عمل می‌کند را به تابعی تبدیل کند که روی آرایه‌ها عمل می‌کند.</p>
+<p>در اینجا نحوه اعمال آن به مسئله ما آمده است.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># f را تنظیم کنید تا f(x, y) را در هر x برای هر y داده شده محاسبه کند</span>
@@ -717,7 +700,7 @@ Plain vanilla JAX result: 0.999998
 <p>بیایید زمان‌بندی را ببینیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
     <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
     <span class="n">z_max</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 
@@ -726,7 +709,7 @@ Plain vanilla JAX result: 0.999998
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06368899 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0721 seconds elapsed
 JAX vmap v1 result: 0.999998
 </pre></div>
 </div>
@@ -734,36 +717,27 @@ JAX vmap v1 result: 0.999998
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
     <span class="n">z_max</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f_vec</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
     <span class="n">z_max</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02929759 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0275 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>با اجتناب از آرایه‌های ورودی بزرگ <code class="docutils literal notranslate"><span class="pre">x_mesh</span></code> و <code class="docutils literal notranslate"><span class="pre">y_mesh</span></code>، این نسخه <code class="docutils literal notranslate"><span class="pre">vmap</span></code> از حافظه بسیار کمتری استفاده می‌کند.</p>
-<p>وقتی روی CPU اجرا می‌شود، زمان اجرای آن شبیه به نسخه meshgrid است.</p>
-<p>وقتی روی GPU اجرا می‌شود، معمولاً به طور قابل توجهی سریعتر است.</p>
-<p>در واقع، استفاده از <code class="docutils literal notranslate"><span class="pre">vmap</span></code> مزیت دیگری دارد: به ما اجازه می‌دهد برداری‌سازی را به مراحل تقسیم کنیم.</p>
-<p>این منجر به کدی می‌شود که اغلب راحت‌تر از کد برداری شده سنتی قابل درک است.</p>
-<p>ما این ایده‌ها را بیشتر هنگام حل مسائل بزرگتر بررسی خواهیم کرد.</p>
-</section>
-</section>
-<section id="vmap">
-<h3><span class="section-number">15.1.7. </span>نسخه 2 vmap<a class="headerlink" href="#vmap" title="Link to this heading">#</a></h3>
-<p>می‌توانیم با استفاده از vmap همچنان کارآمدتر از نظر حافظه باشیم.</p>
-<p>در حالی که در نسخه قبلی از آرایه‌های ورودی بزرگ اجتناب می‌کنیم، هنوز آرایه خروجی بزرگ <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> را قبل از محاسبه حداکثر ایجاد می‌کنیم.</p>
-<p>بیایید یک رویکرد کمی متفاوت را امتحان کنیم که max را به داخل می‌برد.</p>
-<p>به دلیل این تغییر، ما هرگز آرایه دوبعدی <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> را محاسبه نمی‌کنیم.</p>
+<p>با اجتناب از آرایه‌های ورودی بزرگ <code class="docutils literal notranslate"><span class="pre">x_mesh</span></code> و <code class="docutils literal notranslate"><span class="pre">y_mesh</span></code>، این نسخه <code class="docutils literal notranslate"><span class="pre">vmap</span></code> از حافظه بسیار کمتری با زمان اجرای مشابه استفاده می‌کند.</p>
+<p>اما هنوز برخی بهره‌های سرعت را از دست می‌دهیم.</p>
+<p>کد فوق آرایه دوبعدی کامل <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> را محاسبه می‌کند و سپس max را می‌گیرد.</p>
+<p>علاوه بر این، فراخوانی <code class="docutils literal notranslate"><span class="pre">jnp.max</span></code> خارج از تابع JIT-کامپایل شده <code class="docutils literal notranslate"><span class="pre">f</span></code> قرار دارد، بنابراین کامپایلر نمی‌تواند این عملیات را در یک kernel واحد ادغام کند.</p>
+<p>می‌توانیم هر دو مشکل را با انتقال max به داخل و پوشاندن همه چیز در یک <code class="docutils literal notranslate"><span class="pre">&#64;jax.jit</span></code> واحد برطرف کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_vmap_v2</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_max_vmap</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
     <span class="c1"># یک تابع بسازید که حداکثر را در امتداد هر سطر بگیرد</span>
     <span class="n">f_vec_x_max</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
     <span class="c1"># تابع را برداری کنید تا بتوانیم روی تمام سطرها همزمان فراخوانی کنیم</span>
@@ -780,19 +754,21 @@ JAX vmap v1 result: 0.999998
 <li><p><code class="docutils literal notranslate"><span class="pre">f_vec_max</span></code> یک نسخه برداری شده است که می‌تواند حداکثر تمام سطرها را به صورت موازی محاسبه کند.</p></li>
 </ul>
 <p>ما این تابع را روی تمام سطرها اعمال می‌کنیم و سپس حداکثر max های سطر را می‌گیریم.</p>
+<p>چون max را به داخل منتقل می‌کنیم، هرگز آرایه دوبعدی کامل <code class="docutils literal notranslate"><span class="pre">f(x,y)</span></code> را نمی‌سازیم و حافظه بیشتری صرفه‌جویی می‌شود.</p>
+<p>و چون همه چیز زیر یک <code class="docutils literal notranslate"><span class="pre">&#64;jax.jit</span></code> واحد قرار دارد، کامپایلر می‌تواند تمام عملیات را در یک kernel بهینه ادغام کند.</p>
 <p>بیایید آن را امتحان کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_max</span> <span class="o">=</span> <span class="n">compute_max_vmap_v2</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">compute_max_vmap</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JAX vmap v1 result: </span><span class="si">{</span><span class="n">z_max</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JAX vmap result: </span><span class="si">{</span><span class="n">z_max</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06610608 seconds elapsed
-JAX vmap v1 result: 0.999998
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0677 seconds elapsed
+JAX vmap result: 0.999998
 </pre></div>
 </div>
 </div>
@@ -800,21 +776,20 @@ JAX vmap v1 result: 0.999998
 <p>بیایید دوباره اجرا کنیم تا زمان کامپایل حذف شود:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">z_max</span> <span class="o">=</span> <span class="n">compute_max_vmap_v2</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">z_max</span> <span class="o">=</span> <span class="n">compute_max_vmap</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02745748 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0293 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>اگر این را روی GPU اجرا می‌کنید، همانطور که ما این کار را می‌کنیم، باید افزایش سرعت قابل توجه دیگری را ببینید.</p>
 </section>
 <section id="id5">
-<h3><span class="section-number">15.1.8. </span>خلاصه<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.1.7. </span>خلاصه<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>به نظر ما، JAX برنده برای عملیات برداری شده است.</p>
 <p>هم از نظر سرعت (از طریق JIT-compilation و موازی‌سازی) و هم از نظر کارایی حافظه (از طریق vmap) بر NumPy غلبه می‌کند.</p>
 <p>علاوه بر این، رویکرد <code class="docutils literal notranslate"><span class="pre">vmap</span></code> گاهی اوقات می‌تواند منجر به کد به طور قابل توجهی واضح‌تری شود.</p>
@@ -849,13 +824,13 @@ JAX vmap v1 result: 0.999998
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 
-<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10004187 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1021 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -863,13 +838,13 @@ JAX vmap v1 result: 0.999998
 <p>بیایید دوباره اجرا کنیم تا زمان کامپایل حذف شود:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">qm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02444673 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0251 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -884,12 +859,9 @@ JAX vmap v1 result: 0.999998
 <p>(ما <code class="docutils literal notranslate"><span class="pre">n</span></code> را ایستا نگه می‌داریم زیرا بر اندازه آرایه تأثیر می‌گذارد و از این رو JAX می‌خواهد روی مقدار آن در کد کامپایل شده تخصصی شود.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">lax</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cpu</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">devices</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">cpu</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">devices</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">device</span><span class="o">=</span><span class="n">cpu</span><span class="p">)</span>
+<span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnames</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,),</span> <span class="n">device</span><span class="o">=</span><span class="n">cpu</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">qm_jax</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">α</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="n">x_new</span> <span class="o">=</span> <span class="n">α</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
@@ -904,21 +876,21 @@ JAX vmap v1 result: 0.999998
 <p>این کد خواندن آسانی ندارد اما، در اصل، <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> به طور مکرر <code class="docutils literal notranslate"><span class="pre">update</span></code> را فراخوانی می‌کند و بازگشت‌های <code class="docutils literal notranslate"><span class="pre">x_new</span></code> را در یک آرایه جمع می‌کند.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>خوانندگان تیزبین متوجه خواهند شد که ما <code class="docutils literal notranslate"><span class="pre">device=cpu</span></code> را در decorator <code class="docutils literal notranslate"><span class="pre">jax.jit</span></code> مشخص می‌کنیم.</p>
-<p>محاسبه از بسیاری عملیات ترتیبی کوچک تشکیل شده است که فرصت کمی برای بهره‌برداری GPU از موازی‌سازی باقی می‌گذارد.</p>
-<p>در نتیجه، سربار راه‌اندازی kernel تمایل دارد روی GPU غالب شود و CPU را متناسب‌تر برای این بار کاری می‌کند.</p>
-<p>خوانندگان کنجکاو می‌توانند حذف این گزینه را امتحان کنند تا ببینند چگونه عملکرد تغییر می‌کند.</p>
+<p>ما <code class="docutils literal notranslate"><span class="pre">device=cpu</span></code> را در decorator <code class="docutils literal notranslate"><span class="pre">jax.jit</span></code> مشخص می‌کنیم زیرا این محاسبه از بسیاری عملیات ترتیبی کوچک تشکیل شده است که فرصت کمی برای بهره‌برداری GPU از موازی‌سازی باقی می‌گذارد. در نتیجه، سربار راه‌اندازی kernel تمایل دارد روی GPU غالب شود و CPU را متناسب‌تر برای این بار کاری می‌کند.</p>
 </div>
 <p>بیایید آن را با همان پارامترها زمان‌بندی کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">x_jax</span> <span class="o">=</span> <span class="n">qm_jax</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
+    <span class="n">x_jax</span> <span class="o">=</span> <span class="n">qm_jax</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
+    <span class="n">x_jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10270309 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1085 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -926,19 +898,22 @@ JAX vmap v1 result: 0.999998
 <p>بیایید دوباره اجرا کنیم تا سربار کامپایل حذف شود:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">x_jax</span> <span class="o">=</span> <span class="n">qm_jax</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
+    <span class="n">x_jax</span> <span class="o">=</span> <span class="n">qm_jax</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
+    <span class="n">x_jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05579925 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0551 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <p>JAX نیز برای این عملیات ترتیبی کاملاً کارآمد است.</p>
-<p>هم JAX و هم Numba عملکرد قوی پس از کامپایل ارائه می‌دهند، با این که Numba معمولاً (اما نه همیشه) سرعت‌های کمی بهتری در عملیات کاملاً ترتیبی ارائه می‌دهد.</p>
+<p>هم JAX و هم Numba عملکرد قوی پس از کامپایل ارائه می‌دهند.</p>
 </section>
 <section id="id9">
 <h3><span class="section-number">15.2.3. </span>خلاصه<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
@@ -947,8 +922,23 @@ JAX vmap v1 result: 0.999998
 <p>این دقیقاً نحوه تفکر اکثر برنامه‌نویسان در مورد الگوریتم است.</p>
 <p>نسخه JAX، از سوی دیگر، نیاز به استفاده از <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> دارد که به طور قابل توجهی کمتر شهودی است.</p>
 <p>علاوه بر این، آرایه‌های تغییرناپذیر JAX به این معنی است که نمی‌توانیم به سادگی عناصر آرایه را در جا به‌روزرسانی کنیم و تکرار مستقیم الگوریتم مورد استفاده توسط Numba را سخت می‌کند.</p>
-<p>برای این نوع عملیات ترتیبی، Numba برنده واضح از نظر وضوح کد و سهولت پیاده‌سازی، و همچنین عملکرد بالا است.</p>
+<p>برای این نوع عملیات ترتیبی، Numba برنده واضح از نظر وضوح کد و سهولت پیاده‌سازی است.</p>
 </section>
+</section>
+<section id="id10">
+<h2><span class="section-number">15.3. </span>توصیه‌های کلی<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>حال قدمی به عقب بر می‌داریم و مبادلات را خلاصه می‌کنیم.</p>
+<p>برای <strong>عملیات برداری‌سازی‌شده</strong>، JAX قوی‌ترین انتخاب است.</p>
+<p>به لطف کامپایل JIT و موازی‌سازی کارآمد روی CPU و GPU، در سرعت با NumPy برابری می‌کند یا از آن پیشی می‌گیرد.</p>
+<p>تبدیل <code class="docutils literal notranslate"><span class="pre">vmap</span></code> مصرف حافظه را کاهش می‌دهد و اغلب نسبت به برداری‌سازی سنتی مبتنی بر meshgrid، کد روشن‌تری ارائه می‌دهد.</p>
+<p>علاوه بر این، توابع JAX به‌صورت خودکار مشتق‌پذیر هستند، همان‌طور که در <a class="reference internal" href="autodiff.html"><span class="doc">ماجراهایی با مشتق‌گیری خودکار</span></a> بررسی می‌کنیم.</p>
+<p>برای <strong>عملیات ترتیبی</strong>، Numba مزایای آشکاری دارد.</p>
+<p>کد طبیعی و خوانا است — صرفاً یک حلقه پایتون با یک decorator — و کارایی آن عالی است.</p>
+<p>JAX می‌تواند مسائل ترتیبی را از طریق <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> مدیریت کند، اما نحو آن کمتر شهودی است و برای کارهای کاملاً ترتیبی، بهره‌وری اضافی ناچیز است.</p>
+<p>با این حال، <code class="docutils literal notranslate"><span class="pre">lax.scan</span></code> یک مزیت مهم دارد: از مشتق‌گیری خودکار در طول حلقه پشتیبانی می‌کند، که Numba قادر به انجام آن نیست.</p>
+<p>اگر نیاز دارید از طریق یک محاسبه ترتیبی مشتق بگیرید (مثلاً محاسبه حساسیت‌های یک مسیر نسبت به پارامترهای مدل)، JAX علی‌رغم نحو کمتر طبیعی‌اش، انتخاب بهتری است.</p>
+<p>در عمل، بسیاری از مسائل ترکیبی از هر دو الگو هستند.</p>
+<p>یک قاعده سرانگشتی مناسب: برای پروژه‌های جدید، به‌ویژه زمانی که شتاب‌دهی سخت‌افزاری یا مشتق‌پذیری ممکن است مفید باشد، به‌طور پیش‌فرض از JAX استفاده کنید، و هنگامی که یک حلقه ترتیبی فشرده نیاز به سرعت و خوانایی دارد، به Numba متوسل شوید.</p>
 </section>
 </section>
 
@@ -1098,6 +1088,11 @@ JAX vmap v1 result: 0.999998
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1107,12 +1102,12 @@ JAX vmap v1 result: 0.999998
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -1124,27 +1119,27 @@ JAX vmap v1 result: 0.999998
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -1156,12 +1151,12 @@ JAX vmap v1 result: 0.999998
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1204,6 +1199,8 @@ JAX vmap v1 result: 0.999998
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/numpy_vs_numba_vs_jax.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

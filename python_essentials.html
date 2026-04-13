@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -154,6 +154,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -293,7 +296,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -304,11 +307,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -348,17 +351,136 @@
 <section id="boolean">
 <span id="id4"></span><h4><span class="section-number">5.2.1.1. </span>مقادیر بولی (Boolean)<a class="headerlink" href="#boolean" title="Link to this heading">#</a></h4>
 <p>یک نوع از داده های اولیه، مقادیر <strong>بولی</strong> هستند که می‌توانند فقط <code class="docutils literal notranslate"><span class="pre">True</span></code> (درست) یا <code class="docutils literal notranslate"><span class="pre">False</span></code> (نادرست) باشند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>می‌توانیم نوع هر شیء در حافظه را با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">()type</span></code> بررسی کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
 <p>مثلاً در مثال زیر، پایتون مقدار عبارت سمت راست را محاسبه کرده و آن را به متغیر <code class="docutils literal notranslate"><span class="pre">y</span></code> نسبت می‌دهد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
 <p>در عبارات ریاضی، <code class="docutils literal notranslate"><span class="pre">True</span></code> معادل <code class="docutils literal notranslate"><span class="pre">1</span></code> و <code class="docutils literal notranslate"><span class="pre">False</span></code> معادل <code class="docutils literal notranslate"><span class="pre">0</span></code> در نظر گرفته می‌شود.</p>
 <p>این ویژگی را <strong>محاسبات بولی (Boolean arithmetic)</strong> می‌نامند و اغلب در برنامه نویسی کاربردی است.</p>
 <p>مثال های زیر نمونه هایی از این دست هستند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="o">+</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bools</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>  <span class="c1"># List of Boolean values</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">bools</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id5">
 <h4><span class="section-number">5.2.1.2. </span>انواع داده‌های عددی<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <p>داده های عددی از دیگر داده‌های اولیه هستند.</p>
 <p>همانطور که پیشتر با داده های صحیح (integer) و اعشاری (float) یا به اختصار <code class="docutils literal notranslate"><span class="pre">int</span></code>و <code class="docutils literal notranslate"><span class="pre">float</span></code> آشنا شدید؛ نوعی دیگر از داده های عددی <strong>اعداد مختلط (complex)</strong> نام دارند.</p>
 <p>همانند مثال زیر:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5j
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>complex
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="containers">
@@ -366,32 +488,267 @@
 <p>پایتون چندین نوع پایه برای ذخیره سازی مجموعه هایی از داده ها(احتمالا ناهمگن) دارد.</p>
 <p>پییش‌تر با  <a class="reference internal" href="python_by_example.html#lists-ref"><span class="std std-ref">لیست‌ها</span></a> آشنا شدیم.</p>
 <p id="index-1">نوعی دیگر از آن، <strong>تاپل (tuple)</strong> است که «غیرقابل تغییر» (immutable) می باشد.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>  <span class="c1"># Parentheses instead of the square brackets</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span>    <span class="c1"># Or no brackets --- the meaning is identical</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;a&#39;, &#39;b&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
 <p>اگر شیئی پس از ساخته شدن قابل تغییر نباشد، <strong>immutable</strong> است.
 در مقابل، اگر قابل ویرایش باشد، <strong>mutable</strong> نام دارد.</p>
 <p>در پایتون لیست ها قابل تغییر هستند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 2]
+</pre></div>
+</div>
+</div>
+</div>
 <p>اما tuple‌ها قابل تغییر نیستند:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
 <p>کمی بعدتر درباره نقش داده‌های قابل تغییر و تغییرناپذیر بیشتر صحبت خواهیم کرد.</p>
 <p>می‌توان تاپل‌ها (و لیست‌ها) را به صورت زیر «بازکرد» (unpack) کرد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">integers</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
 <p>در واقع شما قبلاً <a class="reference internal" href="about_py.html#tuple-unpacking-example"><span class="std std-ref">نمونه‌ای از این را دیده‌اید</span></a>.</p>
 <p>باز کردن tuple راحت است و ما اغلب از آن استفاده خواهیم کرد.</p>
 <section id="slice-notation">
 <h4><span class="section-number">5.2.2.1. </span>نشانه گذاری برش (Slice Notation)<a class="headerlink" href="#slice-notation" title="Link to this heading">#</a></h4>
 <p id="index-2">برای دسترسی به چندین عنصر از یک دنباله (یک لیست، یک tuple یا یک رشته)، می‌توانید از نشانه‌گذاری slice در پایتون استفاده کنید.</p>
 <p>برای مثال:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p>قانون کلی این است که <code class="docutils literal notranslate"><span class="pre">a[m:n]</span></code> تعداد <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">m</span></code> عنصر را بازمی‌گرداند، که از <code class="docutils literal notranslate"><span class="pre">a[m]</span></code> شروع می‌شود.</p>
 <p>اعداد منفی نیز مجاز هستند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>  <span class="c1"># Last two elements of the list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d&#39;, &#39;e&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p>همچنین می‌توانید از قالب <code class="docutils literal notranslate"><span class="pre">[start:end:step]</span></code> برای مشخص کردن گام برش استفاده کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;c&#39;, &#39;e&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p>با استفاده از یک گام منفی، می‌توانید دنباله را به صورت معکوس برگردانید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Walk backwards from the second last element to the first element</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;d&#39;, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p>همان نشانه‌گذاری slice روی tuple‌ها و رشته‌ها نیز کار می‌کند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;foobar&#39;</span>
+<span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>  <span class="c1"># Select the last three elements</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bar&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="sets-and-dictionaries">
 <h4><span class="section-number">5.2.2.2. </span>مجموعه‌ها و دیکشنری‌ها (Sets and Dictionaries)<a class="headerlink" href="#sets-and-dictionaries" title="Link to this heading">#</a></h4>
 <p id="index-4"><span id="index-3"></span>دو نوع دیگر از ظرف ها در پایتون،<a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#sets">مجموعه ها (sets)</a> و <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">دیکشنری ها (dictionaries)</a> هستند.</p>
 <p>دیکشنری‌ها بسیار شبیه لیست‌ها هستند، با این تفاوت که آیتم‌ها به جای شماره‌گذاری، نام‌گذاری می‌شوند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Frodo&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">}</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33
+</pre></div>
+</div>
+</div>
+</div>
 <p>در این مثال از دیکشنری، نام های <code class="docutils literal notranslate"><span class="pre">'name'</span></code> و<code class="docutils literal notranslate"><span class="pre">'age'</span></code> <em>کلیدها(keys)</em> نامیده می‌شوند.</p>
 <p>اشیایی که کلیدها به آن‌ها ارجاع می‌دهند (<code class="docutils literal notranslate"><span class="pre">'Frodo'</span></code> و <code class="docutils literal notranslate"><span class="pre">33</span></code>) <code class="docutils literal notranslate"><span class="pre">مقادیر(Values)</span></code> نامیده می‌شوند.</p>
 <p><strong>مجموعه‌ها(sets)</strong> دسته های بدون ترتیب و بدون عنصر تکراری هستند و متدهای مجموعه،عملیات معمول مربوط به مجموعه ها را فراهم می کنند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">}</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>set
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;b&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 <p>تابع <code class="docutils literal notranslate"><span class="pre">()set</span></code> مجموعه ها را از دنباله ها می سازد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">))</span>
+<span class="n">s3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;bar&#39;, &#39;foo&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -399,6 +756,16 @@
 <h2><span class="section-number">5.3. </span>ورودی و خروجی (Input and Output)<a class="headerlink" href="#input-and-output" title="Link to this heading">#</a></h2>
 <p id="index-5">بیایید به طور خلاصه خواندن و نوشتن در فایل‌های متنی را مرور کنیم.</p>
 <p>با نوشتن شروع می‌کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;newfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>   <span class="c1"># Open &#39;newfile.txt&#39; for writing</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Testing</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>           <span class="c1"># Here &#39;\n&#39; means new line</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Testing again&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>در اینجا:</p>
 <ul class="simple">
 <li><p>تابع سازنده داخلی <code class="docutils literal notranslate"><span class="pre">()open</span></code>یک فایل برای نوشتن ایجاد می کند.</p></li>
@@ -406,8 +773,47 @@
 </ul>
 <p>این فایلی که ساخته‌ایم کجاست؟</p>
 <p>به خاطر داشته باشید که پایتون مفهوم دایرکتوری فعلی (present working directory یا pwd) شما را حفظ می کند، که در Jupyter یا IPython می توان آن را از طریق دستور زیر پیدا کرد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/lecture-python-programming.fa/lecture-python-programming.fa/lectures&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <p>اگر مسیری مشخص نشده باشد، پایتون در همین مکان(پوشه جاری)فایل را می نویسد.</p>
 <p>ما همچنین میتوانیم با پایتون محتوای فایل <code class="docutils literal notranslate"><span class="pre">newline.txt</span></code> را به صورت زیر بخوانیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;newfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">out</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Testing\nTesting again&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Testing
+Testing again
+</pre></div>
+</div>
+</div>
+</div>
 <p>در واقع، رویکرد پیشنهادی در پایتون مدرن، استفاده از یک دستور <code class="docutils literal notranslate"><span class="pre">with</span></code> است تا اطمینان حاصل شود که فایل‌ها به درستی دریافت و منتشر می‌شوند.</p>
 <p>محدود کردن عملیات در همان بلوک نیز وضوح کد شما را بهبود می‌بخشد.</p>
 <div class="admonition note">
@@ -416,15 +822,114 @@
 </div>
 <p>بیایید سعی کنیم دو مثال بالا را به عبارت <code class="docutils literal notranslate"><span class="pre">with</span></code> تبدیل کنیم.</p>
 <p>ابتدا مثال نوشتن را تغییر می‌دهیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;newfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Testing</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>         
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Testing again&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>توجه کنید که نیازی به فراخوانی متد <code class="docutils literal notranslate"><span class="pre">()close</span></code> نداریم زیرا بلوک <code class="docutils literal notranslate"><span class="pre">with</span></code> تضمین می‌کند که جریان(stream) در پایان بلوک بسته شود.</p>
 <p>با کمی تغییر، می‌توانیم فایل‌ها را با استفاده از دستور <code class="docutils literal notranslate"><span class="pre">with</span></code> نیز بخوانیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;newfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Testing
+Testing again
+</pre></div>
+</div>
+</div>
+</div>
 <p>اکنون فرض کنید که می‌خواهیم ورودی را از یک فایل بخوانیم و خروجی را در فایل دیگری بنویسیم.
 در اینجا نحوه انجام این کار در حالی که به درستی منابع را دریافت و به سیستم عامل بازمی‌گردانیم با استفاده از عبارات <code class="docutils literal notranslate"><span class="pre">with</span></code> آمده است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+            <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Line </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>فایل خروجی به صورت زیر خواهد بود:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Line 0: Testing
+ 
+Line 1: Testing again
+</pre></div>
+</div>
+</div>
+</div>
 <p>می‌توانیم مثال بالا را ساده کنیم با این کار که دو دستور <code class="docutils literal notranslate"><span class="pre">with</span></code> را در یک خط قرار دهیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output2.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Line </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>فایل خروجی یکسان خواهد بود:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Line 0: Testing
+ 
+Line 1: Testing again
+</pre></div>
+</div>
+</div>
+</div>
 <p>فرض کنید می‌خواهیم به جای بازنویسی فایل موجود به نوشتن در آن ادامه دهیم.</p>
 <p>می‌توانیم حالت را به <code class="docutils literal notranslate"><span class="pre">a</span></code> تغییر دهیم که مخفف حالت append است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">This is the end of the file&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Line 0: Testing
+ 
+Line 1: Testing again 
+
+This is the end of the file
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>توجه کنید که ما فقط حالت‌های <code class="docutils literal notranslate"><span class="pre">r</span></code>، <code class="docutils literal notranslate"><span class="pre">w</span></code> و <code class="docutils literal notranslate"><span class="pre">a</span></code> را در اینجا پوشش دادیم که رایج‌ترین حالت‌های مورد استفاده هستند.
@@ -447,9 +952,56 @@
 <h3><span class="section-number">5.4.1. </span>حلقه تکرار روی اشیاء مختلف<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>بسیاری از اشیاء پایتون “قابل تکرار” هستند، به این معنی که می‌توان روی آن‌ها حلقه(loop) زد.</p>
 <p>برای ارائه یک مثال، بیایید فایل us_cities.txt را بنویسیم که شهرهای ایالات متحده و جمعیت آن‌ها را فهرست می‌کندو در پوشه کاری فعلی ذخیره می گردد:</p>
-<p id="us-cities-data">در اینجا <code class="docutils literal notranslate"><span class="pre">writefile%%</span></code> یک <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">IPython cell magic</a> است.</p>
+<div class="cell docutils container" id="us-cities-data">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> us_cities.txt
+<span class="n">new</span> <span class="n">york</span><span class="p">:</span> <span class="mi">8244910</span>
+<span class="n">los</span> <span class="n">angeles</span><span class="p">:</span> <span class="mi">3819702</span>
+<span class="n">chicago</span><span class="p">:</span> <span class="mi">2707120</span>
+<span class="n">houston</span><span class="p">:</span> <span class="mi">2145146</span>
+<span class="n">philadelphia</span><span class="p">:</span> <span class="mi">1536471</span>
+<span class="n">phoenix</span><span class="p">:</span> <span class="mi">1469471</span>
+<span class="n">san</span> <span class="n">antonio</span><span class="p">:</span> <span class="mi">1359758</span>
+<span class="n">san</span> <span class="n">diego</span><span class="p">:</span> <span class="mi">1326179</span>
+<span class="n">dallas</span><span class="p">:</span> <span class="mi">1223229</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting us_cities.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p>در اینجا <code class="docutils literal notranslate"><span class="pre">writefile%%</span></code> یک <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">IPython cell magic</a> است.</p>
 <p>فرض کنید می‌خواهیم اطلاعات را با بزرگ کردن نام‌ها و اضافه کردن ویرگول برای نشان دادن هزارگان خواناتر کنیم.</p>
 <p>برنامه زیر داده‌ها را می‌خواند و تبدیل را انجام می‌دهد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;us_cities.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data_file</span><span class="p">:</span>
+    <span class="n">city</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>         <span class="c1"># Tuple unpacking</span>
+    <span class="n">city</span> <span class="o">=</span> <span class="n">city</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>                        <span class="c1"># Capitalize city names</span>
+    <span class="n">population</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">&#39;</span>        <span class="c1"># Add commas to numbers</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">+</span> <span class="n">population</span><span class="p">)</span>
+<span class="n">data_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New York       8,244,910
+Los Angeles    3,819,702
+Chicago        2,707,120
+Houston        2,145,146
+Philadelphia   1,536,471
+Phoenix        1,469,471
+San Antonio    1,359,758
+San Diego      1,326,179
+Dallas         1,223,229
+</pre></div>
+</div>
+</div>
+</div>
 <p>در اینجا <code class="docutils literal notranslate"><span class="pre">'f</span></code> یک f-string است <a class="reference external" href="https://docs.python.org/3/library/string.html#formatspec">که برای درج متغیرها در رشته‌ها استفاده می‌شود</a>.</p>
 <p>قالب‌بندی مجدد هر خط نتیجه سه متد مختلف رشته است که بررسی جزئیات آن‌ها را می‌توان برای بعد گذاشت.</p>
 <p>بخش جالب این برنامه برای ما خط 2 است که نشان می‌دهد:</p>
@@ -464,21 +1016,138 @@
 <h3><span class="section-number">5.4.2. </span>حلقه تکرار بدون ایندکس‌ها<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>یکی از چیزهایی که ممکن است متوجه شده باشید این است که پایتون تمایل دارد  مستقیما روی آیتم ها حلقه بزنیم، بدون اینکه شماره موقعیت(یا همان ایندکس) هر آیتم را به صورت صریح استفاده کنیم.</p>
 <p>برای مثال:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># Some iterable x</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+</pre></div>
+</div>
+</div>
+</div>
 <p>به این ترجیح داده می‌شود:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+</pre></div>
+</div>
+</div>
+</div>
 <p>وقتی این دو گزینه را مقایسه می‌کنید، می‌توانید ببینید چرا اولی ترجیح داده می‌شود.</p>
 <p>پایتون امکاناتی دارد که کار با حلقه ها را بدون ایندکس ساده می‌کند.</p>
 <p>یکی از این امکانات <code class="docutils literal notranslate"><span class="pre">()zip</span></code> است که به شما اجازه می‌دهد دو لیست را هم زمان با هم طی کنید و هر بار یک جفت از عناصر آنها را بگیرید.</p>
 <p>برای مثال، کد زیر را اجرا کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Korea&#39;</span><span class="p">,</span> <span class="s1">&#39;China&#39;</span><span class="p">)</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Tokyo&#39;</span><span class="p">,</span> <span class="s1">&#39;Seoul&#39;</span><span class="p">,</span> <span class="s1">&#39;Beijing&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">country</span><span class="p">,</span> <span class="n">city</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="n">cities</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The capital of </span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The capital of Japan is Tokyo
+The capital of Korea is Seoul
+The capital of China is Beijing
+</pre></div>
+</div>
+</div>
+</div>
 <p>تابع <code class="docutils literal notranslate"><span class="pre">()zip</span></code> همچنین برای ایجاد دیکشنری‌ها کاربردی است، برای مثال:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">]</span>
+<span class="n">marks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]</span>
+<span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">marks</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Tom&#39;: &#39;E&#39;, &#39;John&#39;: &#39;F&#39;}
+</pre></div>
+</div>
+</div>
+</div>
 <p>اگر واقعاً به شماره موقعیت یا ایندکس از یک لیست نیاز داریم، یکی از گزینه‌ها استفاده از <code class="docutils literal notranslate"><span class="pre">()enumerate</span></code> است.</p>
 <p>برای درک اینکه <code class="docutils literal notranslate"><span class="pre">()enumerate</span></code> چه کاری انجام می‌دهد، مثال زیر را در نظر بگیرید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letter_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">letter_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;letter_list[</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">] = &#39;</span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>letter_list[0] = &#39;a&#39;
+letter_list[1] = &#39;b&#39;
+letter_list[2] = &#39;c&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="list-comprehension">
 <span id="list-comprehensions"></span><h3><span class="section-number">5.4.3. </span>‌خلاصه لیست (List Comprehension)<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
 <p id="index-8">همچنین می‌توانیم کد تولید لیست مقادیر تصادفی را با استفاده از چیزی به نام <em>خلاصه لیست(list comprehension)</em> به طور قابل توجهی ساده کنیم.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/List_comprehension">خلاصه لیست‌ها</a> یک ابزار زیبای پایتون برای ایجاد لیست هستند.</p>
 <p>مثال زیر را در نظر بگیرید، که خلاصه لیست در سمت راست خط دوم است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">]</span>
+<span class="n">plurals</span> <span class="o">=</span> <span class="p">[</span><span class="n">animal</span> <span class="o">+</span> <span class="s1">&#39;s&#39;</span> <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animals</span><span class="p">]</span>
+<span class="n">plurals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dogs&#39;, &#39;cats&#39;, &#39;birds&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p>این یک مثال دیگر است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doubles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
+<span class="n">doubles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8, 10, 12, 14]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="id8">
@@ -487,10 +1156,110 @@
 <h3><span class="section-number">5.5.1. </span>عملگرهای مقایسه‌ای<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p id="index-9">بسیاری از انواع مختلف عبارات وجود دارند که نتیجه‌شان با یکی از مقادیر Boolean (یعنی <code class="docutils literal notranslate"><span class="pre">True</span></code> یا <code class="docutils literal notranslate"><span class="pre">False</span></code>) نشان داده می‌شوند.</p>
 <p>یکی از رایج ترین این عبارت ها، عملگرهای مقایسه‌ای هستند، مانند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
 <p>یکی از ویژگی‌های خوب پایتون این است که می‌توان نامساوی‌ها را به صورت <em>پشت سر هم (Chain)</em> در یک عبارت نوشت.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>همانطور که قبلاً دیدیم، هنگام آزمایش برابری از <code class="docutils literal notranslate"><span class="pre">==</span></code> استفاده می‌کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># Assignment</span>
+<span class="n">x</span> <span class="o">==</span> <span class="mi">2</span>   <span class="c1"># Comparison</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
 <p>برای “نابرابر” از <code class="docutils literal notranslate"><span class="pre">!=</span></code> استفاده کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>توجه کنید که هنگام آزمایش شرایط، می‌توانیم از <strong>هر</strong> عبارت معتبر پایتون استفاده کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span> <span class="k">if</span> <span class="mi">42</span> <span class="k">else</span> <span class="s1">&#39;no&#39;</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;yes&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span> <span class="k">if</span> <span class="p">[]</span> <span class="k">else</span> <span class="s1">&#39;no&#39;</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;no&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <p>اینجا چه اتفاقی می‌افتد؟</p>
 <p>قانون این است:</p>
 <ul class="simple">
@@ -510,12 +1279,108 @@
 <h3><span class="section-number">5.5.2. </span>ترکیب عبارات<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p id="index-10">می‌توانیم عبارات را با استفاده از <code class="docutils literal notranslate"><span class="pre">and</span></code>، <code class="docutils literal notranslate"><span class="pre">or</span></code> و <code class="docutils literal notranslate"><span class="pre">not</span></code> ترکیب کنیم.</p>
 <p>این‌ها ربط‌دهنده‌های منطقی استاندارد (عطف، فصل و نفی) هستند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="s1">&#39;f&#39;</span> <span class="ow">in</span> <span class="s1">&#39;foo&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="s1">&#39;g&#39;</span> <span class="ow">in</span> <span class="s1">&#39;foo&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="s1">&#39;g&#39;</span> <span class="ow">in</span> <span class="s1">&#39;foo&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="ow">not</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>به خاطر بسپارید:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">and</span> <span class="pre">Q</span></code> زمانی <code class="docutils literal notranslate"><span class="pre">True</span></code> است که هر دو <code class="docutils literal notranslate"><span class="pre">True</span></code> باشند، در غیر این صورت <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">or</span> <span class="pre">Q</span></code> زمانی <code class="docutils literal notranslate"><span class="pre">False</span></code> است که هر دو <code class="docutils literal notranslate"><span class="pre">False</span></code> باشند، در غیر این صورت <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 </ul>
 <p>همچنین می‌توانیم از <code class="docutils literal notranslate"><span class="pre">()all</span></code> و <code class="docutils literal notranslate"><span class="pre">()any</span></code> برای آزمایش دنباله‌ای از عبارات استفاده کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">([</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">([</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;letter&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">([</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;letter&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -545,13 +1410,38 @@
 <p id="index-12">پایتون سیستمی برای اضافه کردن توضیحات به ماژول‌ها، کلاس‌ها، توابع و غیره دارد که <em>داک‌استرینگ‌(docstring)</em> نامیده می‌شود.</p>
 <p>نکته خوب درباره داک‌استرینگ‌‌ها این است که در زمان اجرا در دسترس هستند.</p>
 <p>اجرای این کد را امتحان کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function squares its argument</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>پس از اجرای این کد، داک‌استرینگ‌ در دسترس است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="no-execute highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="p">:</span>       <span class="n">function</span>
 <span class="n">String</span> <span class="n">Form</span><span class="p">:</span><span class="o">&lt;</span><span class="n">function</span> <span class="n">f</span> <span class="n">at</span> <span class="mh">0x2223320</span><span class="o">&gt;</span>
 <span class="n">File</span><span class="p">:</span>       <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">john</span><span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">temp</span><span class="o">.</span><span class="n">py</span>
 <span class="n">Definition</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">Docstring</span><span class="p">:</span>  <span class="n">This</span> <span class="n">function</span> <span class="n">squares</span> <span class="n">its</span> <span class="n">argument</span>
 </pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f<span class="o">??</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="no-execute highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="p">:</span>       <span class="n">function</span>
 <span class="n">String</span> <span class="n">Form</span><span class="p">:</span><span class="o">&lt;</span><span class="n">function</span> <span class="n">f</span> <span class="n">at</span> <span class="mh">0x2223320</span><span class="o">&gt;</span>
@@ -592,14 +1482,101 @@
 <section id="solution-content">
 <p><strong>راه‌حل قسمت 1:</strong></p>
 <p>یک راه‌حل ممکن میتواند این باشد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">y_vals</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
 <p>این روش هم برای این سوال کار می‌کند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">y_vals</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>راه‌حل قسمت 2:</strong></p>
 <p>یک راه‌حل ممکن میتواند این باشد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
 <p>این روش هم برای این سوال کار می‌کند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
 <p>برخی از جایگزین‌های کمتر طبیعی که با این حال به نشان دادن انعطاف‌پذیری خلاصه لیست‌ها کمک می‌کنند عبارتند از:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
 <p>و</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>راه‌حل قسمت 3:</strong></p>
 <p>یک راه حل این است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 <div class="exercise admonition" id="pyess_ex2">
@@ -620,6 +1597,26 @@
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex2"> Exercise 5.2</a></p>
 <section id="solution-content">
 <p>یک راه‌حل این است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">p</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coeff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 <div class="exercise admonition" id="pyess_ex3">
@@ -638,7 +1635,41 @@
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex3"> Exercise 5.3</a></p>
 <section id="solution-content">
 <p>یک راه‌حل این است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="n">letter</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">and</span> <span class="n">letter</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="n">f</span><span class="p">(</span><span class="s1">&#39;The Rain in Spain&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
 <p>یک راه حل جایگزین‌ و پایتونی تر:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_uppercase_chars</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">])</span>
+
+<span class="n">count_uppercase_chars</span><span class="p">(</span><span class="s1">&#39;The Rain in Spain&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 <div class="exercise admonition" id="pyess_ex4">
@@ -657,8 +1688,63 @@
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex4"> Exercise 5.4</a></p>
 <section id="solution-content">
 <p>یک راه‌حل این است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">seq_a</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seq_b</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># == test == #</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cadb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cjdb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
 <p>یک راه حل جایگزین، پایتونی‌تر با استفاده از <code class="docutils literal notranslate"><span class="pre">()all</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">all</span><span class="p">([</span><span class="n">i</span> <span class="ow">in</span> <span class="n">seq_b</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq_a</span><span class="p">])</span>
+
+<span class="c1"># == test == #</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cadb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cjdb&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
 <p>البته، اگر از نوع داده <code class="docutils literal notranslate"><span class="pre">sets</span></code> استفاده کنیم، راه‌حل ساده‌تر است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">seq_a</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">seq_b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 <div class="exercise admonition" id="pyess_ex5">
@@ -683,6 +1769,46 @@
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex5"> Exercise 5.5</a></p>
 <section id="solution-content">
 <p>یک راه‌حل این است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">linapprox</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluates the piecewise linear interpolant of f at x on the interval</span>
+<span class="sd">    [a, b], with n evenly spaced grid points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">        f : function</span>
+<span class="sd">            The function to approximate</span>
+
+<span class="sd">        x, a, b : scalars (floats or integers)</span>
+<span class="sd">            Evaluation point and endpoints, with a &lt;= x &lt;= b</span>
+
+<span class="sd">        n : integer</span>
+<span class="sd">            Number of grid points</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    =======</span>
+<span class="sd">        A float. The interpolant evaluated at x</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length_of_interval</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span>
+    <span class="n">num_subintervals</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="n">length_of_interval</span> <span class="o">/</span> <span class="n">num_subintervals</span>
+
+    <span class="c1"># === find first grid point larger than x === #</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="k">while</span> <span class="n">point</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">point</span> <span class="o">+=</span> <span class="n">step</span>
+
+    <span class="c1"># === x must lie between the gridpoints (point - step) and point === #</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">point</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">point</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 <div class="exercise admonition" id="pyess_ex6">
@@ -690,6 +1816,19 @@
 <p class="admonition-title"><span class="caption-number">Exercise 5.6 </span></p>
 <section id="exercise-content">
 <p>با استفاده از سینتکس خلاصه لیست، می‌توانیم حلقه در کد زیر را ساده کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+    <span class="n">ϵ_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 <div class="solution dropdown admonition" id="python_essentials-solution-11">
@@ -697,6 +1836,14 @@
 <p class="admonition-title">Solution to<a class="reference internal" href="#pyess_ex6"> Exercise 5.6</a></p>
 <section id="solution-content">
 <p>یک راه‌حل این است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ϵ_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </div>
 </section>
@@ -848,6 +1995,11 @@
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -857,12 +2009,12 @@
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -874,27 +2026,27 @@
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -906,12 +2058,12 @@
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -954,6 +2106,8 @@
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/python_essentials.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

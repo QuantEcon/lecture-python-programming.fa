@@ -7,17 +7,19 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-heading-map:
-  overview: مقدمه
-  variable-names-in-python: نام‌های متغیر در پایتون
-  namespaces: فضاهای نام
-  viewing-namespaces: مشاهده فضاهای نام
-  interactive-sessions: محیط تعاملی
-  the-global-namespace: فضای نام سراسری
-  local-namespaces: فضاهای نام محلی
-  the-__builtins__-namespace: فضای نام داخلی (The `__builtins__` Namespace )
-  name-resolution: Name Resolution
-  indexmutable-single-mutable-versus-indeximmutable-single-immutable-parameters: 'پارامترهای {index}`تغییرپذیر <single: Mutable>` در مقابل {index}`تغییرناپذیر <single: Immutable>`'
+translation:
+  title: نام‌ها و فضاهای نام
+  headings:
+    Overview: مقدمه
+    Variable Names in Python: نام‌های متغیر در پایتون
+    Namespaces: فضاهای نام
+    Viewing Namespaces: مشاهده فضاهای نام
+    Interactive Sessions: محیط تعاملی
+    The Global Namespace: فضای نام سراسری یا جهانی(The Global Namespace)
+    Local Namespaces: فضای نام محلی(Local Namespaces)
+    The `__builtins__` Namespace: فضای نام داخلی (The `__builtins__` Namespace )
+    Name Resolution: Name Resolution
+    Name Resolution::Mutable Versus Immutable Parameters: پارامترهای تغییرپذیر در مقابل تغییرناپذیر
 ---
 
 (oop_names)=

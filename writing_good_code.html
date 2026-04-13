@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>18. نوشتن کد خوب &#8212; Python Programming for Economics and Finance</title>
+    <title>19. نوشتن کد خوب &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -130,8 +130,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="19. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
-    <link rel="prev" title="17. Pandas برای داده‌های پانلی" href="pandas_panel.html" />
+    <link rel="next" title="20. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
+    <link rel="prev" title="18. Pandas برای داده‌های پانلی" href="pandas_panel.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -154,6 +154,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -203,23 +206,23 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">18.1. مرور کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">18.2. نمونه‌ای از کد ضعیف</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">18.3. شیوه‌های کدنویسی خوب</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.3.1. از اعداد جادویی استفاده نکنید</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">18.3.2. خودتان را تکرار نکنید</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">18.3.3. متغیرهای سراسری را به حداقل برسانید</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">18.3.3.1. کامپایل JIT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">19.1. مرور کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">19.2. نمونه‌ای از کد ضعیف</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.3. شیوه‌های کدنویسی خوب</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.3.1. از اعداد جادویی استفاده نکنید</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.3.2. خودتان را تکرار نکنید</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">19.3.3. متغیرهای سراسری را به حداقل برسانید</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">19.3.3.1. کامپایل JIT</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">18.3.4. از توابع یا کلاس‌ها استفاده کنید</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">18.3.4.1. کدام یک، توابع یا کلاس‌ها؟</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">19.3.4. از توابع یا کلاس‌ها استفاده کنید</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">19.3.4.1. کدام یک، توابع یا کلاس‌ها؟</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">18.4. بازبینی مثال</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">18.5. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">19.4. بازبینی مثال</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -275,7 +278,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -286,11 +289,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -306,12 +309,12 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">18. </span>نوشتن کد خوب<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>نوشتن کد خوب<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph" id="index-0">
 <div><p>“هر احمقی می‌تواند کدی بنویسد که کامپیوتر بتواند درک کند. برنامه‌نویسان خوب کدی می‌نویسند که انسان‌ها بتوانند درک کنند.” – مارتین فاولر</p>
 </div></blockquote>
 <section id="id2">
-<h2><span class="section-number">18.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>وقتی برنامه‌های کامپیوتری کوچک هستند، کد بد نوشته شده خیلی پرهزینه نیست.</p>
 <p>اما داده‌های بیشتر، مدل‌های پیچیده‌تر و قدرت محاسباتی بیشتر ما را قادر می‌سازد تا مسائل چالش‌برانگیزتری را که شامل نوشتن برنامه‌های طولانی‌تر هستند، در پیش بگیریم.</p>
 <p>برای چنین برنامه‌هایی، سرمایه‌گذاری در شیوه‌های کدنویسی خوب بازدهی بالایی خواهد داشت.</p>
@@ -320,11 +323,11 @@
 <p>همچنین به تحولات مدرن در محاسبات علمی — مانند کامپایل به موقع — و چگونگی تأثیر آنها بر طراحی خوب برنامه اشاره می‌کنیم.</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">18.2. </span>نمونه‌ای از کد ضعیف<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.2. </span>نمونه‌ای از کد ضعیف<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>بیایید نگاهی به کد بدی که نوشته شده است بیندازیم.</p>
 <p>کار این کد تولید و رسم سری‌های زمانی مدل ساده‌شده سولو است</p>
 <div class="math notranslate nohighlight" id="equation-gc-solmod">
-<span class="eqno">(18.1)<a class="headerlink" href="#equation-gc-solmod" title="Link to this equation">#</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
+<span class="eqno">(19.1)<a class="headerlink" href="#equation-gc-solmod" title="Link to this equation">#</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
 \quad t = 0, 1, 2, \ldots\]</div>
 <p>در اینجا</p>
 <ul class="simple">
@@ -334,7 +337,7 @@
 <p>برای هر پارامتربندی، کد</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(k_0 = 1\)</span> را تنظیم می‌کند</p></li>
-<li><p>با استفاده از <a class="reference internal" href="#equation-gc-solmod">(18.1)</a> برای تولید دنباله <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span> تکرار می‌کند</p></li>
+<li><p>با استفاده از <a class="reference internal" href="#equation-gc-solmod">(19.1)</a> برای تولید دنباله <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span> تکرار می‌کند</p></li>
 <li><p>دنباله را رسم می‌کند</p></li>
 </ol>
 <p>نمودارها در سه زیرشکل گروه‌بندی خواهند شد.</p>
@@ -413,7 +416,7 @@
 <p>بیایید در مورد اینکه چرا چنین است صحبت کنیم، و در مورد آنچه می‌توانیم انجام دهیم.</p>
 </section>
 <section id="id4">
-<h2><span class="section-number">18.3. </span>شیوه‌های کدنویسی خوب<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.3. </span>شیوه‌های کدنویسی خوب<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>معمولاً راه‌های مختلفی برای نوشتن برنامه‌ای که یک وظیفه معین را انجام می‌دهد وجود دارد.</p>
 <p>برای برنامه‌های کوچک، مانند برنامه بالا، نحوه نوشتن کد چندان مهم نیست.</p>
 <p>اما اگر شما جاه‌طلب هستید و می‌خواهید چیزهای مفیدی تولید کنید، برنامه‌های متوسط تا بزرگ نیز خواهید نوشت.</p>
@@ -421,7 +424,7 @@
 <p>خوشبختانه، افراد باهوش زیادی در مورد بهترین راه برای نوشتن کد فکر کرده‌اند.</p>
 <p>در اینجا برخی از اصول اولیه آورده شده است.</p>
 <section id="id5">
-<h3><span class="section-number">18.3.1. </span>از اعداد جادویی استفاده نکنید<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.3.1. </span>از اعداد جادویی استفاده نکنید<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>اگر به کد بالا نگاه کنید، اعدادی مانند <code class="docutils literal notranslate"><span class="pre">50</span></code> و <code class="docutils literal notranslate"><span class="pre">49</span></code> و <code class="docutils literal notranslate"><span class="pre">3</span></code> را در سرتاسر کد پراکنده خواهید دید.</p>
 <p>این نوع مقادیر عددی در بدنه کد شما گاهی اوقات “اعداد جادویی” نامیده می‌شوند.</p>
 <p>این یک تعریف نیست.</p>
@@ -436,7 +439,7 @@
 </ul>
 </section>
 <section id="id6">
-<h3><span class="section-number">18.3.2. </span>خودتان را تکرار نکنید<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.3.2. </span>خودتان را تکرار نکنید<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>گناه کبیره دیگر در قطعه کد بالا تکرار است.</p>
 <p>بلوک‌های منطقی (مانند حلقه برای تولید سری زمانی) با تغییرات جزئی تکرار می‌شوند.</p>
 <p>این یک اصل بنیادی برنامه‌نویسی را نقض می‌کند: خودتان را تکرار نکنید (DRY).</p>
@@ -450,7 +453,7 @@
 <p>ما در مورد چگونگی اجتناب از تکرار در زیر صحبت خواهیم کرد.</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">18.3.3. </span>متغیرهای سراسری را به حداقل برسانید<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.3.3. </span>متغیرهای سراسری را به حداقل برسانید<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>مطمئناً، متغیرهای سراسری (یعنی نام‌هایی که به مقادیر خارج از هر تابع یا کلاس اختصاص داده شده‌اند) راحت هستند.</p>
 <p>برنامه‌نویسان مبتدی معمولاً از متغیرهای سراسری بی‌پروا استفاده می‌کنند — همانطور که ما یک زمانی چنین می‌کردیم.</p>
 <p>اما متغیرهای سراسری خطرناک هستند، به خصوص در برنامه‌های متوسط تا بزرگ، زیرا</p>
@@ -463,7 +466,7 @@
 <p>در حالی که متغیر سراسری فردی در اسکریپت‌های کوچک مشکل بزرگی نیست، ما توصیه می‌کنیم که به خود یاد دهید از آنها اجتناب کنید.</p>
 <p>(ما در مورد چگونگی این کار در زیر بحث خواهیم کرد).</p>
 <section id="jit">
-<h4><span class="section-number">18.3.3.1. </span>کامپایل JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">19.3.3.1. </span>کامپایل JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h4>
 <p>برای محاسبات علمی، دلیل خوب دیگری برای اجتناب از متغیرهای سراسری وجود دارد.</p>
 <p>همانطور که <a class="reference internal" href="numba.html"><span class="doc">در سخنرانی‌های قبلی دیدیم</span></a>، کامپایل JIT می‌تواند عملکرد عالی برای زبان‌های اسکریپتی مانند Python ایجاد کند.</p>
 <p>اما کار کامپایلری که برای کامپایل JIT استفاده می‌شود زمانی که متغیرهای سراسری وجود دارند سخت‌تر می‌شود.</p>
@@ -472,7 +475,7 @@
 </section>
 </section>
 <section id="id8">
-<h3><span class="section-number">18.3.4. </span>از توابع یا کلاس‌ها استفاده کنید<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">19.3.4. </span>از توابع یا کلاس‌ها استفاده کنید<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>خوشبختانه، ما به راحتی می‌توانیم از شرارت‌های متغیرهای سراسری و کد WET اجتناب کنیم.</p>
 <ul class="simple">
 <li><p>WET مخفف “we enjoy typing” است و مخالف DRY است.</p></li>
@@ -480,7 +483,7 @@
 <p>ما می‌توانیم این کار را با استفاده مکرر از توابع یا کلاس‌ها انجام دهیم.</p>
 <p>در واقع، توابع و کلاس‌ها به طور خاص برای کمک به ما برای جلوگیری از شرمساری خود با تکرار کد یا استفاده بیش از حد از متغیرهای سراسری طراحی شده‌اند.</p>
 <section id="id9">
-<h4><span class="section-number">18.3.4.1. </span>کدام یک، توابع یا کلاس‌ها؟<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">19.3.4.1. </span>کدام یک، توابع یا کلاس‌ها؟<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>هر دو می‌توانند مفید باشند، و در واقع آنها به خوبی با یکدیگر کار می‌کنند.</p>
 <p>ما با گذشت زمان بیشتر در مورد این موضوعات خواهیم آموخت.</p>
 <p>(ترجیح شخصی نیز بخشی از موضوع است)</p>
@@ -489,7 +492,7 @@
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">18.4. </span>بازبینی مثال<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.4. </span>بازبینی مثال<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>در اینجا کدی است که نمودار بالا را با سبک کدنویسی بهتر بازتولید می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,10 +543,10 @@
 </ul>
 </section>
 <section id="id11">
-<h2><span class="section-number">18.5. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.5. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="wgc-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 18.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 19.1 </span></p>
 <section id="exercise-content">
 <p>در اینجا کدی وجود دارد که نیاز به بهبود دارد.</p>
 <p>این شامل یک مسئله اساسی عرضه و تقاضا است.</p>
@@ -681,7 +684,7 @@ Equilibrium quantity is  0.38
 </div>
 <div class="solution dropdown admonition" id="writing_good_code-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 18.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 19.1</a></p>
 <section id="solution-content">
 <p>در اینجا یک راه‌حل است که از یک کلاس استفاده می‌کند:</p>
 <div class="cell docutils container">
@@ -938,6 +941,11 @@ Equilibrium quantity is  0.38
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -947,12 +955,12 @@ Equilibrium quantity is  0.38
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -964,27 +972,27 @@ Equilibrium quantity is  0.38
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -996,12 +1004,12 @@ Equilibrium quantity is  0.38
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1044,6 +1052,8 @@ Equilibrium quantity is  0.38
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/writing_good_code.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -155,6 +155,9 @@
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
+
+
+
   </head>
 <body dir="rtl">
 
@@ -206,46 +209,48 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-numpy">14.1. JAX به عنوان جایگزین NumPy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.1.1. شباهت‌ها</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">14.1.2. تفاوت‌ها</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">14.1.2.1. دقت</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.1.2.2. تغییرناپذیری</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.1.2.3. راه‌حل جایگزین</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-speed">14.1.2.1. سرعت!</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">14.1.2.1.1. با NumPy</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.1.2.1.2. با JAX</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.1.2.2. دقت</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.1.2.3. تغییرناپذیری</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">14.1.2.4. راه‌حل جایگزین</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.2. برنامه‌نویسی تابعی</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">14.2.1. توابع خالص</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">14.2.2. مثال‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">14.2. برنامه‌نویسی تابعی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">14.2.1. توابع خالص</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">14.2.2. مثال‌ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">14.2.3. چرا برنامه‌نویسی تابعی؟</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">14.3. اعداد تصادفی</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">14.3.1. تولید اعداد تصادفی</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">14.3.2. چرا وضعیت تصادفی صریح؟</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">14.3.2.1. رویکرد NumPy</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">14.3.2.2. رویکرد JAX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">14.3. اعداد تصادفی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">14.3.1. تولید اعداد تصادفی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">14.3.2. چرا وضعیت تصادفی صریح؟</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">14.3.2.1. رویکرد NumPy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">14.3.2.2. رویکرد JAX</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">14.4. کامپایل JIT</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">14.4.1. یک مثال ساده</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">14.4.1.1. با NumPy</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">14.4.1.2. با JAX</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">14.4.1.3. تغییر اندازه آرایه‌ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">14.4.1. با NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">14.4.2. با JAX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">14.4.3. کامپایل کل تابع</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">14.4.4. نحوه کار کامپایل JIT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">14.4.5. کامپایل توابع غیرخالص</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">14.4.2. ارزیابی یک تابع پیچیده‌تر</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">14.4.2.1. با NumPy</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">14.4.2.2. با JAX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmap">14.5. برداری‌سازی با <code class="docutils literal notranslate"><span class="pre">vmap</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">14.5.1. یک مثال ساده</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">14.5.2. ترکیب تبدیل‌ها</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">14.4.3. کامپایل کل تابع</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">14.4.4. کامپایل توابع غیرخالص</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">14.4.5. خلاصه</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">14.5. گرادیان‌ها</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">14.6. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">14.6. مشتق‌گیری خودکار: یک پیش‌نمایش</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">14.7. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -301,7 +306,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -312,11 +317,74 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
-                                <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">7 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c1a3537" class="changelog-hash">c1a3537</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">34 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Improve jax_intro lecture (#104)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/2c39955" class="changelog-hash">2c39955</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">1 hour ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Update jax_intro lecture (#94)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0c8dfc7" class="changelog-hash">0c8dfc7</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">4 days ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Revise JAX intro lecture and add autodiff lecture (#87)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e09d083" class="changelog-hash">e09d083</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 weeks ago</span>
+                                <span class="changelog-message">chore: migrate heading-map → translation frontmatter (#83)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/3f9c65e" class="changelog-hash">3f9c65e</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 weeks ago</span>
+                                <span class="changelog-message">Setup action-translation v0.11.0 infrastructure (#67)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c2c5104" class="changelog-hash">c2c5104</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 months ago</span>
+                                <span class="changelog-message">Fix build warnings from publish.yml workflow (#56)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0ac8f0c" class="changelog-hash">0ac8f0c</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 months ago</span>
+                                <span class="changelog-message">Add lecture: JAX (#22)</span>
                             </li>
                             
                         </ul>
@@ -334,6 +402,17 @@
   <section class="tex2jax_ignore mathjax_ignore" id="jax">
 <h1><span class="section-number">14. </span>JAX<a class="headerlink" href="#jax" title="Link to this heading">#</a></h1>
 <p>این سخنرانی مقدمه‌ای کوتاه بر <a class="reference external" href="https://github.com/jax-ml/jax">Google JAX</a> ارائه می‌دهد.</p>
+<div class="warning admonition">
+<p class="admonition-title">GPU</p>
+<p>This lecture was built using a machine with access to a GPU — although it will also run without one.</p>
+<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> has a free tier with GPUs
+that you can access as follows:</p>
+<ol class="arabic simple">
+<li><p>Click on the “play” icon top right</p></li>
+<li><p>Select Colab</p></li>
+<li><p>Set the runtime environment to include a GPU</p></li>
+</ol>
+</div>
 <p>JAX یک کتابخانه محاسبات علمی با کارایی بالا است که موارد زیر را فراهم می‌کند:</p>
 <ul class="simple">
 <li><p>یک رابط شبیه <a class="reference external" href="https://en.wikipedia.org/wiki/NumPy">NumPy</a> که می‌تواند به صورت خودکار در CPUها و GPUها موازی‌سازی شود،</p></li>
@@ -354,17 +433,13 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jax
-  Downloading jax-0.9.2-py3-none-any.whl.metadata (13 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.9.2)
 Collecting quantecon
-  Downloading quantecon-0.11.1-py3-none-any.whl.metadata (5.3 kB)
-Collecting jaxlib&lt;=0.9.2,&gt;=0.9.2 (from jax)
-  Downloading jaxlib-0.9.2-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
-Collecting ml_dtypes&gt;=0.5.0 (from jax)
-  Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+  Downloading quantecon-0.11.2-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: jaxlib&lt;=0.9.2,&gt;=0.9.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.9.2)
+Requirement already satisfied: ml_dtypes&gt;=0.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.5.4)
 Requirement already satisfied: numpy&gt;=2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (2.3.5)
-Collecting opt_einsum (from jax)
-  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+Requirement already satisfied: opt_einsum in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (3.4.0)
 Requirement already satisfied: scipy&gt;=1.13 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (1.16.3)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
@@ -375,62 +450,27 @@ Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/env
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.5.0)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.11.12)
 Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
-Downloading jax-0.9.2-py3-none-any.whl (3.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">97.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25h
-Downloading jaxlib-0.9.2-cp313-cp313-manylinux_2_27_x86_64.whl (83.3 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/83.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.2/83.3 MB</span> <span class=" -Color -Color-Red">105.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">37.7/83.3 MB</span> <span class=" -Color -Color-Red">94.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">63.4/83.3 MB</span> <span class=" -Color -Color-Red">105.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">83.3/83.3 MB</span> <span class=" -Color -Color-Red">99.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading quantecon-0.11.1-py3-none-any.whl (330 kB)
-Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">146.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
-Installing collected packages: opt_einsum, ml_dtypes, quantecon, jaxlib, jax
-?25l
-   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [quantecon]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [jaxlib]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [jax]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5/5</span> [jax]
-
-Successfully installed jax-0.9.2 jaxlib-0.9.2 ml_dtypes-0.5.4 opt_einsum-3.4.0 quantecon-0.11.1
+Downloading quantecon-0.11.2-py3-none-any.whl (330 kB)
+Installing collected packages: quantecon
+Successfully installed quantecon-0.11.2
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<div class="warning admonition">
-<p class="admonition-title">GPU</p>
-<p>This lecture was built using a machine with access to a GPU — although it will also run without one.</p>
-<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> has a free tier with GPUs
-that you can access as follows:</p>
-<ol class="arabic simple">
-<li><p>Click on the “play” icon top right</p></li>
-<li><p>Select Colab</p></li>
-<li><p>Set the runtime environment to include a GPU</p></li>
-</ol>
+<p>از import‌های زیر استفاده خواهیم کرد:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
+</pre></div>
 </div>
+</div>
+</div>
+<p>توجه کنید که <code class="docutils literal notranslate"><span class="pre">jax.numpy</span> <span class="pre">as</span> <span class="pre">jnp</span></code> را import می‌کنیم که یک رابط شبیه NumPy فراهم می‌کند.</p>
 <section id="jax-numpy">
 <h2><span class="section-number">14.1. </span>JAX به عنوان جایگزین NumPy<a class="headerlink" href="#jax-numpy" title="Link to this heading">#</a></h2>
 <p>یکی از ویژگی‌های جذاب JAX این است که، هر زمان که امکان‌پذیر باشد، عملیات پردازش آرایه‌های آن با API NumPy مطابقت دارد.</p>
@@ -438,24 +478,7 @@ that you can access as follows:</p>
 <p>بیایید به شباهت‌ها و تفاوت‌های بین JAX و NumPy نگاه کنیم.</p>
 <section id="id1">
 <h3><span class="section-number">14.1.1. </span>شباهت‌ها<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>ما از import‌های زیر استفاده خواهیم کرد</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">quantecon</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qe</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>علاوه بر این، ما <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> را با موارد زیر جایگزین می‌کنیم</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>اکنون می‌توانیم از <code class="docutils literal notranslate"><span class="pre">jnp</span></code> به جای <code class="docutils literal notranslate"><span class="pre">np</span></code> برای عملیات معمول آرایه استفاده کنیم:</p>
+<p>در اینجا برخی عملیات استاندارد آرایه با استفاده از <code class="docutils literal notranslate"><span class="pre">jnp</span></code> آمده است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">))</span>
@@ -483,18 +506,6 @@ that you can access as follows:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.6999998
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9
 </pre></div>
 </div>
 </div>
@@ -536,7 +547,7 @@ that you can access as follows:</p>
 </div>
 </div>
 </div>
-<p>حتی نگاشت‌های با مقدار اسکالر روی آرایه‌ها، آرایه‌های JAX را برمی‌گردانند.</p>
+<p>حتی نگاشت‌های با مقدار اسکالر روی آرایه‌ها، آرایه‌های JAX را برمی‌گردانند نه اسکالرها!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -549,56 +560,165 @@ that you can access as follows:</p>
 </div>
 </div>
 </div>
-<p>عملیات روی آرایه‌های با ابعاد بالاتر نیز مشابه NumPy هستند:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[1., 1.],
-       [1., 1.]], dtype=float32)
-</pre></div>
-</div>
-</div>
-</div>
-<p>رابط آرایه JAX همچنین زیربسته <code class="docutils literal notranslate"><span class="pre">linalg</span></code> را فراهم می‌کند:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>   <span class="c1"># Inverse of identity is identity</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[1., 0.],
-       [0., 1.]], dtype=float32)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jnp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>  <span class="c1"># Computes eigenvalues and eigenvectors</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EighResult(eigenvalues=Array([1., 1.], dtype=float32), eigenvectors=Array([[1., 0.],
-       [0., 1.]], dtype=float32))
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="id2">
 <h3><span class="section-number">14.1.2. </span>تفاوت‌ها<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>اکنون به برخی از تفاوت‌های بین عملیات آرایه JAX و NumPy نگاه کنیم.</p>
-<section id="id3">
-<h4><span class="section-number">14.1.2.1. </span>دقت<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
-<p>یکی از تفاوت‌های بین NumPy و JAX این است که JAX به طور پیش‌فرض از اعداد اعشاری 32 بیتی استفاده می‌کند.</p>
+<section id="jax-speed">
+<span id="id3"></span><h4><span class="section-number">14.1.2.1. </span>سرعت!<a class="headerlink" href="#jax-speed" title="Link to this heading">#</a></h4>
+<p>فرض کنیم می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="numpy">
+<h5><span class="section-number">14.1.2.1.1. </span>با NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h5>
+<p>بیایید با NumPy امتحان کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First NumPy timing</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5691 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>و یک بار دیگر.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second NumPy timing</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5708 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>در اینجا</p>
+<ul class="simple">
+<li><p>NumPy از یک باینری از پیش ساخته شده برای اعمال کسینوس بر یک آرایه از اعداد اعشاری استفاده می‌کند</p></li>
+<li><p>باینری روی CPU ماشین محلی اجرا می‌شود</p></li>
+</ul>
+</section>
+<section id="id4">
+<h5><span class="section-number">14.1.2.1.2. </span>با JAX<a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<p>اکنون بیایید با JAX امتحان کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بیایید همان رویه را زمان‌بندی کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold the interpreter until the array operation finishes</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1245 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>در اینجا، برای اندازه‌گیری سرعت واقعی، از متد <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> استفاده می‌کنیم
+تا مفسر را تا زمانی که نتایج محاسبات بازگردانده شوند نگه داریم.</p>
+<p>این ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که
+به مفسر Python اجازه می‌دهد جلوتر از محاسبات عددی حرکت کند.</p>
+<p>برای کدهایی که زمان‌بندی نمی‌شوند، می‌توانید خط حاوی <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> را حذف کنید.</p>
+</div>
+<p>و بیایید دوباره زمان‌بندی کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter </span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0896 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>روی GPU، این کد بسیار سریع‌تر از معادل NumPy خود اجرا می‌شود.</p>
+<p>همچنین، معمولاً اجرای دوم به دلیل کامپایل JIT سریع‌تر از اجرای اول است.</p>
+<p>این به این دلیل است که حتی توابع داخلی مانند <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> نیز با JIT کامپایل می‌شوند — و اجرای اول شامل زمان کامپایل است.</p>
+<p>چرا JAX می‌خواهد توابع داخلی مانند <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> را با JIT کامپایل کند به جای اینکه نسخه‌های از پیش کامپایل‌شده مانند NumPy ارائه دهد؟</p>
+<p>دلیل این است که کامپایلر JIT می‌خواهد بر <em>اندازه</em> آرایه مورد استفاده (و همچنین نوع داده) تخصص پیدا کند.</p>
+<p>اندازه برای تولید کد بهینه اهمیت دارد زیرا موازی‌سازی کارآمد نیازمند تطابق اندازه کار با سخت‌افزار موجود است.</p>
+<p>می‌توانیم ادعا که JAX بر اندازه آرایه تخصص پیدا می‌کند را با تغییر اندازه ورودی و مشاهده زمان‌های اجرا تأیید کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1399 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0997 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>زمان اجرا افزایش می‌یابد و سپس دوباره کاهش می‌یابد (این روی GPU واضح‌تر خواهد بود).</p>
+<p>این با بحث بالا همخوانی دارد – اولین اجرا پس از تغییر اندازه آرایه سربار کامپایل را نشان می‌دهد.</p>
+<p>بحث بیشتر درباره کامپایل JIT در ادامه ارائه شده است.</p>
+</section>
+</section>
+<section id="id5">
+<h4><span class="section-number">14.1.2.2. </span>دقت<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>یکی دیگر از تفاوت‌های بین NumPy و JAX این است که JAX به طور پیش‌فرض از اعداد اعشاری 32 بیتی استفاده می‌کند.</p>
 <p>این به این دلیل است که JAX اغلب برای محاسبات GPU استفاده می‌شود و بیشتر محاسبات GPU از اعداد اعشاری 32 بیتی استفاده می‌کنند.</p>
 <p>استفاده از اعداد اعشاری 32 بیتی می‌تواند منجر به افزایش سرعت قابل توجه با از دست دادن کم دقت شود.</p>
 <p>با این حال، برای برخی محاسبات دقت مهم است.</p>
@@ -624,14 +744,13 @@ that you can access as follows:</p>
 </div>
 </div>
 </section>
-<section id="id4">
-<h4><span class="section-number">14.1.2.2. </span>تغییرناپذیری<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h4><span class="section-number">14.1.2.3. </span>تغییرناپذیری<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <p>به عنوان یک جایگزین NumPy، تفاوت مهم‌تر این است که آرایه‌ها به عنوان <strong>تغییرناپذیر</strong> در نظر گرفته می‌شوند.</p>
 <p>برای مثال، با NumPy می‌توانیم بنویسیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
@@ -656,7 +775,7 @@ that you can access as follows:</p>
 </div>
 </div>
 </div>
-<p>در JAX این کار شکست می‌خورد:</p>
+<p>در JAX این کار شکست می‌خورد!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -670,65 +789,26 @@ that you can access as follows:</p>
 </div>
 </div>
 </div>
-<div class="cell tag_raises-exception docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/jax/_src/numpy/array_methods.py:880,</span> in <span class="ni">_unimplemented_setitem</span><span class="nt">(self, i, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span> <span class="k">def</span><span class="w"> </span><span class="nf">_unimplemented_setitem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span>   <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;JAX arrays are immutable and do not support in-place item assignment.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>          <span class="s2">&quot; Instead of x[idx] = y, use x = x.at[idx].set(y) or another .at[] method:&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>          <span class="s2">&quot; https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">880</span>   <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: JAX arrays are immutable and do not support in-place item assignment. Instead of x[idx] = y, use x = x.at[idx].set(y) or another .at[] method: https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html
-</pre></div>
-</div>
-</div>
-</div>
-<p>در راستای تغییرناپذیری، JAX از عملیات درجا پشتیبانی نمی‌کند:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>    <span class="c1"># Unlike NumPy, does not mutate a</span>
-<span class="n">a</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JAX arrays are immutable and do not support in-place item assignment. Instead of x[idx] = y, use x = x.at[idx].set(y) or another .at[] method: https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">a_new</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>   <span class="c1"># Instead, the sort method returns a new sorted array</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">a_new</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Array([2, 1], dtype=int64), Array([1, 2], dtype=int64))
-</pre></div>
-</div>
-</div>
-</div>
-<p>طراحان JAX تصمیم گرفتند آرایه‌ها را تغییرناپذیر کنند زیرا JAX از سبک <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">برنامه‌نویسی تابعی</a> استفاده می‌کند.</p>
-<p>این انتخاب طراحی دارای پیامدهای مهمی است که در ادامه آن را بررسی می‌کنیم!</p>
+<p>طراحان JAX تصمیم گرفتند آرایه‌ها را تغییرناپذیر کنند زیرا JAX از سبک برنامه‌نویسی تابعی استفاده می‌کند که در ادامه آن را بررسی می‌کنیم.</p>
 </section>
-<section id="id5">
-<h4><span class="section-number">14.1.2.3. </span>راه‌حل جایگزین<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
-<p>توجه می‌کنیم که JAX نسخه‌ای از تغییر درجای آرایه را با استفاده از <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html">متد <code class="docutils literal notranslate"><span class="pre">at</span></code></a> فراهم می‌کند.</p>
+<section id="id7">
+<h4><span class="section-number">14.1.2.4. </span>راه‌حل جایگزین<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>توجه می‌کنیم که JAX یک جایگزین برای تغییر درجای آرایه با استفاده از <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html">متد <code class="docutils literal notranslate"><span class="pre">at</span></code></a> فراهم می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -760,13 +840,13 @@ that you can access as follows:</p>
 </section>
 </section>
 </section>
-<section id="id6">
-<h2><span class="section-number">14.2. </span>برنامه‌نویسی تابعی<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2><span class="section-number">14.2. </span>برنامه‌نویسی تابعی<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>از مستندات JAX:</p>
 <p><em>هنگام پیاده‌روی در حومه ایتالیا، مردم از گفتن این که JAX دارای “una anima di pura programmazione funzionale” است، تردید نخواهند کرد.</em></p>
 <p>به عبارت دیگر، JAX یک سبک برنامه‌نویسی تابعی را فرض می‌کند.</p>
-<section id="id7">
-<h3><span class="section-number">14.2.1. </span>توابع خالص<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3><span class="section-number">14.2.1. </span>توابع خالص<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>پیامد اصلی این است که توابع JAX باید خالص باشند.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Pure_function">توابع خالص</a> دارای ویژگی‌های زیر هستند:</p>
 <ol class="arabic simple">
@@ -785,8 +865,8 @@ that you can access as follows:</p>
 <li><p>داده‌های ارسال شده به تابع را تغییر نمی‌دهد (داده‌های تغییرناپذیر)</p></li>
 </ul>
 </section>
-<section id="id8">
-<h3><span class="section-number">14.2.2. </span>مثال‌ها<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3><span class="section-number">14.2.2. </span>مثال‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>در اینجا مثالی از یک تابع <em>غیرخالص</em> آورده شده است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,23 +901,42 @@ that you can access as follows:</p>
 </div>
 </div>
 <p>این نسخه خالص تمام وابستگی‌ها را از طریق آرگومان‌های تابع صریح می‌کند و هیچ وضعیت خارجی را تغییر نمی‌دهد.</p>
-<p>اکنون که می‌فهمیم توابع خالص چیستند، بیایید بررسی کنیم که چگونه رویکرد JAX به اعداد تصادفی این خلوص را حفظ می‌کند.</p>
+</section>
+<section id="id11">
+<h3><span class="section-number">14.2.3. </span>چرا برنامه‌نویسی تابعی؟<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>در QuantEcon ما توابع خالص را دوست داریم زیرا</p>
+<ul class="simple">
+<li><p>به آزمایش کمک می‌کنند: هر تابع می‌تواند به صورت مستقل عمل کند</p></li>
+<li><p>رفتار قطعی و در نتیجه تکرارپذیری را ترویج می‌دهند</p></li>
+<li><p>از بروز اشکالاتی که از تغییر وضعیت مشترک ناشی می‌شود، جلوگیری می‌کنند</p></li>
+</ul>
+<p>کامپایلر JAX توابع خالص و برنامه‌نویسی تابعی را دوست دارد زیرا</p>
+<ul class="simple">
+<li><p>وابستگی‌های داده صریح هستند، که به بهینه‌سازی محاسبات پیچیده کمک می‌کند</p></li>
+<li><p>توابع خالص راحت‌تر مشتق‌گیری می‌شوند (autodiff)</p></li>
+<li><p>توابع خالص راحت‌تر موازی‌سازی و بهینه‌سازی می‌شوند (به وضعیت تغییرپذیر مشترک وابسته نیستند)</p></li>
+</ul>
+<p>راه دیگری برای تفکر در این مورد به شرح زیر است:</p>
+<p>JAX توابع را به صورت گراف‌های محاسباتی نمایش می‌دهد که سپس کامپایل یا تبدیل می‌شوند (مثلاً مشتق‌گیری می‌شوند).</p>
+<p>این گراف‌های محاسباتی توصیف می‌کنند که چگونه یک مجموعه ورودی مشخص به یک خروجی تبدیل می‌شود.</p>
+<p>گراف‌های محاسباتی JAX ذاتاً خالص هستند.</p>
+<p>JAX از سبک برنامه‌نویسی تابعی استفاده می‌کند تا توابع ساخته‌شده توسط کاربر مستقیماً به نمایش‌های گراف-نظری پشتیبانی‌شده توسط JAX نگاشت شوند.</p>
 </section>
 </section>
-<section id="id9">
-<h2><span class="section-number">14.3. </span>اعداد تصادفی<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id12">
+<h2><span class="section-number">14.3. </span>اعداد تصادفی<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <p>اعداد تصادفی در JAX نسبت به آنچه در NumPy یا Matlab می‌یابید بسیار متفاوت هستند.</p>
-<p>در ابتدا ممکن است نحو را نسبتاً پرمخاطب بیابید.</p>
+<p>در ابتدا ممکن است نحو را نسبتاً مفصل بیابید.</p>
 <p>اما به زودی متوجه خواهید شد که نحو و معناشناسی برای حفظ سبک برنامه‌نویسی تابعی که به تازگی مورد بحث قرار دادیم، ضروری است.</p>
 <p>علاوه بر این، کنترل کامل وضعیت تصادفی برای برنامه‌نویسی موازی، مانند زمانی که می‌خواهیم آزمایش‌های مستقل را در چندین رشته اجرا کنیم، ضروری است.</p>
-<section id="id10">
-<h3><span class="section-number">14.3.1. </span>تولید اعداد تصادفی<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3><span class="section-number">14.3.1. </span>تولید اعداد تصادفی<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <p>در JAX، وضعیت مولد اعداد تصادفی به صورت صریح کنترل می‌شود.</p>
 <p>ابتدا یک کلید تولید می‌کنیم که مولد اعداد تصادفی را seed می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">1234</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -909,7 +1008,88 @@ that you can access as follows:</p>
 </div>
 </div>
 </div>
-<p>این نحو برای کاربر NumPy یا Matlab غیرعادی به نظر می‌رسد — اما وقتی به برنامه‌نویسی موازی پیش می‌رویم، منطقی خواهد بود.</p>
+<p>نمودار زیر نشان می‌دهد که چگونه <code class="docutils literal notranslate"><span class="pre">split</span></code> یک درخت از کلیدها را از یک ریشه واحد تولید می‌کند، با هر کلید که نمونه‌های تصادفی مستقل تولید می‌کند.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">box_style</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.3&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+                 <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">box_used</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.3&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;#d4edda&quot;</span><span class="p">,</span>
+                <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="c1"># Root key</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;key₀&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_style</span><span class="p">)</span>
+
+<span class="c1"># Level 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;key₁&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_style</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;subkey₁&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_used</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">5.7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;→ draw&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label the split</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.65</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="n">fontstyle</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="c1"># Level 2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;key₂&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_style</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;subkey₂&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_used</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;→ draw&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.65</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="n">fontstyle</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="c1"># Level 3</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;key₃&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_style</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;subkey₃&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="n">box_used</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;→ draw&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="n">fontstyle</span><span class="o">=</span><span class="s1">&#39;italic&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;⋮&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;PRNG Key Splitting Tree&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/e72a3ecb3e9782169063d498d0dd7cfcaab6eff9fa6bf12b7f8549264b246ec2.png" src="_images/e72a3ecb3e9782169063d498d0dd7cfcaab6eff9fa6bf12b7f8549264b246ec2.png" />
+</div>
+</div>
+<p>این نحو برای کاربر NumPy یا Matlab غیرعادی به نظر می‌رسد — اما وقتی به برنامه‌نویسی موازی می‌رسیم، منطقی‌تر خواهد بود.</p>
 <p>تابع زیر <code class="docutils literal notranslate"><span class="pre">k</span></code> ماتریس تصادفی <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> (شبه) مستقل را با استفاده از <code class="docutils literal notranslate"><span class="pre">split</span></code> تولید می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -928,7 +1108,7 @@ that you can access as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 <span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -961,7 +1141,7 @@ that you can access as follows:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 <span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -978,13 +1158,13 @@ that you can access as follows:</p>
 </div>
 </div>
 </section>
-<section id="id11">
-<h3><span class="section-number">14.3.2. </span>چرا وضعیت تصادفی صریح؟<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>چرا JAX به این رویکرد نسبتاً پرمخاطب برای تولید اعداد تصادفی نیاز دارد؟</p>
+<section id="id14">
+<h3><span class="section-number">14.3.2. </span>چرا وضعیت تصادفی صریح؟<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>چرا JAX به این رویکرد نسبتاً مفصل برای تولید اعداد تصادفی نیاز دارد؟</p>
 <p>یکی از دلایل حفظ توابع خالص است.</p>
 <p>بیایید ببینیم که چگونه تولید اعداد تصادفی با توابع خالص با مقایسه NumPy و JAX مرتبط است.</p>
-<section id="numpy">
-<h4><span class="section-number">14.3.2.1. </span>رویکرد NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h4>
+<section id="id15">
+<h4><span class="section-number">14.3.2.1. </span>رویکرد NumPy<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
 <p>در NumPy، تولید اعداد تصادفی با حفظ وضعیت سراسری پنهان کار می‌کند.</p>
 <p>هر بار که یک تابع تصادفی را فراخوانی می‌کنیم، این وضعیت به‌روزرسانی می‌شود:</p>
 <div class="cell docutils container">
@@ -1009,8 +1189,8 @@ that you can access as follows:</p>
 <li><p>دارای عوارض جانبی است: وضعیت مولد اعداد تصادفی سراسری را تغییر می‌دهد</p></li>
 </ul>
 </section>
-<section id="id12">
-<h4><span class="section-number">14.3.2.2. </span>رویکرد JAX<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<section id="id16">
+<h4><span class="section-number">14.3.2.2. </span>رویکرد JAX<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
 <p>همانطور که در بالا دیدیم، JAX رویکرد متفاوتی اتخاذ می‌کند و تصادفی بودن را از طریق کلیدها صریح می‌کند.</p>
 <p>برای مثال،</p>
 <div class="cell docutils container">
@@ -1027,7 +1207,7 @@ that you can access as follows:</p>
 <p>با همان کلید، همیشه نتیجه یکسانی دریافت می‌کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1070,160 +1250,19 @@ that you can access as follows:</p>
 <section id="jit">
 <h2><span class="section-number">14.4. </span>کامپایل JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h2>
 <p>کامپایلر just-in-time (JIT) JAX اجرا را با تولید کد ماشین کارآمد که با هم اندازه وظیفه و هم سخت‌افزار متفاوت است، تسریع می‌کند.</p>
-<section id="id13">
-<h3><span class="section-number">14.4.1. </span>یک مثال ساده<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
-<p>فرض کنید می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="id14">
-<h4><span class="section-number">14.4.1.1. </span>با NumPy<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
-<p>بیایید ابتدا با NumPy امتحان کنیم</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5682 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>و یک بار دیگر.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5803 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>در اینجا NumPy از یک فایل باینری از پیش ساخته شده، کامپایل شده از کد سطح پایین نوشته شده با دقت، برای اعمال کسینوس به یک آرایه از اعداد اعشاری استفاده می‌کند.</p>
-<p>این فایل باینری با NumPy ارسال می‌شود.</p>
-</section>
-<section id="id15">
-<h4><span class="section-number">14.4.1.2. </span>با JAX<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
-<p>اکنون بیایید با JAX امتحان کنیم.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>بیایید همان روش را زمان‌بندی کنیم.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3280 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>در اینجا، به منظور اندازه‌گیری سرعت واقعی، از متد <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> استفاده می‌کنیم تا مفسر را تا زمانی که نتایج محاسبات برگردانده شوند، نگه دارد.</p>
-<p>این امر ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که به مفسر Python اجازه می‌دهد از محاسبات عددی جلوتر برود.</p>
-<p>برای کدهای زمان‌بندی نشده، می‌توانید خط حاوی <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> را حذف کنید.</p>
-</div>
-<p>و بیایید دوباره آن را زمان‌بندی کنیم.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2828 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>روی GPU، این کد بسیار سریع‌تر از معادل NumPy آن اجرا می‌شود.</p>
-<p>همچنین، معمولاً، اجرای دوم سریع‌تر از اولین اجرا به دلیل کامپایل JIT است.</p>
-<p>این به این دلیل است که حتی توابع داخلی مانند <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> نیز JIT-کامپایل می‌شوند — و اجرای اول شامل زمان کامپایل است.</p>
-<p>چرا JAX می‌خواهد توابع داخلی مانند <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> را به جای ارائه نسخه‌های از پیش کامپایل شده، مانند NumPy، JIT-کامپایل کند؟</p>
-<p>دلیل این است که کامپایلر JIT می‌خواهد روی <em>اندازه</em> آرایه در حال استفاده (و همچنین نوع داده) تخصصی شود.</p>
-<p>اندازه برای تولید کد بهینه شده اهمیت دارد زیرا موازی‌سازی کارآمد نیاز به تطبیق اندازه وظیفه با سخت‌افزار موجود دارد.</p>
-<p>به همین دلیل است که JAX منتظر می‌ماند تا اندازه آرایه را قبل از کامپایل ببیند — که نیاز به یک رویکرد JIT-کامپایل شده به جای ارائه باینری‌های از پیش کامپایل شده دارد.</p>
-</section>
-<section id="id16">
-<h4><span class="section-number">14.4.1.3. </span>تغییر اندازه آرایه‌ها<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
-<p>در اینجا اندازه ورودی را تغییر می‌دهیم و زمان‌های اجرا را مشاهده می‌کنیم.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3304 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2914 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>معمولاً، زمان اجرا افزایش می‌یابد و سپس دوباره کاهش می‌یابد (این روی GPU واضح‌تر خواهد بود).</p>
-<p>این به این دلیل است که کامپایلر JIT روی اندازه آرایه تخصصی می‌شود تا موازی‌سازی را بهره‌برداری کند — و از این رو کد کامپایل شده جدیدی را هنگام تغییر اندازه آرایه تولید می‌کند.</p>
-</section>
-</section>
-<section id="id17">
-<h3><span class="section-number">14.4.2. </span>ارزیابی یک تابع پیچیده‌تر<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
-<p>بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم.</p>
+<p>ما قدرت کامپایلر JIT JAX را در ترکیب با سخت‌افزار موازی <a class="reference internal" href="#jax-speed"><span class="std std-ref">در بالا</span></a> مشاهده کردیم، هنگامی که <code class="docutils literal notranslate"><span class="pre">cos</span></code> را روی یک آرایه بزرگ اعمال کردیم.</p>
+<p>بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="id18">
-<h4><span class="section-number">14.4.2.1. </span>با NumPy<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<section id="id17">
+<h3><span class="section-number">14.4.1. </span>با NumPy<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <p>ابتدا با NumPy امتحان خواهیم کرد</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1236,19 +1275,20 @@ that you can access as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Time NumPy code</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2119 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2208 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id19">
-<h4><span class="section-number">14.4.2.2. </span>با JAX<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<section id="id18">
+<h3><span class="section-number">14.4.2. </span>با JAX<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <p>اکنون بیایید دوباره با JAX امتحان کنیم.</p>
 <p>به عنوان اولین مرحله، <code class="docutils literal notranslate"><span class="pre">np</span></code> را در همه جا با <code class="docutils literal notranslate"><span class="pre">jnp</span></code> جایگزین می‌کنیم:</p>
 <div class="cell docutils container">
@@ -1256,6 +1296,9 @@ that you can access as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1263,7 +1306,16 @@ that you can access as follows:</p>
 <p>اکنون بیایید آن را زمان‌بندی کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First call</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0715 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1271,38 +1323,26 @@ that you can access as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second call</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
     <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9369 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8751 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8556 seconds elapsed
-</pre></div>
-</div>
-</div>
-</div>
-<p>نتیجه مشابه مثال <code class="docutils literal notranslate"><span class="pre">cos</span></code> است — JAX سریع‌تر است، به ویژه در اجرای دوم پس از کامپایل JIT.</p>
-<p>علاوه بر این، با JAX، ترفند دیگری در آستین داریم:</p>
+<p>نتیجه مشابه مثال <code class="docutils literal notranslate"><span class="pre">cos</span></code> است — JAX سریع‌تر است، به ویژه در
+اجرای دوم پس از کامپایل JIT.</p>
+<p>علاوه بر این، با JAX، ترفند دیگری در آستین داریم — می‌توانیم کل تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.</p>
 </section>
-</section>
-<section id="id20">
-<h3><span class="section-number">14.4.3. </span>کامپایل کل تابع<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
-<p>کامپایلر just-in-time (JIT) JAX می‌تواند اجرا را در درون توابع با ادغام عملیات جبر خطی در یک هسته بهینه شده واحد تسریع کند.</p>
+<section id="id19">
+<h3><span class="section-number">14.4.3. </span>کامپایل کل تابع<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>کامپایلر just-in-time (JIT) JAX می‌تواند اجرا را در درون توابع با ادغام عملیات آرایه‌ای در یک هسته بهینه شده واحد تسریع کند.</p>
 <p>بیایید این را با تابع <code class="docutils literal notranslate"><span class="pre">f</span></code> امتحان کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1314,13 +1354,15 @@ that you can access as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># First run</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f_jax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
     <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5715 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5743 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1328,13 +1370,15 @@ that you can access as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="c1"># Second run</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">f_jax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Hold interpreter</span>
     <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5475 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5491 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1352,8 +1396,14 @@ that you can access as follows:</p>
 </div>
 </div>
 </section>
+<section id="id20">
+<h3><span class="section-number">14.4.4. </span>نحوه کار کامپایل JIT<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>هنگامی که <code class="docutils literal notranslate"><span class="pre">jax.jit</span></code> را به یک تابع اعمال می‌کنیم، JAX آن را <em>ردیابی</em> می‌کند: به جای اجرای فوری عملیات‌ها، دنباله عملیات‌ها را به صورت یک گراف محاسباتی ثبت می‌کند و آن گراف را به کامپایلر <a class="reference external" href="https://openxla.org/xla">XLA</a> تحویل می‌دهد.</p>
+<p>سپس XLA عملیات‌ها را در یک هسته کامپایل شده واحد بهینه‌سازی و ادغام می‌کند که متناسب با سخت‌افزار موجود (CPU، GPU، یا TPU) طراحی شده است.</p>
+<p>اولین فراخوانی به یک تابع JIT-کامپایل شده سربار کامپایل دارد، اما فراخوانی‌های بعدی با همان شکل‌ها و نوع‌های ورودی از کد کامپایل شده کش‌شده استفاده می‌کنند و با سرعت کامل اجرا می‌شوند.</p>
+</section>
 <section id="id21">
-<h3><span class="section-number">14.4.4. </span>کامپایل توابع غیرخالص<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.4.5. </span>کامپایل توابع غیرخالص<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
 <p>اکنون که دیدیم کامپایل JIT چقدر قدرتمند می‌تواند باشد، درک رابطه آن با توابع خالص مهم است.</p>
 <p>در حالی که JAX معمولاً هنگام کامپایل توابع ناخالص خطا نمی‌دهد، اجرا غیرقابل پیش‌بینی می‌شود.</p>
 <p>در اینجا تصویری از این واقعیت با استفاده از متغیرهای سراسری آورده شده است:</p>
@@ -1430,41 +1480,109 @@ that you can access as follows:</p>
 </div>
 <p>درس اخلاقی داستان: هنگام استفاده از JAX، توابع خالص بنویسید!</p>
 </section>
+</section>
+<section id="vmap">
+<h2><span class="section-number">14.5. </span>برداری‌سازی با <code class="docutils literal notranslate"><span class="pre">vmap</span></code><a class="headerlink" href="#vmap" title="Link to this heading">#</a></h2>
+<p>یکی دیگر از تبدیل‌های قدرتمند JAX، <code class="docutils literal notranslate"><span class="pre">jax.vmap</span></code> است که به‌طور خودکار
+تابعی که برای یک ورودی منفرد نوشته شده را برداری‌سازی می‌کند تا روی دسته‌ها عمل کند.</p>
+<p>این کار نیاز به نوشتن دستی کد برداری‌شده یا استفاده از حلقه‌های صریح را از بین می‌برد.</p>
 <section id="id22">
-<h3><span class="section-number">14.4.5. </span>خلاصه<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
-<p>اکنون می‌توانیم ببینیم که چرا هم توسعه‌دهندگان و هم کامپایلرها از توابع خالص بهره می‌برند.</p>
-<p>ما توابع خالص را دوست داریم زیرا آنها</p>
-<ul class="simple">
-<li><p>به تست کمک می‌کنند: هر تابع می‌تواند به صورت جداگانه عمل کند</p></li>
-<li><p>رفتار قطعی و از این رو تکرارپذیری را ترویج می‌کنند</p></li>
-<li><p>از باگ‌هایی که از تغییر وضعیت مشترک ناشی می‌شوند، جلوگیری می‌کنند</p></li>
-</ul>
-<p>کامپایلر توابع خالص و برنامه‌نویسی تابعی را دوست دارد زیرا</p>
-<ul class="simple">
-<li><p>وابستگی‌های داده صریح هستند، که به بهینه‌سازی محاسبات پیچیده کمک می‌کند</p></li>
-<li><p>توابع خالص راحت‌تر قابل تمایز هستند (autodiff)</p></li>
-<li><p>توابع خالص راحت‌تر موازی‌سازی و بهینه‌سازی می‌شوند (به وضعیت قابل تغییر مشترک وابسته نیستند)</p></li>
-</ul>
-</section>
-</section>
-<section id="id23">
-<h2><span class="section-number">14.5. </span>گرادیان‌ها<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
-<p>JAX می‌تواند از تمایز خودکار برای محاسبه گرادیان‌ها استفاده کند.</p>
-<p>این می‌تواند برای بهینه‌سازی و حل سیستم‌های غیرخطی بسیار مفید باشد.</p>
-<p>ما کاربردهای قابل توجهی را بعداً در این مجموعه سخنرانی‌ها خواهیم دید.</p>
-<p>فعلاً، در اینجا یک تصویر بسیار ساده شامل تابع است</p>
+<h3><span class="section-number">14.5.1. </span>یک مثال ساده<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>فرض کنید تابعی داریم که تفاوت بین میانگین و میانه را برای یک آرایه از اعداد محاسبه می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mm_diff</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">jnp</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>بیایید مشتق بگیریم:</p>
+<p>می‌توانیم آن را روی یک بردار منفرد اعمال کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_prime</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="n">mm_diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(0.66666667, dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>حال فرض کنید یک ماتریس داریم و می‌خواهیم این آمارها را برای هر سطر محاسبه کنیم.</p>
+<p>بدون <code class="docutils literal notranslate"><span class="pre">vmap</span></code>، به یک حلقه صریح نیاز داریم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">]])</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mm_diff</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6666666666666665
+0.0
+-2.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>با این حال، حلقه‌های Python کُند هستند و نمی‌توانند به‌طور کارآمد توسط JAX کامپایل یا موازی‌سازی شوند.</p>
+<p>استفاده از <code class="docutils literal notranslate"><span class="pre">vmap</span></code> محاسبه را روی شتاب‌دهنده نگه می‌دارد و با سایر
+تبدیل‌های JAX مانند <code class="docutils literal notranslate"><span class="pre">jit</span></code> و <code class="docutils literal notranslate"><span class="pre">grad</span></code> ترکیب می‌شود:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_mm_diff</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">mm_diff</span><span class="p">)</span>
+<span class="n">batch_mm_diff</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([ 0.66666667,  0.        , -2.        ], dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>تابع <code class="docutils literal notranslate"><span class="pre">mm_diff</span></code> برای یک آرایه منفرد نوشته شده بود، و <code class="docutils literal notranslate"><span class="pre">vmap</span></code> به‌طور خودکار
+آن را برای عمل سطربه‌سطر روی یک ماتریس ارتقا داد — بدون حلقه، بدون تغییر شکل.</p>
+</section>
+<section id="id23">
+<h3><span class="section-number">14.5.2. </span>ترکیب تبدیل‌ها<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p>یکی از نقاط قوت JAX این است که تبدیل‌ها به‌طور طبیعی با هم ترکیب می‌شوند.</p>
+<p>برای مثال، می‌توانیم یک تابع برداری‌شده را با JIT کامپایل کنیم:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fast_batch_mm_diff</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">mm_diff</span><span class="p">))</span>
+<span class="n">fast_batch_mm_diff</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([ 6.66666667e-01, -2.77555756e-16, -2.00000000e+00], dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>این ترکیب <code class="docutils literal notranslate"><span class="pre">jit</span></code>، <code class="docutils literal notranslate"><span class="pre">vmap</span></code>، و (همان‌طور که در ادامه خواهیم دید) <code class="docutils literal notranslate"><span class="pre">grad</span></code> در قلب
+طراحی JAX قرار دارد و آن را به‌ویژه برای محاسبات علمی و یادگیری ماشین بسیار قدرتمند می‌سازد.</p>
+</section>
+</section>
+<section id="id24">
+<h2><span class="section-number">14.6. </span>مشتق‌گیری خودکار: یک پیش‌نمایش<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<p>JAX می‌تواند از مشتق‌گیری خودکار برای محاسبه گرادیان‌ها استفاده کند.</p>
+<p>این ویژگی می‌تواند برای بهینه‌سازی و حل سیستم‌های غیرخطی بسیار مفید باشد.</p>
+<p>در اینجا یک مثال ساده با تابع <span class="math notranslate nohighlight">\(f(x) = x^2 / 2\)</span> آورده شده است:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">f_prime</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1481,12 +1599,10 @@ that you can access as follows:</p>
 </div>
 </div>
 </div>
-<p>بیایید تابع و مشتق را رسم کنیم، با توجه به اینکه <span class="math notranslate nohighlight">\(f'(x) = x\)</span>.</p>
+<p>بیایید تابع و مشتق آن را رسم کنیم، با توجه به اینکه <span class="math notranslate nohighlight">\(f'(x) = x\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">x_grid</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_grid</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f$&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="p">[</span><span class="n">f_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_grid</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f&#39;$&quot;</span><span class="p">)</span>
@@ -1499,10 +1615,10 @@ that you can access as follows:</p>
 <img alt="_images/33a5668fe6eb8c8b34c592510a458f9f56faae1878d363a2234b36425d4f5b0a.png" src="_images/33a5668fe6eb8c8b34c592510a458f9f56faae1878d363a2234b36425d4f5b0a.png" />
 </div>
 </div>
-<p>ما بررسی بیشتر تمایز خودکار با JAX را در <a class="reference external" href="https://jax.quantecon.org/autodiff.html">ماجراجویی‌ها با تمایز خودکار</a> موکول می‌کنیم.</p>
+<p>مشتق‌گیری خودکار موضوعی عمیق با کاربردهای فراوان در اقتصاد و مالی است. ما یک بررسی جامع‌تر را در <a class="reference internal" href="autodiff.html"><span class="doc">درس مربوط به مشتق‌گیری خودکار</span></a> ارائه می‌دهیم.</p>
 </section>
-<section id="id24">
-<h2><span class="section-number">14.6. </span>تمرین‌ها<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<section id="id25">
+<h2><span class="section-number">14.7. </span>تمرین‌ها<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="jax_intro_ex2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 14.1 </span></p>
@@ -1534,7 +1650,7 @@ that you can access as follows:</p>
                            <span class="n">ρ</span><span class="o">=</span><span class="n">ρ</span><span class="p">,</span>
                            <span class="n">ν</span><span class="o">=</span><span class="n">ν</span><span class="p">,</span>
                            <span class="n">M</span><span class="o">=</span><span class="n">M</span><span class="p">,</span>
-                           <span class="n">key</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
+                           <span class="n">key</span><span class="o">=</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
 
     <span class="n">s</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">S0</span><span class="p">))</span>
     <span class="n">h</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">h0</span><span class="p">)</span>
@@ -1574,7 +1690,7 @@ that you can access as follows:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.4211 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.8054 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1588,7 +1704,7 @@ that you can access as follows:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0957 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.4932 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1744,6 +1860,11 @@ that you can access as follows:</p>
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1753,12 +1874,12 @@ that you can access as follows:</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -1770,27 +1891,27 @@ that you can access as follows:</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -1802,12 +1923,12 @@ that you can access as follows:</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1850,6 +1971,8 @@ that you can access as follows:</p>
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/jax_intro.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

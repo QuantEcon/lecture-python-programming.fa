@@ -9,16 +9,19 @@ kernelspec:
   name: python3
   display_name: Python 3 (ipykernel)
   language: python
-heading-map:
-  overview: مروری کلی
-  working-with-python-files-: کار با فایل‌های Python
-  development-environments: محیط‌های توسعه
-  a-step-forward-from-jupyter-notebooks-jupyterlab: 'یک قدم جلوتر از Jupyter Notebooks: JupyterLab'
-  using-magic-commands: استفاده از دستورات جادویی
-  using-the-terminal: استفاده از ترمینال
-  a-walk-through-visual-studio-code: گشت و گذاری در Visual Studio Code
-  using-the-run-button: استفاده از دکمه run
-  git-your-hands-dirty: Git را امتحان کنید
+translation:
+  title: نوشتن برنامه‌های طولانی‌تر
+  headings:
+    Overview: مروری کلی
+    Working with Python files: کار با فایل‌های Python
+    Development environments: محیط‌های توسعه
+    'A step forward from Jupyter Notebooks: JupyterLab': 'یک قدم جلوتر از Jupyter Notebooks: JupyterLab'
+    'A step forward from Jupyter Notebooks: JupyterLab::Using magic commands': استفاده از دستورات جادویی
+    'A step forward from Jupyter Notebooks: JupyterLab::Using the terminal': استفاده از ترمینال
+    A walk through Visual Studio Code: گشت و گذاری در Visual Studio Code
+    A walk through Visual Studio Code::Using the run button: استفاده از دکمه run
+    A walk through Visual Studio Code::Using the terminal: استفاده از ترمینال
+    Git your hands dirty: Git را امتحان کنید
 ---
 
 (workspace)=

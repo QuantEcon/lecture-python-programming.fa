@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -154,6 +154,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -209,45 +212,35 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.2.2. اکوسیستم علمی پایتون</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">9.3. پایتون خالص کند است</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">9.3.1. کد سطح بالا در مقابل سطح پایین</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">9.3.2. گلوگاه‌ها کجا هستند؟</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">9.3.2.1. تایپ کردن پویا</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">9.3.2.2. انواع ایستا</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">9.3. چرا Python خالص کند است؟</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">9.3.1. بررسی نوع</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">9.3.1.1. تایپ‌گذاری پویا</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">9.3.1.2. انواع ایستا</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">9.3.3. دسترسی به داده</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9.3.3.1. جمع کردن با کد کامپایل شده</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">9.3.3.2. جمع کردن در پایتون خالص</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">9.3.2. دسترسی به داده</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">9.3.2.1. جمع‌زدن با کد کامپایل‌شده</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">9.3.2.2. جمع‌زدن در Python خالص</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">9.3.4. خلاصه</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">9.3.3. خلاصه</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">9.4. تسریع پایتون</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">9.4.1. برداری‌سازی</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">9.4.2. برداری‌سازی در مقابل حلقه‌های پایتون خالص</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">9.4. تسریع پایتون</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">9.4.1. برداری‌سازی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">9.4.2. برداری‌سازی در مقابل حلقه‌های پایتون خالص</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">9.4.3. کامپایلرهای JIT</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">9.5. موازی‌سازی</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">9.5. موازی‌سازی</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu">9.5.1. موازی‌سازی بر روی CPUها</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">9.5.1.1. چندپردازشی</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">9.5.1.2. چندرشته‌ای</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">9.5.1.3. مزایا و معایب</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">9.5.1.1. چندرشته‌ای</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">9.5.1.2. چندپردازشی</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">9.5.1.3. کدام را باید استفاده کنیم؟</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">9.5.2. شتاب‌دهنده‌های سخت‌افزاری</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-tpu">9.5.2.1. GPUها و TPUها</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tpu-gpu">9.5.2.2. چرا TPU/GPU مهم هستند</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-gpu">9.5.3. GPUهای تکی در مقابل سرورهای GPU</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">9.5.3.1. سیستم‌های GPU تکی</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">9.5.3.2. سرورهای چند GPU</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">9.5.4. خلاصه</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">9.5.2. شتاب‌دهنده‌های سخت‌افزاری</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu">9.5.3. دسترسی به منابع GPU</a></li>
 </ul>
 </li>
 </ul>
@@ -305,7 +298,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -316,11 +309,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -373,7 +366,7 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.2)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
 Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
@@ -407,21 +400,26 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>بیایید به طور خلاصه کتابخانه‌های علمی پایتون را مرور کنیم.</p>
 <section id="id4">
 <h3><span class="section-number">9.2.1. </span>چرا به آنها نیاز داریم؟<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>یکی از دلایل استفاده از کتابخانه‌های علمی این است که آنها روال‌هایی را که می‌خواهیم استفاده کنیم، پیاده‌سازی می‌کنند.</p>
+<p>ما به کتابخانه‌های علمی پایتون به دو دلیل نیاز داریم:</p>
+<ol class="arabic simple">
+<li><p>پایتون کوچک است</p></li>
+<li><p>پایتون کند است</p></li>
+</ol>
+<p><strong>پایتون کوچک است</strong></p>
+<p>هسته پایتون به طور طراحی کوچک است – این به بهینه‌سازی، دسترسی‌پذیری و نگهداری کمک می‌کند.</p>
+<p>کتابخانه‌های علمی روال‌هایی را فراهم می‌کنند که نمی‌خواهیم – و احتمالاً نباید – خودمان بنویسیم.</p>
 <ul class="simple">
 <li><p>انتگرال‌گیری عددی، درونیابی، جبر خطی، یافتن ریشه و غیره.</p></li>
 </ul>
-<p>به عنوان مثال، معمولاً بهتر است از یک روال موجود برای یافتن ریشه استفاده کنیم تا اینکه از ابتدا یک روال جدید بنویسیم.</p>
-<p>(برای الگوریتم‌های استاندارد، کارایی زمانی به حداکثر می‌رسد که جامعه بتواند در یک مجموعه مشترک از پیاده‌سازی‌ها هماهنگ شود، که توسط متخصصان نوشته شده و توسط کاربران برای سریع و قوی بودن تا حد ممکن تنظیم شده‌اند!)</p>
-<p>اما این تنها دلیلی نیست که ما از کتابخانه‌های علمی پایتون استفاده می‌کنیم.</p>
-<p>دلیل دیگر این است که پایتون خالص سریع نیست.</p>
-<p>بنابراین به کتابخانه‌هایی نیاز داریم که برای تسریع اجرای کد پایتون طراحی شده‌اند.</p>
-<p>آنها این کار را با استفاده از دو استراتژی انجام می‌دهند:</p>
+<p><strong>پایتون کند است</strong></p>
+<p>دلیل دیگری که به کتابخانه‌های علمی نیاز داریم این است که پایتون خالص نسبتاً کند است.</p>
+<p>کتابخانه‌های علمی اجرا را با استفاده از سه استراتژی اصلی تسریع می‌کنند:</p>
 <ol class="arabic simple">
-<li><p>استفاده از کامپایلرهایی که دستورات شبیه پایتون را به کد ماشین سریع برای رشته‌های منفرد منطقی تبدیل می‌کنند و</p></li>
-<li><p>موازی‌سازی وظایف در چندین “کارگر” (به عنوان مثال، CPUها، رشته‌های منفرد داخل GPUها).</p></li>
+<li><p>برداری‌سازی: ارائه کد ماشین کامپایل‌شده و رابط‌هایی که این کد را قابل دسترس می‌کنند</p></li>
+<li><p>کامپایل JIT: کامپایلرهایی که دستورات شبیه پایتون را به کد ماشین سریع در زمان اجرا تبدیل می‌کنند</p></li>
+<li><p>موازی‌سازی: توزیع وظایف در چندین رشته / CPU / GPU / TPU</p></li>
 </ol>
-<p>ما این ایده‌ها را به طور گسترده در این سخنرانی و سخنرانی‌های باقی‌مانده این مجموعه بحث خواهیم کرد.</p>
+<p>ما این ایده‌ها را به طور عمیق در ادامه بحث خواهیم کرد.</p>
 </section>
 <section id="id5">
 <h3><span class="section-number">9.2.2. </span>اکوسیستم علمی پایتون<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
@@ -446,30 +444,17 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>ما همه این کتابخانه‌ها را به طور گسترده در این مجموعه سخنرانی‌ها مورد بحث قرار خواهیم داد.</p>
 </section>
 </section>
+<section id="python">
+<h2><span class="section-number">9.3. </span>چرا Python خالص کند است؟<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<p>همان‌طور که در بالا ذکر شد، کد عددی نوشته‌شده در Python خالص نسبتاً کند است.</p>
+<p>بیایید بکوشیم بفهمیم چه چیزی موجب سرعت‌های اجرای کند می‌شود.</p>
 <section id="id6">
-<h2><span class="section-number">9.3. </span>پایتون خالص کند است<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<p>همانطور که در بالا ذکر شد، یکی از جاذبه‌های اصلی کتابخانه‌های علمی، سرعت اجرای بیشتر است.</p>
-<p>ما بحث خواهیم کرد که چگونه کتابخانه‌های علمی می‌توانند به ما در تسریع کد کمک کنند.</p>
-<p>برای این موضوع، مفید خواهد بود اگر درک کنیم که چه چیزی باعث سرعت اجرای کند می‌شود.</p>
+<h3><span class="section-number">9.3.1. </span>بررسی نوع<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>یکی از منابع سربار در عملیات Python خالص، بررسی نوع است.</p>
+<p>بیایید بکوشیم مسائل را درک کنیم.</p>
 <section id="id7">
-<h3><span class="section-number">9.3.1. </span>کد سطح بالا در مقابل سطح پایین<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>زبان‌های سطح بالاتر مانند پایتون برای انسان‌ها بهینه شده‌اند.</p>
-<p>این بدان معنی است که برنامه‌نویس می‌تواند بسیاری از جزئیات را به محیط زمان اجرا واگذار کند:</p>
-<ul class="simple">
-<li><p>مشخص کردن انواع متغیرها</p></li>
-<li><p>تخصیص/آزادسازی حافظه</p></li>
-<li><p>و غیره.</p></li>
-</ul>
-<p>علاوه بر این، پایتون خالص توسط یک <a class="reference external" href="https://en.wikipedia.org/wiki/Interpreter_(computing)">مفسر</a> اجرا می‌شود که کد را دستور به دستور اجرا می‌کند.</p>
-<p>این پایتون را انعطاف‌پذیر، تعاملی، آسان برای نوشتن، آسان برای خواندن و نسبتاً آسان برای اشکال‌زدایی می‌کند.</p>
-<p>از طرف دیگر، پیاده‌سازی استاندارد پایتون (به نام CPython) نمی‌تواند با سرعت زبان‌های کامپایل شده مانند C یا Fortran برابری کند.</p>
-</section>
-<section id="id8">
-<h3><span class="section-number">9.3.2. </span>گلوگاه‌ها کجا هستند؟<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>چرا اینطور است؟</p>
-<section id="id9">
-<h4><span class="section-number">9.3.2.1. </span>تایپ کردن پویا<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
-<p id="index-0">این عملیات پایتون را در نظر بگیرید:</p>
+<h4><span class="section-number">9.3.1.1. </span>تایپ‌گذاری پویا<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p id="index-0">این عملیات Python را در نظر بگیرید</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span>
@@ -483,9 +468,9 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 </div>
-<p>حتی برای این عملیات ساده، مفسر پایتون کار زیادی برای انجام دادن دارد.</p>
-<p>به عنوان مثال، در دستور <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>، مفسر باید بداند کدام عملیات را فراخوانی کند.</p>
-<p>اگر <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> رشته باشند، آنگاه <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> نیاز به الحاق رشته دارد:</p>
+<p>حتی برای این عملیات ساده، مفسر Python کار قابل‌توجهی باید انجام دهد.</p>
+<p>برای مثال، در عبارت <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>، مفسر باید بداند کدام عملیات را فراخوانی کند.</p>
+<p>اگر <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> رشته باشند، آنگاه <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> به الحاق رشته‌ها نیاز دارد</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span>
@@ -499,7 +484,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 </div>
-<p>اگر <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> لیست باشند، آنگاه <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> نیاز به الحاق لیست دارد:</p>
+<p>اگر <code class="docutils literal notranslate"><span class="pre">a</span></code> و <code class="docutils literal notranslate"><span class="pre">b</span></code> لیست باشند، آنگاه <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> به الحاق لیست‌ها نیاز دارد</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]</span>
@@ -513,15 +498,14 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 </div>
-<p>(ما می‌گوییم که عملگر <code class="docutils literal notranslate"><span class="pre">+</span></code> <em>بارگذاری شده</em> است — عمل آن به نوع اشیایی که بر روی آنها عمل می‌کند بستگی دارد)</p>
-<p>در نتیجه، هنگام اجرای <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>، پایتون ابتدا باید نوع اشیا را بررسی کند و سپس عملیات صحیح را فراخوانی کند.</p>
-<p>این شامل یک سربار غیر قابل اغماض است.</p>
-<p>اگر ما بارها و بارها این عبارت را در یک حلقه تنگ اجرا کنیم، سربار غیر قابل اغماض به یک سربار بزرگ تبدیل می‌شود.</p>
+<p>در نتیجه، هنگام اجرای <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>، Python ابتدا باید نوع اشیاء را بررسی کند و سپس عملیات صحیح را فراخوانی کند.</p>
+<p>این فرایند سربار به همراه دارد.</p>
+<p>اگر این عبارت را بارها در یک حلقه فشرده اجرا کنیم، سربار بزرگ می‌شود.</p>
 </section>
-<section id="id10">
-<h4><span class="section-number">9.3.2.2. </span>انواع ایستا<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
-<p id="index-1">زبان‌های کامپایل شده از این سربارها با انواع صریح و ایستا اجتناب می‌کنند.</p>
-<p>به عنوان مثال، کد C زیر را در نظر بگیرید که اعداد صحیح از 1 تا 10 را جمع می‌کند:</p>
+<section id="id8">
+<h4><span class="section-number">9.3.1.2. </span>انواع ایستا<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p id="index-1">زبان‌های کامپایل‌شده با استفاده از انواع صریح و ایستا از این سربارها اجتناب می‌کنند.</p>
+<p>برای مثال، کد C زیر را در نظر بگیرید که اعداد صحیح ۱ تا ۱۰ را جمع می‌کند</p>
 <div class="no-execute highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -536,62 +520,52 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </pre></div>
 </div>
 <p>متغیرهای <code class="docutils literal notranslate"><span class="pre">i</span></code> و <code class="docutils literal notranslate"><span class="pre">sum</span></code> به صراحت به عنوان اعداد صحیح اعلام شده‌اند.</p>
-<p>علاوه بر این، وقتی یک دستور مانند <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span></code> را می‌دهیم، ما به کامپایلر وعده می‌دهیم که <code class="docutils literal notranslate"><span class="pre">i</span></code> <em>همیشه</em> یک عدد صحیح خواهد بود، در طول اجرای برنامه.</p>
-<p>به این ترتیب، معنای جمع در عبارت <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">+</span> <span class="pre">i</span></code> کاملاً بدون ابهام است.</p>
-<p>نیازی به بررسی نوع نیست و بنابراین سربار وجود ندارد.</p>
+<p>علاوه بر این، وقتی عبارتی مانند <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span></code> می‌نویسیم، به کامپایلر قول می‌دهیم که <code class="docutils literal notranslate"><span class="pre">i</span></code> در طول اجرای برنامه <em>همواره</em> یک عدد صحیح خواهد بود.</p>
+<p>بدین ترتیب، معنای جمع در عبارت <code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">+</span> <span class="pre">i</span></code> کاملاً بدون ابهام است.</p>
+<p>نیازی به بررسی نوع وجود ندارد و از این رو هیچ سرباری وجود ندارد.</p>
 </section>
+</section>
+<section id="id9">
+<h3><span class="section-number">9.3.2. </span>دسترسی به داده<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>یکی دیگر از عوامل کاهش سرعت در زبان‌های سطح بالا، دسترسی به داده است.</p>
+<p>برای نشان دادن این موضوع، مسئله جمع کردن برخی داده‌ها — مثلاً مجموعه‌ای از اعداد صحیح — را در نظر بگیرید.</p>
+<section id="id10">
+<h4><span class="section-number">9.3.2.1. </span>جمع‌زدن با کد کامپایل‌شده<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p>در C یا Fortran، آرایه‌ای از اعداد صحیح در یک بلوک پیوسته از حافظه ذخیره می‌شود</p>
+<ul class="simple">
+<li><p>برای مثال، یک عدد صحیح ۶۴ بیتی در ۸ بایت از حافظه ذخیره می‌شود.</p></li>
+<li><p>آرایه‌ای از <span class="math notranslate nohighlight">\(n\)</span> عدد صحیح از این نوع، <span class="math notranslate nohighlight">\(8n\)</span> بایت متوالی را اشغال می‌کند.</p></li>
+</ul>
+<p>علاوه بر این، نوع داده در زمان کامپایل مشخص است.</p>
+<p>از این رو، می‌توان به هر نقطه داده متوالی با جابه‌جایی به جلو در فضای حافظه به اندازه‌ای معین و ثابت دسترسی یافت.</p>
 </section>
 <section id="id11">
-<h3><span class="section-number">9.3.3. </span>دسترسی به داده<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>یکی دیگر از موانع سرعت برای زبان‌های سطح بالا، دسترسی به داده است.</p>
-<p>برای توضیح، بیایید مسئله جمع کردن برخی داده‌ها را در نظر بگیریم — بگویید، مجموعه‌ای از اعداد صحیح.</p>
+<h4><span class="section-number">9.3.2.2. </span>جمع‌زدن در Python خالص<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p>Python تلاش می‌کند تا حدی این ایده‌ها را بازتولید کند.</p>
+<p>برای مثال، در پیاده‌سازی استاندارد Python (CPython)، عناصر لیست در مکان‌های حافظه‌ای قرار می‌گیرند که به نوعی پیوسته هستند.</p>
+<p>با این حال، این عناصر لیست بیشتر شبیه اشاره‌گر به داده هستند تا داده‌های واقعی.</p>
+<p>از این رو، دسترسی به مقادیر داده هنوز هم سربار دارد.</p>
+<p>چنین سرباری یکی از عوامل اصلی اجرای کند است.</p>
+</section>
+</section>
 <section id="id12">
-<h4><span class="section-number">9.3.3.1. </span>جمع کردن با کد کامپایل شده<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
-<p>در C یا Fortran، این اعداد صحیح معمولاً در یک آرایه ذخیره می‌شوند که یک ساختار داده ساده برای ذخیره داده‌های همگن است.</p>
-<p>چنین آرایه‌ای در یک بلوک پیوسته واحد از حافظه ذخیره می‌شود:</p>
-<ul class="simple">
-<li><p>در کامپیوترهای مدرن، آدرس‌های حافظه به هر بایت اختصاص داده می‌شوند (یک بایت = 8 بیت).</p></li>
-<li><p>به عنوان مثال، یک عدد صحیح 64 بیتی در 8 بایت حافظه ذخیره می‌شود.</p></li>
-<li><p>یک آرایه از <span class="math notranslate nohighlight">\(n\)</span> چنین اعداد صحیحی <span class="math notranslate nohighlight">\(8n\)</span> شکاف حافظه <em>متوالی</em> اشغال می‌کند.</p></li>
-</ul>
-<p>علاوه بر این، کامپایلر توسط برنامه‌نویس از نوع داده آگاه می‌شود.</p>
-<ul class="simple">
-<li><p>در این مورد اعداد صحیح 64 بیتی</p></li>
-</ul>
-<p>از این رو، هر نقطه داده متوالی می‌تواند با جابجایی رو به جلو در فضای حافظه به میزان مشخص و ثابتی دسترسی پیدا کند.</p>
-<ul class="simple">
-<li><p>در این مورد 8 بایت</p></li>
-</ul>
+<h3><span class="section-number">9.3.3. </span>خلاصه<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>آیا بحث فوق به این معناست که باید همه چیز را به C یا Fortran تبدیل کنیم؟</p>
+<p>پاسخ این است: قطعاً نه!</p>
+<p>برای هر برنامه‌ای، تنها تعداد نسبتاً کمی از خطوط از نظر زمانی بحرانی هستند.</p>
+<p>از این رو بسیار کارآمدتر است که بیشتر کدهای خود را در یک زبان با بهره‌وری بالا مانند Python بنویسیم.</p>
+<p>علاوه بر این، حتی برای آن دسته از خطوط کدی که <em>واقعاً</em> از نظر زمانی بحرانی هستند، اکنون می‌توانیم با استفاده از کتابخانه‌های علمی Python به عملکرد برنامه‌های باینری کامپایل‌شده از C یا Fortran برسیم یا از آن‌ها پیشی بگیریم.</p>
+<p>در این راستا، تأکید می‌کنیم که در چند سال اخیر، شتاب‌بخشی به کد عملاً مترادف با موازی‌سازی شده است.</p>
+<p>این وظیفه بهتر است به کامپایلرهای تخصصی سپرده شود!</p>
+</section>
 </section>
 <section id="id13">
-<h4><span class="section-number">9.3.3.2. </span>جمع کردن در پایتون خالص<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
-<p>پایتون سعی می‌کند این ایده‌ها را تا حدی تکرار کند.</p>
-<p>به عنوان مثال، در پیاده‌سازی استاندارد پایتون (CPython)، عناصر لیست در مکان‌های حافظه قرار می‌گیرند که به نوعی پیوسته هستند.</p>
-<p>با این حال، این عناصر لیست بیشتر شبیه اشاره‌گرها به داده‌ها هستند تا خود داده‌های واقعی.</p>
-<p>از این رو، هنوز سربار در دسترسی به خود مقادیر داده وجود دارد.</p>
-<p>این یک مانع قابل توجه بر سرعت است.</p>
-<p>در واقع، به طور کلی درست است که ترافیک حافظه یک مجرم اصلی است وقتی صحبت از اجرای کند می‌شود.</p>
-</section>
-</section>
-<section id="id14">
-<h3><span class="section-number">9.3.4. </span>خلاصه<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
-<p>آیا بحث بالا به این معنی است که ما باید برای همه چیز به C یا Fortran تغییر مکان دهیم؟</p>
-<p>پاسخ این است: قطعاً نه!</p>
-<p>برای هر برنامه داده شده، خطوط نسبتاً کمی همیشه بحرانی از نظر زمان خواهند بود.</p>
-<p>از این رو بسیار کارآمدتر است که بیشتر کد خود را در یک زبان با بهره‌وری بالا مانند پایتون بنویسیم.</p>
-<p>علاوه بر این، حتی برای خطوط کدی که <em>هستند</em> بحرانی از نظر زمان، اکنون می‌توانیم با استفاده از کتابخانه‌های علمی پایتون با فایل‌های باینری کامپایل شده از C یا Fortran برابری یا از آنها پیشی بگیریم.</p>
-<p>در این زمینه، ما تأکید می‌کنیم که، در چند سال گذشته، تسریع کد اساساً مترادف با موازی‌سازی شده است.</p>
-<p>این کار بهترین است که به کامپایلرهای تخصصی واگذار شود!</p>
-<p>برخی از کتابخانه‌های پایتون قابلیت‌های برجسته‌ای برای موازی‌سازی کد علمی دارند – ما در ادامه بیشتر در این مورد بحث خواهیم کرد.</p>
-</section>
-</section>
-<section id="id15">
-<h2><span class="section-number">9.4. </span>تسریع پایتون<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>تسریع پایتون<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <p>در این بخش به سه تکنیک مرتبط برای تسریع کد پایتون نگاه می‌کنیم.</p>
 <p>در اینجا بر ایده‌های بنیادی تمرکز خواهیم کرد.</p>
 <p>بعداً به کتابخانه‌های خاص و نحوه پیاده‌سازی این ایده‌ها توسط آنها نگاه خواهیم کرد.</p>
-<section id="id16">
-<h3><span class="section-number">9.4.1. </span><span class="target" id="index-2"></span>برداری‌سازی<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<section id="id14">
+<h3><span class="section-number">9.4.1. </span><span class="target" id="index-2"></span>برداری‌سازی<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <p id="index-3">یکی از روش‌ها برای اجتناب از ترافیک حافظه و بررسی نوع، <a class="reference external" href="https://en.wikipedia.org/wiki/Array_programming">برنامه‌نویسی آرایه‌ای</a> است.</p>
 <p>بسیاری از اقتصاددانان معمولاً به برنامه‌نویسی آرایه‌ای به عنوان “برداری‌سازی” اشاره می‌کنند.</p>
 <div class="admonition note">
@@ -611,8 +585,8 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <img alt="_images/matlab.png" src="_images/matlab.png" />
 </figure>
 </section>
-<section id="id17">
-<h3><span class="section-number">9.4.2. </span>برداری‌سازی در مقابل حلقه‌های پایتون خالص<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3><span class="section-number">9.4.2. </span>برداری‌سازی در مقابل حلقه‌های پایتون خالص<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <p>بیایید یک مقایسه سریع سرعت را امتحان کنیم تا نشان دهیم چگونه برداری‌سازی می‌تواند کد را تسریع کند.</p>
 <p>در اینجا مقداری کد غیر برداری شده وجود دارد که از یک حلقه بومی پایتون برای تولید، مجذور کردن و سپس جمع کردن تعداد زیادی متغیر تصادفی استفاده می‌کند:</p>
 <div class="cell docutils container">
@@ -633,7 +607,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2480 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2577 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -648,7 +622,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0106 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0098 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -673,102 +647,76 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>در سخنرانی‌های بعدی در این مجموعه، در مورد چگونگی بهره‌برداری کتابخانه‌های مدرن پایتون از کامپایلرهای just-in-time برای تولید کد ماشین سریع، کارآمد و موازی یاد خواهیم گرفت.</p>
 </section>
 </section>
-<section id="id18">
-<h2><span class="section-number">9.5. </span>موازی‌سازی<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<section id="id16">
+<h2><span class="section-number">9.5. </span>موازی‌سازی<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
 <p>رشد سرعت کلاک CPU (یعنی سرعتی که یک زنجیره منفرد منطقی می‌تواند اجرا شود) در سال‌های اخیر به طور چشمگیری کند شده است.</p>
 <p>طراحان تراشه و برنامه‌نویسان کامپیوتر با کندی با جستجوی مسیری متفاوت برای اجرای سریع پاسخ داده‌اند: موازی‌سازی.</p>
-<p>سازندگان سخت‌افزار تعداد هسته‌ها (CPUهای فیزیکی) تعبیه شده در هر ماشین را افزایش داده‌اند.</p>
-<p>برای برنامه‌نویسان، چالش این بوده است که از این CPUهای چندگانه با اجرای بسیاری از فرآیندها به صورت موازی (یعنی همزمان) بهره‌برداری کنند.</p>
-<p>این امر به ویژه در برنامه‌نویسی علمی مهم است که نیاز به مدیریت موارد زیر دارد:</p>
-<ul class="simple">
-<li><p>مقادیر زیادی از داده‌ها و</p></li>
-<li><p>شبیه‌سازی‌های فشرده CPU و سایر محاسبات.</p></li>
-</ul>
+<p>این امر شامل موارد زیر می‌شود:</p>
+<ol class="arabic simple">
+<li><p>افزایش تعداد CPUهای تعبیه شده در هر ماشین</p></li>
+<li><p>اتصال شتاب‌دهنده‌های سخت‌افزاری مانند GPUها و TPUها</p></li>
+</ol>
+<p>برای برنامه‌نویسان، چالش این بوده است که از این سخت‌افزار با اجرای بسیاری از فرآیندها به صورت موازی بهره‌برداری کنند.</p>
 <p>در زیر ما موازی‌سازی برای محاسبات علمی را با تمرکز بر موارد زیر بحث می‌کنیم:</p>
 <ol class="arabic simple">
-<li><p>بهترین ابزارها برای موازی‌سازی در پایتون و</p></li>
+<li><p>ابزارها برای موازی‌سازی در پایتون و</p></li>
 <li><p>چگونه این ابزارها می‌توانند برای مسائل اقتصادی کمی به کار گرفته شوند.</p></li>
 </ol>
 <section id="cpu">
 <h3><span class="section-number">9.5.1. </span>موازی‌سازی بر روی CPUها<a class="headerlink" href="#cpu" title="Link to this heading">#</a></h3>
 <p>بیایید دو نوع اصلی موازی‌سازی مبتنی بر CPU که معمولاً در محاسبات علمی استفاده می‌شود را مرور کنیم و مزایا و معایب آنها را بحث کنیم.</p>
+<section id="id17">
+<h4><span class="section-number">9.5.1.1. </span>چندرشته‌ای<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<p>چندرشته‌ای به معنای اجرای چندین رشته اجرایی در داخل یک فرآیند واحد است.</p>
+<p>همه رشته‌ها فضای حافظه یکسانی را به اشتراک می‌گذارند، بنابراین می‌توانند بدون کپی کردن داده‌ها از آرایه‌های یکسان بخوانند و در آنها بنویسند.</p>
+<p>به عنوان مثال، وقتی یک عملیات عددی روی یک آرایه بزرگ روی یک لپ‌تاپ مدرن اجرا می‌شود، بار کاری می‌تواند در میان هسته‌های چندگانه CPU ماشین تقسیم شود، با هر هسته که بخشی از آرایه را مدیریت می‌کند.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>پایتون بومی برای پیاده‌سازی چندرشته‌ای به دلیل برخی <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">ویژگی‌های طراحی قدیمی</a> مشکل دارد.
+اما این یک محدودیت برای کتابخانه‌های علمی مانند NumPy و Numba نیست.
+توابع وارد شده از این کتابخانه‌ها و کد JIT-compiled در محیط‌های اجرای سطح پایین اجرا می‌شوند که محدودیت‌های قدیمی پایتون اعمال نمی‌شود.</p>
+</div>
+</section>
+<section id="id18">
+<h4><span class="section-number">9.5.1.2. </span>چندپردازشی<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<p>چندپردازشی به معنای اجرای چندین فرآیند مستقل است که هر کدام فضای حافظه جداگانه خود را دارند.</p>
+<p>از آنجا که حافظه مشترک نیست، فرآیندها با انتقال داده بین خود ارتباط برقرار می‌کنند.</p>
+<p>چندپردازشی می‌تواند روی یک ماشین واحد یا در کلاسترهایی از ماشین‌های متصل شده توسط یک شبکه توزیع شود.</p>
+</section>
 <section id="id19">
-<h4><span class="section-number">9.5.1.1. </span>چندپردازشی<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
-<p>چندپردازشی به معنای اجرای همزمان چندین فرآیند با استفاده از بیش از یک پردازنده است.</p>
-<p>در این زمینه، یک <strong>فرآیند</strong> یک زنجیره از دستورات (یعنی یک برنامه) است.</p>
-<p>چندپردازشی می‌تواند روی یک ماشین با CPUهای چندگانه یا روی مجموعه‌ای از ماشین‌های متصل شده توسط یک شبکه انجام شود.</p>
-<p>در مورد دوم، مجموعه ماشین‌ها معمولاً <strong>کلاستر</strong> نامیده می‌شود.</p>
-<p>با چندپردازشی، هر فرآیند فضای حافظه خود را دارد، اگرچه تراشه حافظه فیزیکی ممکن است مشترک باشد.</p>
+<h4><span class="section-number">9.5.1.3. </span>کدام را باید استفاده کنیم؟<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<p>برای کار عددی روی یک ماشین واحد، چندرشته‌ای معمولاً ترجیح داده می‌شود — سبک است و مدل حافظه مشترک بسیار راحت است.</p>
+<p>چندپردازشی زمانی اهمیت پیدا می‌کند که مقیاس‌بندی فراتر از یک ماشین واحد ضروری باشد.</p>
+<p>برای اکثریت قریب به اتفاق کاری که ما در این درس‌ها انجام می‌دهیم، چندرشته‌ای کافی خواهد بود.</p>
+</section>
 </section>
 <section id="id20">
-<h4><span class="section-number">9.5.1.2. </span>چندرشته‌ای<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
-<p>چندرشته‌ای شبیه به چندپردازشی است، به جز اینکه، در طول اجرا، همه رشته‌ها فضای حافظه یکسانی را به اشتراک می‌گذارند.</p>
-<p>پایتون بومی برای پیاده‌سازی چندرشته‌ای به دلیل برخی <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">ویژگی‌های طراحی قدیمی</a> مشکل دارد.</p>
-<p>اما این یک محدودیت برای کتابخانه‌های علمی مانند NumPy و Numba نیست.</p>
-<p>توابع وارد شده از این کتابخانه‌ها و کد JIT-compiled در محیط‌های اجرای سطح پایین اجرا می‌شوند که محدودیت‌های قدیمی پایتون اعمال نمی‌شود.</p>
-</section>
-<section id="id21">
-<h4><span class="section-number">9.5.1.3. </span>مزایا و معایب<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
-<p>چندرشته‌ای سبک‌تر است زیرا بیشتر منابع سیستم و حافظه توسط رشته‌ها به اشتراک گذاشته می‌شوند.</p>
-<p>علاوه بر این، این واقعیت که چندین رشته همه به یک استخر مشترک از حافظه دسترسی دارند برای برنامه‌نویسی عددی بسیار راحت است.</p>
-<p>از طرف دیگر، چندپردازشی انعطاف‌پذیرتر است و می‌تواند در کلاسترها توزیع شود.</p>
-<p>برای اکثریت قریب به اتفاق کاری که ما در این سخنرانی‌ها انجام می‌دهیم، چندرشته‌ای کافی خواهد بود.</p>
-</section>
-</section>
-<section id="id22">
-<h3><span class="section-number">9.5.2. </span>شتاب‌دهنده‌های سخت‌افزاری<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
-<p>در حالی که CPUها با هسته‌های چندگانه برای محاسبات موازی استاندارد شده‌اند، یک تغییر چشمگیرتر با ظهور شتاب‌دهنده‌های سخت‌افزاری تخصصی رخ داده است.</p>
-<p>این شتاب‌دهنده‌ها به طور خاص برای انواع محاسبات بسیار موازی که در محاسبات علمی، یادگیری ماشین و علم داده به وجود می‌آید طراحی شده‌اند.</p>
-<section id="gpu-tpu">
-<h4><span class="section-number">9.5.2.1. </span>GPUها و TPUها<a class="headerlink" href="#gpu-tpu" title="Link to this heading">#</a></h4>
-<p>دو نوع مهم‌ترین شتاب‌دهنده‌های سخت‌افزاری عبارتند از:</p>
-<ul class="simple">
-<li><p><strong>GPU</strong>ها (واحدهای پردازش گرافیکی) و</p></li>
-<li><p><strong>TPU</strong>ها (واحدهای پردازش تانسور).</p></li>
-</ul>
+<h3><span class="section-number">9.5.2. </span>شتاب‌دهنده‌های سخت‌افزاری<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>منبع چشمگیرتری از موازی‌سازی از شتاب‌دهنده‌های سخت‌افزاری تخصصی، به ویژه <strong>GPU</strong>ها (واحدهای پردازش گرافیکی) به وجود می‌آید.</p>
 <p>GPUها در ابتدا برای رندرینگ گرافیک طراحی شدند که نیاز به انجام همزمان یک عملیات روی بسیاری از پیکسل‌ها دارد.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/geforce.png"><img alt="_images/geforce.png" src="_images/geforce.png" style="width: 486.40000000000003px; height: 277.2px;" />
 </a>
 </figure>
-<p>دانشمندان و مهندسان متوجه شدند که همین معماری — بسیاری از پردازنده‌های ساده که به صورت موازی کار می‌کنند — برای وظایف محاسبات علمی ایده‌آل است.</p>
-<p>TPUها یک توسعه اخیرتر هستند که توسط گوگل به طور خاص برای بارهای کاری یادگیری ماشین طراحی شده‌اند.</p>
-<p>مانند GPUها، TPUها در انجام تعداد عظیمی از عملیات ماتریسی به صورت موازی عالی هستند.</p>
+<p>این معماری — هزاران هسته ساده که یک دستورالعمل یکسان را روی نقاط داده مختلف اجرا می‌کنند — برای محاسبات علمی ایده‌آل است.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>یک <strong>هسته</strong> یک واحد پردازشی مستقل در داخل یک تراشه است — مداری که می‌تواند دستورالعمل‌ها را به تنهایی اجرا کند. یک CPU معمولاً تعداد کمی هسته قدرتمند دارد که هر کدام قادر به مدیریت دنباله‌های پیچیده از عملیات هستند. یک GPU در عوض هزاران هسته کوچک‌تر و ساده‌تر را در خود جای داده است که هر کدام برای انجام عملیات حسابی پایه طراحی شده‌اند. قدرت GPU از داشتن همه این هسته‌ها که به طور همزمان روی قطعات مختلف یک مسئله کار می‌کنند ناشی می‌شود.</p>
+</div>
+<p>وقتی یک محاسبه می‌تواند به عنوان عملیات مستقل بر روی آرایه‌های بزرگ داده بیان شود، GPUها می‌توانند درجه‌های بزرگی سریع‌تر از CPUها باشند.</p>
+<p><strong>TPU</strong>ها (واحدهای پردازش تانسور)، که توسط گوگل برای یادگیری ماشین طراحی شده‌اند، از فلسفه مشابهی پیروی می‌کنند و برای عملیات ماتریسی موازی عظیم بهینه‌سازی شده‌اند.</p>
 </section>
-<section id="tpu-gpu">
-<h4><span class="section-number">9.5.2.2. </span>چرا TPU/GPU مهم هستند<a class="headerlink" href="#tpu-gpu" title="Link to this heading">#</a></h4>
-<p>دستاوردهای عملکردی از استفاده از شتاب‌دهنده‌های سخت‌افزاری می‌تواند چشمگیر باشد.</p>
-<p>به عنوان مثال، یک GPU مدرن می‌تواند شامل هزاران هسته پردازشی کوچک باشد، در مقایسه با 8-64 هسته معمولاً در CPUها یافت می‌شوند.</p>
-<p>وقتی یک مسئله می‌تواند به عنوان بسیاری از عملیات مستقل بر روی آرایه‌های داده بیان شود، GPUها می‌توانند درجه‌های بزرگی سریعتر از CPUها باشند.</p>
-<p>این امر به ویژه برای محاسبات علمی مرتبط است زیرا بسیاری از الگوریتم‌ها به طور طبیعی بر روی معماری موازی GPUها نگاشت می‌شوند.</p>
-</section>
-</section>
-<section id="gpu-gpu">
-<h3><span class="section-number">9.5.3. </span>GPUهای تکی در مقابل سرورهای GPU<a class="headerlink" href="#gpu-gpu" title="Link to this heading">#</a></h3>
-<p>دو روش رایج برای دسترسی به منابع GPU وجود دارد:</p>
 <section id="gpu">
-<h4><span class="section-number">9.5.3.1. </span>سیستم‌های GPU تکی<a class="headerlink" href="#gpu" title="Link to this heading">#</a></h4>
-<p>بسیاری از ایستگاه‌های کاری و لپ‌تاپ‌ها اکنون با GPUهای قابل استفاده ارائه می‌شوند، یا می‌توانند با آنها مجهز شوند.</p>
-<p>یک GPU مدرن تکی می‌تواند بسیاری از وظایف محاسبات علمی را به طور چشمگیری تسریع بخشد.</p>
-<p>برای محققان فردی و پروژه‌های کوچک، یک GPU تکی اغلب کافی است.</p>
-<p>کتابخانه‌های مدرن پایتون مانند JAX که به طور گسترده در این مجموعه سخنرانی‌ها مورد بحث قرار می‌گیرند، به طور خودکار GPUهای موجود را با تغییرات حداقلی در کد تشخیص داده و استفاده می‌کنند.</p>
-</section>
-<section id="id23">
-<h4><span class="section-number">9.5.3.2. </span>سرورهای چند GPU<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
-<p>برای مسائل در مقیاس بزرگتر، سرورهای حاوی GPUهای متعدد (اغلب 4-8 GPU در هر سرور) به طور فزاینده‌ای رایج هستند.</p>
+<h3><span class="section-number">9.5.3. </span>دسترسی به منابع GPU<a class="headerlink" href="#gpu" title="Link to this heading">#</a></h3>
+<p>بسیاری از ایستگاه‌های کاری و لپ‌تاپ‌ها اکنون با GPUهای قابل استفاده ارائه می‌شوند و یک GPU مدرن تکی اغلب برای پروژه‌های تحقیقاتی فردی کافی است.</p>
+<p>کتابخانه‌های مدرن پایتون مانند JAX که به طور گسترده در این مجموعه درس‌ها مورد بحث قرار می‌گیرند، به طور خودکار GPUهای موجود را با تغییرات حداقلی در کد تشخیص داده و استفاده می‌کنند.</p>
+<p>برای مسائل در مقیاس بزرگ‌تر، سرورهای چند GPU (اغلب 4 تا 8 GPU در هر ماشین) به طور فزاینده‌ای رایج هستند.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="_images/dgx.png"><img alt="_images/dgx.png" src="_images/dgx.png" style="width: 512.0px; height: 272.0px;" />
 </a>
 </figure>
-<p>با نرم‌افزار مناسب، محاسبات می‌توانند در چندین GPU، یا در یک سرور واحد یا در چندین سرور، توزیع شوند.</p>
-<p>این محققان را قادر می‌سازد مسائلی را که بر روی یک GPU یا CPU تکی غیرعملی هستند، مورد بررسی قرار دهند.</p>
-</section>
-</section>
-<section id="id24">
-<h3><span class="section-number">9.5.4. </span>خلاصه<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
-<p>محاسبات GPU بسیار در دسترس‌تر می‌شود، به ویژه از داخل پایتون.</p>
-<p>برخی از کتابخانه‌های علمی پایتون، مانند JAX، اکنون شتاب GPU را با تغییرات حداقلی در کد موجود پشتیبانی می‌کنند.</p>
-<p>ما محاسبات GPU را با جزئیات بیشتری در سخنرانی‌های بعدی بررسی خواهیم کرد و آن را در طیف وسیعی از کاربردهای اقتصادی به کار خواهیم برد.</p>
+<p>با نرم‌افزار مناسب، محاسبات می‌توانند در چندین GPU توزیع شوند، یا در یک سرور واحد یا در یک کلاستر.</p>
+<p>ما محاسبات GPU را با جزئیات بیشتری در درس‌های بعدی بررسی خواهیم کرد و آن را در طیف وسیعی از کاربردهای اقتصادی به کار خواهیم برد.</p>
 </section>
 </section>
 </section>
@@ -919,6 +867,11 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -928,12 +881,12 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -945,27 +898,27 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -977,12 +930,12 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1025,6 +978,8 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/need_for_speed.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

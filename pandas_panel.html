@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. Pandas برای داده‌های پانلی &#8212; Python Programming for Economics and Finance</title>
+    <title>18. Pandas برای داده‌های پانلی &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -128,8 +128,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="18. نوشتن کد خوب" href="writing_good_code.html" />
-    <link rel="prev" title="16. Pandas" href="pandas.html" />
+    <link rel="next" title="19. نوشتن کد خوب" href="writing_good_code.html" />
+    <link rel="prev" title="17. Pandas" href="pandas.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -152,6 +152,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -201,12 +204,12 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">17.1. مروری کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">17.2. برش و تغییر شکل داده‌ها</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-nan">17.3. ادغام Dataframe ها و پر کردن NaN ها</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">17.4. گروه‌بندی و خلاصه کردن داده‌ها</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">17.5. نکات پایانی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">17.6. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">18.2. برش و تغییر شکل داده‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-nan">18.3. ادغام Dataframe ها و پر کردن NaN ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">18.4. گروه‌بندی و خلاصه کردن داده‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">18.5. نکات پایانی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">18.6. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -262,7 +265,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -273,11 +276,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -293,7 +296,7 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="pandas">
-<span id="ppd"></span><h1><span class="section-number">17. </span><span class="target" id="index-0"></span>Pandas برای داده‌های پانلی<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
+<span id="ppd"></span><h1><span class="section-number">18. </span><span class="target" id="index-0"></span>Pandas برای داده‌های پانلی<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
 <p id="index-1">علاوه بر آنچه در Anaconda موجود است، این سخنرانی به کتابخانه‌های زیر نیاز دارد:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -338,7 +341,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <section id="id1">
-<h2><span class="section-number">17.1. </span>مروری کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>مروری کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>در <a class="reference internal" href="pandas.html"><span class="doc">سخنرانی پیشین درباره pandas</span></a>، ما با مجموعه داده‌های ساده کار کردیم.</p>
 <p>اقتصادسنجان اغلب نیاز به کار با مجموعه داده‌های پیچیده‌تر مانند پانل‌ها دارند.</p>
 <p>وظایف رایج شامل موارد زیر است:</p>
@@ -358,7 +361,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 <p>جزئیات اضافی با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">merge</span></code> پانداز به <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ما اضافه خواهد شد، و داده‌ها با تابع <code class="docutils literal notranslate"><span class="pre">groupby</span></code> خلاصه خواهند شد.</p>
 </section>
 <section id="id2">
-<h2><span class="section-number">17.2. </span>برش و تغییر شکل داده‌ها<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>برش و تغییر شکل داده‌ها<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>ما مجموعه داده‌ای از OECD از حداقل دستمزدهای واقعی در 32 کشور را می‌خوانیم و آن را به <code class="docutils literal notranslate"><span class="pre">realwage</span></code> اختصاص می‌دهیم.</p>
 <p>مجموعه داده با لینک زیر قابل دسترسی است:</p>
 <div class="cell docutils container">
@@ -1131,7 +1134,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </section>
 <section id="dataframe-nan">
-<h2><span class="section-number">17.3. </span>ادغام Dataframe ها و پر کردن NaN ها<a class="headerlink" href="#dataframe-nan" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>ادغام Dataframe ها و پر کردن NaN ها<a class="headerlink" href="#dataframe-nan" title="Link to this heading">#</a></h2>
 <p>مشابه پایگاه‌های داده رابطه‌ای مانند SQL، pandas متدهای داخلی برای ادغام مجموعه داده‌ها با هم دارد.</p>
 <p>با استفاده از اطلاعات کشور از <a class="reference external" href="https://www.worlddata.info/downloads/">WorldData.info</a>، ما قاره هر کشور را با تابع <code class="docutils literal notranslate"><span class="pre">merge</span></code> به <code class="docutils literal notranslate"><span class="pre">realwage_f</span></code> اضافه خواهیم کرد.</p>
 <p>مجموعه داده با لینک زیر قابل دسترسی است:</p>
@@ -1952,7 +1955,7 @@ Name: Country, dtype: object
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">17.4. </span>گروه‌بندی و خلاصه کردن داده‌ها<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>گروه‌بندی و خلاصه کردن داده‌ها<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>گروه‌بندی و خلاصه کردن داده‌ها می‌تواند به ویژه برای درک مجموعه داده‌های پانلی بزرگ مفید باشد.</p>
 <p>یک روش ساده برای خلاصه کردن داده‌ها فراخوانی یک <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">متد تجمیعی</a> در dataframe است، مانند <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> یا <code class="docutils literal notranslate"><span class="pre">.max()</span></code>.</p>
 <p>به عنوان مثال، می‌توانیم میانگین حداقل دستمزد واقعی را برای هر کشور در دوره 2006 تا 2016 محاسبه کنیم (پیش‌فرض تجمیع بر روی ردیف‌ها است)</p>
@@ -2256,7 +2259,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f970d0a68b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f41e7e568b0&gt;
 </pre></div>
 </div>
 </div>
@@ -2302,15 +2305,15 @@ dtype: int64
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">17.5. </span>نکات پایانی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>نکات پایانی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>این سخنرانی مقدمه‌ای بر برخی از ویژگی‌های پیشرفته‌تر pandas، از جمله multiindex ها، ادغام، گروه‌بندی و رسم نمودار ارائه کرده است.</p>
 <p>سایر ابزارهایی که ممکن است در تجزیه و تحلیل داده‌های پانلی مفید باشند شامل <a class="reference external" href="https://docs.xarray.dev/en/stable/">xarray</a> می‌شوند، یک بسته پایتون که pandas را به ساختارهای داده N بعدی گسترش می‌دهد.</p>
 </section>
 <section id="id5">
-<h2><span class="section-number">17.6. </span>تمرین‌ها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.6. </span>تمرین‌ها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="pp_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18.1 </span></p>
 <section id="exercise-content">
 <p>در این تمرین‌ها، شما با یک مجموعه داده از نرخ‌های اشتغال در اروپا بر اساس سن و جنسیت از <a class="reference external" href="https://ec.europa.eu/eurostat/data/database">Eurostat</a> کار خواهید کرد.</p>
 <p>مجموعه داده با لینک زیر قابل دسترسی است:</p>
@@ -2328,7 +2331,7 @@ dtype: int64
 </div>
 <div class="solution dropdown admonition" id="pandas_panel-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex1"> Exercise 17.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex1"> Exercise 18.1</a></p>
 <section id="solution-content">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2510,7 +2513,7 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 </div>
 <div class="exercise admonition" id="pp_ex2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 17.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 18.2 </span></p>
 <section id="exercise-content">
 <p>dataframe بالا را فیلتر کنید تا فقط اشتغال را به عنوان درصدی از ‘جمعیت فعال’ شامل شود.</p>
 <p>یک boxplot گروه‌بندی شده با استفاده از <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> از نرخ‌های اشتغال در 2015 بر اساس گروه سنی و جنسیت ایجاد کنید.</p>
@@ -2522,7 +2525,7 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 </div>
 <div class="solution dropdown admonition" id="pandas_panel-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex2"> Exercise 17.2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#pp_ex2"> Exercise 18.2</a></p>
 <section id="solution-content">
 <p>برای فیلتر کردن آسان بر اساس کشور، <code class="docutils literal notranslate"><span class="pre">GEO</span></code> را به سطح بالا swap کنید و <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> را مرتب کنید</p>
 <div class="cell docutils container">
@@ -2855,6 +2858,11 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -2864,12 +2872,12 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -2881,27 +2889,27 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -2913,12 +2921,12 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -2961,6 +2969,8 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/pandas_panel.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>

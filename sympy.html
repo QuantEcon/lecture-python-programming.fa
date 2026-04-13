@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>22. SymPy &#8212; Python Programming for Economics and Finance</title>
+    <title>23. SymPy &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=300d9cef76b95d0252c8ff6263fc63de943d6f3a" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -100,8 +100,8 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
-    <script src="_static/scripts/quantecon-book-theme.js?digest=af25365e6360aeca6ba8101dda3f432eb6b6fa9c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
     <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
     <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -130,8 +130,8 @@
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="23. عیب‌یابی" href="troubleshooting.html" />
-    <link rel="prev" title="21. اشکال‌زدایی و مدیریت خطاها" href="debugging.html" />
+    <link rel="next" title="24. عیب‌یابی" href="troubleshooting.html" />
+    <link rel="prev" title="22. اشکال‌زدایی و مدیریت خطاها" href="debugging.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -154,6 +154,9 @@
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
+
+
+
 
   </head>
 <body dir="rtl">
@@ -203,32 +206,32 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-1">22.1. مروری کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">22.2. شروع به کار</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">22.3. جبر نمادین</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">22.3.1. نمادها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">22.3.2. عبارات</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">22.3.3. معادلات</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">22.3.3.1. مثال: محاسبه نقطه ثابت</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-1">23.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">23.2. شروع به کار</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">23.3. جبر نمادین</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">23.3.1. نمادها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">23.3.2. عبارات</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">23.3.3. معادلات</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">23.3.3.1. مثال: محاسبه نقطه ثابت</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">22.3.4. نامساوی‌ها و منطق</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">22.3.5. سری‌ها</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">22.3.5.1. مثال: سپرده‌های بانکی</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">22.3.5.2. مثال: متغیر تصادفی گسسته</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">23.3.4. نامساوی‌ها و منطق</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">23.3.5. سری‌ها</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">23.3.5.1. مثال: سپرده‌های بانکی</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">23.3.5.2. مثال: متغیر تصادفی گسسته</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">22.4. حساب دیفرانسیل و انتگرال نمادین</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">22.4.1. حدها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">22.4.2. مشتقات</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">22.4.3. انتگرال‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">23.4. حساب دیفرانسیل و انتگرال نمادین</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">23.4.1. حدها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">23.4.2. مشتقات</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">23.4.3. انتگرال‌ها</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">22.5. ترسیم نمودار</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">22.6. کاربرد: اقتصاد مبادله دو نفره</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">22.7. تمرینات</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">23.5. ترسیم نمودار</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">23.6. کاربرد: اقتصاد مبادله دو نفره</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">23.7. تمرینات</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -284,7 +287,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Mar 19, 2026
+                            Last changed: Apr 13, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -295,11 +298,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e3dd14c" class="changelog-hash">e3dd14c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
-                                <span class="changelog-author">Zahra</span>
+                                <span class="changelog-author">Matt McKay</span>
                                 <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">Update lecture markdown files (#54)</span>
+                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
                         </ul>
@@ -315,9 +318,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">22. </span><span class="target" id="index-0"></span>SymPy<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">23. </span><span class="target" id="index-0"></span>SymPy<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="index-1">
-<span id="id2"></span><h2><span class="section-number">22.1. </span>مروری کلی<a class="headerlink" href="#index-1" title="Link to this heading">#</a></h2>
+<span id="id2"></span><h2><span class="section-number">23.1. </span>مروری کلی<a class="headerlink" href="#index-1" title="Link to this heading">#</a></h2>
 <p>برخلاف کتابخانه‌های عددی که با مقادیر سروکار دارند، <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> بر دستکاری مستقیم نمادها و عبارات ریاضی تمرکز دارد.</p>
 <p>SymPy <a class="reference external" href="https://www.sympy.org/en/features.html">طیف گسترده‌ای از قابلیت‌ها</a> را فراهم می‌کند از جمله</p>
 <ul class="simple">
@@ -332,7 +335,7 @@
 <p>در این سخنرانی، برخی از قابلیت‌های SymPy را بررسی خواهیم کرد و نحوه استفاده از توابع اولیه SymPy برای حل مدل‌های اقتصادی را نشان خواهیم داد.</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">22.2. </span>شروع به کار<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.2. </span>شروع به کار<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>ابتدا کتابخانه را وارد کرده و چاپگر را برای خروجی نمادین مقداردهی اولیه می‌کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -352,9 +355,9 @@
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">22.3. </span>جبر نمادین<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.3. </span>جبر نمادین<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <section id="id5">
-<h3><span class="section-number">22.3.1. </span>نمادها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.3.1. </span>نمادها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>ابتدا چند نماد را برای کار با آن‌ها مقداردهی اولیه می‌کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -366,7 +369,7 @@
 <p>نمادها واحدهای اساسی برای محاسبات نمادین در SymPy هستند.</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">22.3.2. </span>عبارات<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.3.2. </span>عبارات<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>اکنون می‌توانیم از نمادهای <code class="docutils literal notranslate"><span class="pre">x</span></code>، <code class="docutils literal notranslate"><span class="pre">y</span></code> و <code class="docutils literal notranslate"><span class="pre">z</span></code> برای ساختن عبارات و معادلات استفاده کنیم.</p>
 <p>در اینجا ابتدا یک عبارت ساده می‌سازیم</p>
 <div class="cell docutils container">
@@ -430,7 +433,7 @@
 </div>
 </section>
 <section id="id7">
-<h3><span class="section-number">22.3.3. </span>معادلات<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.3.3. </span>معادلات<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>SymPy چندین تابع برای دستکاری معادلات فراهم می‌کند.</p>
 <p>بیایید یک معادله با عبارتی که قبلاً تعریف کردیم توسعه دهیم</p>
 <div class="cell docutils container">
@@ -588,7 +591,7 @@
 </div>
 <p>اگر علاقه‌مند هستید، شما را تشویق می‌کنیم سخنرانی در مورد <a class="reference external" href="https://python.quantecon.org/complex_and_trig.html">مثلثات و اعداد مختلط</a> را مطالعه کنید.</p>
 <section id="id8">
-<h4><span class="section-number">22.3.3.1. </span>مثال: محاسبه نقطه ثابت<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">23.3.3.1. </span>مثال: محاسبه نقطه ثابت<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
 <p>محاسبه نقطه ثابت به طور مکرر در اقتصاد و مالی استفاده می‌شود.</p>
 <p>در اینجا نقطه ثابت دینامیک رشد سولو-سوان را حل می‌کنیم:</p>
 <div class="math notranslate nohighlight">
@@ -642,7 +645,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 </section>
 </section>
 <section id="id9">
-<h3><span class="section-number">22.3.4. </span>نامساوی‌ها و منطق<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.3.4. </span>نامساوی‌ها و منطق<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>SymPy همچنین به کاربران اجازه می‌دهد نامساوی‌ها و عملگرهای مجموعه را تعریف کنند و طیف گسترده‌ای از <a class="reference external" href="https://docs.sympy.org/latest/modules/solvers/inequalities.html">عملیات</a> را فراهم می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -668,7 +671,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 </div>
 </section>
 <section id="id10">
-<h3><span class="section-number">22.3.5. </span>سری‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.3.5. </span>سری‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>سری‌ها به طور گسترده در اقتصاد و آمار، از قیمت‌گذاری دارایی تا انتظار متغیرهای تصادفی گسسته، استفاده می‌شوند.</p>
 <p>می‌توانیم یک سری ساده از جمع‌ها را با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">Sum</span></code> و نمادهای <code class="docutils literal notranslate"><span class="pre">Indexed</span></code> بسازیم</p>
 <div class="cell docutils container">
@@ -703,7 +706,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 </div>
 </div>
 <section id="id11">
-<h4><span class="section-number">22.3.5.1. </span>مثال: سپرده‌های بانکی<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">23.3.5.1. </span>مثال: سپرده‌های بانکی<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
 <p>یک بانک با <span class="math notranslate nohighlight">\(D_0\)</span> به عنوان سپرده در زمان <span class="math notranslate nohighlight">\(t\)</span> را تصور کنید.</p>
 <p>این بانک <span class="math notranslate nohighlight">\((1-r)\)</span> از سپرده‌های خود را وام می‌دهد و کسری <span class="math notranslate nohighlight">\(r\)</span> را به عنوان ذخایر نقدی نگه می‌دارد.</p>
 <p>سپرده‌های آن در یک افق زمانی نامحدود را می‌توان به صورت زیر نوشت</p>
@@ -753,7 +756,7 @@ k^* = sA(k^*)^{\alpha}+(1-\delta) k^*
 <p>این با راه‌حل در سخنرانی در مورد <a class="reference external" href="https://intro.quantecon.org/geom_series.html#example-the-money-multiplier-in-fractional-reserve-banking">سری هندسی</a> سازگار است.</p>
 </section>
 <section id="id12">
-<h4><span class="section-number">22.3.5.2. </span>مثال: متغیر تصادفی گسسته<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">23.3.5.2. </span>مثال: متغیر تصادفی گسسته<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
 <p>در مثال زیر، انتظار یک متغیر تصادفی گسسته را محاسبه می‌کنیم.</p>
 <p>بیایید یک متغیر تصادفی گسسته <span class="math notranslate nohighlight">\(X\)</span> با <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">توزیع پواسون</a> تعریف کنیم:</p>
 <div class="math notranslate nohighlight">
@@ -832,10 +835,10 @@ E(X) = \sum_{x=0}^{\infty} x f(x)
 </section>
 </section>
 <section id="id13">
-<h2><span class="section-number">22.4. </span>حساب دیفرانسیل و انتگرال نمادین<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.4. </span>حساب دیفرانسیل و انتگرال نمادین<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <p>SymPy به ما اجازه می‌دهد عملیات مختلف حساب دیفرانسیل و انتگرال مانند حد، مشتق‌گیری و انتگرال‌گیری را انجام دهیم.</p>
 <section id="id14">
-<h3><span class="section-number">22.4.1. </span>حدها<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.4.1. </span>حدها<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <p>می‌توانیم حد را برای یک عبارت داده شده با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">limit</span></code> محاسبه کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,7 +858,7 @@ E(X) = \sum_{x=0}^{\infty} x f(x)
 </div>
 </section>
 <section id="id15">
-<h3><span class="section-number">22.4.2. </span>مشتقات<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.4.2. </span>مشتقات<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <p>می‌توانیم هر عبارت SymPy را با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">diff</span></code> مشتق‌گیری کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -872,7 +875,7 @@ E(X) = \sum_{x=0}^{\infty} x f(x)
 </div>
 </section>
 <section id="id16">
-<h3><span class="section-number">22.4.3. </span>انتگرال‌ها<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.4.3. </span>انتگرال‌ها<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <p>می‌توانیم انتگرال‌های معین و نامعین را با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">integrate</span></code> محاسبه کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1013,7 +1016,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </section>
 </section>
 <section id="id17">
-<h2><span class="section-number">22.5. </span>ترسیم نمودار<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.5. </span>ترسیم نمودار<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <p>SymPy یک قابلیت ترسیم نمودار قدرتمند فراهم می‌کند.</p>
 <p>ابتدا یک تابع ساده را با استفاده از تابع <code class="docutils literal notranslate"><span class="pre">plot</span></code> ترسیم می‌کنیم</p>
 <div class="cell docutils container">
@@ -1057,7 +1060,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1fa1099329cc0b732d732ba0bad1fbe42d3e5e13d2216176f18554046217c2c3.png" src="_images/1fa1099329cc0b732d732ba0bad1fbe42d3e5e13d2216176f18554046217c2c3.png" />
+<img alt="_images/d2cf965ba7cdf302b94713acd9062874f569e997d4fb08755ea14403ce1b495d.png" src="_images/d2cf965ba7cdf302b94713acd9062874f569e997d4fb08755ea14403ce1b495d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1068,7 +1071,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54abb20fb81d2cc769416dffc54979442011db077e8b983840af5fe06d40cade.png" src="_images/54abb20fb81d2cc769416dffc54979442011db077e8b983840af5fe06d40cade.png" />
+<img alt="_images/196ee14e7212513b36a36be2ea3f68c8e6ba535ac586b0ad552b2f770c157efc.png" src="_images/196ee14e7212513b36a36be2ea3f68c8e6ba535ac586b0ad552b2f770c157efc.png" />
 </div>
 </div>
 <p>و تجسم‌سازی در فضای سه‌بعدی</p>
@@ -1084,7 +1087,7 @@ f(x) = \lambda e^{-\lambda x}, \quad x \ge 0
 </div>
 </section>
 <section id="id18">
-<h2><span class="section-number">22.6. </span>کاربرد: اقتصاد مبادله دو نفره<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.6. </span>کاربرد: اقتصاد مبادله دو نفره<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
 <p>یک اقتصاد مبادله خالص با دو نفر (<span class="math notranslate nohighlight">\(a\)</span> و <span class="math notranslate nohighlight">\(b\)</span>) و دو کالا که به صورت نسبت‌ها (<span class="math notranslate nohighlight">\(x\)</span> و <span class="math notranslate nohighlight">\(y\)</span>) ثبت شده‌اند را تصور کنید.</p>
 <p>آن‌ها می‌توانند کالاها را با یکدیگر مطابق با ترجیحات خود معامله کنند.</p>
 <p>فرض کنید توابع مطلوبیت مصرف‌کنندگان به صورت زیر داده شده است</p>
@@ -1214,10 +1217,10 @@ u_b(x, y) = (1 - x)^{\beta} (1 - y)^{1-\beta}
 </ul>
 </section>
 <section id="id19">
-<h2><span class="section-number">22.7. </span>تمرینات<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.7. </span>تمرینات<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="sympy_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 22.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 23.1 </span></p>
 <section id="exercise-content">
 <p>قاعده لوپیتال بیان می‌کند که برای دو تابع <span class="math notranslate nohighlight">\(f(x)\)</span> و <span class="math notranslate nohighlight">\(g(x)\)</span>، اگر <span class="math notranslate nohighlight">\(\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0\)</span> یا <span class="math notranslate nohighlight">\(\pm \infty\)</span>، آنگاه</p>
 <div class="math notranslate nohighlight">
@@ -1234,7 +1237,7 @@ f(x) = \frac{y^x - 1}{x}
 </div>
 <div class="solution dropdown admonition" id="sympy-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sympy_ex1"> Exercise 22.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sympy_ex1"> Exercise 23.1</a></p>
 <section id="solution-content">
 <p>بیایید ابتدا تابع را تعریف کنیم</p>
 <div class="cell docutils container">
@@ -1282,7 +1285,7 @@ f(x) = \frac{y^x - 1}{x}
 </div>
 <div class="exercise admonition" id="sympy_ex2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 22.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 23.2 </span></p>
 <section id="exercise-content">
 <p><a class="reference external" href="https://python.quantecon.org/mle.html">برآورد حداکثر درستنمایی (MLE)</a> روشی برای برآورد پارامترهای یک مدل آماری است.</p>
 <p>این روش معمولاً شامل حداکثرسازی یک تابع لگاریتم درستنمایی و حل مشتق مرتبه اول است.</p>
@@ -1298,7 +1301,7 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
 </div>
 <div class="solution dropdown admonition" id="sympy-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#sympy_ex2"> Exercise 22.2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#sympy_ex2"> Exercise 23.2</a></p>
 <section id="solution-content">
 <p>ابتدا، توزیع دوجمله‌ای را تعریف می‌کنیم</p>
 <div class="cell docutils container">
@@ -1509,6 +1512,11 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
    15. NumPy در مقابل Numba در مقابل JAX
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1518,12 +1526,12 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="pandas.html">
-   16. Pandas
+   17. Pandas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pandas_panel.html">
-   17. Pandas برای داده‌های پانلی
+   18. Pandas برای داده‌های پانلی
   </a>
  </li>
 </ul>
@@ -1535,27 +1543,27 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   18. نوشتن کد خوب
+   19. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   19. نوشتن برنامه‌های طولانی‌تر
+   20. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   20. ویژگی‌های بیشتر زبان
+   21. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   21. اشکال‌زدایی و مدیریت خطاها
+   22. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   22. SymPy
+   23. SymPy
   </a>
  </li>
 </ul>
@@ -1567,12 +1575,12 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   23. عیب‌یابی
+   24. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   24. آمار اجرا
+   25. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1615,6 +1623,8 @@ f(x; n, θ) = \frac{n!}{x!(n-x)!}θ^x(1-θ)^{n-x}
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/sympy.md" download><i data-feather="github"></i></a></li>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
                 </ul>
 
             </div>
