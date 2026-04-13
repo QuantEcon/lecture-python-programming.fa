@@ -316,8 +316,6 @@ $$
 در اینجا کد است:
 
 ```{code-cell} ipython3
-from numba import jit
-
 @jit
 def update(w, r=0.1, s=0.3, v1=0.1, v2=1.0):
     " Updates household wealth. "
