@@ -31,10 +31,9 @@ translation:
     Random numbers::Why explicit random state?::NumPy's approach: رویکرد NumPy
     Random numbers::Why explicit random state?::JAX's approach: رویکرد JAX
     JIT Compilation: کامپایل JIT
-    JIT Compilation::Evaluating a more complicated function: ارزیابی یک تابع پیچیده‌تر
-    JIT Compilation::Evaluating a more complicated function::With NumPy: با NumPy
-    JIT Compilation::Evaluating a more complicated function::With JAX: با JAX
-    JIT Compilation::Compiling the whole function: کامپایل کل تابع
+    JIT Compilation::With NumPy: با NumPy
+    JIT Compilation::With JAX: با JAX
+    JIT Compilation::Compiling the Whole Function: کامپایل کل تابع
     JIT Compilation::How JIT compilation works: نحوه کار کامپایل JIT
     JIT Compilation::Compiling non-pure functions: کامپایل توابع غیرخالص
     Vectorization with `vmap`: برداری‌سازی با `vmap`
@@ -638,11 +637,7 @@ random_sum_jax(key)
 
 ما قدرت کامپایلر JIT JAX را در ترکیب با سخت‌افزار موازی {ref}`در بالا <jax_speed>` مشاهده کردیم، هنگامی که `cos` را روی یک آرایه بزرگ اعمال کردیم.
 
-بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم.
-
-### ارزیابی یک تابع پیچیده‌تر
-
-تابع زیر را در نظر بگیرید
+بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم:
 
 ```{code-cell}
 def f(x):
@@ -650,7 +645,7 @@ def f(x):
     return y
 ```
 
-#### با NumPy
+### با NumPy
 
 ابتدا با NumPy امتحان خواهیم کرد
 
@@ -665,7 +660,7 @@ with qe.Timer():
     y = f(x)
 ```
 
-#### با JAX
+### با JAX
 
 اکنون بیایید دوباره با JAX امتحان کنیم.
 
@@ -701,7 +696,7 @@ with qe.Timer():
 نتیجه مشابه مثال `cos` است --- JAX سریع‌تر است، به ویژه در
 اجرای دوم پس از کامپایل JIT.
 
-علاوه بر این، با JAX، ترفند دیگری در آستین داریم --- می‌توانیم *کل* تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.
+علاوه بر این، با JAX، ترفند دیگری در آستین داریم --- می‌توانیم کل تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.
 
 ### کامپایل کل تابع
 
