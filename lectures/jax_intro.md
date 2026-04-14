@@ -18,9 +18,10 @@ translation:
     JAX as a NumPy Replacement::Differences::Speed!: سرعت!
     JAX as a NumPy Replacement::Differences::Speed!::With NumPy: با NumPy
     JAX as a NumPy Replacement::Differences::Speed!::With JAX: با JAX
+    JAX as a NumPy Replacement::Differences::Size Experiment: آزمایش اندازه
     JAX as a NumPy Replacement::Differences::Precision: دقت
     JAX as a NumPy Replacement::Differences::Immutability: تغییرناپذیری
-    JAX as a NumPy Replacement::Differences::A workaround: راه‌حل جایگزین
+    JAX as a NumPy Replacement::Differences::A Workaround: راه‌حل جایگزین
     Functional Programming: برنامه‌نویسی تابعی
     Functional Programming::Pure functions: توابع خالص
     Functional Programming::Examples: مثال‌ها
@@ -76,17 +77,17 @@ import numpy as np
 import quantecon as qe
 ```
 
-توجه کنید که `jax.numpy as jnp` را import می‌کنیم که یک رابط شبیه NumPy فراهم می‌کند.
-
 ## JAX به عنوان جایگزین NumPy
-
-یکی از ویژگی‌های جذاب JAX این است که، هر زمان که امکان‌پذیر باشد، عملیات پردازش آرایه‌های آن با API NumPy مطابقت دارد.
-
-این بدان معناست که در بسیاری از موارد، می‌توانیم از JAX به عنوان جایگزین مستقیم NumPy استفاده کنیم.
 
 بیایید به شباهت‌ها و تفاوت‌های بین JAX و NumPy نگاه کنیم.
 
 ### شباهت‌ها
+
+در بالا `jax.numpy as jnp` را وارد کردیم که یک رابط شبیه به NumPy برای عملیات آرایه فراهم می‌کند.
+
+یکی از ویژگی‌های جذاب JAX این است که، هر زمان که امکان‌پذیر باشد، این رابط با API NumPy مطابقت دارد.
+
+در نتیجه، اغلب می‌توانیم از JAX به عنوان جایگزین مستقیم NumPy استفاده کنیم.
 
 در اینجا برخی عملیات استاندارد آرایه با استفاده از `jnp` آمده است:
 
@@ -106,7 +107,7 @@ print(jnp.sum(a))
 print(jnp.dot(a, a))
 ```
 
-با این حال، شیء آرایه `a` یک آرایه NumPy نیست:
+با این حال، باید به خاطر داشت که شیء آرایه `a` یک آرایه NumPy نیست:
 
 ```{code-cell} ipython3
 a
@@ -129,11 +130,13 @@ jnp.sum(a)
 (jax_speed)=
 #### سرعت!
 
-فرض کنیم می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.
+یکی از تفاوت‌های عمده این است که JAX سریع‌تر است --- و گاهی بسیار سریع‌تر.
+
+برای نشان دادن این موضوع، فرض کنیم می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.
 
 ```{code-cell}
 n = 50_000_000
-x = np.linspace(0, 10, n)
+x = np.linspace(0, 10, n)   # NumPy array
 ```
 
 ##### با NumPy
@@ -174,27 +177,23 @@ with qe.Timer():
     # First run
     y = jnp.cos(x)
     # Hold the interpreter until the array operation finishes
-    jax.block_until_ready(y);
+    y.block_until_ready()
 ```
 
 ```{note}
-در اینجا، برای اندازه‌گیری سرعت واقعی، از متد `block_until_ready` استفاده می‌کنیم
-تا مفسر را تا زمانی که نتایج محاسبات بازگردانده شوند نگه داریم.
-
-این ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که
+در بالا، متد `block_until_ready` مفسر را تا زمانی که نتایج محاسبات بازگردانده شوند نگه می‌دارد.
+این برای زمان‌بندی اجرا ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که
 به مفسر Python اجازه می‌دهد جلوتر از محاسبات عددی حرکت کند.
-
-برای کدهایی که زمان‌بندی نمی‌شوند، می‌توانید خط حاوی `block_until_ready` را حذف کنید.
 ```
 
-و بیایید دوباره زمان‌بندی کنیم.
+اکنون بیایید دوباره زمان‌بندی کنیم.
 
 ```{code-cell}
 with qe.Timer():
     # Second run
     y = jnp.cos(x)
     # Hold interpreter 
-    jax.block_until_ready(y);
+    y.block_until_ready()
 ```
 
 روی GPU، این کد بسیار سریع‌تر از معادل NumPy خود اجرا می‌شود.
@@ -209,6 +208,8 @@ with qe.Timer():
 
 اندازه برای تولید کد بهینه اهمیت دارد زیرا موازی‌سازی کارآمد نیازمند تطابق اندازه کار با سخت‌افزار موجود است.
 
+#### آزمایش اندازه
+
 می‌توانیم ادعا که JAX بر اندازه آرایه تخصص پیدا می‌کند را با تغییر اندازه ورودی و مشاهده زمان‌های اجرا تأیید کنیم.
 
 ```{code-cell}
@@ -220,7 +221,7 @@ with qe.Timer():
     # First run
     y = jnp.cos(x)
     # Hold interpreter
-    jax.block_until_ready(y);
+    y.block_until_ready()
 ```
 
 ```{code-cell}
@@ -228,7 +229,7 @@ with qe.Timer():
     # Second run
     y = jnp.cos(x)
     # Hold interpreter
-    jax.block_until_ready(y);
+    y.block_until_ready()
 ```
 
 زمان اجرا افزایش می‌یابد و سپس دوباره کاهش می‌یابد (این روی GPU واضح‌تر خواهد بود).
@@ -277,7 +278,7 @@ a[0] = 1
 a
 ```
 
-در JAX این کار شکست می‌خورد!
+در JAX این کار شکست می‌خورد 😱.
 
 ```{code-cell} ipython3
 a = jnp.linspace(0, 1, 3)
@@ -292,11 +293,18 @@ except Exception as e:
 
 ```
 
-طراحان JAX تصمیم گرفتند آرایه‌ها را تغییرناپذیر کنند زیرا JAX از سبک برنامه‌نویسی تابعی استفاده می‌کند که در ادامه آن را بررسی می‌کنیم.
+طراحان JAX تصمیم گرفتند آرایه‌ها را تغییرناپذیر کنند زیرا
 
+1. JAX از *سبک برنامه‌نویسی تابعی* استفاده می‌کند و
+2. برنامه‌نویسی تابعی معمولاً از داده‌های قابل تغییر اجتناب می‌کند
+
+این ایده‌ها را {ref}`در ادامه <jax_func>` بررسی می‌کنیم.
+
+
+(jax_at_workaround)=
 #### راه‌حل جایگزین
 
-توجه می‌کنیم که JAX یک جایگزین برای تغییر درجای آرایه با استفاده از [متد `at`](https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html) فراهم می‌کند.
+JAX یک جایگزین مستقیم برای تغییر درجای آرایه از طریق [متد `at`](https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html) فراهم می‌کند.
 
 ```{code-cell} ipython3
 a = jnp.linspace(0, 1, 3)
@@ -318,6 +326,8 @@ a
 
 (اگرچه در واقع می‌تواند داخل توابع کامپایل‌شده JIT کارآمد باشد -- اما بیایید این را فعلاً کنار بگذاریم.)
 
+
+(jax_func)=
 ## برنامه‌نویسی تابعی
 
 از مستندات JAX:
