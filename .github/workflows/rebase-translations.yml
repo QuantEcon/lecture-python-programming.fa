@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Rebase conflicted translation PRs
-        uses: quantecon/action-translation@v0.15
+        uses: QuantEcon/action-translation@v0.15
         with:
           mode: rebase
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
