@@ -1063,10 +1063,11 @@ def linapprox(f, a, b, n, x):
 ```{code-cell} python3
 import numpy as np
 
+rng = np.random.default_rng()
 n = 100
 ϵ_values = []
 for i in range(n):
-    e = np.random.randn()
+    e = rng.standard_normal()
     ϵ_values.append(e)
 ```
 
@@ -1080,8 +1081,9 @@ for i in range(n):
 یک راه‌حل این است:
 
 ```{code-cell} python3
+rng = np.random.default_rng()
 n = 100
-ϵ_values = [np.random.randn() for i in range(n)]
+ϵ_values = [rng.standard_normal() for i in range(n)]
 ```
 
 ```{solution-end}
