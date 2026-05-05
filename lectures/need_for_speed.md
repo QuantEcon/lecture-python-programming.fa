@@ -330,8 +330,9 @@ with qe.Timer():
 کد برداری شده زیر از NumPy استفاده می‌کند که به زودی آن را به تفصیل بررسی خواهیم کرد، تا همان کار را انجام دهد.
 
 ```{code-cell} ipython
+rng = np.random.default_rng()
 with qe.Timer():
-    x = np.random.uniform(0, 1, n)
+    x = rng.uniform(0, 1, n)
     y = np.sum(x**2)
 ```
 
