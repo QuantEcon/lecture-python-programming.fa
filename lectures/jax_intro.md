@@ -24,7 +24,7 @@ translation:
     JAX as a NumPy Replacement::Differences::A Workaround: راه‌حل جایگزین
     Functional Programming: برنامه‌نویسی تابعی
     Functional Programming::Pure functions: توابع خالص
-    Functional Programming::Examples: مثال‌ها
+    Functional Programming::Examples -- Pure and Impure: مثال‌ها -- خالص و ناخالص
     Functional Programming::Why Functional Programming?: چرا برنامه‌نویسی تابعی؟
     Random numbers: اعداد تصادفی
     Random numbers::NumPy / MATLAB Approach: رویکرد NumPy / MATLAB
@@ -356,19 +356,20 @@ a
 * وضعیت سراسری را تغییر نمی‌دهد
 * داده‌های ارسال شده به تابع را تغییر نمی‌دهد (داده‌های تغییرناپذیر)
 
-### مثال‌ها
+### مثال‌ها -- خالص و ناخالص
 
-در اینجا مثالی از یک تابع *غیرخالص* آورده شده است
+در اینجا مثالی از یک تابع *ناخالص* آورده شده است
 
 ```{code-cell} ipython3
 tax_rate = 0.1
-prices = [10.0, 20.0]
 
 def add_tax(prices):
     for i, price in enumerate(prices):
         prices[i] = price * (1 + tax_rate)
-    print('Post-tax prices: ', prices)
-    return prices
+
+prices = [10.0, 20.0]
+add_tax(prices)
+prices
 ```
 
 این تابع نمی‌تواند خالص باشد زیرا
@@ -379,15 +380,21 @@ def add_tax(prices):
 در اینجا یک نسخه *خالص* آورده شده است
 
 ```{code-cell} ipython3
-tax_rate = 0.1
-prices = (10.0, 20.0)
 
 def add_tax_pure(prices, tax_rate):
     new_prices = [price * (1 + tax_rate) for price in prices]
     return new_prices
+
+tax_rate = 0.1
+prices = (10.0, 20.0)
+after_tax_prices = add_tax_pure(prices, tax_rate)
+after_tax_prices
 ```
 
-این نسخه خالص تمام وابستگی‌ها را از طریق آرگومان‌های تابع صریح می‌کند و هیچ وضعیت خارجی را تغییر نمی‌دهد.
+این نسخه خالص است زیرا
+
+* تمام وابستگی‌ها از طریق آرگومان‌های تابع صریح هستند
+* و هیچ وضعیت خارجی را تغییر نمی‌دهد
 
 ### چرا برنامه‌نویسی تابعی؟
 
@@ -437,7 +444,7 @@ print(np.random.randn(2))
 * غیرقطعی است: ورودی‌های یکسان، خروجی‌های متفاوت
 * دارای عوارض جانبی است: وضعیت مولد اعداد تصادفی سراسری را تغییر می‌دهد
 
-در موازی‌سازی خطرناک است --- باید با دقت کنترل کرد که در هر رشته چه اتفاقی می‌افتد!
+این در موازی‌سازی خطرناک است --- باید با دقت کنترل کرد که در هر رشته چه اتفاقی می‌افتد.
 
 ### JAX
 
@@ -554,7 +561,11 @@ plt.show()
 تابع زیر `k` ماتریس تصادفی `n x n` (شبه) مستقل را با استفاده از `split` تولید می‌کند.
 
 ```{code-cell} ipython3
-def gen_random_matrices(key, n=2, k=3):
+def gen_random_matrices(
+        key,   # JAX key for random numbers
+        n=2,   # Matrices will be n x n
+        k=3    # Number of matrices to generate
+    ):
     matrices = []
     for _ in range(k):
         key, subkey = jax.random.split(key)
@@ -576,7 +587,7 @@ gen_random_matrices(key)
 
 ### مزایا
 
-صریح بودن JAX مزایای قابل توجهی به همراه دارد:
+همان‌طور که در بالا ذکر شد، این صراحت ارزشمند است:
 
 * تکرارپذیری: با استفاده مجدد از کلیدها، تکرار نتایج آسان است
 * موازی‌سازی: کنترل آنچه در رشته‌های جداگانه اتفاق می‌افتد
@@ -657,7 +668,14 @@ with qe.Timer():
 
 نتیجه مشابه مثال `cos` است --- JAX سریع‌تر است، به ویژه در اجرای دوم پس از کامپایل JIT.
 
-اما همچنان از اجرای eager استفاده می‌کنیم --- حافظه و خواندن/نوشتن زیاد.
+این به این دلیل است که عملیات‌های آرایه‌ای منفرد روی GPU موازی‌سازی می‌شوند.
+
+اما همچنان از اجرای eager استفاده می‌کنیم
+
+* حافظه زیاد به دلیل آرایه‌های میانی
+* خواندن/نوشتن حافظه زیاد
+
+همچنین، هسته‌های جداگانه زیادی روی GPU راه‌اندازی می‌شوند.
 
 ### کامپایل کل تابع
 
@@ -691,7 +709,8 @@ with qe.Timer():
 
 * بهینه‌سازی تهاجمی بر اساس کل دنباله محاسباتی
 * حذف چندین فراخوانی به شتاب‌دهنده سخت‌افزاری
-* عدم ایجاد آرایه‌های میانی
+
+ردپای حافظه نیز بسیار کمتر است --- عدم ایجاد آرایه‌های میانی.
 
 اتفاقاً، نحو رایج‌تر هنگام هدف قرار دادن یک تابع برای کامپایلر JIT این است
 
