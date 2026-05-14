@@ -28,6 +28,18 @@ translation:
     Scientific Programming with Python::Other Scientific Libraries: سایرکتابخانه های علمی
 ---
 
+(about_py)=
+```{raw} jupyter
+<div id="qe-notebook-header" align="right" style="text-align:right;">
+        <a href="https://quantecon.org/" title="quantecon.org">
+                <img style="width:250px;display:inline;" width="250px" src="https://assets.quantecon.org/img/qe-menubar-logo.svg" alt="QuantEcon">
+        </a>
+</div>
+```
+
+```{index} single: python
+```
+
 #  درباره ی این دوره
 
 ```{epigraph}
@@ -125,7 +137,6 @@ translation:
 * [Meta](https://opensource.fb.com/)
 * [Amazon](https://www.amazon.com/)
 * [Reddit](https://www.reddit.com/)
-
 
 ### جایگاه محبوبیت
 
@@ -245,6 +256,9 @@ print(f"Average: {total / count if count else 'No valid data'}")
 
 ### NumPy
 
+```{index} single: scientific programming; numeric
+```
+
 یکی از مهم ترین بخش های محاسبات علمی کار با داده است. داده ها اغلب در ماتریس ها، بردارها و آرایه ها ذخیره می شوند و ما میتوانیم یک آرایه ی ساده از اعداد را با پایتون خالص به صورت زیر ایجاد کنیم:
 
 ```{code-cell} python3
@@ -254,7 +268,7 @@ a
 
 این آرایه ی بسیار کوچک نشان می دهد که کار با پایتون خالص بسیار راحت است. اما وقتی می خواهیم با آرایه های بزرگتری در برنامه های واقعی کار کنیم، به کارایی بیشتر و ابزارهای بیشتری نیاز داریم. بنابراین، برای اینکار باید از کتابخانه ها برای کار با آرایه ها استفاده کنیم.
 
-برای پایتون، مهمترین کتابخانه ی پردازش ماتریس و آرایه، کتابخانه [NumPy](http://www.numpy.org/) است. به عنوان مثال بیاید یک آرایه با 100 عنصر را با NumPy بسازیم:
+برای پایتون، مهمترین کتابخانه ی پردازش ماتریس و آرایه، کتابخانه [NumPy](https://numpy.org/) است. به عنوان مثال بیاید یک آرایه با 100 عنصر را با NumPy بسازیم:
 
 ```{code-cell} python3
 import numpy as np                     # Load the library
@@ -280,12 +294,12 @@ b @ c
 
 ### جایگزین های NumPy
 
-درحالیکه هنوز سلطان پردازش آرایه ها در پایتون NumPy است، اما اکنون رقبای جدیدی نیز دارد؛ کتابخانه هایی مانند [CuPy](https://cupy.dev/)، [Pytorch](https://pytorch.org/)، [JAX](https://github.com/google/jax) نیز انواع آرایه ها و عملیات آرایه ای را تعبیه کرده اند و می توانند بسیار سریع و کارآمد باشند. همانطور که بعدا در این مجموعه توضیح خواهیم داد؛ در واقع این کتابخانه ها در استفاده از پردازش موازی و سخت افزار سریع، بهتر هستند. با این حال، شما هنوز هم باید ابتدا NumPy را یاد بگیرید، زیرا؛ ساده تر است و یک پایه ی قوی را فراهم می کند، به طور مستقیم عملکرد کتابخانه هایی مانند JAX را گسترش می دهد و از اینرو وقتی NumPy را می شناسید، یادگیری آن را نیز آسان تر می کند.
+درحالیکه هنوز سلطان پردازش آرایه ها در پایتون NumPy است، اما اکنون رقبای جدیدی نیز دارد؛ کتابخانه هایی مانند [CuPy](https://cupy.dev/)، [Pytorch](https://pytorch.org/)، [JAX](https://github.com/jax-ml/jax) نیز انواع آرایه ها و عملیات آرایه ای را تعبیه کرده اند و می توانند بسیار سریع و کارآمد باشند. همانطور که بعدا در این مجموعه توضیح خواهیم داد؛ در واقع این کتابخانه ها در استفاده از پردازش موازی و سخت افزار سریع، بهتر هستند. با این حال، شما هنوز هم باید ابتدا NumPy را یاد بگیرید، زیرا؛ ساده تر است و یک پایه ی قوی را فراهم می کند، به طور مستقیم عملکرد کتابخانه هایی مانند JAX را گسترش می دهد و از اینرو وقتی NumPy را می شناسید، یادگیری آن را نیز آسان تر می کند.
 
 (tuple_unpacking_example)=
 ### SciPy
 
-کتابخانه [SciPy](http://www.scipy.org) بر روی NumPy ساخته شده است و قابلیت های اضافی را ارائه می دهد.
+کتابخانه [SciPy](https://scipy.org/) بر روی NumPy ساخته شده است و قابلیت های اضافی را ارائه می دهد.
 
 برای مثال بیاید حساب کنیم  جاییکه <math xmlns="http://www.w3.org/1998/Math/MathML">
   <msubsup>
@@ -317,53 +331,58 @@ value
 کتابخانه ی SciPy شامل بسیاری از امور استاندارد کاربردی مانند [جبرخطی](https://docs.scipy.org/doc/scipy/reference/linalg.html)، [انتگرال گیری](https://docs.scipy.org/doc/scipy/reference/integrate.html)، [درون یابی](https://docs.scipy.org/doc/scipy/reference/interpolate.html)، [بهینه سازی](https://docs.scipy.org/doc/scipy/reference/optimize.html)، [توزیع ها و تکنیک های آماری](https://docs.scipy.org/doc/scipy/reference/stats.html) و [پردازش سیگنال](https://docs.scipy.org/doc/scipy/reference/signal.html) است که می توانید همه ی آنها را [اینجا](https://docs.scipy.org/doc/scipy/reference/index.html) ببینید.
 
 بعدا SciPy را با جزئیات بیشتری توضیح خواهیم داد.
+
 ### گرافیک
 
-نقطه ی قوت اصلی پایتون تجسم داده ها است. محبوب ترین و جامع ترین کتابخانه ی پایتون برای ایجاد شکل ها و نمودارها [Matplotlib](http://matplotlib.org/) است که شامل قابلیت های ایجاد تصاویر نمودارها، هیستوگرام ها، سطوح کانتور، نمودارهای سه بعدی، نمودارهای میله ای و... بوده و می تواند خروجی ها را در قالب های مختلف مانند (PDF، PNG، EPS و...) ارائه دهد و همچنین قابلیت ادغام LaTex را نیز دارد. 
+```{index} single: Matplotlib
+```
+
+نقطه ی قوت اصلی پایتون تجسم داده ها است. محبوب ترین و جامع ترین کتابخانه ی پایتون برای ایجاد شکل ها و نمودارها [Matplotlib](https://matplotlib.org/) است که شامل قابلیت های ایجاد تصاویر نمودارها، هیستوگرام ها، سطوح کانتور، نمودارهای سه بعدی، نمودارهای میله ای و... بوده و می تواند خروجی ها را در قالب های مختلف مانند (PDF، PNG، EPS و...) ارائه دهد و همچنین قابلیت ادغام LaTex را نیز دارد. 
 
 آنچه در ادامه می بینید مثال هایی از این کتابخانه هستند:
 
-![نمونه طرح دو بعدی](images/about-py/qs.png)
+```{figure} /_static/lecture_specific/about_py/qs.png
+:scale: 75
+```
 
-*نمونه طرح دو بعدی با حاشیه نویسی لاتکس تعبیه شده*
+```{figure} /_static/lecture_specific/about_py/bn_density1.png
+:scale: 70
+```
 
-![نمونه طرح سه بعدی](images/about-py/career_vf.png)
-
-*نمونه طرح سه بعدی*
-
-![نمونه طرح کانتور](images/about-py/bn_density1.png)
-
-*نمونه طرح کانتور*
+```{figure} /_static/lecture_specific/about_py/career_vf.png
+```
 
 همچنین می توانید نمونه های بیشتری را در [گالری تصاویر Matplotlib](https://matplotlib.org/stable/gallery/index.html) بیابید.
 
  سایر کتابخانه های گرافیکی عبارتند از:
 
-*  [Plotly](https://plot.ly/python/)
-
-* [seaborn](https://seaborn.pydata.org/)(یک رابط سطح بالا برای Matplotlib می باشد)
-
+* [Plotly](https://plotly.com/python/)
+* [seaborn](https://seaborn.pydata.org/) --- یک رابط سطح بالا برای Matplotlib
 * [Altair](https://altair-viz.github.io/)
+* [Bokeh](https://docs.bokeh.org/en/latest/)
 
-* [Bokeh](http://bokeh.pydata.org/en/latest/) .
-
- همچنین برای مشاهده نمونه های بیشتری از نمودارهای رسم شده با استفاده از کتابخانه های مختلف، می توانید به [گالری نمودارهای پایتون](https://www.python-graph-gallery.com/) مراجعه کنید.
+همچنین برای مشاهده نمونه های بیشتری از نمودارهای رسم شده با استفاده از کتابخانه های مختلف، می توانید به [گالری نمودارهای پایتون](https://python-graph-gallery.com/) مراجعه کنید.
 
 ### شبکه ها و نمودارها
 
 مطالعه ی شبکه ها و نمودارها بخش مهمی از کار علمی در اقتصاد، مالی و سایر زمینه ها است؛ به عنوان مثال، ما به مطالعه ی مواردی چون شبکه های تولید، شبکه های بانکی و موسسات مالی، شبکه های اجتماعی و... علاقه مند هستیم.
 
-پایتون نیز کتابخانه های زیادی برای مطالعه ی شبکه ها و نمودارها دارد. یکی از معروف ترین این کتابخانه ها [NetworkX](http://networkx.github.io/) است که از جمله ویژگی های آن داشتن الگوریتم های استاندارد گراف برای تحلیل شبکه ها و فرآیندهای مربوط به نمایش نمودارها است.
+پایتون نیز کتابخانه های زیادی برای مطالعه ی شبکه ها و نمودارها دارد.
+
+```{index} single: NetworkX
+```
+
+یکی از معروف ترین این کتابخانه ها [NetworkX](https://networkx.org/) است که از جمله ویژگی های آن داشتن الگوریتم های استاندارد گراف برای تحلیل شبکه ها و فرآیندهای مربوط به نمایش نمودارها است.
 
 در زیر نمونه ای از کد آورده شده است که یک گراف تصادفی ایجاد و رسم می کند که رنگ گره ها براساس طول کوتاه ترین مسیر از یک گره ی مرکزی مشخص تعیین می شود.
 
 ```{code-cell} ipython
 import networkx as nx
 import matplotlib.pyplot as plt
-np.random.seed(1234)
+rng = np.random.default_rng(1234)
 
 # Generate a random graph
-p = dict((i, (np.random.uniform(0, 1), np.random.uniform(0, 1)))
+p = dict((i, (rng.uniform(0, 1), rng.uniform(0, 1)))
          for i in range(200))
 g = nx.random_geometric_graph(200, 0.12, pos=p)
 pos = nx.get_node_attributes(g, 'pos')
@@ -391,21 +410,21 @@ plt.show()
 
 در اینجا فهرست کوتاهی از چند کتابخانه ی علمی مهم برای پایتون که پیشتر نگفتیم برایتان آورده ایم:
 
-* [SymPy](http://www.sympy.org/): برای جبر نمادین، از جمله محاسبه ی حد، مشتق و انتگرال
+* [SymPy](https://www.sympy.org/): برای جبر نمادین، از جمله محاسبه ی حد، مشتق و انتگرال
 
-* [statsmodels](http://statsmodels.sourceforge.net/): برای توابع آماری
+* [statsmodels](https://www.statsmodels.org/): برای توابع آماری
 
-* [scikit-learn](http://scikit-learn.org/): برای یادگیری ماشین
+* [scikit-learn](https://scikit-learn.org/): برای یادگیری ماشین
 
 * [Keras](https://keras.io/): برای یادگیری ماشین
 
-* [Pyro](https://pyro.ai/) و [PyStan](https://pystan.readthedocs.org/en/latest/): برای تحلیل داده های بیزی
+* [Pyro](https://pyro.ai/) و [PyStan](https://pystan.readthedocs.io/en/latest/): برای تحلیل داده های بیزی
 
 * [GeoPandas](https://geopandas.org/en/stable/): برای تحلیل داده های مکانی
 
 * [Dask](https://docs.dask.org/en/stable/): برای پردازش موازی
 
-* [Numba](http://numba.pydata.org/): اجرای پایتون با سرعت برابر با کدهای سطح پایین قابل اجرا توسط سخت افزار
+* [Numba](https://numba.pydata.org/): اجرای پایتون با سرعت برابر با کدهای سطح پایین قابل اجرا توسط سخت افزار
 
 * [CVXPY](https://www.cvxpy.org/): برای بهینه سازی محدب
 
