@@ -234,6 +234,7 @@ f(2, a=4, b=5)
 * یک تابع می‌تواند هر نوع شیء را برگرداند، از جمله توابع.
 
  در بخش‌های بعدی، با مثال‌هایی نشان خواهیم داد که انتقال یک تابع به یک تابع دیگر تا چه حد  ساده است.
+
 ### توابع یک خطی: `lambda`
 
 ```{index} single: Python; lambda functions
@@ -283,16 +284,19 @@ quad(lambda x: x**3, 0, 2)
 
 ## کاربردها
 
+
 ### نمونه‌برداری تصادفی
 
 دوباره به این کد از {doc}`درس قبلی <python_by_example>` نگاه کنید
 
 ```{code-cell} python3
+rng = np.random.default_rng()
+
 ts_length = 100
 ϵ_values = []   # empty list
 
 for i in range(ts_length):
-    e = np.random.randn()
+    e = rng.standard_normal()
     ϵ_values.append(e)
 
 plt.plot(ϵ_values)
@@ -313,7 +317,7 @@ plt.show()
 def generate_data(n):
     ϵ_values = []
     for i in range(n):
-        e = np.random.randn()
+        e = rng.standard_normal()
         ϵ_values.append(e)
     return ϵ_values
 
@@ -343,9 +347,9 @@ def generate_data(n, generator_type):
     ϵ_values = []
     for i in range(n):
         if generator_type == 'U':
-            e = np.random.uniform(0, 1)
+            e = rng.uniform(0, 1)
         else:
-            e = np.random.randn()
+            e = rng.standard_normal()
         ϵ_values.append(e)
     return ϵ_values
 
@@ -365,7 +369,7 @@ plt.show()
 
 حالا، چندین راه وجود دارد که می‌توانیم کد بالا را ساده کنیم.
 
-به عنوان مثال، می‌توانیم شرط‌ها را کاملاً حذف کنیم و فقط نوع خروجی مورد نظر را *به عنوان یک تابع* به برنامه بدهیم.
+به عنوان مثال، می‌توانیم شرط‌ها را کاملاً حذف کنیم و فقط نوع خروجی مورد نظر را به عنوان یک تابع، متد، یا شیء [callable](https://typing.python.org/en/latest/spec/callables.html) دیگر به برنامه بدهیم.
 
 برای درک این موضوع، نسخه زیر را در نظر بگیرید.
 
@@ -378,18 +382,18 @@ def generate_data(n, generator_type):
         ϵ_values.append(e)
     return ϵ_values
 
-data = generate_data(100, np.random.uniform)
+data = generate_data(100, rng.uniform)
 plt.plot(data)
 plt.show()
 ```
 
-حالا، وقتی تابع `()generate_data` را فراخوانی می‌کنیم، `np.random.uniform` را به عنوان آرگومان دوم ارسال می‌کنیم.
+حالا، وقتی تابع `()generate_data` را فراخوانی می‌کنیم، `rng.uniform` را به عنوان آرگومان دوم ارسال می‌کنیم.
 
-این شیء یک *تابع* است.
+این شیء یک *callable* است؛ یعنی شیئی که می‌توان با استفاده از پرانتز آن را فراخوانی کرد.
 
-وقتی فراخوانی تابع `generate_data(100, np.random.uniform)` اجرا می‌شود، پایتون بلوک کد تابع را با `n` برابر با 100 و نام `generator_type` "متصل" به تابع `np.random.uniform` اجرا می‌کند.
+وقتی فراخوانی تابع `generate_data(100, rng.uniform)` اجرا می‌شود، پایتون بلوک کد تابع را با `n` برابر با 100 و نام `generator_type` "متصل" به callable ای به نام `rng.uniform` اجرا می‌کند.
 
-* در حالی که این خطوط اجرا می‌شوند، نام‌های `generator_type` و `np.random.uniform` "مترادف" هستند و می‌توانند به روش‌های یکسان استفاده شوند.
+* در حالی که این خطوط اجرا می‌شوند، نام‌های `generator_type` و `rng.uniform` "مترادف" هستند و می‌توانند به روش‌های یکسان استفاده شوند.
 
 این اصل به طور کلی هم کار می‌کند؛ به عنوان مثال، قطعه کد زیر را در نظر بگیرید:
 
@@ -404,7 +408,7 @@ m(7, 2, 4)
 
 در اینجا ما نام دیگری برای تابع داخلی `()max` ایجاد کردیم که سپس می‌توانست به روش‌های یکسان استفاده شود.
 
-در چارچوب برنامه ما، توانایی اتصال نام‌های جدید به توابع به این معنی است که هیچ مشکلی در *ارسال یک تابع به عنوان آرگومان به تابع دیگر* وجود ندارد؛همانطور که در بالا انجام دادیم.
+در چارچوب برنامه ما، توانایی اتصال نام‌ها به توابع، یا به طور کلی‌تر به اشیاء callable، به این معنی است که هیچ مشکلی در ارسال یک شیء callable به عنوان آرگومان به callable دیگر وجود ندارد؛ همانطور که با `rng.uniform` در بالا انجام دادیم.
 
 (recursive_functions)=
 ## فراخوانی‌ توابع بازگشتی (پیشرفته)
@@ -502,7 +506,7 @@ factorial(4)
 
 [متغیر تصادفی دوجمله‌ای](https://en.wikipedia.org/wiki/Binomial_distribution) $Y \sim Bin(n, p)$ نشان‌دهنده تعداد موفقیت‌ها در $n$ آزمایش دودویی است که هر آزمایش با احتمال $p$ موفق می‌شود.
 
-بدون هیچ import به جز `from numpy.random import uniform`، تابعی به نام `binomial_rv` بنویسید به طوری که `binomial_rv(n, p)` یک نمونه از $Y$ تولید کند.
+با استفاده از `rng = np.random.default_rng()`، تابعی به نام `binomial_rv` بنویسید به طوری که `binomial_rv(n, p)` یک نمونه از $Y$ تولید کند.
 
 ```{hint}
 :class: dropdown
@@ -520,12 +524,12 @@ factorial(4)
 یک راه حل این است:
 
 ```{code-cell} python3
-from numpy.random import uniform
+rng = np.random.default_rng()
 
 def binomial_rv(n, p):
     count = 0
     for i in range(n):
-        U = uniform()
+        U = rng.uniform()
         if U < p:
             count = count + 1    # Or count += 1
     return count
@@ -550,7 +554,7 @@ binomial_rv(10, 0.5)
 
 - اگر شیر `k` بار یا بیشتر در این دنباله ظاهر شود، یک دلار پرداخت کنید.
 
-از هیچ import به جز `from numpy.random import uniform` استفاده نکنید.
+از `rng = np.random.default_rng()` برای تولید اعداد تصادفی استفاده کنید.
 
 ```{exercise-end}
 ```
@@ -562,7 +566,7 @@ binomial_rv(10, 0.5)
 در اینجا تابعی برای دستگاه تصادفی اول آورده شده است:
 
 ```{code-cell} python3
-from numpy.random import uniform
+rng = np.random.default_rng()
 
 def draw(k):  # pays if k consecutive successes in a sequence
 
@@ -570,7 +574,7 @@ def draw(k):  # pays if k consecutive successes in a sequence
     count = 0
 
     for i in range(10):
-        U = uniform()
+        U = rng.uniform()
         count = count + 1 if U < 0.5 else 0
         print(count)    # print counts for clarity
         if count == k:
@@ -590,7 +594,7 @@ def draw_new(k):  # pays if k successes in a sequence
     count = 0
 
     for i in range(10):
-        U = uniform()
+        U = rng.uniform()
         count = count + ( 1 if U < 0.5 else 0 )
         print(count)
         if count == k:

@@ -77,7 +77,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=ff5dcadef89fd2097ea5e28ddaad7eb5985f09c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
@@ -214,43 +214,41 @@
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">14.1.2.1.2. با JAX</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.1.2.2. دقت</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.1.2.3. تغییرناپذیری</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">14.1.2.4. راه‌حل جایگزین</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">14.1.2.2. آزمایش اندازه</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">14.1.2.3. دقت</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">14.1.2.4. تغییرناپذیری</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-at-workaround">14.1.2.5. راه‌حل جایگزین</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">14.2. برنامه‌نویسی تابعی</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">14.2.1. توابع خالص</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">14.2.2. مثال‌ها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">14.2.3. چرا برنامه‌نویسی تابعی؟</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jax-func">14.2. برنامه‌نویسی تابعی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">14.2.1. توابع خالص</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">14.2.2. مثال‌ها – خالص و ناخالص</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">14.2.3. چرا برنامه‌نویسی تابعی؟</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">14.3. اعداد تصادفی</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">14.3.1. تولید اعداد تصادفی</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">14.3.2. چرا وضعیت تصادفی صریح؟</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">14.3.2.1. رویکرد NumPy</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">14.3.2.2. رویکرد JAX</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">14.3. اعداد تصادفی</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-matlab">14.3.1. رویکرد NumPy / MATLAB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">14.3.2. JAX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">14.3.3. مزایا</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">14.4. کامپایل JIT</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">14.4.1. با NumPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">14.4.2. با JAX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">14.4.3. کامپایل کل تابع</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">14.4.4. نحوه کار کامپایل JIT</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">14.4.5. کامپایل توابع غیرخالص</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">14.4.1. با NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">14.4.2. با JAX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">14.4.3. کامپایل کل تابع</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">14.4.4. نحوه کار کامپایل JIT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">14.4.5. کامپایل توابع غیرخالص</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmap">14.5. برداری‌سازی با <code class="docutils literal notranslate"><span class="pre">vmap</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">14.5.1. یک مثال ساده</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">14.5.2. ترکیب تبدیل‌ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">14.5.1. یک مثال ساده</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">14.5.2. ترکیب تبدیل‌ها</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">14.6. مشتق‌گیری خودکار: یک پیش‌نمایش</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">14.7. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">14.6. مشتق‌گیری خودکار: یک پیش‌نمایش</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">14.7. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -306,7 +304,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Apr 13, 2026
+                            Last changed: May 14, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -317,10 +315,37 @@
                             
                             <li class="changelog-entry">
                                 
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/8ed3672" class="changelog-hash">8ed3672</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">43 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Misc changes to jax lectures (#123)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/f3a2447" class="changelog-hash">f3a2447</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">58 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Improve and simplify JAX lectures (#109)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/22a145b" class="changelog-hash">22a145b</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Add lax.fori_loop example and improve jax_intro (#107)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">7 minutes ago</span>
+                                <span class="changelog-time">1 month ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
                             </li>
                             
@@ -329,7 +354,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c1a3537" class="changelog-hash">c1a3537</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">34 minutes ago</span>
+                                <span class="changelog-time">1 month ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] Improve jax_intro lecture (#104)</span>
                             </li>
                             
@@ -338,7 +363,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/2c39955" class="changelog-hash">2c39955</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 hour ago</span>
+                                <span class="changelog-time">1 month ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] Update jax_intro lecture (#94)</span>
                             </li>
                             
@@ -347,7 +372,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0c8dfc7" class="changelog-hash">0c8dfc7</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 days ago</span>
+                                <span class="changelog-time">1 month ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] Revise JAX intro lecture and add autodiff lecture (#87)</span>
                             </li>
                             
@@ -356,7 +381,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e09d083" class="changelog-hash">e09d083</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">2 weeks ago</span>
+                                <span class="changelog-time">1 month ago</span>
                                 <span class="changelog-message">chore: migrate heading-map → translation frontmatter (#83)</span>
                             </li>
                             
@@ -365,7 +390,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/3f9c65e" class="changelog-hash">3f9c65e</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">3 weeks ago</span>
+                                <span class="changelog-time">1 month ago</span>
                                 <span class="changelog-message">Setup action-translation v0.11.0 infrastructure (#67)</span>
                             </li>
                             
@@ -374,17 +399,8 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/c2c5104" class="changelog-hash">c2c5104</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">2 months ago</span>
+                                <span class="changelog-time">3 months ago</span>
                                 <span class="changelog-message">Fix build warnings from publish.yml workflow (#56)</span>
-                            </li>
-                            
-                            <li class="changelog-entry">
-                                
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0ac8f0c" class="changelog-hash">0ac8f0c</a>
-                                
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">2 months ago</span>
-                                <span class="changelog-message">Add lecture: JAX (#22)</span>
                             </li>
                             
                         </ul>
@@ -433,14 +449,14 @@ that you can access as follows:</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.9.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jax in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.10.0)
 Collecting quantecon
   Downloading quantecon-0.11.2-py3-none-any.whl.metadata (5.3 kB)
-Requirement already satisfied: jaxlib&lt;=0.9.2,&gt;=0.9.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.9.2)
+Requirement already satisfied: jaxlib&lt;=0.10.0,&gt;=0.10.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.10.0)
 Requirement already satisfied: ml_dtypes&gt;=0.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (0.5.4)
 Requirement already satisfied: numpy&gt;=2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (2.3.5)
 Requirement already satisfied: opt_einsum in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (3.4.0)
-Requirement already satisfied: scipy&gt;=1.13 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (1.16.3)
+Requirement already satisfied: scipy&gt;=1.14 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (1.16.3)
 Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
 Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
 Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.14.0)
@@ -470,14 +486,14 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </div>
-<p>توجه کنید که <code class="docutils literal notranslate"><span class="pre">jax.numpy</span> <span class="pre">as</span> <span class="pre">jnp</span></code> را import می‌کنیم که یک رابط شبیه NumPy فراهم می‌کند.</p>
 <section id="jax-numpy">
 <h2><span class="section-number">14.1. </span>JAX به عنوان جایگزین NumPy<a class="headerlink" href="#jax-numpy" title="Link to this heading">#</a></h2>
-<p>یکی از ویژگی‌های جذاب JAX این است که، هر زمان که امکان‌پذیر باشد، عملیات پردازش آرایه‌های آن با API NumPy مطابقت دارد.</p>
-<p>این بدان معناست که در بسیاری از موارد، می‌توانیم از JAX به عنوان جایگزین مستقیم NumPy استفاده کنیم.</p>
 <p>بیایید به شباهت‌ها و تفاوت‌های بین JAX و NumPy نگاه کنیم.</p>
 <section id="id1">
 <h3><span class="section-number">14.1.1. </span>شباهت‌ها<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>در بالا <code class="docutils literal notranslate"><span class="pre">jax.numpy</span> <span class="pre">as</span> <span class="pre">jnp</span></code> را وارد کردیم که یک رابط شبیه به NumPy برای عملیات آرایه فراهم می‌کند.</p>
+<p>یکی از ویژگی‌های جذاب JAX این است که، هر زمان که امکان‌پذیر باشد، این رابط با API NumPy مطابقت دارد.</p>
+<p>در نتیجه، اغلب می‌توانیم از JAX به عنوان جایگزین مستقیم NumPy استفاده کنیم.</p>
 <p>در اینجا برخی عملیات استاندارد آرایه با استفاده از <code class="docutils literal notranslate"><span class="pre">jnp</span></code> آمده است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,7 +538,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </div>
-<p>با این حال، شیء آرایه <code class="docutils literal notranslate"><span class="pre">a</span></code> یک آرایه NumPy نیست:</p>
+<p>با این حال، باید به خاطر داشت که شیء آرایه <code class="docutils literal notranslate"><span class="pre">a</span></code> یک آرایه NumPy نیست:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
@@ -566,11 +582,12 @@ Successfully installed quantecon-0.11.2
 <p>اکنون به برخی از تفاوت‌های بین عملیات آرایه JAX و NumPy نگاه کنیم.</p>
 <section id="jax-speed">
 <span id="id3"></span><h4><span class="section-number">14.1.2.1. </span>سرعت!<a class="headerlink" href="#jax-speed" title="Link to this heading">#</a></h4>
-<p>فرض کنیم می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.</p>
+<p>یکی از تفاوت‌های عمده این است که JAX سریع‌تر است — و گاهی بسیار سریع‌تر.</p>
+<p>برای نشان دادن این موضوع، فرض کنیم می‌خواهیم تابع کسینوس را در نقاط بسیاری ارزیابی کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>   <span class="c1"># NumPy array</span>
 </pre></div>
 </div>
 </div>
@@ -587,7 +604,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5691 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5743 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -602,7 +619,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5708 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5704 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -630,37 +647,35 @@ Successfully installed quantecon-0.11.2
     <span class="c1"># First run</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="c1"># Hold the interpreter until the array operation finishes</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1245 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1361 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>در اینجا، برای اندازه‌گیری سرعت واقعی، از متد <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> استفاده می‌کنیم
-تا مفسر را تا زمانی که نتایج محاسبات بازگردانده شوند نگه داریم.</p>
-<p>این ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که
+<p>در بالا، متد <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> مفسر را تا زمانی که نتایج محاسبات بازگردانده شوند نگه می‌دارد.
+این برای زمان‌بندی اجرا ضروری است زیرا JAX از ارسال ناهمزمان استفاده می‌کند که
 به مفسر Python اجازه می‌دهد جلوتر از محاسبات عددی حرکت کند.</p>
-<p>برای کدهایی که زمان‌بندی نمی‌شوند، می‌توانید خط حاوی <code class="docutils literal notranslate"><span class="pre">block_until_ready</span></code> را حذف کنید.</p>
 </div>
-<p>و بیایید دوباره زمان‌بندی کنیم.</p>
+<p>اکنون بیایید دوباره زمان‌بندی کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
     <span class="c1"># Second run</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="c1"># Hold interpreter </span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0896 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0894 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -671,6 +686,10 @@ Successfully installed quantecon-0.11.2
 <p>چرا JAX می‌خواهد توابع داخلی مانند <code class="docutils literal notranslate"><span class="pre">jnp.cos</span></code> را با JIT کامپایل کند به جای اینکه نسخه‌های از پیش کامپایل‌شده مانند NumPy ارائه دهد؟</p>
 <p>دلیل این است که کامپایلر JIT می‌خواهد بر <em>اندازه</em> آرایه مورد استفاده (و همچنین نوع داده) تخصص پیدا کند.</p>
 <p>اندازه برای تولید کد بهینه اهمیت دارد زیرا موازی‌سازی کارآمد نیازمند تطابق اندازه کار با سخت‌افزار موجود است.</p>
+</section>
+</section>
+<section id="id5">
+<h4><span class="section-number">14.1.2.2. </span>آزمایش اندازه<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <p>می‌توانیم ادعا که JAX بر اندازه آرایه تخصص پیدا می‌کند را با تغییر اندازه ورودی و مشاهده زمان‌های اجرا تأیید کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,12 +704,12 @@ Successfully installed quantecon-0.11.2
     <span class="c1"># First run</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="c1"># Hold interpreter</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1399 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1295 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -701,12 +720,12 @@ Successfully installed quantecon-0.11.2
     <span class="c1"># Second run</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="c1"># Hold interpreter</span>
-    <span class="n">jax</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0997 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0926 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -715,9 +734,8 @@ Successfully installed quantecon-0.11.2
 <p>این با بحث بالا همخوانی دارد – اولین اجرا پس از تغییر اندازه آرایه سربار کامپایل را نشان می‌دهد.</p>
 <p>بحث بیشتر درباره کامپایل JIT در ادامه ارائه شده است.</p>
 </section>
-</section>
-<section id="id5">
-<h4><span class="section-number">14.1.2.2. </span>دقت<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<section id="id6">
+<h4><span class="section-number">14.1.2.3. </span>دقت<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <p>یکی دیگر از تفاوت‌های بین NumPy و JAX این است که JAX به طور پیش‌فرض از اعداد اعشاری 32 بیتی استفاده می‌کند.</p>
 <p>این به این دلیل است که JAX اغلب برای محاسبات GPU استفاده می‌شود و بیشتر محاسبات GPU از اعداد اعشاری 32 بیتی استفاده می‌کنند.</p>
 <p>استفاده از اعداد اعشاری 32 بیتی می‌تواند منجر به افزایش سرعت قابل توجه با از دست دادن کم دقت شود.</p>
@@ -744,8 +762,8 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </section>
-<section id="id6">
-<h4><span class="section-number">14.1.2.3. </span>تغییرناپذیری<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h4><span class="section-number">14.1.2.4. </span>تغییرناپذیری<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
 <p>به عنوان یک جایگزین NumPy، تفاوت مهم‌تر این است که آرایه‌ها به عنوان <strong>تغییرناپذیر</strong> در نظر گرفته می‌شوند.</p>
 <p>برای مثال، با NumPy می‌توانیم بنویسیم</p>
 <div class="cell docutils container">
@@ -775,7 +793,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </div>
-<p>در JAX این کار شکست می‌خورد!</p>
+<p>در JAX این کار شکست می‌خورد 😱.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -804,11 +822,16 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </div>
-<p>طراحان JAX تصمیم گرفتند آرایه‌ها را تغییرناپذیر کنند زیرا JAX از سبک برنامه‌نویسی تابعی استفاده می‌کند که در ادامه آن را بررسی می‌کنیم.</p>
+<p>طراحان JAX تصمیم گرفتند آرایه‌ها را تغییرناپذیر کنند زیرا</p>
+<ol class="arabic simple">
+<li><p>JAX از <em>سبک برنامه‌نویسی تابعی</em> استفاده می‌کند و</p></li>
+<li><p>برنامه‌نویسی تابعی معمولاً از داده‌های قابل تغییر اجتناب می‌کند</p></li>
+</ol>
+<p>این ایده‌ها را <a class="reference internal" href="#jax-func"><span class="std std-ref">در ادامه</span></a> بررسی می‌کنیم.</p>
 </section>
-<section id="id7">
-<h4><span class="section-number">14.1.2.4. </span>راه‌حل جایگزین<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
-<p>توجه می‌کنیم که JAX یک جایگزین برای تغییر درجای آرایه با استفاده از <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html">متد <code class="docutils literal notranslate"><span class="pre">at</span></code></a> فراهم می‌کند.</p>
+<section id="jax-at-workaround">
+<span id="id8"></span><h4><span class="section-number">14.1.2.5. </span>راه‌حل جایگزین<a class="headerlink" href="#jax-at-workaround" title="Link to this heading">#</a></h4>
+<p>JAX یک جایگزین مستقیم برای تغییر درجای آرایه از طریق <a class="reference external" href="https://docs.jax.dev/en/latest/_autosummary/jax.numpy.ndarray.at.html">متد <code class="docutils literal notranslate"><span class="pre">at</span></code></a> فراهم می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -840,13 +863,13 @@ Successfully installed quantecon-0.11.2
 </section>
 </section>
 </section>
-<section id="id8">
-<h2><span class="section-number">14.2. </span>برنامه‌نویسی تابعی<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<section id="jax-func">
+<span id="id9"></span><h2><span class="section-number">14.2. </span>برنامه‌نویسی تابعی<a class="headerlink" href="#jax-func" title="Link to this heading">#</a></h2>
 <p>از مستندات JAX:</p>
 <p><em>هنگام پیاده‌روی در حومه ایتالیا، مردم از گفتن این که JAX دارای “una anima di pura programmazione funzionale” است، تردید نخواهند کرد.</em></p>
 <p>به عبارت دیگر، JAX یک سبک برنامه‌نویسی تابعی را فرض می‌کند.</p>
-<section id="id9">
-<h3><span class="section-number">14.2.1. </span>توابع خالص<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3><span class="section-number">14.2.1. </span>توابع خالص<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>پیامد اصلی این است که توابع JAX باید خالص باشند.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Pure_function">توابع خالص</a> دارای ویژگی‌های زیر هستند:</p>
 <ol class="arabic simple">
@@ -865,19 +888,25 @@ Successfully installed quantecon-0.11.2
 <li><p>داده‌های ارسال شده به تابع را تغییر نمی‌دهد (داده‌های تغییرناپذیر)</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3><span class="section-number">14.2.2. </span>مثال‌ها<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
-<p>در اینجا مثالی از یک تابع <em>غیرخالص</em> آورده شده است</p>
+<section id="id11">
+<h3><span class="section-number">14.2.2. </span>مثال‌ها – خالص و ناخالص<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>در اینجا مثالی از یک تابع <em>ناخالص</em> آورده شده است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">]</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">add_tax</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">price</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
         <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Post-tax prices: &#39;</span><span class="p">,</span> <span class="n">prices</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">prices</span>
+
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">]</span>
+<span class="n">add_tax</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">prices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11.0, 22.0]
 </pre></div>
 </div>
 </div>
@@ -890,20 +919,31 @@ Successfully installed quantecon-0.11.2
 <p>در اینجا یک نسخه <em>خالص</em> آورده شده است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">prices</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">add_tax_pure</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_tax_pure</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">):</span>
     <span class="n">new_prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span> <span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">prices</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">new_prices</span>
+
+<span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)</span>
+<span class="n">after_tax_prices</span> <span class="o">=</span> <span class="n">add_tax_pure</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">)</span>
+<span class="n">after_tax_prices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11.0, 22.0]
 </pre></div>
 </div>
 </div>
 </div>
-<p>این نسخه خالص تمام وابستگی‌ها را از طریق آرگومان‌های تابع صریح می‌کند و هیچ وضعیت خارجی را تغییر نمی‌دهد.</p>
+<p>این نسخه خالص است زیرا</p>
+<ul class="simple">
+<li><p>تمام وابستگی‌ها از طریق آرگومان‌های تابع صریح هستند</p></li>
+<li><p>و هیچ وضعیت خارجی را تغییر نمی‌دهد</p></li>
+</ul>
 </section>
-<section id="id11">
-<h3><span class="section-number">14.2.3. </span>چرا برنامه‌نویسی تابعی؟<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3><span class="section-number">14.2.3. </span>چرا برنامه‌نویسی تابعی؟<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>در QuantEcon ما توابع خالص را دوست داریم زیرا</p>
 <ul class="simple">
 <li><p>به آزمایش کمک می‌کنند: هر تابع می‌تواند به صورت مستقل عمل کند</p></li>
@@ -923,14 +963,47 @@ Successfully installed quantecon-0.11.2
 <p>JAX از سبک برنامه‌نویسی تابعی استفاده می‌کند تا توابع ساخته‌شده توسط کاربر مستقیماً به نمایش‌های گراف-نظری پشتیبانی‌شده توسط JAX نگاشت شوند.</p>
 </section>
 </section>
-<section id="id12">
-<h2><span class="section-number">14.3. </span>اعداد تصادفی<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
-<p>اعداد تصادفی در JAX نسبت به آنچه در NumPy یا Matlab می‌یابید بسیار متفاوت هستند.</p>
-<p>در ابتدا ممکن است نحو را نسبتاً مفصل بیابید.</p>
-<p>اما به زودی متوجه خواهید شد که نحو و معناشناسی برای حفظ سبک برنامه‌نویسی تابعی که به تازگی مورد بحث قرار دادیم، ضروری است.</p>
-<p>علاوه بر این، کنترل کامل وضعیت تصادفی برای برنامه‌نویسی موازی، مانند زمانی که می‌خواهیم آزمایش‌های مستقل را در چندین رشته اجرا کنیم، ضروری است.</p>
 <section id="id13">
-<h3><span class="section-number">14.3.1. </span>تولید اعداد تصادفی<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">14.3. </span>اعداد تصادفی<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<p>اعداد تصادفی در JAX نسبت به آنچه در NumPy یا MATLAB می‌یابید بسیار متفاوت هستند.</p>
+<section id="numpy-matlab">
+<h3><span class="section-number">14.3.1. </span>رویکرد NumPy / MATLAB<a class="headerlink" href="#numpy-matlab" title="Link to this heading">#</a></h3>
+<p>در NumPy / MATLAB، تولید اعداد تصادفی با حفظ وضعیت سراسری پنهان کار می‌کند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.49671415 -0.1382643 ]
+</pre></div>
+</div>
+</div>
+</div>
+<p>هر بار که یک تابع تصادفی را فراخوانی می‌کنیم، وضعیت پنهان به‌روزرسانی می‌شود:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.64768854 1.52302986]
+</pre></div>
+</div>
+</div>
+</div>
+<p>این تابع <em>خالص نیست</em> زیرا:</p>
+<ul class="simple">
+<li><p>غیرقطعی است: ورودی‌های یکسان، خروجی‌های متفاوت</p></li>
+<li><p>دارای عوارض جانبی است: وضعیت مولد اعداد تصادفی سراسری را تغییر می‌دهد</p></li>
+</ul>
+<p>این در موازی‌سازی خطرناک است — باید با دقت کنترل کرد که در هر رشته چه اتفاقی می‌افتد.</p>
+</section>
+<section id="id14">
+<h3><span class="section-number">14.3.2. </span>JAX<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
 <p>در JAX، وضعیت مولد اعداد تصادفی به صورت صریح کنترل می‌شود.</p>
 <p>ابتدا یک کلید تولید می‌کنیم که مولد اعداد تصادفی را seed می‌کند.</p>
 <div class="cell docutils container">
@@ -1093,13 +1166,16 @@ Successfully installed quantecon-0.11.2
 <p>تابع زیر <code class="docutils literal notranslate"><span class="pre">k</span></code> ماتریس تصادفی <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> (شبه) مستقل را با استفاده از <code class="docutils literal notranslate"><span class="pre">split</span></code> تولید می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_random_matrices</span><span class="p">(</span>
+        <span class="n">key</span><span class="p">,</span>   <span class="c1"># JAX key for random numbers</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>   <span class="c1"># Matrices will be n x n</span>
+        <span class="n">k</span><span class="o">=</span><span class="mi">3</span>    <span class="c1"># Number of matrices to generate</span>
+    <span class="p">):</span>
     <span class="n">matrices</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
         <span class="n">key</span><span class="p">,</span> <span class="n">subkey</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">subkey</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
         <span class="n">matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">matrices</span>
 </pre></div>
 </div>
@@ -1109,149 +1185,46 @@ Successfully installed quantecon-0.11.2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-<span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.74211901 0.54715578]
- [0.05988742 0.32206803]]
-[[0.65877976 0.57087415]
- [0.97301903 0.10138266]]
-[[0.68745522 0.25974132]
- [0.06595873 0.83589118]]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Array([[0.74211901, 0.54715578],
+        [0.05988742, 0.32206803]], dtype=float64),
+ Array([[0.65877976, 0.57087415],
+        [0.97301903, 0.10138266]], dtype=float64),
+ Array([[0.68745522, 0.25974132],
+        [0.06595873, 0.83589118]], dtype=float64)]
 </pre></div>
 </div>
 </div>
 </div>
-<p>همچنین می‌توانیم هنگام تکرار در یک حلقه از <code class="docutils literal notranslate"><span class="pre">fold_in</span></code> استفاده کنیم:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">matrices</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-        <span class="n">step_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">fold_in</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">step_key</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-        <span class="n">matrices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">matrices</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-<span class="n">matrices</span> <span class="o">=</span> <span class="n">gen_random_matrices</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.23566993 0.39719189]
- [0.95367373 0.42397776]]
-[[0.74211901 0.54715578]
- [0.05988742 0.32206803]]
-[[0.37386727 0.66444882]
- [0.80253222 0.42934555]]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id14">
-<h3><span class="section-number">14.3.2. </span>چرا وضعیت تصادفی صریح؟<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
-<p>چرا JAX به این رویکرد نسبتاً مفصل برای تولید اعداد تصادفی نیاز دارد؟</p>
-<p>یکی از دلایل حفظ توابع خالص است.</p>
-<p>بیایید ببینیم که چگونه تولید اعداد تصادفی با توابع خالص با مقایسه NumPy و JAX مرتبط است.</p>
-<section id="id15">
-<h4><span class="section-number">14.3.2.1. </span>رویکرد NumPy<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
-<p>در NumPy، تولید اعداد تصادفی با حفظ وضعیت سراسری پنهان کار می‌کند.</p>
-<p>هر بار که یک تابع تصادفی را فراخوانی می‌کنیم، این وضعیت به‌روزرسانی می‌شود:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span>   <span class="c1"># Updates state of random number generator</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">())</span>   <span class="c1"># Updates state of random number generator</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4967141530112327
--0.13826430117118466
-</pre></div>
-</div>
-</div>
-</div>
-<p>هر فراخوانی یک مقدار متفاوت را برمی‌گرداند، حتی اگر ما همان تابع را با همان ورودی‌ها (بدون آرگومان، در این مورد) فراخوانی می‌کنیم.</p>
-<p>این تابع <em>خالص نیست</em> زیرا:</p>
+<p>این تابع <em>خالص</em> است</p>
 <ul class="simple">
-<li><p>غیرقطعی است: ورودی‌های یکسان (در این مورد هیچ) خروجی‌های متفاوت می‌دهند</p></li>
-<li><p>دارای عوارض جانبی است: وضعیت مولد اعداد تصادفی سراسری را تغییر می‌دهد</p></li>
-</ul>
-</section>
-<section id="id16">
-<h4><span class="section-number">14.3.2.2. </span>رویکرد JAX<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
-<p>همانطور که در بالا دیدیم، JAX رویکرد متفاوتی اتخاذ می‌کند و تصادفی بودن را از طریق کلیدها صریح می‌کند.</p>
-<p>برای مثال،</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-    <span class="n">key1</span><span class="p">,</span> <span class="n">key2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key1</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>با همان کلید، همیشه نتیجه یکسانی دریافت می‌کنیم:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(-0.07040872, dtype=float64)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_sum_jax</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array(-0.07040872, dtype=float64)
-</pre></div>
-</div>
-</div>
-</div>
-<p>برای دریافت نمونه‌های جدید باید یک کلید جدید ارائه دهیم.</p>
-<p>تابع <code class="docutils literal notranslate"><span class="pre">random_sum_jax</span></code> خالص است زیرا:</p>
-<ul class="simple">
-<li><p>قطعی است: کلید یکسان همیشه خروجی یکسان تولید می‌کند</p></li>
+<li><p>قطعی است: ورودی‌های یکسان، خروجی یکسان</p></li>
 <li><p>بدون عوارض جانبی: هیچ وضعیت پنهانی تغییر نمی‌کند</p></li>
 </ul>
-<p>صریح بودن JAX مزایای قابل توجهی به همراه دارد:</p>
+</section>
+<section id="id15">
+<h3><span class="section-number">14.3.3. </span>مزایا<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>همان‌طور که در بالا ذکر شد، این صراحت ارزشمند است:</p>
 <ul class="simple">
 <li><p>تکرارپذیری: با استفاده مجدد از کلیدها، تکرار نتایج آسان است</p></li>
-<li><p>موازی‌سازی: هر رشته می‌تواند کلید خاص خود را بدون تضاد داشته باشد</p></li>
-<li><p>اشکال‌زدایی: نبود وضعیت پنهان استدلال در مورد کد را آسان‌تر می‌کند</p></li>
+<li><p>موازی‌سازی: کنترل آنچه در رشته‌های جداگانه اتفاق می‌افتد</p></li>
+<li><p>اشکال‌زدایی: نبود وضعیت پنهان آزمایش کد را آسان‌تر می‌کند</p></li>
 <li><p>سازگاری با JIT: کامپایلر می‌تواند توابع خالص را به طور تهاجمی‌تری بهینه کند</p></li>
 </ul>
-<p>نکته آخر در بخش بعدی گسترش داده می‌شود.</p>
-</section>
 </section>
 </section>
 <section id="jit">
 <h2><span class="section-number">14.4. </span>کامپایل JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h2>
 <p>کامپایلر just-in-time (JIT) JAX اجرا را با تولید کد ماشین کارآمد که با هم اندازه وظیفه و هم سخت‌افزار متفاوت است، تسریع می‌کند.</p>
 <p>ما قدرت کامپایلر JIT JAX را در ترکیب با سخت‌افزار موازی <a class="reference internal" href="#jax-speed"><span class="std std-ref">در بالا</span></a> مشاهده کردیم، هنگامی که <code class="docutils literal notranslate"><span class="pre">cos</span></code> را روی یک آرایه بزرگ اعمال کردیم.</p>
-<p>بیایید همان کار را با یک تابع پیچیده‌تر امتحان کنیم:</p>
+<p>در اینجا کامپایل JIT را برای توابع پیچیده‌تر بررسی می‌کنیم.</p>
+<section id="id16">
+<h3><span class="section-number">14.4.1. </span>با NumPy<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>ابتدا با NumPy امتحان خواهیم کرد، با استفاده از</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -1261,9 +1234,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </div>
-<section id="id17">
-<h3><span class="section-number">14.4.1. </span>با NumPy<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
-<p>ابتدا با NumPy امتحان خواهیم کرد</p>
+<p>بیایید با <code class="docutils literal notranslate"><span class="pre">x</span></code> بزرگ اجرا کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000_000</span>
@@ -1281,15 +1252,24 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2208 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2041 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
+<p>مدل اجرای <strong>Eager</strong></p>
+<ul class="simple">
+<li><p>هر عملیات بلافاصله هنگامی که با آن مواجه می‌شود اجرا می‌شود و نتیجه آن را قبل از شروع عملیات بعدی مادی‌سازی می‌کند.</p></li>
+</ul>
+<p>معایب</p>
+<ul class="simple">
+<li><p>موازی‌سازی حداقل</p></li>
+<li><p>ردپای حافظه سنگین — آرایه‌های میانی زیادی تولید می‌کند</p></li>
+<li><p>خواندن/نوشتن حافظه زیاد</p></li>
+</ul>
 </section>
-<section id="id18">
-<h3><span class="section-number">14.4.2. </span>با JAX<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
-<p>اکنون بیایید دوباره با JAX امتحان کنیم.</p>
+<section id="id17">
+<h3><span class="section-number">14.4.2. </span>با JAX<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <p>به عنوان اولین مرحله، <code class="docutils literal notranslate"><span class="pre">np</span></code> را در همه جا با <code class="docutils literal notranslate"><span class="pre">jnp</span></code> جایگزین می‌کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1315,7 +1295,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0715 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0606 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1331,18 +1311,24 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8751 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8703 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>نتیجه مشابه مثال <code class="docutils literal notranslate"><span class="pre">cos</span></code> است — JAX سریع‌تر است، به ویژه در
-اجرای دوم پس از کامپایل JIT.</p>
-<p>علاوه بر این، با JAX، ترفند دیگری در آستین داریم — می‌توانیم کل تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.</p>
+<p>نتیجه مشابه مثال <code class="docutils literal notranslate"><span class="pre">cos</span></code> است — JAX سریع‌تر است، به ویژه در اجرای دوم پس از کامپایل JIT.</p>
+<p>این به این دلیل است که عملیات‌های آرایه‌ای منفرد روی GPU موازی‌سازی می‌شوند.</p>
+<p>اما همچنان از اجرای eager استفاده می‌کنیم</p>
+<ul class="simple">
+<li><p>حافظه زیاد به دلیل آرایه‌های میانی</p></li>
+<li><p>خواندن/نوشتن حافظه زیاد</p></li>
+</ul>
+<p>همچنین، هسته‌های جداگانه زیادی روی GPU راه‌اندازی می‌شوند.</p>
 </section>
-<section id="id19">
-<h3><span class="section-number">14.4.3. </span>کامپایل کل تابع<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
-<p>کامپایلر just-in-time (JIT) JAX می‌تواند اجرا را در درون توابع با ادغام عملیات آرایه‌ای در یک هسته بهینه شده واحد تسریع کند.</p>
+<section id="id18">
+<h3><span class="section-number">14.4.3. </span>کامپایل کل تابع<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>خوشبختانه، با JAX، ترفند دیگری در آستین داریم — می‌توانیم کل تابع را JIT-کامپایل کنیم، نه فقط عملیات‌های منفرد.</p>
+<p>کامپایلر تمام عملیات آرایه‌ای را در یک هسته بهینه‌شده واحد ادغام می‌کند.</p>
 <p>بیایید این را با تابع <code class="docutils literal notranslate"><span class="pre">f</span></code> امتحان کنیم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1362,7 +1348,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5743 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5739 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1378,13 +1364,17 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5491 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5465 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>زمان اجرا دوباره بهبود یافته است — اکنون به این دلیل که تمام عملیات را ادغام کردیم و به کامپایلر اجازه دادیم به طور تهاجمی‌تری بهینه‌سازی کند.</p>
-<p>برای مثال، کامپایلر می‌تواند چندین فراخوانی به شتاب‌دهنده سخت‌افزاری و ایجاد تعدادی آرایه میانی را حذف کند.</p>
+<p>زمان اجرا دوباره بهبود یافته است — اکنون به این دلیل که تمام عملیات را ادغام کردیم.</p>
+<ul class="simple">
+<li><p>بهینه‌سازی تهاجمی بر اساس کل دنباله محاسباتی</p></li>
+<li><p>حذف چندین فراخوانی به شتاب‌دهنده سخت‌افزاری</p></li>
+</ul>
+<p>ردپای حافظه نیز بسیار کمتر است — عدم ایجاد آرایه‌های میانی.</p>
 <p>اتفاقاً، نحو رایج‌تر هنگام هدف قرار دادن یک تابع برای کامپایلر JIT این است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1396,17 +1386,16 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </section>
-<section id="id20">
-<h3><span class="section-number">14.4.4. </span>نحوه کار کامپایل JIT<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3><span class="section-number">14.4.4. </span>نحوه کار کامپایل JIT<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <p>هنگامی که <code class="docutils literal notranslate"><span class="pre">jax.jit</span></code> را به یک تابع اعمال می‌کنیم، JAX آن را <em>ردیابی</em> می‌کند: به جای اجرای فوری عملیات‌ها، دنباله عملیات‌ها را به صورت یک گراف محاسباتی ثبت می‌کند و آن گراف را به کامپایلر <a class="reference external" href="https://openxla.org/xla">XLA</a> تحویل می‌دهد.</p>
 <p>سپس XLA عملیات‌ها را در یک هسته کامپایل شده واحد بهینه‌سازی و ادغام می‌کند که متناسب با سخت‌افزار موجود (CPU، GPU، یا TPU) طراحی شده است.</p>
 <p>اولین فراخوانی به یک تابع JIT-کامپایل شده سربار کامپایل دارد، اما فراخوانی‌های بعدی با همان شکل‌ها و نوع‌های ورودی از کد کامپایل شده کش‌شده استفاده می‌کنند و با سرعت کامل اجرا می‌شوند.</p>
 </section>
-<section id="id21">
-<h3><span class="section-number">14.4.5. </span>کامپایل توابع غیرخالص<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
-<p>اکنون که دیدیم کامپایل JIT چقدر قدرتمند می‌تواند باشد، درک رابطه آن با توابع خالص مهم است.</p>
-<p>در حالی که JAX معمولاً هنگام کامپایل توابع ناخالص خطا نمی‌دهد، اجرا غیرقابل پیش‌بینی می‌شود.</p>
-<p>در اینجا تصویری از این واقعیت با استفاده از متغیرهای سراسری آورده شده است:</p>
+<section id="id20">
+<h3><span class="section-number">14.4.5. </span>کامپایل توابع غیرخالص<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>در حالی که JAX معمولاً هنگام کامپایل توابع ناخالص خطا نمی‌دهد، اجرا غیرقابل پیش‌بینی می‌شود!</p>
+<p>در اینجا تصویری از این واقعیت آورده شده است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># global</span>
@@ -1486,8 +1475,8 @@ Successfully installed quantecon-0.11.2
 <p>یکی دیگر از تبدیل‌های قدرتمند JAX، <code class="docutils literal notranslate"><span class="pre">jax.vmap</span></code> است که به‌طور خودکار
 تابعی که برای یک ورودی منفرد نوشته شده را برداری‌سازی می‌کند تا روی دسته‌ها عمل کند.</p>
 <p>این کار نیاز به نوشتن دستی کد برداری‌شده یا استفاده از حلقه‌های صریح را از بین می‌برد.</p>
-<section id="id22">
-<h3><span class="section-number">14.5.1. </span>یک مثال ساده<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<section id="id21">
+<h3><span class="section-number">14.5.1. </span>یک مثال ساده<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
 <p>فرض کنید تابعی داریم که تفاوت بین میانگین و میانه را برای یک آرایه از اعداد محاسبه می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1533,12 +1522,11 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <p>با این حال، حلقه‌های Python کُند هستند و نمی‌توانند به‌طور کارآمد توسط JAX کامپایل یا موازی‌سازی شوند.</p>
-<p>استفاده از <code class="docutils literal notranslate"><span class="pre">vmap</span></code> محاسبه را روی شتاب‌دهنده نگه می‌دارد و با سایر
-تبدیل‌های JAX مانند <code class="docutils literal notranslate"><span class="pre">jit</span></code> و <code class="docutils literal notranslate"><span class="pre">grad</span></code> ترکیب می‌شود:</p>
+<p>با استفاده از <code class="docutils literal notranslate"><span class="pre">vmap</span></code>، می‌توانیم از حلقه‌ها اجتناب کنیم و محاسبه را روی شتاب‌دهنده نگه داریم:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_mm_diff</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">mm_diff</span><span class="p">)</span>
-<span class="n">batch_mm_diff</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_mm_diff</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">mm_diff</span><span class="p">)</span>    <span class="c1"># Create a new &quot;vectorized&quot; version</span>
+<span class="n">batch_mm_diff</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>                     <span class="c1"># Apply to each row of X</span>
 </pre></div>
 </div>
 </div>
@@ -1548,11 +1536,9 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 </div>
-<p>تابع <code class="docutils literal notranslate"><span class="pre">mm_diff</span></code> برای یک آرایه منفرد نوشته شده بود، و <code class="docutils literal notranslate"><span class="pre">vmap</span></code> به‌طور خودکار
-آن را برای عمل سطربه‌سطر روی یک ماتریس ارتقا داد — بدون حلقه، بدون تغییر شکل.</p>
 </section>
-<section id="id23">
-<h3><span class="section-number">14.5.2. </span>ترکیب تبدیل‌ها<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<section id="id22">
+<h3><span class="section-number">14.5.2. </span>ترکیب تبدیل‌ها<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
 <p>یکی از نقاط قوت JAX این است که تبدیل‌ها به‌طور طبیعی با هم ترکیب می‌شوند.</p>
 <p>برای مثال، می‌توانیم یک تابع برداری‌شده را با JIT کامپایل کنیم:</p>
 <div class="cell docutils container">
@@ -1572,8 +1558,8 @@ Successfully installed quantecon-0.11.2
 طراحی JAX قرار دارد و آن را به‌ویژه برای محاسبات علمی و یادگیری ماشین بسیار قدرتمند می‌سازد.</p>
 </section>
 </section>
-<section id="id24">
-<h2><span class="section-number">14.6. </span>مشتق‌گیری خودکار: یک پیش‌نمایش<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<section id="id23">
+<h2><span class="section-number">14.6. </span>مشتق‌گیری خودکار: یک پیش‌نمایش<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
 <p>JAX می‌تواند از مشتق‌گیری خودکار برای محاسبه گرادیان‌ها استفاده کند.</p>
 <p>این ویژگی می‌تواند برای بهینه‌سازی و حل سیستم‌های غیرخطی بسیار مفید باشد.</p>
 <p>در اینجا یک مثال ساده با تابع <span class="math notranslate nohighlight">\(f(x) = x^2 / 2\)</span> آورده شده است:</p>
@@ -1617,8 +1603,8 @@ Successfully installed quantecon-0.11.2
 </div>
 <p>مشتق‌گیری خودکار موضوعی عمیق با کاربردهای فراوان در اقتصاد و مالی است. ما یک بررسی جامع‌تر را در <a class="reference internal" href="autodiff.html"><span class="doc">درس مربوط به مشتق‌گیری خودکار</span></a> ارائه می‌دهیم.</p>
 </section>
-<section id="id25">
-<h2><span class="section-number">14.7. </span>تمرین‌ها<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
+<section id="id24">
+<h2><span class="section-number">14.7. </span>تمرین‌ها<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="jax_intro_ex2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 14.1 </span></p>
@@ -1690,7 +1676,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.8054 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.7177 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1704,7 +1690,7 @@ Successfully installed quantecon-0.11.2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.4932 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.2921 seconds elapsed
 </pre></div>
 </div>
 </div>

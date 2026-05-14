@@ -53,7 +53,6 @@ translation:
 
 پیش از شروع این درس، باید جلسه ی قبل را مطالعه کرده باشید.
 
-
 ## هدف:رسم یک فرآیند نویز سفید
 
 فرض کنید می‌خواهیم فرآیند نویز سفید $\epsilon_0, \epsilon_1, \ldots, \epsilon_T$ را شبیه‌سازی و رسم کنیم، که در آن هر نقطه $\epsilon_t$ مستقل و نرمال استاندارد است.
@@ -77,7 +76,8 @@ translation:
 import numpy as np
 import matplotlib.pyplot as plt
 
-ϵ_values = np.random.randn(100)
+rng = np.random.default_rng()
+ϵ_values = rng.standard_normal(100)
 plt.plot(ϵ_values)
 plt.show()
 ```
@@ -111,7 +111,6 @@ np.sqrt(4)
 np.log(4)
 ```
 
-
 #### چرا در برنامه نویسی پایتون، از Importهای متعددی استفاده می شود؟
 
 برنامه های پایتون معمولا به چندین دستور `import` نیاز دارند.
@@ -119,7 +118,6 @@ np.log(4)
 دلیل این موضوع این است که هسته ی زبانی پایتون عمداً کوچک نگه داشته شده تا یادگیری، نگهداری و توسعه ی آن آسان باشد.
 
 وقتی بخواهید کارهای جالب تر و پیشرفته تری با پایتون انجام دهید، تقریبا همیشه باید قابلیت های اضافی را با استفاده از `import` به برنامه اضافه کنید.
-
 
 #### پکیج ها(Packages)
 
@@ -155,7 +153,7 @@ print(np.__file__)
 ```{index} single: Python; Subpackages
 ```
 
-به خط حاوی `ϵ_values = np.random.randn(100)` در کد توجه کنید.
+به خط حاوی `rng = np.random.default_rng()` در کد توجه کنید.
 
 در این دستور، `np` به پکیج NumPY اشاره دارد، و `random` یک زیرپکیج از NumPY است.
 
@@ -191,7 +189,7 @@ sqrt(4)
 بیاید به کدی که نویز سفید رسم می کند برگردیم. سه خط بعد از دستور Import به این صورت هستند:
 
 ```{code-cell} ipython
-ϵ_values = np.random.randn(100)
+ϵ_values = rng.standard_normal(100)
 plt.plot(ϵ_values)
 plt.show()
 ```
@@ -217,7 +215,7 @@ ts_length = 100
 ϵ_values = []   # empty list
 
 for i in range(ts_length):
-    e = np.random.randn()
+    e = rng.standard_normal()
     ϵ_values.append(e)
 
 plt.plot(ϵ_values)
@@ -313,7 +311,7 @@ x[1]   # second element of x
 
 ```{code-cell} python3
 for i in range(ts_length):
-    e = np.random.randn()
+    e = rng.standard_normal()
     ϵ_values.append(e)
 ```
 
@@ -345,7 +343,6 @@ for variable_name in sequence:
 مفسر پایتون مراحل زیر را انجام می دهد:
 
 * برای هر عنصر از دنباله `sequence`، نام متغیر `variable_name` را به آن عنصر متصل (blind) می کند و سپس بلوک کد را اجرا می کند.
-
 
 ### یادداشتی درباره تورفتگی (Indentation)
 
@@ -393,7 +390,7 @@ ts_length = 100
 ϵ_values = []
 i = 0
 while i < ts_length:
-    e = np.random.randn()
+    e = rng.standard_normal()
     ϵ_values.append(e)
     i = i + 1
 plt.plot(ϵ_values)
@@ -495,9 +492,10 @@ import matplotlib.pyplot as plt
 T = 200
 x = np.empty(T+1)
 x[0] = 0
+rng = np.random.default_rng()
 
 for t in range(T):
-    x[t+1] = α * x[t] + np.random.randn()
+    x[t+1] = α * x[t] + rng.standard_normal()
 
 plt.plot(x)
 plt.show()
@@ -536,11 +534,12 @@ plt.show()
 α_values = [0.0, 0.8, 0.98]
 T = 200
 x = np.empty(T+1)
+rng = np.random.default_rng()
 
 for α in α_values:
     x[0] = 0
     for t in range(T):
-        x[t+1] = α * x[t] + np.random.randn()
+        x[t+1] = α * x[t] + rng.standard_normal()
     plt.plot(x, label=f'$\\alpha = {α}$')
 
 plt.legend()
@@ -588,9 +587,10 @@ $$
 T = 200
 x = np.empty(T+1)
 x[0] = 0
+rng = np.random.default_rng()
 
 for t in range(T):
-    x[t+1] = α * np.abs(x[t]) + np.random.randn()
+    x[t+1] = α * np.abs(x[t]) + rng.standard_normal()
 
 plt.plot(x)
 plt.show()
@@ -639,13 +639,14 @@ for x in numbers:
 T = 200
 x = np.empty(T+1)
 x[0] = 0
+rng = np.random.default_rng()
 
 for t in range(T):
     if x[t] < 0:
         abs_x = - x[t]
     else:
         abs_x = x[t]
-    x[t+1] = α * abs_x + np.random.randn()
+    x[t+1] = α * abs_x + rng.standard_normal()
 
 plt.plot(x)
 plt.show()
@@ -658,10 +659,11 @@ plt.show()
 T = 200
 x = np.empty(T+1)
 x[0] = 0
+rng = np.random.default_rng()
 
 for t in range(T):
     abs_x = - x[t] if x[t] < 0 else x[t]
-    x[t+1] = α * abs_x + np.random.randn()
+    x[t+1] = α * abs_x + rng.standard_normal()
 
 plt.plot(x)
 plt.show()
@@ -721,12 +723,13 @@ import numpy as np
 
 ```{code-cell} python3
 n = 1000000 # sample size for Monte Carlo simulation
+rng = np.random.default_rng()
 
 count = 0
 for i in range(n):
 
     # drawing random positions on the square
-    u, v = np.random.uniform(), np.random.uniform()
+    u, v = rng.uniform(), rng.uniform()
 
     # check whether the point falls within the boundary
     # of the unit circle centred at (0.5,0.5)

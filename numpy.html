@@ -77,12 +77,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=3355220bfb204a7ac1b0ca03dac108f0437ded6f" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=ff5dcadef89fd2097ea5e28ddaad7eb5985f09c4" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -286,7 +286,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Apr 13, 2026
+                            Last changed: May 14, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -297,11 +297,38 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/0fe603e" class="changelog-hash">0fe603e</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/85f2f70" class="changelog-hash">85f2f70</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">🌐 [translation-sync] Minor edits (replaces #100) (#105)</span>
+                                <span class="changelog-time">45 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] [numpy.md] Update np.random → Generator API (#122)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/e09d083" class="changelog-hash">e09d083</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-message">chore: migrate heading-map → translation frontmatter (#83)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/3f9c65e" class="changelog-hash">3f9c65e</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-message">Setup action-translation v0.11.0 infrastructure (#67)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/841f9a5" class="changelog-hash">841f9a5</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">3 months ago</span>
+                                <span class="changelog-message">Add lecture: NumPy <single: NumPy> (#27)</span>
                             </li>
                             
                         </ul>
@@ -1602,13 +1629,14 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>قابلیت تغییر منجر به رفتار زیر می‌شود (که می‌تواند برای برنامه‌نویسان MATLAB شوکه‌کننده باشد…)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.60222248,  1.36186037, -0.81878434])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.57454444, -0.51486915, -2.39231187])
 </pre></div>
 </div>
 </div>
@@ -1622,7 +1650,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  1.36186037, -0.81878434])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        , -0.51486915, -2.39231187])
 </pre></div>
 </div>
 </div>
@@ -1641,13 +1669,13 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>این کار می‌تواند با استفاده از <code class="docutils literal notranslate"><span class="pre">np.copy</span></code> انجام شود</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">a</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.46670403, 1.10656815, 0.37782383])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.11562281, -0.57664716,  0.37328451])
 </pre></div>
 </div>
 </div>
@@ -1660,7 +1688,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.46670403, 1.10656815, 0.37782383])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.11562281, -0.57664716,  0.37328451])
 </pre></div>
 </div>
 </div>
@@ -1686,7 +1714,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.46670403, 1.10656815, 0.37782383])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.11562281, -0.57664716,  0.37328451])
 </pre></div>
 </div>
 </div>
@@ -1765,13 +1793,13 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>تابع NumPy <code class="docutils literal notranslate"><span class="pre">np.where</span></code> یک جایگزین برداری شده ارائه می‌دهد:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">x</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.09817889, -0.86687065,  0.24184407, -0.30318001])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.22423989, -2.08249235, -0.46589328, -0.31744586])
 </pre></div>
 </div>
 </div>
@@ -1783,7 +1811,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -1797,7 +1825,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -1918,17 +1946,18 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <h3><span class="section-number">10.7.3. </span>بسته‌های فرعی<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <p>NumPy برخی از قابلیت‌های اضافی مرتبط با برنامه‌نویسی علمی را
 از طریق بسته‌های فرعی خود ارائه می‌دهد.</p>
-<p>قبلاً دیده‌ایم که چگونه می‌توانیم با استفاده از np.random متغیرهای تصادفی تولید کنیم</p>
+<p>قبلاً دیده‌ایم که چگونه می‌توانیم با استفاده از
+<a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#random-generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code> تصادفی</a> NumPy متغیرهای تصادفی تولید کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># تولید توزیع نرمال استاندارد</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>    <span class="c1"># 1000 نمونه از Bin(10, 0.5)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># تولید توزیع نرمال استاندارد</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>    <span class="c1"># 1000 نمونه از Bin(10, 0.5)</span>
 <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(5.018)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.969)
 </pre></div>
 </div>
 </div>
@@ -1977,7 +2006,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">m</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
     <span class="n">λ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2104,7 +2133,6 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">cumsum</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">uniform</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">DiscreteRV</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2112,20 +2140,21 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <span class="sd">    احتمالات داده شده توسط q تولید می‌کند.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        آرگومان q یک آرایه NumPy است، یا شبیه آرایه، غیر منفی و جمع</span>
 <span class="sd">        به 1 می‌شود</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">cumsum</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        k نمونه از q برمی‌گرداند. برای هر چنین نمونه‌ای، مقدار i با</span>
 <span class="sd">        احتمال q[i] برگردانده می‌شود.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">k</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">k</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2248,14 +2277,15 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">F</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">F</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c63b59623310039fc81ac401b2c31587ed4dd7b59048e245eab9c82fda6c2acf.png" src="_images/c63b59623310039fc81ac401b2c31587ed4dd7b59048e245eab9c82fda6c2acf.png" />
+<img alt="_images/ebb080ace754aa2426957c8269d210a2d1d90f74c7a9100cba3ed8e61b6dfcac.png" src="_images/ebb080ace754aa2426957c8269d210a2d1d90f74c7a9100cba3ed8e61b6dfcac.png" />
 </div>
 </div>
 </section>
@@ -2269,9 +2299,9 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p><strong>قسمت 1</strong>: سعی کنید این مثال ساده را با استفاده از حلقه‌های <code class="docutils literal notranslate"><span class="pre">for</span></code> تکرار کنید و نتایج خود را با عملیات broadcasting زیر مقایسه کنید.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
 </pre></div>
 </div>
@@ -2290,10 +2320,10 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.49214189  0.45607819  0.28183596 -3.90043439]
- [-0.26229311  0.75518888 -2.41688145 -1.11063629]
- [ 0.57387869 -0.39635354 -0.67614513 -0.2452416 ]
- [ 0.676082   -0.29216483 -0.44218937 -1.12471925]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.64562663  0.55727833 -4.13068155  0.57428108]
+ [ 0.60065994 -0.87444021  2.04128976  1.60450491]
+ [-0.20665053  0.488491   -0.31163862 -4.51767283]
+ [ 0.77815951  1.01684966 -3.20810109  0.40359261]]
 </pre></div>
 </div>
 </div>
@@ -2334,9 +2364,9 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p>اکنون می‌توانیم بسته quantecon را import کنیم.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;Broadcasting operation&quot;</span><span class="p">):</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
@@ -2344,7 +2374,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Broadcasting operation: 0.0105 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Broadcasting operation: 0.0111 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -2362,91 +2392,91 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.85764005 -0.89419976  0.24485371 ... -3.04214618  0.17711597
-   -0.22643801]
-  [-1.09863014  1.77333433  0.61630351 ... -0.24732757 -0.15931155
-   -0.13015397]
-  [-1.20344529  0.53624915  1.90420857 ...  0.92748804  0.07494711
-    0.48954772]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.11459186e+00  6.49554639e-01 -1.39222984e+00 ...  1.29919811e+00
+    4.05186703e+00 -7.40287138e+01]
+  [ 5.81192956e-01 -2.92842384e+00  3.21336857e-01 ...  1.20991613e+00
+    2.27427587e+00  1.44385102e+02]
+  [ 1.05593413e+00  1.42938670e+00  4.45508796e-01 ...  4.01152744e-01
+    2.84732007e+00  8.92867644e+01]
   ...
-  [-1.09763323  0.68632802 -1.21568707 ... -3.87025031 -0.19456046
-    0.18331773]
-  [-0.47546852 -0.16883695  2.92991418 ... -0.05967182 -0.20796073
-   -0.49082994]
-  [ 1.14380091  1.93460538 -0.76305492 ... -1.0537099   0.27167901
-    0.57963424]]
+  [-2.74886903e-02  1.26977472e+00  3.14108995e-01 ...  1.11710121e-01
+    1.42995646e+00 -3.11820183e+01]
+  [ 2.37232237e-02 -1.07344880e+00 -6.84853323e-02 ...  1.34568899e-01
+   -1.03734701e-01 -1.06565258e+02]
+  [-1.74039841e+00 -3.01228229e+00 -9.49433502e-01 ...  1.44494147e-01
+   -7.23108571e+00 -2.90325461e+01]]
 
- [[ 2.12344323  0.28058176 -0.73457091 ...  3.55049699  0.59737154
-   -0.31414907]
-  [ 1.40074417 -0.09113173  0.50276294 ... -1.85572391  0.13914077
-   -0.93776321]
-  [ 2.35739042 -0.79089649  0.20835615 ... -0.11001198  0.86250367
-   -1.26949634]
+ [[ 5.31486218e-01  2.93920784e+00 -2.44783577e-01 ... -6.32917660e-01
+   -2.52543447e+00 -5.31568329e+01]
+  [-4.73496558e-01  1.49038936e-01  1.68780916e+00 ...  2.05750194e-01
+   -1.40524927e+00 -6.14593964e-01]
+  [-2.74888585e+00 -2.33570490e+00  3.41515715e-01 ...  1.24702883e-01
+   -1.68468042e+00  8.33959001e+01]
   ...
-  [ 2.11831946  0.15242396 -0.17269536 ...  0.03469371 -0.06074779
-    0.10114045]
-  [-0.08300138  0.47232405 -0.89930099 ...  0.66104947 -0.45183377
-   -1.05885526]
-  [ 0.282155   -1.44848315 -1.25832989 ... -3.12998376  0.48762406
-    0.22052869]]
+  [-8.36506904e-01 -1.86665236e+00  6.00226688e-01 ...  8.54789843e-01
+   -1.28668710e+00 -8.83692748e+01]
+  [-6.70119507e-01  8.95293052e-02 -5.62763392e-01 ...  1.06747869e+00
+    8.32890981e-01  1.32305974e+02]
+  [-2.35822588e-01  1.71686185e+00 -6.38798692e-01 ...  7.17992258e-01
+    5.11995938e+00  4.32277717e+01]]
 
- [[-1.76517625 -1.19419485  0.08293115 ...  0.7919151  -0.03812759
-   -1.19540255]
-  [-0.66639955  0.16580616 -0.32083535 ...  0.72351825 -0.72239583
-   -0.46386281]
-  [-0.45163238 -1.5262587  -0.38541194 ...  1.82015759  0.23151272
-    0.81609303]
+ [[-8.17691283e-01 -9.69805518e-01  1.20574471e-02 ... -2.29327510e-01
+   -6.87440789e-01 -1.08708489e+02]
+  [ 1.32946051e-01  2.53886133e+00  1.00358890e+00 ...  1.52451468e+00
+   -7.96146833e+00  4.73065584e+01]
+  [ 1.39118740e+00  2.42744267e+00  8.99415032e-01 ... -1.98940955e+00
+   -4.09483421e+00  1.58863413e+02]
   ...
-  [ 1.14317214 -0.60571044 -0.74962613 ... -3.13330221  0.61817627
-    0.37738869]
-  [-0.65686356  0.41024983  0.2700362  ... -0.08588743  0.20408508
-    0.33667429]
-  [-0.43851304  0.58339651 -0.9076869  ... -2.55408527 -0.22112928
-    0.9912754 ]]
+  [-2.00083480e+00 -2.39858291e+00 -1.63204799e+00 ...  1.03229680e+00
+   -2.92527147e+00  4.97550232e+01]
+  [ 2.13075183e-01 -6.94472260e-01 -1.27241435e+00 ... -4.72444580e-02
+   -1.36097040e+00 -2.69662919e+01]
+  [-6.53406813e-01  1.10261376e+00 -8.36617414e-02 ...  1.43523014e+00
+   -2.71989098e+00  4.76036526e+01]]
 
  ...
 
- [[ 1.13470002 -0.20836287 -0.50483798 ...  0.32733859 -0.32203002
-    0.43385307]
-  [-0.11763272 -0.77698937 -0.46659376 ...  2.01256989 -0.19222608
-   -0.48021737]
-  [ 0.89558661  0.93447059  0.35386499 ... -1.2218747   0.42826019
-    0.73980809]
+ [[ 2.10702762e-01 -2.73232476e+00 -9.47422331e-01 ...  5.53820263e-01
+    3.67876353e+00  1.50165202e+00]
+  [ 2.01068194e+00  1.23328379e+00  5.01861693e-01 ... -6.20423733e-01
+    1.82152397e+00  3.91329194e+00]
+  [ 7.84176143e-01 -2.10192441e-02 -7.69297715e-01 ... -1.13855768e-03
+    2.80468628e+00 -5.61973382e+01]
   ...
-  [-0.30040698 -1.14758822 -1.2785068  ...  3.9600491  -0.25830068
-   -1.09906439]
-  [-2.89569174 -0.67988752 -0.26342148 ...  0.62855881  0.05570693
-   -0.05084807]
-  [ 0.87738281 -2.37555322  1.66177996 ...  0.09857952  0.35564132
-   -1.22140972]]
+  [-1.24033449e+00  5.90826010e-01 -1.58604105e+00 ... -1.06447092e+00
+    4.35766108e+00 -6.65157650e+01]
+  [-1.37676146e+00 -2.44562663e+00  3.03635548e-01 ...  1.09674555e+00
+    8.51724363e-01  7.62734749e+01]
+  [ 2.65023743e-01 -1.60418989e+00  8.92588170e-01 ... -1.52970264e+00
+    3.35794715e+00  7.66550051e+01]]
 
- [[-3.31843223  0.19402721  0.87502303 ... -1.47591384 -0.25236749
-   -0.85281481]
-  [-2.84794867 -0.31042414  0.43040259 ... -4.01127498  0.06267678
-   -0.2073196 ]
-  [-0.47909317 -0.77256923 -0.49818879 ... -0.17526151  0.64720631
-   -0.06831215]
+ [[-9.76665830e-01 -2.52931081e-01  9.34827331e-01 ...  1.34729867e+00
+   -9.49752368e+00 -5.40493267e+01]
+  [-6.99969930e-01  7.16309528e-01 -4.87147176e-01 ...  3.84737379e-01
+   -4.62349866e+00  6.57667401e+01]
+  [-5.35240129e-01  8.29149751e-01 -1.38663673e-01 ... -5.26523746e-01
+   -2.78363901e+00  3.97278864e+01]
   ...
-  [ 0.35509683 -0.48189502 -0.18528007 ...  2.03614189 -0.15287291
-    0.0979404 ]
-  [-1.20730244 -0.24269721 -0.28048927 ...  0.94378219 -0.21283324
-   -0.30738091]
-  [-1.81004008  1.01260185 -0.62311067 ... -0.03158149 -0.36355966
-    0.43427753]]
+  [ 5.90892302e-01  1.10587017e+00 -1.35634710e+00 ... -1.10155962e+00
+    4.79718847e+00  1.38630977e+01]
+  [-6.30986628e-01 -3.12261837e-02  1.84942661e-01 ...  2.85786218e+00
+   -9.26774215e-01  7.36155149e+01]
+  [ 2.35257249e+00 -3.14639965e-01  6.29523883e-01 ... -1.14837361e+00
+   -1.06301767e+00  1.30911044e+01]]
 
- [[-1.43227284 -0.20319046  1.37271425 ...  2.34113161  0.18025411
-   -0.247025  ]
-  [ 0.47792311  0.61186236  0.73460309 ... -1.52671835 -0.10967386
-   -0.04788996]
-  [-1.51873339  0.73425213 -0.54033092 ...  0.21434631 -0.31597544
-   -0.24364054]
+ [[-4.05344988e-01 -2.22802559e+00  1.01293008e+00 ... -2.84828321e-01
+    4.76669493e+00 -5.22389356e+01]
+  [-3.01680393e-01 -3.08400312e-01 -1.13845805e+00 ... -3.54402179e-01
+    2.69111708e+00 -9.15315118e+01]
+  [ 4.75838349e-01 -3.26362244e+00 -4.72222604e-01 ...  2.99854221e-01
+    2.37944637e+00 -1.17700185e+01]
   ...
-  [-0.24128379 -0.72604109 -0.36722827 ...  2.20219708  1.04943754
-   -0.44221604]
-  [-1.43364744  0.54701702  1.08795598 ...  0.19549939 -0.12604844
-   -0.74936097]
-  [-0.59335595  0.46807169 -0.04178975 ... -1.1783837   0.0395992
-    0.55109001]]]
+  [ 1.03535657e+00 -5.74611584e-02  1.97073682e-01 ... -1.09443930e+00
+    4.66582536e+00 -2.25831644e+02]
+  [-6.71551286e-01  6.27890445e-01 -2.96405648e-01 ...  1.32173888e+00
+    3.90295626e+00 -7.43606070e+00]
+  [ 1.83056628e+00  4.61028305e-01  9.21541992e-01 ...  6.08721297e-01
+    4.43683093e+00 -1.49100072e+02]]]
 </pre></div>
 </div>
 </div>
@@ -2461,9 +2491,9 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p><strong>راه‌حل قسمت 1</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2487,10 +2517,10 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.49214189  0.45607819  0.28183596 -3.90043439]
- [-0.26229311  0.75518888 -2.41688145 -1.11063629]
- [ 0.57387869 -0.39635354 -0.67614513 -0.2452416 ]
- [ 0.676082   -0.29216483 -0.44218937 -1.12471925]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.64562663  0.55727833 -4.13068155  0.57428108]
+ [ 0.60065994 -0.87444021  2.04128976  1.60450491]
+ [-0.20665053  0.488491   -0.31163862 -4.51767283]
+ [ 0.77815951  1.01684966 -3.20810109  0.40359261]]
 </pre></div>
 </div>
 </div>
@@ -2512,9 +2542,9 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p><strong>راه‌حل قسمت 2</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;For loop operation&quot;</span><span class="p">):</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2527,7 +2557,7 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For loop operation: 4.2346 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For loop operation: 3.9057 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -2546,91 +2576,91 @@ Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/minicond
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.85764005 -0.89419976  0.24485371 ... -3.04214618  0.17711597
-   -0.22643801]
-  [-1.09863014  1.77333433  0.61630351 ... -0.24732757 -0.15931155
-   -0.13015397]
-  [-1.20344529  0.53624915  1.90420857 ...  0.92748804  0.07494711
-    0.48954772]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 1.11459186e+00  6.49554639e-01 -1.39222984e+00 ...  1.29919811e+00
+    4.05186703e+00 -7.40287138e+01]
+  [ 5.81192956e-01 -2.92842384e+00  3.21336857e-01 ...  1.20991613e+00
+    2.27427587e+00  1.44385102e+02]
+  [ 1.05593413e+00  1.42938670e+00  4.45508796e-01 ...  4.01152744e-01
+    2.84732007e+00  8.92867644e+01]
   ...
-  [-1.09763323  0.68632802 -1.21568707 ... -3.87025031 -0.19456046
-    0.18331773]
-  [-0.47546852 -0.16883695  2.92991418 ... -0.05967182 -0.20796073
-   -0.49082994]
-  [ 1.14380091  1.93460538 -0.76305492 ... -1.0537099   0.27167901
-    0.57963424]]
+  [-2.74886903e-02  1.26977472e+00  3.14108995e-01 ...  1.11710121e-01
+    1.42995646e+00 -3.11820183e+01]
+  [ 2.37232237e-02 -1.07344880e+00 -6.84853323e-02 ...  1.34568899e-01
+   -1.03734701e-01 -1.06565258e+02]
+  [-1.74039841e+00 -3.01228229e+00 -9.49433502e-01 ...  1.44494147e-01
+   -7.23108571e+00 -2.90325461e+01]]
 
- [[ 2.12344323  0.28058176 -0.73457091 ...  3.55049699  0.59737154
-   -0.31414907]
-  [ 1.40074417 -0.09113173  0.50276294 ... -1.85572391  0.13914077
-   -0.93776321]
-  [ 2.35739042 -0.79089649  0.20835615 ... -0.11001198  0.86250367
-   -1.26949634]
+ [[ 5.31486218e-01  2.93920784e+00 -2.44783577e-01 ... -6.32917660e-01
+   -2.52543447e+00 -5.31568329e+01]
+  [-4.73496558e-01  1.49038936e-01  1.68780916e+00 ...  2.05750194e-01
+   -1.40524927e+00 -6.14593964e-01]
+  [-2.74888585e+00 -2.33570490e+00  3.41515715e-01 ...  1.24702883e-01
+   -1.68468042e+00  8.33959001e+01]
   ...
-  [ 2.11831946  0.15242396 -0.17269536 ...  0.03469371 -0.06074779
-    0.10114045]
-  [-0.08300138  0.47232405 -0.89930099 ...  0.66104947 -0.45183377
-   -1.05885526]
-  [ 0.282155   -1.44848315 -1.25832989 ... -3.12998376  0.48762406
-    0.22052869]]
+  [-8.36506904e-01 -1.86665236e+00  6.00226688e-01 ...  8.54789843e-01
+   -1.28668710e+00 -8.83692748e+01]
+  [-6.70119507e-01  8.95293052e-02 -5.62763392e-01 ...  1.06747869e+00
+    8.32890981e-01  1.32305974e+02]
+  [-2.35822588e-01  1.71686185e+00 -6.38798692e-01 ...  7.17992258e-01
+    5.11995938e+00  4.32277717e+01]]
 
- [[-1.76517625 -1.19419485  0.08293115 ...  0.7919151  -0.03812759
-   -1.19540255]
-  [-0.66639955  0.16580616 -0.32083535 ...  0.72351825 -0.72239583
-   -0.46386281]
-  [-0.45163238 -1.5262587  -0.38541194 ...  1.82015759  0.23151272
-    0.81609303]
+ [[-8.17691283e-01 -9.69805518e-01  1.20574471e-02 ... -2.29327510e-01
+   -6.87440789e-01 -1.08708489e+02]
+  [ 1.32946051e-01  2.53886133e+00  1.00358890e+00 ...  1.52451468e+00
+   -7.96146833e+00  4.73065584e+01]
+  [ 1.39118740e+00  2.42744267e+00  8.99415032e-01 ... -1.98940955e+00
+   -4.09483421e+00  1.58863413e+02]
   ...
-  [ 1.14317214 -0.60571044 -0.74962613 ... -3.13330221  0.61817627
-    0.37738869]
-  [-0.65686356  0.41024983  0.2700362  ... -0.08588743  0.20408508
-    0.33667429]
-  [-0.43851304  0.58339651 -0.9076869  ... -2.55408527 -0.22112928
-    0.9912754 ]]
+  [-2.00083480e+00 -2.39858291e+00 -1.63204799e+00 ...  1.03229680e+00
+   -2.92527147e+00  4.97550232e+01]
+  [ 2.13075183e-01 -6.94472260e-01 -1.27241435e+00 ... -4.72444580e-02
+   -1.36097040e+00 -2.69662919e+01]
+  [-6.53406813e-01  1.10261376e+00 -8.36617414e-02 ...  1.43523014e+00
+   -2.71989098e+00  4.76036526e+01]]
 
  ...
 
- [[ 1.13470002 -0.20836287 -0.50483798 ...  0.32733859 -0.32203002
-    0.43385307]
-  [-0.11763272 -0.77698937 -0.46659376 ...  2.01256989 -0.19222608
-   -0.48021737]
-  [ 0.89558661  0.93447059  0.35386499 ... -1.2218747   0.42826019
-    0.73980809]
+ [[ 2.10702762e-01 -2.73232476e+00 -9.47422331e-01 ...  5.53820263e-01
+    3.67876353e+00  1.50165202e+00]
+  [ 2.01068194e+00  1.23328379e+00  5.01861693e-01 ... -6.20423733e-01
+    1.82152397e+00  3.91329194e+00]
+  [ 7.84176143e-01 -2.10192441e-02 -7.69297715e-01 ... -1.13855768e-03
+    2.80468628e+00 -5.61973382e+01]
   ...
-  [-0.30040698 -1.14758822 -1.2785068  ...  3.9600491  -0.25830068
-   -1.09906439]
-  [-2.89569174 -0.67988752 -0.26342148 ...  0.62855881  0.05570693
-   -0.05084807]
-  [ 0.87738281 -2.37555322  1.66177996 ...  0.09857952  0.35564132
-   -1.22140972]]
+  [-1.24033449e+00  5.90826010e-01 -1.58604105e+00 ... -1.06447092e+00
+    4.35766108e+00 -6.65157650e+01]
+  [-1.37676146e+00 -2.44562663e+00  3.03635548e-01 ...  1.09674555e+00
+    8.51724363e-01  7.62734749e+01]
+  [ 2.65023743e-01 -1.60418989e+00  8.92588170e-01 ... -1.52970264e+00
+    3.35794715e+00  7.66550051e+01]]
 
- [[-3.31843223  0.19402721  0.87502303 ... -1.47591384 -0.25236749
-   -0.85281481]
-  [-2.84794867 -0.31042414  0.43040259 ... -4.01127498  0.06267678
-   -0.2073196 ]
-  [-0.47909317 -0.77256923 -0.49818879 ... -0.17526151  0.64720631
-   -0.06831215]
+ [[-9.76665830e-01 -2.52931081e-01  9.34827331e-01 ...  1.34729867e+00
+   -9.49752368e+00 -5.40493267e+01]
+  [-6.99969930e-01  7.16309528e-01 -4.87147176e-01 ...  3.84737379e-01
+   -4.62349866e+00  6.57667401e+01]
+  [-5.35240129e-01  8.29149751e-01 -1.38663673e-01 ... -5.26523746e-01
+   -2.78363901e+00  3.97278864e+01]
   ...
-  [ 0.35509683 -0.48189502 -0.18528007 ...  2.03614189 -0.15287291
-    0.0979404 ]
-  [-1.20730244 -0.24269721 -0.28048927 ...  0.94378219 -0.21283324
-   -0.30738091]
-  [-1.81004008  1.01260185 -0.62311067 ... -0.03158149 -0.36355966
-    0.43427753]]
+  [ 5.90892302e-01  1.10587017e+00 -1.35634710e+00 ... -1.10155962e+00
+    4.79718847e+00  1.38630977e+01]
+  [-6.30986628e-01 -3.12261837e-02  1.84942661e-01 ...  2.85786218e+00
+   -9.26774215e-01  7.36155149e+01]
+  [ 2.35257249e+00 -3.14639965e-01  6.29523883e-01 ... -1.14837361e+00
+   -1.06301767e+00  1.30911044e+01]]
 
- [[-1.43227284 -0.20319046  1.37271425 ...  2.34113161  0.18025411
-   -0.247025  ]
-  [ 0.47792311  0.61186236  0.73460309 ... -1.52671835 -0.10967386
-   -0.04788996]
-  [-1.51873339  0.73425213 -0.54033092 ...  0.21434631 -0.31597544
-   -0.24364054]
+ [[-4.05344988e-01 -2.22802559e+00  1.01293008e+00 ... -2.84828321e-01
+    4.76669493e+00 -5.22389356e+01]
+  [-3.01680393e-01 -3.08400312e-01 -1.13845805e+00 ... -3.54402179e-01
+    2.69111708e+00 -9.15315118e+01]
+  [ 4.75838349e-01 -3.26362244e+00 -4.72222604e-01 ...  2.99854221e-01
+    2.37944637e+00 -1.17700185e+01]
   ...
-  [-0.24128379 -0.72604109 -0.36722827 ...  2.20219708  1.04943754
-   -0.44221604]
-  [-1.43364744  0.54701702  1.08795598 ...  0.19549939 -0.12604844
-   -0.74936097]
-  [-0.59335595  0.46807169 -0.04178975 ... -1.1783837   0.0395992
-    0.55109001]]]
+  [ 1.03535657e+00 -5.74611584e-02  1.97073682e-01 ... -1.09443930e+00
+    4.66582536e+00 -2.25831644e+02]
+  [-6.71551286e-01  6.27890445e-01 -2.96405648e-01 ...  1.32173888e+00
+    3.90295626e+00 -7.43606070e+00]
+  [ 1.83056628e+00  4.61028305e-01  9.21541992e-01 ...  6.08721297e-01
+    4.43683093e+00 -1.49100072e+02]]]
 </pre></div>
 </div>
 </div>
