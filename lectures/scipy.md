@@ -124,10 +124,11 @@ a = np.identity(3)
 
 ### متغیرهای تصادفی و توزیع‌ها
 
-به یاد بیاورید که `numpy.random` توابعی را برای تولید متغیرهای تصادفی فراهم می‌کند
+به یاد بیاورید که `numpy.random` ابزارهایی را برای تولید متغیرهای تصادفی فراهم می‌کند
 
 ```{code-cell} python3
-np.random.beta(5, 5, size=3)
+rng = np.random.default_rng()
+rng.beta(5, 5, size=3)
 ```
 
 این یک نمونه از توزیع با تابع چگالی زیر را وقتی `a, b = 5, 5` تولید می‌کند
@@ -208,8 +209,8 @@ plt.show()
 ```{code-cell} python3
 from scipy.stats import linregress
 
-x = np.random.randn(200)
-y = 2 * x + 0.1 * np.random.randn(200)
+x = rng.standard_normal(200)
+y = 2 * x + 0.1 * rng.standard_normal(200)
 gradient, intercept, r_value, p_value, std_err = linregress(x, y)
 gradient, intercept
 ```
@@ -592,8 +593,9 @@ $$ \mathbb E \max\{ S_n - K, 0 \}
 در اینجا یک راه‌حل آورده شده است:
 
 ```{code-cell} ipython3
+rng = np.random.default_rng()
 M = 10_000_000
-S = np.exp(μ + σ * np.random.randn(M))
+S = np.exp(μ + σ * rng.standard_normal(M))
 return_draws = np.maximum(S - K, 0)
 P = β**n * np.mean(return_draws) 
 print(f"The Monte Carlo option price is {P:3f}")
