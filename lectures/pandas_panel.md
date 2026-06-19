@@ -147,13 +147,13 @@ stacking و unstacking سطوح `MultiIndex` در سراسر این سخنران
 `.stack()` پایین‌ترین سطح ستون `MultiIndex` را به index ردیف می‌چرخاند (`.unstack()` در جهت مخالف کار می‌کند - امتحان کنید)
 
 ```{code-cell} ipython3
-realwage.stack(future_stack=True).head()
+realwage.stack().head()
 ```
 
 همچنین می‌توانیم یک آرگومان برای انتخاب سطحی که می‌خواهیم stack کنیم ارسال کنیم
 
 ```{code-cell} ipython3
-realwage.stack(level='Country', future_stack=True).head()  # future_stack=True is required until pandas>3.0
+realwage.stack(level='Country').head()
 ```
 
 استفاده از یک `DatetimeIndex` انتخاب یک دوره زمانی خاص را آسان می‌کند.
@@ -161,7 +161,7 @@ realwage.stack(level='Country', future_stack=True).head()  # future_stack=True i
 انتخاب یک سال و stacking کردن دو سطح پایین‌تر `MultiIndex` یک مقطع عرضی از داده‌های پانلی ما ایجاد می‌کند
 
 ```{code-cell} ipython3
-realwage.loc['2015'].stack(level=(1, 2), future_stack=True).transpose().head() # future_stack=True is required until pandas>3.0
+realwage.loc['2015'].stack(level=(1, 2)).transpose().head()
 ```
 
 برای بقیه سخنرانی، ما با یک dataframe از حداقل دستمزدهای واقعی ساعتی در کشورها و زمان، اندازه‌گیری شده در دلار 2015 آمریکا کار خواهیم کرد.
@@ -358,7 +358,7 @@ plt.show()
 
 همچنین می‌توانیم یک سطح از `MultiIndex` (در محور ستون) را برای تجمیع بر روی آن مشخص کنیم.
 
-در مورد `groupby` ما نیاز داریم از `.T` برای transpose کردن ستون‌ها به ردیف‌ها استفاده کنیم زیرا `pandas` استفاده از `axis=1` را در متد `groupby` منسوخ کرده است.
+در مورد `groupby`، ما نیاز داریم از `.T` برای transpose کردن ستون‌ها به ردیف‌ها استفاده کنیم، زیرا `pandas` پشتیبانی از `axis=1` را در متد `groupby` حذف کرده است.
 
 ```{code-cell} ipython3
 merged.T.groupby(level='Continent').mean().head()
@@ -388,7 +388,7 @@ plt.show()
 `.describe()` برای بازیابی سریع تعدادی از آمار خلاصه رایج مفید است
 
 ```{code-cell} ipython3
-merged.stack(future_stack=True).describe()
+merged.stack().describe()
 ```
 
 این یک روش ساده شده برای استفاده از `groupby` است.
