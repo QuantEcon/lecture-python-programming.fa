@@ -7,9 +7,34 @@ on:
   pull_request:
     types: [opened, synchronize, labeled, reopened]
 
+# Serialise reviews per PR.
+#
+# The sync action creates the PR and then applies its labels in a separate call,
+# so a single sync fires `opened` plus one `labeled` event per label, all within
+# a couple of seconds. Every one of those starts a full review, and the action's
+# "update the existing comment, else create one" logic is a check-then-act with
+# no lock — concurrent runs all observe "no comment yet" and each create one.
+# See QuantEcon/lecture-python-programming.fr#6, which collected two review
+# comments this way, and QuantEcon/action-translation#96 for the upstream bug.
+#
+# cancel-in-progress is deliberately false. The labels are applied in one API
+# call, so event ordering is not guaranteed; if 'automated' arrived last it would
+# cancel the in-flight review for 'action-translation' and then skip its own job
+# via the filter below, leaving no review at all. Queuing instead means the first
+# run creates the comment and any later run updates it — one comment, always.
+concurrency:
+  group: review-translations-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
 jobs:
   review:
-    if: contains(github.event.pull_request.labels.*.name, 'action-translation')
+    # Require the 'action-translation' label, and — for `labeled` events — ignore
+    # labels other than that one. Without the second clause the 'automated' label
+    # fires a second, redundant review of the identical diff.
+    if: >-
+      contains(github.event.pull_request.labels.*.name, 'action-translation') &&
+      (github.event.action != 'labeled' ||
+       github.event.label.name == 'action-translation')
     runs-on: ubuntu-latest
 
     steps:
