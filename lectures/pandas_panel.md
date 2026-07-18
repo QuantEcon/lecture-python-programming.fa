@@ -81,7 +81,7 @@ sns.set_theme()
 مجموعه داده با لینک زیر قابل دسترسی است:
 
 ```{code-cell} ipython3
-url1 = 'https://raw.githubusercontent.com/QuantEcon/lecture-python/master/source/_static/lecture_specific/pandas_panel/realwage.csv'
+url1 = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/realwage.csv'
 ```
 
 ```{code-cell} ipython3
@@ -183,7 +183,7 @@ realwage_f.head()
 مجموعه داده با لینک زیر قابل دسترسی است:
 
 ```{code-cell} ipython3
-url2 = 'https://raw.githubusercontent.com/QuantEcon/lecture-python/master/source/_static/lecture_specific/pandas_panel/countries.csv'
+url2 = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/countries.csv'
 ```
 
 ```{code-cell} ipython3
@@ -451,7 +451,7 @@ plt.show()
 مجموعه داده با لینک زیر قابل دسترسی است:
 
 ```{code-cell} ipython3
-url3 = 'https://raw.githubusercontent.com/QuantEcon/lecture-python/master/source/_static/lecture_specific/pandas_panel/employ.csv'
+url3 = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/employ.csv'
 ```
 
 خواندن فایل CSV یک مجموعه داده پانلی در فرمت طولانی را برمی‌گرداند. از `.pivot_table()` برای ساخت یک dataframe با فرمت عریض با یک `MultiIndex` در ستون‌ها استفاده کنید.
