@@ -1,48 +1,50 @@
 # Review Translations — Quality check on translation PRs
 # When a PR is opened/updated that carries the 'action-translation' label,
 # this workflow runs a quality review and posts a comment.
+#
+# Mirrors the upstream template in action-translation
+# docs/user/tutorials/connect-existing.md — keep it in step with that.
 name: Review Translations
 
 on:
   pull_request:
     types: [opened, synchronize, labeled, reopened]
 
-# Serialise reviews per PR.
-#
-# The sync action creates the PR and then applies its labels in a separate call,
-# so a single sync fires `opened` plus one `labeled` event per label, all within
-# a couple of seconds. Every one of those starts a full review, and the action's
-# "update the existing comment, else create one" logic is a check-then-act with
-# no lock — concurrent runs all observe "no comment yet" and each create one.
-# See QuantEcon/lecture-python-programming.fr#6, which collected two review
-# comments this way, and QuantEcon/action-translation#96 for the upstream bug.
-#
-# cancel-in-progress is deliberately false. The labels are applied in one API
-# call, so event ordering is not guaranteed; if 'automated' arrived last it would
-# cancel the in-flight review for 'action-translation' and then skip its own job
-# via the filter below, leaving no review at all. Queuing instead means the first
-# run creates the comment and any later run updates it — one comment, always.
-concurrency:
-  group: review-translations-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
-
 jobs:
   review:
-    # Require the 'action-translation' label, and — for `labeled` events — ignore
-    # labels other than that one. Without the second clause the 'automated' label
-    # fires a second, redundant review of the identical diff.
-    if: >-
+    # Ignore `labeled` events for every other label: a sync adds its labels in a single
+    # addLabels call, but GitHub emits one `labeled` event per label, and each would
+    # otherwise start a full (billed) review of the same diff.
+    if: >
       contains(github.event.pull_request.labels.*.name, 'action-translation') &&
-      (github.event.action != 'labeled' ||
-       github.event.label.name == 'action-translation')
+      (github.event.action != 'labeled' || github.event.label.name == 'action-translation')
     runs-on: ubuntu-latest
+
+    # v0.17.0's review dedupe deletes superseded comments, which needs pull-requests: write.
+    permissions:
+      contents: read
+      pull-requests: write
+
+    # One review per PR — supersede an in-flight review instead of running both.
+    # Job-level (not workflow-level) on purpose: the group is entered only after the `if`
+    # above has passed, so a `labeled` event for 'automated' skips out without cancelling
+    # the real review. At workflow level it would cancel first and skip second, leaving none.
+    #
+    # This supersedes the workflow-level `cancel-in-progress: false` previously used here,
+    # whose rationale — that an 'automated' label event would cancel the real review and
+    # then skip its own job, leaving none — was reasoned from the docs and never tested.
+    # Production disproved it: across ~15 live opportunities on lecture-intro.zh-cn the
+    # 'automated' event skipped without cancelling and a review was posted every time.
+    concurrency:
+      group: review-translations-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
 
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 2
 
-      - uses: QuantEcon/action-translation@v0.16.1
+      - uses: QuantEcon/action-translation@v0
         with:
           mode: review
           source-repo: QuantEcon/lecture-python-programming
