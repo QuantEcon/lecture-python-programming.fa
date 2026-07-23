@@ -9,6 +9,25 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+translation:
+  title: ماجراهایی با مشتق‌گیری خودکار
+  headings:
+    Overview: مرور کلی
+    What is automatic differentiation?: مشتق‌گیری خودکار چیست؟
+    What is automatic differentiation?::Autodiff is not finite differences: مشتق‌گیری خودکار، تفاضل محدود نیست
+    What is automatic differentiation?::Autodiff is not symbolic calculus: مشتق‌گیری خودکار، حساب نمادین نیست
+    What is automatic differentiation?::Autodiff: مشتق‌گیری خودکار
+    Some experiments: برخی آزمایش‌ها
+    Some experiments::A differentiable function: یک تابع قابل مشتق‌گیری
+    Some experiments::Absolute value function: تابع قدر مطلق
+    Some experiments::Differentiating through control flow: مشتق‌گیری از طریق جریان کنترل
+    Some experiments::Differentiating through a linear interpolation: مشتق‌گیری از طریق درون‌یابی خطی
+    Gradient Descent: گرادیان کاهشی
+    Gradient Descent::A function for gradient descent: یک تابع برای گرادیان کاهشی
+    Gradient Descent::Simulated data: داده‌های شبیه‌سازی‌شده
+    Gradient Descent::Minimizing squared loss by gradient descent: کمینه‌سازی تابع زیان مربعات با گرادیان کاهشی
+    Gradient Descent::Adding a squared term: افزودن یک جمله مربعی
+    Exercises: تمرین‌ها
 ---
 
 # ماجراهایی با مشتق‌گیری خودکار
