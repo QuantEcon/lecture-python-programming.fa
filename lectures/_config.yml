@@ -8,7 +8,7 @@ execute:
   timeout: 600 # 10 minutes
 
 html:
-  baseurl: https://python-programming-fa.quantecon.org/
+  baseurl: https://quantecon.github.io/lecture-python-programming.fa/
 
 latex:
   latex_documents:
@@ -32,6 +32,20 @@ sphinx:
     html_theme: quantecon_book_theme
     html_static_path: ['_static']
     html_theme_options:
+      languages:
+        - code: en
+          name: English
+          url: https://python-programming.quantecon.org
+        - code: fa
+          name: فارسی
+          url: https://quantecon.github.io/lecture-python-programming.fa
+        - code: fr
+          name: Français
+          url: https://quantecon.github.io/lecture-python-programming.fr
+        - code: zh-cn
+          name: 中文
+          url: https://quantecon.github.io/lecture-python-programming.zh-cn
+      current_language: fa
       authors:
         - name: Thomas J. Sargent
           url: http://www.tomsargent.com/
@@ -41,7 +55,8 @@ sphinx:
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
       repository_url: https://github.com/QuantEcon/lecture-python-programming.fa
-      nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.fa.notebooks
+      # nb_repository_url omitted deliberately: no notebooks repo exists for this
+      # edition yet, and the theme skips notebook-launch links when it is unset
       path_to_docs: lectures
       twitter: quantecon
       twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
@@ -60,8 +75,8 @@ sphinx:
       index_toc.md: intro.md
     tojupyter_static_file_path: ["source/_static", "_static"]
     tojupyter_target_html: true
-    tojupyter_urlpath: "https://python-programming-fa.quantecon.org/"
-    tojupyter_image_urlpath: "https://python-programming-fa.quantecon.org/_static/"
+    tojupyter_urlpath: "https://quantecon.github.io/lecture-python-programming.fa/"
+    tojupyter_image_urlpath: "https://quantecon.github.io/lecture-python-programming.fa/_static/"
     tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
     tojupyter_kernels:
       python3:
