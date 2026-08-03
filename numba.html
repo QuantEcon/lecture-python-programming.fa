@@ -126,7 +126,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'numba';</script>
-    <link rel="canonical" href="https://python-programming-fa.quantecon.org/numba.html" />
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/numba.html" />
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -149,13 +149,24 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="Numba" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python-programming-fa.quantecon.org/numba.html" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/numba.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
 
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/numba.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/numba.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/numba.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/numba.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/numba.html" />
 
 
   </head>
@@ -278,7 +289,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jun 19, 2026
+                            Last changed: Aug 03, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -289,11 +300,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/58dc111" class="changelog-hash">58dc111</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 minutes ago</span>
-                                <span class="changelog-message">fix(about_py): correct PyTorch and LaTeX capitalization (#124)</span>
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
                             </li>
                             
                         </ul>
@@ -323,17 +334,17 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.2)
-Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.62.1)
-Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.3.5)
-Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.32.5)
-Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.16.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: quantecon in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.11.4)
+Requirement already satisfied: numba&gt;=0.49.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (0.65.1)
+Requirement already satisfied: numpy&gt;=1.17.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.4.6)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (2.34.2)
+Requirement already satisfied: scipy&gt;=1.5.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.18.0)
 Requirement already satisfied: sympy in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from quantecon) (1.14.0)
-Requirement already satisfied: llvmlite&lt;0.46,&gt;=0.45.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.45.1)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.4.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.11)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.5.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2025.11.12)
+Requirement already satisfied: llvmlite&lt;0.48,&gt;=0.47.0dev0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from numba&gt;=0.49.0-&gt;quantecon) (0.47.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.4.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (3.18)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2.7.0)
+Requirement already satisfied: certifi&gt;=2023.5.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;quantecon) (2026.6.17)
 Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from sympy-&gt;quantecon) (1.3.0)
 </pre></div>
 </div>
@@ -408,7 +419,7 @@ Numba کمتر بلندپروازانه است و تنها تلاش می‌کن�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7ee1041b5cfbccf2c054e0d597571f59456d08103b80b433cd2523aa05b6a94a.png" src="_images/7ee1041b5cfbccf2c054e0d597571f59456d08103b80b433cd2523aa05b6a94a.png" />
+<img alt="_images/c1d99c1852aae5d3fa619da76115ab73be1dc225844440a78361d2e1b017c8db.png" src="_images/c1d99c1852aae5d3fa619da76115ab73be1dc225844440a78361d2e1b017c8db.png" />
 </div>
 </div>
 <p>بیایید ببینیم برای <span class="math notranslate nohighlight">\(n\)</span> بزرگ، اجرای این کد چقدر زمان می‌برد:</p>
@@ -423,7 +434,7 @@ Numba کمتر بلندپروازانه است و تنها تلاش می‌کن�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.8314 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.6724 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -459,7 +470,7 @@ Numba کمتر بلندپروازانه است و تنها تلاش می‌کن�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1105 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1359 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -475,7 +486,7 @@ Numba کمتر بلندپروازانه است و تنها تلاش می‌کن�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0203 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0241 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -488,7 +499,7 @@ Numba کمتر بلندپروازانه است و تنها تلاش می‌کن�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139.1538028895164
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>152.21668708988852
 </pre></div>
 </div>
 </div>
@@ -560,9 +571,9 @@ Numba کمتر بلندپروازانه است و تنها تلاش می‌کن�
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed in nopython mode pipeline (step: nopython frontend)
 <span class=" -Color -Color-Bold">non-precise type pyobject</span>
-<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2646/946716698.py (1)</span>
+<span class=" -Color -Color-Bold">During: typing of argument at /tmp/ipykernel_2909/946716698.py (1)</span>
 
-<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2646/946716698.py&quot;, line 1:</span>
+<span class=" -Color -Color-Bold">File &quot;../../../../../../tmp/ipykernel_2909/946716698.py&quot;, line 1:</span>
 <span class=" -Color -Color-Bold">&lt;source missing, REPL/exec in use?&gt;</span>
 
 <span class=" -Color -Color-Bold">During: Pass nopython_type_inference</span> 
@@ -685,7 +696,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c205e0229042f7245bb2c4b73a99c599fd597abc5f61c3f50d9f0228183e49de.png" src="_images/c205e0229042f7245bb2c4b73a99c599fd597abc5f61c3f50d9f0228183e49de.png" />
+<img alt="_images/a9f0a56492edf7e4574d5f7cb6242fbe6dc6ff9de340e69453dfd46e3cb8bcf2.png" src="_images/a9f0a56492edf7e4574d5f7cb6242fbe6dc6ff9de340e69453dfd46e3cb8bcf2.png" />
 </div>
 </div>
 <p>حالا فرض کنیم که جمعیت زیادی از خانوارها داریم و می‌خواهیم بدانیم میانه ثروت چه خواهد بود.</p>
@@ -724,7 +735,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.2362 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.6608 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -738,7 +749,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5652 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.7112 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -774,7 +785,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1227 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3017 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -788,7 +799,7 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7608 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9658 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -799,6 +810,18 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 </section>
 <section id="id11">
 <h2><span class="section-number">13.5. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#speed_ex1"><span class="std std-numref">Exercise 13.1</span></a> و <a class="reference internal" href="#numba_ex3"><span class="std std-numref">Exercise 13.3</span></a> هر دو <span class="math notranslate nohighlight">\(\pi\)</span> را با Monte Carlo از نمونه‌های تصادفی در مربع واحد تخمین می‌زنند.</p>
+<p>ما آن‌ها را اینجا تولید می‌کنیم و در <code class="docutils literal notranslate"><span class="pre">u_draws</span></code> و <code class="docutils literal notranslate"><span class="pre">v_draws</span></code> ذخیره می‌کنیم تا بتوانیم در هر دو تمرین از آن‌ها استفاده کرده و نتایج را مقایسه کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">u_draws</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">v_draws</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="speed_ex1">
 
 <p class="admonition-title"><span class="caption-number">Exercise 13.1 </span></p>
@@ -816,10 +839,11 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_draws</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">u_draws</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">v_draws</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -834,12 +858,12 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">calculate_pi</span><span class="p">()</span>
+    <span class="n">calculate_pi</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1155 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1249 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -847,18 +871,84 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">calculate_pi</span><span class="p">()</span>
+    <span class="n">calculate_pi</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0187 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0008 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
-<p>اگر کامپایل JIT را با حذف <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> خاموش کنیم، کد حدود 150 برابر بیشتر در دستگاه ما طول می‌کشد.</p>
-<p>بنابراین با افزودن چهار کاراکتر، افزایش سرعت 2 مرتبه بزرگی به دست می‌آوریم.</p>
+<p>اگر کامپایل JIT را با حذف <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code> خاموش کنیم، کد به طور قابل توجهی بیشتر در دستگاه ما طول می‌کشد.</p>
+<p>بنابراین با افزودن چهار کاراکتر، افزایش سرعت بزرگی به دست می‌آوریم.</p>
+<p>راه‌حل بالا یکی از دو رویکرد طبیعی را در پیش می‌گیرد: ابتدا <em>همه نقاط تصادفی را می‌کشد</em>، آن‌ها را در <code class="docutils literal notranslate"><span class="pre">u_draws</span></code> و <code class="docutils literal notranslate"><span class="pre">v_draws</span></code> ذخیره می‌کند و سپس اجازه می‌دهد تابع jit شده روی آن‌ها حلقه بزند.</p>
+<p>رویکرد دیگر <em>کشیدن هر نقطه درون حلقه</em> است.</p>
+<p>برای انجام این کار با یک <code class="docutils literal notranslate"><span class="pre">Generator</span></code> NumPy، ما <code class="docutils literal notranslate"><span class="pre">rng</span></code> را به عنوان آرگومان عبور می‌دهیم و <code class="docutils literal notranslate"><span class="pre">rng.uniform()</span></code> را درون بدنه حلقه فراخوانی می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi_in_loop</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(),</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">calculate_pi_in_loop</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1614 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">calculate_pi_in_loop</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0075 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>دو سلولی که رویکرد اول را زمان‌بندی می‌کنند فقط حلقه را اندازه‌گیری می‌کنند — نقاط تصادفی آن یک‌بار در بلوک راه‌اندازی مشترک بالا کشیده شده‌اند و هرگز زمان‌بندی نمی‌شوند، در حالی که رویکرد دوم هزینه کشیدن نقاط را درون تابع زمان‌بندی‌شده می‌پردازد.</p>
+<p>برای مقایسه منصفانه این دو رویکرد، ما رویکرد اول را از ابتدا تا انتها زمان‌بندی می‌کنیم، از جمله هزینه تولید آرایه‌ها:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">u2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">calculate_pi</span><span class="p">(</span><span class="n">u2</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0113 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>در این تنظیم سریال، دو رویکرد تخمین‌های به همان اندازه خوب می‌دهند و با سرعت مشابه اجرا می‌شوند، اما در <em>مصرف حافظه</em> معادل نیستند.</p>
+<p>رویکرد اول باید همه <span class="math notranslate nohighlight">\(2n\)</span> کشیدن را یک‌جا در حافظه نگه دارد — دو آرایه از <code class="docutils literal notranslate"><span class="pre">n</span></code> عدد اعشاری، یا حدود <code class="docutils literal notranslate"><span class="pre">16n</span></code> بایت (حدود <span class="math notranslate nohighlight">\(1.6\)</span> گیگابایت وقتی <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">100_000_000</span></code>).</p>
+<p>رویکرد دوم هر نقطه را در لحظه می‌کشد و آن را دور می‌ریزد، بنابراین ردپای حافظه‌اش با <code class="docutils literal notranslate"><span class="pre">n</span></code> رشد نمی‌کند.</p>
+<p>این ممکن است پیشنهاد کند که کشیدن درون حلقه پیش‌فرض بهتری است.</p>
+<p>اما همان‌طور که در <a class="reference internal" href="#numba_ex_race"><span class="std std-numref">Exercise 13.4</span></a> خواهیم دید، کشیدن درون حلقه با موازی‌سازی به بدی تعامل دارد.</p>
 </section>
 </div>
 <div class="exercise admonition" id="speed_ex2">
@@ -909,10 +999,13 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p>در اینجا نسخه Python خالص تابع است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">U</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># در حالت 1 شروع کن</span>
-    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="n">current_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">current_x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -927,14 +1020,13 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p>بیایید این کد را اجرا کنیم و بررسی کنیم که کسری از زمان صرف شده در حالت پایین حدود 0.666 است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># کسری از زمان که x در حالت 0 است</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666822
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666436
 </pre></div>
 </div>
 </div>
@@ -944,12 +1036,12 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">compute_series</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3338 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4346 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -965,13 +1057,13 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <p>بیایید بررسی کنیم که هنوز اعداد صحیح دریافت می‌کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.665951
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.666436
 </pre></div>
 </div>
 </div>
@@ -980,12 +1072,12 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">compute_series_numba</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0109 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0030 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1014,10 +1106,11 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi_parallel</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_draws</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">u_draws</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">v_draws</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1032,12 +1125,12 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">calculate_pi</span><span class="p">()</span>
+    <span class="n">calculate_pi_parallel</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3166 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3483 seconds elapsed
 </pre></div>
 </div>
 </div>
@@ -1045,24 +1138,207 @@ w_{t+1} = R_{t+1} s w_t + y_{t+1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
-    <span class="n">calculate_pi</span><span class="p">()</span>
+    <span class="n">calculate_pi_parallel</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0036 seconds elapsed
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0005 seconds elapsed
 </pre></div>
 </div>
 </div>
 </div>
 <p>با روشن و خاموش کردن موازی‌سازی (انتخاب <code class="docutils literal notranslate"><span class="pre">True</span></code> یا <code class="docutils literal notranslate"><span class="pre">False</span></code> در annotation <code class="docutils literal notranslate"><span class="pre">&#64;jit</span></code>)، می‌توانیم افزایش سرعتی که چندنخی علاوه بر کامپایل JIT فراهم می‌کند را آزمایش کنیم.</p>
-<p>در ایستگاه کاری ما، می‌بینیم که موازی‌سازی سرعت اجرا را با ضریب 2 یا 3 افزایش می‌دهد.</p>
-<p>(اگر به صورت محلی اجرا می‌کنید، اعداد متفاوتی خواهید گرفت که عمدتاً به تعداد CPUها در دستگاه شما بستگی دارد.)</p>
+<p>در ایستگاه کاری ما، می‌بینیم که موازی‌سازی در اینجا افزایش سرعت متوسط اما ارزشمندی فراهم می‌کند.</p>
+<p>(اگر به صورت محلی اجرا می‌کنید، نتایج متفاوتی خواهید گرفت که عمدتاً به تعداد CPUها در دستگاه شما بستگی دارد.)</p>
+<p>توجه کنید که ما همه نقاط تصادفی را <em>قبل از</em> حلقه کشیدیم و آن‌ها را به صورت آرایه عبور دادیم، بنابراین حلقه موازی فقط از حافظه <em>می‌خواند</em>.</p>
+<p>کشیدن نقاط <em>درون</em> حلقه موازی به جای این کار به طرز شگفت‌انگیزی حساس است.</p>
+<p>ما بررسی می‌کنیم چرا این‌طور است، و چگونه می‌توان آن را با ایمنی انجام داد، در <a class="reference internal" href="#numba_ex_race"><span class="std std-numref">Exercise 13.4</span></a>.</p>
+</section>
+</div>
+<div class="exercise admonition" id="numba_ex_race">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13.4 </span></p>
+<section id="exercise-content">
+<p>در <a class="reference internal" href="#numba_ex3"><span class="std std-numref">Exercise 13.3</span></a> ما همه نقاط تصادفی را <em>قبل از</em> حلقه موازی کشیدیم.</p>
+<p>وسوسه‌انگیز است که به جای آن هر نقطه را <em>درون</em> حلقه <code class="docutils literal notranslate"><span class="pre">prange</span></code> بکشیم، با عبور دادن یک <code class="docutils literal notranslate"><span class="pre">rng</span></code> تولیدکننده به عنوان آرگومان و فراخوانی <code class="docutils literal notranslate"><span class="pre">rng.uniform()</span></code> در بدنه حلقه.</p>
+<p>آن را امتحان کنید: کد باید اجرا شود و عددی نزدیک به <span class="math notranslate nohighlight">\(\pi\)</span> برگرداند، با این حال یک اشکال ظریف در این رویکرد وجود دارد.</p>
+<p>به این صورت بررسی کنید:</p>
+<ol class="arabic simple">
+<li><p>تابع خود را چند بار با <em>همان</em> seed فراخوانی کنید و بررسی کنید آیا نتیجه تکرارپذیر است.</p></li>
+<li><p>تخمین را بارها در طیفی از اندازه‌های نمونه تکرار کنید و پراکندگی آن را با یک نسخه موازی درست مقایسه کنید.</p></li>
+</ol>
+<p>سپس توضیح دهید چه چیزی اشتباه پیش می‌رود و راهی درست برای کشیدن درون یک حلقه موازی ارائه دهید.</p>
+<p>راهنمایی: سعی کنید از یک تابع تصادفی قدیمی مانند <code class="docutils literal notranslate"><span class="pre">np.random.uniform()</span></code> به جای یک <code class="docutils literal notranslate"><span class="pre">Generator</span></code> استفاده کنید و ببینید چه اتفاقی می‌افتد.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="numba-solution-7">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#numba_ex_race"> Exercise 13.4</a></p>
+<section id="solution-content">
+<p>در اینجا نسخه وسوسه‌انگیز است.</p>
+<p>ما <code class="docutils literal notranslate"><span class="pre">rng</span></code> را به عنوان آرگومان عبور می‌دهیم و آن را درون حلقه <code class="docutils literal notranslate"><span class="pre">prange</span></code> فراخوانی می‌کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="nd">@jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi_in_loop_parallel</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(),</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+
+<span class="n">calculate_pi_in_loop_parallel</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.139696
+</pre></div>
+</div>
+</div>
+</div>
+<p>کد بدون خطا اجرا می‌شود و چیزی نزدیک به <span class="math notranslate nohighlight">\(\pi\)</span> برمی‌گرداند.</p>
+<p>اما چیزی به طور خاموش با نتایج اشتباه است.</p>
+<p>در اینجا، هر نخ از <em>همان</em> تولیدکننده <code class="docutils literal notranslate"><span class="pre">rng</span></code> می‌کشد.</p>
+<p>یک تولیدکننده هر عدد را با به‌روزرسانی یک حالت داخلی تولید می‌کند.</p>
+<p>تحت <code class="docutils literal notranslate"><span class="pre">prange</span></code>، بسیاری از نخ‌ها آن یک حالت مشترک را به طور همزمان می‌خوانند و به‌روز می‌کنند، بدون هیچ هماهنگی بین آن‌ها.</p>
+<p>این یک <a class="reference external" href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html"><strong>رقابت داده (data race)</strong></a> است.</p>
+<p>این همبستگی‌هایی بین کشیدن‌ها ایجاد می‌کند و حتی می‌تواند باعث شود برخی کشیدن‌ها به طور غیرقابل‌پیش‌بینی تکرار شوند.</p>
+<p>دو نشانه این مشکل را آشکار می‌کند.</p>
+<p><em>نشانه ۱: نتیجه دیگر تکرارپذیر نیست.</em></p>
+<p>یک تولیدکننده درست هر بار که همان seed به آن داده شود، همان پاسخ را برمی‌گرداند.</p>
+<p>به دلیل رقابت داده، ترتیبی که نخ‌ها به طور اتفاقی به حالت مشترک دست می‌زنند بر جریان کشیدن‌ها تأثیر می‌گذارد، بنابراین پاسخ حتی وقتی seed ثابت است تکرارپذیر نیست.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">calculate_pi_in_loop_parallel</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">),</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141052
+3.141844
+3.141896
+</pre></div>
+</div>
+</div>
+</div>
+<p>هر فراخوانی از همان seed استفاده می‌کند، با این حال پاسخ‌ها متفاوت هستند.</p>
+<p><em>نشانه ۲: تخمین‌گر بسیار پر نویزتر از آن است که باید باشد.</em></p>
+<p>کشیدن‌های تکراری و همبسته اطلاعات کمتری نسبت به <span class="math notranslate nohighlight">\(n\)</span> کشیدن مستقل حمل می‌کنند، بنابراین اندازه نمونه <em>مؤثر</em> بسیار کوچک‌تر از <span class="math notranslate nohighlight">\(n\)</span> است.</p>
+<p>راه‌حل این است که به هر نخ حالت تصادفی خاص خودش را بدهیم، کاری که توابع قدیمی NumPy مانند <code class="docutils literal notranslate"><span class="pre">np.random.uniform()</span></code> به طور خودکار تحت Numba انجام می‌دهند.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@jit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_pi_legacy</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">u</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>برای دیدن هزینه این رقابت، هر تخمین را بارها تکرار می‌کنیم و پراکندگی آن را در برابر نسخه درست با افزایش اندازه نمونه رسم می‌کنیم.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">num_reps</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">methods</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;حالت مخصوص هر نخ (درست)&quot;</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">calculate_pi_legacy</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="s1">&#39;C0&#39;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s2">&quot;تولیدکننده مشترک در prange (رقابت داده)&quot;</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">calculate_pi_in_loop_parallel</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(),</span> <span class="n">n</span><span class="p">),</span> <span class="s1">&#39;C1&#39;</span><span class="p">)]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">methods</span><span class="p">:</span>
+    <span class="n">draws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">estimate</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_reps</span><span class="p">)]</span>
+                      <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">sample_sizes</span><span class="p">])</span>
+    <span class="n">means</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">draws</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">draws</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">,</span> <span class="n">means</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">stds</span><span class="p">,</span> <span class="n">means</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">stds</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\pi$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;تعداد نمونه‌ها&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;تخمین $\pi$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/683fd06e81659a5b99a3beaa7886d3e3d2a688a162accb3d2c7826113eb01b2b.png" src="_images/683fd06e81659a5b99a3beaa7886d3e3d2a688a162accb3d2c7826113eb01b2b.png" />
+</div>
+</div>
+<p>هر دو نوار حول <span class="math notranslate nohighlight">\(\pi\)</span> متمرکز هستند، اما نوار مرتبط با رقابت داده پهن‌تر از نوار دیگر است و به آرامی با افزایش اندازه نمونه باریک می‌شود.</p>
+<p>گزینه ایمن دیگر همان است که در <a class="reference internal" href="#numba_ex3"><span class="std std-numref">Exercise 13.3</span></a> بود: نقاط را قبل از حلقه بکشید تا حلقه موازی فقط از حافظه بخواند.</p>
+</section>
+</div>
+<div class="exercise admonition" id="numba_ex_draw_speed">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13.5 </span></p>
+<section id="exercise-content">
+<p>اکنون دو راه درست برای تخمین <span class="math notranslate nohighlight">\(\pi\)</span> به صورت موازی داریم.</p>
+<p>یکی همه نقاط را <em>قبل از</em> حلقه می‌کشد، مانند <a class="reference internal" href="#numba_ex3"><span class="std std-numref">Exercise 13.3</span></a>.</p>
+<p>دیگری آن‌ها را <em>درون</em> حلقه با توابع قدیمی می‌کشد، مانند <a class="reference internal" href="#numba_ex_race"><span class="std std-numref">Exercise 13.4</span></a>.</p>
+<p>سرعت آن‌ها را در <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">100_000_000</span></code> مقایسه کنید، از جمله زمان صرف‌شده برای تولید نقاط تصادفی.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="numba-solution-9">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#numba_ex_draw_speed"> Exercise 13.5</a></p>
+<section id="solution-content">
+<p>ما هر رویکرد را از ابتدا تا انتها زمان‌بندی می‌کنیم، بنابراین نسخه پیش‌کشیدن هزینه ساخت آرایه‌های خود را می‌پردازد.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">u_draws</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">v_draws</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">calculate_pi_parallel</span><span class="p">(</span><span class="n">u_draws</span><span class="p">,</span> <span class="n">v_draws</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8794 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">qe</span><span class="o">.</span><span class="n">Timer</span><span class="p">():</span>
+    <span class="n">calculate_pi_legacy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4979 seconds elapsed
+</pre></div>
+</div>
+</div>
+</div>
+<p>کشیدن درون حلقه بسیار سریع‌تر است.</p>
+<p>نسخه پیش‌کشیدن دو آرایه خود را روی یک نخ واحد قبل از شروع حلقه تولید می‌کند.</p>
+<p>نسخه درون حلقه در عوض تولید اعداد تصادفی را در همه نخ‌ها پخش می‌کند.</p>
+<p>همچنین از تخصیص دو آرایه از <code class="docutils literal notranslate"><span class="pre">n</span></code> عدد اجتناب می‌کند، بنابراین هم زمان و هم حافظه صرفه‌جویی می‌کند.</p>
 </section>
 </div>
 <div class="exercise admonition" id="numba_ex4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 13.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 13.6 </span></p>
 <section id="exercise-content">
 <p>در <a class="reference internal" href="scipy.html"><span class="doc">درس ما درباره SciPy</span></a>، قیمت‌گذاری یک اختیار خرید را در تنظیمی که قیمت سهام پایه یک توزیع ساده و شناخته شده داشت بحث کردیم.</p>
 <p>در اینجا یک تنظیم واقعی‌تر را بحث می‌کنیم.</p>
@@ -1106,9 +1382,9 @@ P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
 <p>از قیمت، با اعمال Numba و موازی‌سازی.</p>
 </section>
 </div>
-<div class="solution dropdown admonition" id="numba-solution-7">
+<div class="solution dropdown admonition" id="numba-solution-11">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#numba_ex4"> Exercise 13.4</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#numba_ex4"> Exercise 13.6</a></p>
 <section id="solution-content">
 <p>با <span class="math notranslate nohighlight">\(s_t := \ln S_t\)</span>، پویایی قیمت به شکل زیر می‌شود</p>
 <div class="math notranslate nohighlight">
@@ -1116,6 +1392,14 @@ P = \beta^n \mathbb E \max\{ S_n - K, 0 \}
 s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 \]</div>
 <p>با استفاده از این واقعیت، راه‌حل را می‌توان به شرح زیر نوشت.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>در اینجا ما کشیدن‌های تصادفی را درون حلقه داخلی نگه می‌داریم و از API قدیمی
+<code class="docutils literal notranslate"><span class="pre">np.random.randn()</span></code> به جای یک <code class="docutils literal notranslate"><span class="pre">Generator</span></code> استفاده می‌کنیم.</p>
+<p>این به این دلیل است که پشتیبانی Numba از اشیاء <code class="docutils literal notranslate"><span class="pre">Generator</span></code> تحت اجرای موازی
+(<code class="docutils literal notranslate"><span class="pre">&#64;jit(parallel=True)</span></code>) <a class="reference external" href="https://numba.readthedocs.io/en/stable/reference/numpysupported.html#generator-objects">ایمن در برابر نخ (thread-safe)</a> نیست.</p>
+<p>پیش‌کشیدن شوک‌ها در آرایه‌هایی با شکل <code class="docutils literal notranslate"><span class="pre">(M,</span> <span class="pre">n)</span></code> از این مشکل اجتناب می‌کند اما در اینجا غیرعملی است، زیرا <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">10_000_000</span></code> به چندین گیگابایت حافظه نیاز خواهد داشت.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">10_000_000</span>
@@ -1325,6 +1609,11 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
    18. Pandas برای داده‌های پانلی
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polars.html">
+   19. Polars
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1334,27 +1623,27 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. نوشتن کد خوب
+   20. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   20. نوشتن برنامه‌های طولانی‌تر
+   21. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. ویژگی‌های بیشتر زبان
+   22. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. اشکال‌زدایی و مدیریت خطاها
+   23. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   23. SymPy
+   24. SymPy
   </a>
  </li>
 </ul>
@@ -1366,12 +1655,12 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   24. عیب‌یابی
+   25. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   25. آمار اجرا
+   26. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1407,7 +1696,6 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
@@ -1415,6 +1703,49 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
                     
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/numba.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/numba.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/numba.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/numba.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
                     
                 </ul>
 
@@ -1444,18 +1775,16 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/numba.ipynb">Colab</option>
-                
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/numba.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/numba.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -1486,9 +1815,9 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
                 const launcherPublic = document.getElementById('launcher-public-input');
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "numba";
-                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
-                const urlPath = "tree/lecture-python-programming.fa.notebooks/numba.ipynb";
-                const branch = "main"
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 
                 // Highlight public server option if previous selection exists

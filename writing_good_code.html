@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. نوشتن کد خوب &#8212; Python Programming for Economics and Finance</title>
+    <title>20. نوشتن کد خوب &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -126,12 +126,12 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'writing_good_code';</script>
-    <link rel="canonical" href="https://python-programming-fa.quantecon.org/writing_good_code.html" />
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/writing_good_code.html" />
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="20. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
-    <link rel="prev" title="18. Pandas برای داده‌های پانلی" href="pandas_panel.html" />
+    <link rel="next" title="21. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
+    <link rel="prev" title="19. Polars" href="polars.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -149,13 +149,24 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="نوشتن کد خوب" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python-programming-fa.quantecon.org/writing_good_code.html" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/writing_good_code.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
 
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/writing_good_code.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/writing_good_code.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/writing_good_code.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/writing_good_code.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/writing_good_code.html" />
 
 
   </head>
@@ -206,23 +217,23 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">19.1. مرور کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">19.2. نمونه‌ای از کد ضعیف</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.3. شیوه‌های کدنویسی خوب</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.3.1. از اعداد جادویی استفاده نکنید</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.3.2. خودتان را تکرار نکنید</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">19.3.3. متغیرهای سراسری را به حداقل برسانید</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">19.3.3.1. کامپایل JIT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.1. مرور کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">20.2. نمونه‌ای از کد ضعیف</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">20.3. شیوه‌های کدنویسی خوب</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">20.3.1. از اعداد جادویی استفاده نکنید</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">20.3.2. خودتان را تکرار نکنید</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">20.3.3. متغیرهای سراسری را به حداقل برسانید</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jit">20.3.3.1. کامپایل JIT</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">19.3.4. از توابع یا کلاس‌ها استفاده کنید</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">19.3.4.1. کدام یک، توابع یا کلاس‌ها؟</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">20.3.4. از توابع یا کلاس‌ها استفاده کنید</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">20.3.4.1. کدام یک، توابع یا کلاس‌ها؟</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">19.4. بازبینی مثال</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">20.4. بازبینی مثال</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">20.5. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -278,7 +289,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jun 19, 2026
+                            Last changed: Aug 03, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -289,11 +300,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/58dc111" class="changelog-hash">58dc111</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 minutes ago</span>
-                                <span class="changelog-message">fix(about_py): correct PyTorch and LaTeX capitalization (#124)</span>
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
                             </li>
                             
                         </ul>
@@ -309,12 +320,12 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">19. </span>نوشتن کد خوب<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>نوشتن کد خوب<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph" id="index-0">
 <div><p>“هر احمقی می‌تواند کدی بنویسد که کامپیوتر بتواند درک کند. برنامه‌نویسان خوب کدی می‌نویسند که انسان‌ها بتوانند درک کنند.” – مارتین فاولر</p>
 </div></blockquote>
 <section id="id2">
-<h2><span class="section-number">19.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>مرور کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>وقتی برنامه‌های کامپیوتری کوچک هستند، کد بد نوشته شده خیلی پرهزینه نیست.</p>
 <p>اما داده‌های بیشتر، مدل‌های پیچیده‌تر و قدرت محاسباتی بیشتر ما را قادر می‌سازد تا مسائل چالش‌برانگیزتری را که شامل نوشتن برنامه‌های طولانی‌تر هستند، در پیش بگیریم.</p>
 <p>برای چنین برنامه‌هایی، سرمایه‌گذاری در شیوه‌های کدنویسی خوب بازدهی بالایی خواهد داشت.</p>
@@ -323,11 +334,11 @@
 <p>همچنین به تحولات مدرن در محاسبات علمی — مانند کامپایل به موقع — و چگونگی تأثیر آنها بر طراحی خوب برنامه اشاره می‌کنیم.</p>
 </section>
 <section id="id3">
-<h2><span class="section-number">19.2. </span>نمونه‌ای از کد ضعیف<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>نمونه‌ای از کد ضعیف<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>بیایید نگاهی به کد بدی که نوشته شده است بیندازیم.</p>
 <p>کار این کد تولید و رسم سری‌های زمانی مدل ساده‌شده سولو است</p>
 <div class="math notranslate nohighlight" id="equation-gc-solmod">
-<span class="eqno">(19.1)<a class="headerlink" href="#equation-gc-solmod" title="Link to this equation">#</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
+<span class="eqno">(20.1)<a class="headerlink" href="#equation-gc-solmod" title="Link to this equation">#</a></span>\[k_{t+1} = s k_t^{\alpha} + (1 - \delta) k_t,
 \quad t = 0, 1, 2, \ldots\]</div>
 <p>در اینجا</p>
 <ul class="simple">
@@ -337,7 +348,7 @@
 <p>برای هر پارامتربندی، کد</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(k_0 = 1\)</span> را تنظیم می‌کند</p></li>
-<li><p>با استفاده از <a class="reference internal" href="#equation-gc-solmod">(19.1)</a> برای تولید دنباله <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span> تکرار می‌کند</p></li>
+<li><p>با استفاده از <a class="reference internal" href="#equation-gc-solmod">(20.1)</a> برای تولید دنباله <span class="math notranslate nohighlight">\(k_0, k_1, k_2 \ldots , k_T\)</span> تکرار می‌کند</p></li>
 <li><p>دنباله را رسم می‌کند</p></li>
 </ol>
 <p>نمودارها در سه زیرشکل گروه‌بندی خواهند شد.</p>
@@ -408,7 +419,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9e3d1d499f7a849ca0a5bc462dff61697c7f9b8aabafe9fef8a082895b931339.png" src="_images/9e3d1d499f7a849ca0a5bc462dff61697c7f9b8aabafe9fef8a082895b931339.png" />
+<img alt="_images/8c3f412577e78cfb72b393dfe006a150e83f05a00e6b42dc7b39c0e700ecfeff.png" src="_images/8c3f412577e78cfb72b393dfe006a150e83f05a00e6b42dc7b39c0e700ecfeff.png" />
 </div>
 </div>
 <p>درست است، این کد کم و بیش از <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8</a> پیروی می‌کند.</p>
@@ -416,7 +427,7 @@
 <p>بیایید در مورد اینکه چرا چنین است صحبت کنیم، و در مورد آنچه می‌توانیم انجام دهیم.</p>
 </section>
 <section id="id4">
-<h2><span class="section-number">19.3. </span>شیوه‌های کدنویسی خوب<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>شیوه‌های کدنویسی خوب<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>معمولاً راه‌های مختلفی برای نوشتن برنامه‌ای که یک وظیفه معین را انجام می‌دهد وجود دارد.</p>
 <p>برای برنامه‌های کوچک، مانند برنامه بالا، نحوه نوشتن کد چندان مهم نیست.</p>
 <p>اما اگر شما جاه‌طلب هستید و می‌خواهید چیزهای مفیدی تولید کنید، برنامه‌های متوسط تا بزرگ نیز خواهید نوشت.</p>
@@ -424,7 +435,7 @@
 <p>خوشبختانه، افراد باهوش زیادی در مورد بهترین راه برای نوشتن کد فکر کرده‌اند.</p>
 <p>در اینجا برخی از اصول اولیه آورده شده است.</p>
 <section id="id5">
-<h3><span class="section-number">19.3.1. </span>از اعداد جادویی استفاده نکنید<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.3.1. </span>از اعداد جادویی استفاده نکنید<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>اگر به کد بالا نگاه کنید، اعدادی مانند <code class="docutils literal notranslate"><span class="pre">50</span></code> و <code class="docutils literal notranslate"><span class="pre">49</span></code> و <code class="docutils literal notranslate"><span class="pre">3</span></code> را در سرتاسر کد پراکنده خواهید دید.</p>
 <p>این نوع مقادیر عددی در بدنه کد شما گاهی اوقات “اعداد جادویی” نامیده می‌شوند.</p>
 <p>این یک تعریف نیست.</p>
@@ -439,7 +450,7 @@
 </ul>
 </section>
 <section id="id6">
-<h3><span class="section-number">19.3.2. </span>خودتان را تکرار نکنید<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.3.2. </span>خودتان را تکرار نکنید<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>گناه کبیره دیگر در قطعه کد بالا تکرار است.</p>
 <p>بلوک‌های منطقی (مانند حلقه برای تولید سری زمانی) با تغییرات جزئی تکرار می‌شوند.</p>
 <p>این یک اصل بنیادی برنامه‌نویسی را نقض می‌کند: خودتان را تکرار نکنید (DRY).</p>
@@ -453,7 +464,7 @@
 <p>ما در مورد چگونگی اجتناب از تکرار در زیر صحبت خواهیم کرد.</p>
 </section>
 <section id="id7">
-<h3><span class="section-number">19.3.3. </span>متغیرهای سراسری را به حداقل برسانید<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.3.3. </span>متغیرهای سراسری را به حداقل برسانید<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>مطمئناً، متغیرهای سراسری (یعنی نام‌هایی که به مقادیر خارج از هر تابع یا کلاس اختصاص داده شده‌اند) راحت هستند.</p>
 <p>برنامه‌نویسان مبتدی معمولاً از متغیرهای سراسری بی‌پروا استفاده می‌کنند — همانطور که ما یک زمانی چنین می‌کردیم.</p>
 <p>اما متغیرهای سراسری خطرناک هستند، به خصوص در برنامه‌های متوسط تا بزرگ، زیرا</p>
@@ -466,7 +477,7 @@
 <p>در حالی که متغیر سراسری فردی در اسکریپت‌های کوچک مشکل بزرگی نیست، ما توصیه می‌کنیم که به خود یاد دهید از آنها اجتناب کنید.</p>
 <p>(ما در مورد چگونگی این کار در زیر بحث خواهیم کرد).</p>
 <section id="jit">
-<h4><span class="section-number">19.3.3.1. </span>کامپایل JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.3.3.1. </span>کامپایل JIT<a class="headerlink" href="#jit" title="Link to this heading">#</a></h4>
 <p>برای محاسبات علمی، دلیل خوب دیگری برای اجتناب از متغیرهای سراسری وجود دارد.</p>
 <p>همانطور که <a class="reference internal" href="numba.html"><span class="doc">در سخنرانی‌های قبلی دیدیم</span></a>، کامپایل JIT می‌تواند عملکرد عالی برای زبان‌های اسکریپتی مانند Python ایجاد کند.</p>
 <p>اما کار کامپایلری که برای کامپایل JIT استفاده می‌شود زمانی که متغیرهای سراسری وجود دارند سخت‌تر می‌شود.</p>
@@ -475,7 +486,7 @@
 </section>
 </section>
 <section id="id8">
-<h3><span class="section-number">19.3.4. </span>از توابع یا کلاس‌ها استفاده کنید<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.3.4. </span>از توابع یا کلاس‌ها استفاده کنید<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>خوشبختانه، ما به راحتی می‌توانیم از شرارت‌های متغیرهای سراسری و کد WET اجتناب کنیم.</p>
 <ul class="simple">
 <li><p>WET مخفف “we enjoy typing” است و مخالف DRY است.</p></li>
@@ -483,7 +494,7 @@
 <p>ما می‌توانیم این کار را با استفاده مکرر از توابع یا کلاس‌ها انجام دهیم.</p>
 <p>در واقع، توابع و کلاس‌ها به طور خاص برای کمک به ما برای جلوگیری از شرمساری خود با تکرار کد یا استفاده بیش از حد از متغیرهای سراسری طراحی شده‌اند.</p>
 <section id="id9">
-<h4><span class="section-number">19.3.4.1. </span>کدام یک، توابع یا کلاس‌ها؟<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.3.4.1. </span>کدام یک، توابع یا کلاس‌ها؟<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
 <p>هر دو می‌توانند مفید باشند، و در واقع آنها به خوبی با یکدیگر کار می‌کنند.</p>
 <p>ما با گذشت زمان بیشتر در مورد این موضوعات خواهیم آموخت.</p>
 <p>(ترجیح شخصی نیز بخشی از موضوع است)</p>
@@ -492,7 +503,7 @@
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">19.4. </span>بازبینی مثال<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>بازبینی مثال<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>در اینجا کدی است که نمودار بالا را با سبک کدنویسی بهتر بازتولید می‌کند.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,7 +542,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d3e6b170d666e8884d6144c2ed14a50e65f9eb9e90a4fd967b648206acb832a0.png" src="_images/d3e6b170d666e8884d6144c2ed14a50e65f9eb9e90a4fd967b648206acb832a0.png" />
+<img alt="_images/65b59e18b65c01a585672dd867e777e726e7f28304dbd77f17a0bc97d68f45b9.png" src="_images/65b59e18b65c01a585672dd867e777e726e7f28304dbd77f17a0bc97d68f45b9.png" />
 </div>
 </div>
 <p>اگر این کد را بررسی کنید، خواهید دید که</p>
@@ -543,10 +554,10 @@
 </ul>
 </section>
 <section id="id11">
-<h2><span class="section-number">19.5. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>تمرین‌ها<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="wgc-exercise-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 19.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 20.1 </span></p>
 <section id="exercise-content">
 <p>در اینجا کدی وجود دارد که نیاز به بهبود دارد.</p>
 <p>این شامل یک مسئله اساسی عرضه و تقاضا است.</p>
@@ -626,7 +637,7 @@ Equilibrium quantity is  0.34
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0c14267ce4a32fec295bddf8d81e8427a7b5dd822340effc1996e0f0e11975b5.png" src="_images/0c14267ce4a32fec295bddf8d81e8427a7b5dd822340effc1996e0f0e11975b5.png" />
+<img alt="_images/2b851c7c79d775ac1936e46014b95eb63564c277b247858e4d6591b4eeddb8c1.png" src="_images/2b851c7c79d775ac1936e46014b95eb63564c277b247858e4d6591b4eeddb8c1.png" />
 </div>
 </div>
 <p>ما همچنین می‌خواهیم تغییرات عرضه و تقاضا را در نظر بگیریم.</p>
@@ -674,7 +685,7 @@ Equilibrium quantity is  0.38
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a2e153851ea81f5e23928ec4cd4dbd1b558e9a9d9daf31ff0b10a92473eec25.png" src="_images/2a2e153851ea81f5e23928ec4cd4dbd1b558e9a9d9daf31ff0b10a92473eec25.png" />
+<img alt="_images/416862e419e0ed7413ef88a59fc281d29a2a3efb99b8f332659b9d4a7a6c62cc.png" src="_images/416862e419e0ed7413ef88a59fc281d29a2a3efb99b8f332659b9d4a7a6c62cc.png" />
 </div>
 </div>
 <p>اکنون ممکن است تغییرات عرضه را در نظر بگیریم، اما شما قبلاً ایده را دریافت کرده‌اید که
@@ -684,7 +695,7 @@ Equilibrium quantity is  0.38
 </div>
 <div class="solution dropdown admonition" id="writing_good_code-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 19.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#wgc-exercise-1"> Exercise 20.1</a></p>
 <section id="solution-content">
 <p>در اینجا یک راه‌حل است که از یک کلاس استفاده می‌کند:</p>
 <div class="cell docutils container">
@@ -755,7 +766,7 @@ Equilibrium quantity is  0.34
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0c14267ce4a32fec295bddf8d81e8427a7b5dd822340effc1996e0f0e11975b5.png" src="_images/0c14267ce4a32fec295bddf8d81e8427a7b5dd822340effc1996e0f0e11975b5.png" />
+<img alt="_images/2b851c7c79d775ac1936e46014b95eb63564c277b247858e4d6591b4eeddb8c1.png" src="_images/2b851c7c79d775ac1936e46014b95eb63564c277b247858e4d6591b4eeddb8c1.png" />
 </div>
 </div>
 <p>یکی از چیزهای خوب در مورد کد بازسازی شده ما این است که، وقتی ما
@@ -787,7 +798,7 @@ Equilibrium quantity is  0.38
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a2e153851ea81f5e23928ec4cd4dbd1b558e9a9d9daf31ff0b10a92473eec25.png" src="_images/2a2e153851ea81f5e23928ec4cd4dbd1b558e9a9d9daf31ff0b10a92473eec25.png" />
+<img alt="_images/416862e419e0ed7413ef88a59fc281d29a2a3efb99b8f332659b9d4a7a6c62cc.png" src="_images/416862e419e0ed7413ef88a59fc281d29a2a3efb99b8f332659b9d4a7a6c62cc.png" />
 </div>
 </div>
 </section>
@@ -963,6 +974,11 @@ Equilibrium quantity is  0.38
    18. Pandas برای داده‌های پانلی
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polars.html">
+   19. Polars
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -972,27 +988,27 @@ Equilibrium quantity is  0.38
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   19. نوشتن کد خوب
+   20. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   20. نوشتن برنامه‌های طولانی‌تر
+   21. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. ویژگی‌های بیشتر زبان
+   22. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. اشکال‌زدایی و مدیریت خطاها
+   23. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   23. SymPy
+   24. SymPy
   </a>
  </li>
 </ul>
@@ -1004,12 +1020,12 @@ Equilibrium quantity is  0.38
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   24. عیب‌یابی
+   25. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   25. آمار اجرا
+   26. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1045,7 +1061,6 @@ Equilibrium quantity is  0.38
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
@@ -1053,6 +1068,49 @@ Equilibrium quantity is  0.38
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
                     
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/writing_good_code.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/writing_good_code.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/writing_good_code.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/writing_good_code.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
                     
                 </ul>
 
@@ -1082,18 +1140,16 @@ Equilibrium quantity is  0.38
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/writing_good_code.ipynb">Colab</option>
-                
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/writing_good_code.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/writing_good_code.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -1124,9 +1180,9 @@ Equilibrium quantity is  0.38
                 const launcherPublic = document.getElementById('launcher-public-input');
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "writing_good_code";
-                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
-                const urlPath = "tree/lecture-python-programming.fa.notebooks/writing_good_code.ipynb";
-                const branch = "main"
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 
                 // Highlight public server option if previous selection exists

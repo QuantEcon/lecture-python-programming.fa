@@ -425,6 +425,17 @@ with qe.Timer():
 
 ## تمرین‌ها
 
+{ref}`speed_ex1` و {ref}`numba_ex3` هر دو $\pi$ را با Monte Carlo از نمونه‌های تصادفی در مربع واحد تخمین می‌زنند.
+
+ما آن‌ها را اینجا تولید می‌کنیم و در `u_draws` و `v_draws` ذخیره می‌کنیم تا بتوانیم در هر دو تمرین از آن‌ها استفاده کرده و نتایج را مقایسه کنیم.
+
+```{code-cell} ipython3
+n = 1_000_000
+rng = np.random.default_rng()
+u_draws = rng.uniform(size=n)
+v_draws = rng.uniform(size=n)
+```
+
 ```{exercise}
 :label: speed_ex1
 
@@ -443,10 +454,11 @@ with qe.Timer():
 
 ```{code-cell} ipython3
 @jit
-def calculate_pi(n=1_000_000):
+def calculate_pi(u_draws, v_draws):
+    n = len(u_draws)
     count = 0
     for i in range(n):
-        u, v = np.random.uniform(0, 1), np.random.uniform(0, 1)
+        u, v = u_draws[i], v_draws[i]
         d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
         if d < 0.5:
             count += 1
@@ -459,17 +471,66 @@ def calculate_pi(n=1_000_000):
 
 ```{code-cell} ipython3
 with qe.Timer():
-    calculate_pi()
+    calculate_pi(u_draws, v_draws)
 ```
 
 ```{code-cell} ipython3
 with qe.Timer():
-    calculate_pi()
+    calculate_pi(u_draws, v_draws)
 ```
 
-اگر کامپایل JIT را با حذف `@jit` خاموش کنیم، کد حدود 150 برابر بیشتر در دستگاه ما طول می‌کشد.
+اگر کامپایل JIT را با حذف `@jit` خاموش کنیم، کد به طور قابل توجهی بیشتر در دستگاه ما طول می‌کشد.
 
-بنابراین با افزودن چهار کاراکتر، افزایش سرعت 2 مرتبه بزرگی به دست می‌آوریم.
+بنابراین با افزودن چهار کاراکتر، افزایش سرعت بزرگی به دست می‌آوریم.
+
+راه‌حل بالا یکی از دو رویکرد طبیعی را در پیش می‌گیرد: ابتدا *همه نقاط تصادفی را می‌کشد*، آن‌ها را در `u_draws` و `v_draws` ذخیره می‌کند و سپس اجازه می‌دهد تابع jit شده روی آن‌ها حلقه بزند.
+
+رویکرد دیگر *کشیدن هر نقطه درون حلقه* است.
+
+برای انجام این کار با یک `Generator` NumPy، ما `rng` را به عنوان آرگومان عبور می‌دهیم و `rng.uniform()` را درون بدنه حلقه فراخوانی می‌کنیم
+
+```{code-cell} ipython3
+@jit
+def calculate_pi_in_loop(rng, n):
+    count = 0
+    for i in range(n):
+        u, v = rng.uniform(), rng.uniform()
+        d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+        if d < 0.5:
+            count += 1
+    return (count / n) * 4
+```
+
+```{code-cell} ipython3
+with qe.Timer():
+    calculate_pi_in_loop(rng, n)
+```
+
+```{code-cell} ipython3
+with qe.Timer():
+    calculate_pi_in_loop(rng, n)
+```
+
+دو سلولی که رویکرد اول را زمان‌بندی می‌کنند فقط حلقه را اندازه‌گیری می‌کنند --- نقاط تصادفی آن یک‌بار در بلوک راه‌اندازی مشترک بالا کشیده شده‌اند و هرگز زمان‌بندی نمی‌شوند، در حالی که رویکرد دوم هزینه کشیدن نقاط را درون تابع زمان‌بندی‌شده می‌پردازد.
+
+برای مقایسه منصفانه این دو رویکرد، ما رویکرد اول را از ابتدا تا انتها زمان‌بندی می‌کنیم، از جمله هزینه تولید آرایه‌ها:
+
+```{code-cell} ipython3
+with qe.Timer():
+    u2 = rng.uniform(size=n)
+    v2 = rng.uniform(size=n)
+    calculate_pi(u2, v2)
+```
+
+در این تنظیم سریال، دو رویکرد تخمین‌های به همان اندازه خوب می‌دهند و با سرعت مشابه اجرا می‌شوند، اما در *مصرف حافظه* معادل نیستند.
+
+رویکرد اول باید همه $2n$ کشیدن را یک‌جا در حافظه نگه دارد --- دو آرایه از `n` عدد اعشاری، یا حدود `16n` بایت (حدود $1.6$ گیگابایت وقتی `n = 100_000_000`).
+
+رویکرد دوم هر نقطه را در لحظه می‌کشد و آن را دور می‌ریزد، بنابراین ردپای حافظه‌اش با `n` رشد نمی‌کند.
+
+این ممکن است پیشنهاد کند که کشیدن درون حلقه پیش‌فرض بهتری است.
+
+اما همان‌طور که در {ref}`numba_ex_race` خواهیم دید، کشیدن درون حلقه با موازی‌سازی به بدی تعامل دارد.
 
 ```{solution-end}
 ```
@@ -535,10 +596,13 @@ p, q = 0.1, 0.2  # احتمال خروج از حالت پایین و بالا ب
 در اینجا نسخه Python خالص تابع است
 
 ```{code-cell} ipython3
-def compute_series(n):
+n = 1_000_000
+rng = np.random.default_rng()
+U = rng.uniform(0, 1, size=n)
+
+def compute_series(n, U):
     x = np.empty(n, dtype=np.int64)
     x[0] = 1  # در حالت 1 شروع کن
-    U = np.random.uniform(0, 1, size=n)
     for t in range(1, n):
         current_x = x[t-1]
         if current_x == 0:
@@ -551,8 +615,7 @@ def compute_series(n):
 بیایید این کد را اجرا کنیم و بررسی کنیم که کسری از زمان صرف شده در حالت پایین حدود 0.666 است
 
 ```{code-cell} ipython3
-n = 1_000_000
-x = compute_series(n)
+x = compute_series(n, U)
 print(np.mean(x == 0))  # کسری از زمان که x در حالت 0 است
 ```
 
@@ -562,7 +625,7 @@ print(np.mean(x == 0))  # کسری از زمان که x در حالت 0 است
 
 ```{code-cell} ipython3
 with qe.Timer():
-    compute_series(n)
+    compute_series(n, U)
 ```
 
 بعد بیایید یک نسخه Numba پیاده‌سازی کنیم که آسان است
@@ -574,7 +637,7 @@ compute_series_numba = jit(compute_series)
 بیایید بررسی کنیم که هنوز اعداد صحیح دریافت می‌کنیم
 
 ```{code-cell} ipython3
-x = compute_series_numba(n)
+x = compute_series_numba(n, U)
 print(np.mean(x == 0))
 ```
 
@@ -582,7 +645,7 @@ print(np.mean(x == 0))
 
 ```{code-cell} ipython3
 with qe.Timer():
-    compute_series_numba(n)
+    compute_series_numba(n, U)
 ```
 
 این بهبود سرعت خوبی برای یک خط کد است!
@@ -616,10 +679,11 @@ with qe.Timer():
 
 ```{code-cell} ipython3
 @jit(parallel=True)
-def calculate_pi(n=1_000_000):
+def calculate_pi_parallel(u_draws, v_draws):
+    n = len(u_draws)
     count = 0
     for i in prange(n):
-        u, v = np.random.uniform(0, 1), np.random.uniform(0, 1)
+        u, v = u_draws[i], v_draws[i]
         d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
         if d < 0.5:
             count += 1
@@ -632,19 +696,196 @@ def calculate_pi(n=1_000_000):
 
 ```{code-cell} ipython3
 with qe.Timer():
-    calculate_pi()
+    calculate_pi_parallel(u_draws, v_draws)
 ```
 
 ```{code-cell} ipython3
 with qe.Timer():
-    calculate_pi()
+    calculate_pi_parallel(u_draws, v_draws)
 ```
 
 با روشن و خاموش کردن موازی‌سازی (انتخاب `True` یا `False` در annotation `@jit`)، می‌توانیم افزایش سرعتی که چندنخی علاوه بر کامپایل JIT فراهم می‌کند را آزمایش کنیم.
 
-در ایستگاه کاری ما، می‌بینیم که موازی‌سازی سرعت اجرا را با ضریب 2 یا 3 افزایش می‌دهد.
+در ایستگاه کاری ما، می‌بینیم که موازی‌سازی در اینجا افزایش سرعت متوسط اما ارزشمندی فراهم می‌کند.
 
-(اگر به صورت محلی اجرا می‌کنید، اعداد متفاوتی خواهید گرفت که عمدتاً به تعداد CPUها در دستگاه شما بستگی دارد.)
+(اگر به صورت محلی اجرا می‌کنید، نتایج متفاوتی خواهید گرفت که عمدتاً به تعداد CPUها در دستگاه شما بستگی دارد.)
+
+توجه کنید که ما همه نقاط تصادفی را *قبل از* حلقه کشیدیم و آن‌ها را به صورت آرایه عبور دادیم، بنابراین حلقه موازی فقط از حافظه *می‌خواند*.
+
+کشیدن نقاط *درون* حلقه موازی به جای این کار به طرز شگفت‌انگیزی حساس است.
+
+ما بررسی می‌کنیم چرا این‌طور است، و چگونه می‌توان آن را با ایمنی انجام داد، در {ref}`numba_ex_race`.
+
+```{solution-end}
+```
+
+
+```{exercise}
+:label: numba_ex_race
+
+در {ref}`numba_ex3` ما همه نقاط تصادفی را *قبل از* حلقه موازی کشیدیم.
+
+وسوسه‌انگیز است که به جای آن هر نقطه را *درون* حلقه `prange` بکشیم، با عبور دادن یک `rng` تولیدکننده به عنوان آرگومان و فراخوانی `rng.uniform()` در بدنه حلقه.
+
+آن را امتحان کنید: کد باید اجرا شود و عددی نزدیک به $\pi$ برگرداند، با این حال یک اشکال ظریف در این رویکرد وجود دارد.
+
+به این صورت بررسی کنید:
+
+1. تابع خود را چند بار با *همان* seed فراخوانی کنید و بررسی کنید آیا نتیجه تکرارپذیر است.
+2. تخمین را بارها در طیفی از اندازه‌های نمونه تکرار کنید و پراکندگی آن را با یک نسخه موازی درست مقایسه کنید.
+
+سپس توضیح دهید چه چیزی اشتباه پیش می‌رود و راهی درست برای کشیدن درون یک حلقه موازی ارائه دهید.
+
+راهنمایی: سعی کنید از یک تابع تصادفی قدیمی مانند `np.random.uniform()` به جای یک `Generator` استفاده کنید و ببینید چه اتفاقی می‌افتد.
+```
+
+```{solution-start} numba_ex_race
+:class: dropdown
+```
+
+در اینجا نسخه وسوسه‌انگیز است.
+
+ما `rng` را به عنوان آرگومان عبور می‌دهیم و آن را درون حلقه `prange` فراخوانی می‌کنیم.
+
+```{code-cell} ipython3
+n = 1_000_000
+rng = np.random.default_rng()
+
+@jit(parallel=True)
+def calculate_pi_in_loop_parallel(rng, n):
+    count = 0
+    for i in prange(n):
+        u, v = rng.uniform(), rng.uniform()
+        d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+        if d < 0.5:
+            count += 1
+    return (count / n) * 4
+
+calculate_pi_in_loop_parallel(rng, n)
+```
+
+کد بدون خطا اجرا می‌شود و چیزی نزدیک به $\pi$ برمی‌گرداند.
+
+اما چیزی به طور خاموش با نتایج اشتباه است.
+
+در اینجا، هر نخ از *همان* تولیدکننده `rng` می‌کشد.
+
+یک تولیدکننده هر عدد را با به‌روزرسانی یک حالت داخلی تولید می‌کند.
+
+تحت `prange`، بسیاری از نخ‌ها آن یک حالت مشترک را به طور همزمان می‌خوانند و به‌روز می‌کنند، بدون هیچ هماهنگی بین آن‌ها.
+
+این یک [**رقابت داده (data race)**](https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html) است.
+
+این همبستگی‌هایی بین کشیدن‌ها ایجاد می‌کند و حتی می‌تواند باعث شود برخی کشیدن‌ها به طور غیرقابل‌پیش‌بینی تکرار شوند.
+
+دو نشانه این مشکل را آشکار می‌کند.
+
+*نشانه ۱: نتیجه دیگر تکرارپذیر نیست.*
+
+یک تولیدکننده درست هر بار که همان seed به آن داده شود، همان پاسخ را برمی‌گرداند.
+
+به دلیل رقابت داده، ترتیبی که نخ‌ها به طور اتفاقی به حالت مشترک دست می‌زنند بر جریان کشیدن‌ها تأثیر می‌گذارد، بنابراین پاسخ حتی وقتی seed ثابت است تکرارپذیر نیست.
+
+```{code-cell} ipython3
+for seed in (1, 1, 1):
+    print(calculate_pi_in_loop_parallel(np.random.default_rng(seed), n))
+```
+
+هر فراخوانی از همان seed استفاده می‌کند، با این حال پاسخ‌ها متفاوت هستند.
+
+*نشانه ۲: تخمین‌گر بسیار پر نویزتر از آن است که باید باشد.*
+
+کشیدن‌های تکراری و همبسته اطلاعات کمتری نسبت به $n$ کشیدن مستقل حمل می‌کنند، بنابراین اندازه نمونه *مؤثر* بسیار کوچک‌تر از $n$ است.
+
+راه‌حل این است که به هر نخ حالت تصادفی خاص خودش را بدهیم، کاری که توابع قدیمی NumPy مانند `np.random.uniform()` به طور خودکار تحت Numba انجام می‌دهند.
+
+```{code-cell} ipython3
+@jit(parallel=True)
+def calculate_pi_legacy(n):
+    count = 0
+    for i in prange(n):
+        u, v = np.random.uniform(0, 1), np.random.uniform(0, 1)
+        d = np.sqrt((u - 0.5)**2 + (v - 0.5)**2)
+        if d < 0.5:
+            count += 1
+    return (count / n) * 4
+```
+
+برای دیدن هزینه این رقابت، هر تخمین را بارها تکرار می‌کنیم و پراکندگی آن را در برابر نسخه درست با افزایش اندازه نمونه رسم می‌کنیم.
+
+```{code-cell} ipython3
+sample_sizes = np.logspace(3, 6, 10).astype(int)
+num_reps = 20
+
+methods = [("حالت مخصوص هر نخ (درست)",
+            lambda n: calculate_pi_legacy(n), 'C0'),
+           ("تولیدکننده مشترک در prange (رقابت داده)",
+            lambda n: calculate_pi_in_loop_parallel(np.random.default_rng(), n), 'C1')]
+
+fig, ax = plt.subplots()
+for label, estimate, color in methods:
+    draws = np.array([[estimate(int(m)) for _ in range(num_reps)]
+                      for m in sample_sizes])
+    means, stds = draws.mean(axis=1), draws.std(axis=1)
+    ax.plot(sample_sizes, means, color=color, marker='o', ms=3, label=label)
+    ax.fill_between(sample_sizes, means - 2 * stds, means + 2 * stds,
+                    color=color, alpha=0.2)
+ax.axhline(np.pi, color='k', lw=0.8, ls='--', label=r'$\pi$')
+ax.set_xscale('log')
+ax.set_xlabel('تعداد نمونه‌ها')
+ax.set_ylabel(r'تخمین $\pi$')
+ax.legend()
+plt.show()
+```
+
+هر دو نوار حول $\pi$ متمرکز هستند، اما نوار مرتبط با رقابت داده پهن‌تر از نوار دیگر است و به آرامی با افزایش اندازه نمونه باریک می‌شود.
+
+گزینه ایمن دیگر همان است که در {ref}`numba_ex3` بود: نقاط را قبل از حلقه بکشید تا حلقه موازی فقط از حافظه بخواند.
+
+```{solution-end}
+```
+
+
+```{exercise}
+:label: numba_ex_draw_speed
+
+اکنون دو راه درست برای تخمین $\pi$ به صورت موازی داریم.
+
+یکی همه نقاط را *قبل از* حلقه می‌کشد، مانند {ref}`numba_ex3`.
+
+دیگری آن‌ها را *درون* حلقه با توابع قدیمی می‌کشد، مانند {ref}`numba_ex_race`.
+
+سرعت آن‌ها را در `n = 100_000_000` مقایسه کنید، از جمله زمان صرف‌شده برای تولید نقاط تصادفی.
+```
+
+```{solution-start} numba_ex_draw_speed
+:class: dropdown
+```
+
+ما هر رویکرد را از ابتدا تا انتها زمان‌بندی می‌کنیم، بنابراین نسخه پیش‌کشیدن هزینه ساخت آرایه‌های خود را می‌پردازد.
+
+```{code-cell} ipython3
+n = 100_000_000
+rng = np.random.default_rng()
+
+with qe.Timer():
+    u_draws = rng.uniform(size=n)
+    v_draws = rng.uniform(size=n)
+    calculate_pi_parallel(u_draws, v_draws)
+```
+
+```{code-cell} ipython3
+with qe.Timer():
+    calculate_pi_legacy(n)
+```
+
+کشیدن درون حلقه بسیار سریع‌تر است.
+
+نسخه پیش‌کشیدن دو آرایه خود را روی یک نخ واحد قبل از شروع حلقه تولید می‌کند.
+
+نسخه درون حلقه در عوض تولید اعداد تصادفی را در همه نخ‌ها پخش می‌کند.
+
+همچنین از تخصیص دو آرایه از `n` عدد اجتناب می‌کند، بنابراین هم زمان و هم حافظه صرفه‌جویی می‌کند.
 
 ```{solution-end}
 ```
@@ -667,8 +908,8 @@ $$
 
 1. $\beta$ یک فاکتور تنزیل است،
 2. $n$ تاریخ انقضا است،
-2. $K$ قیمت اعمال است و
-3. $\{S_t\}$ قیمت دارایی پایه در هر زمان $t$ است.
+3. $K$ قیمت اعمال است و
+4. $\{S_t\}$ قیمت دارایی پایه در هر زمان $t$ است.
 
 فرض کنید که `n, β, K = 20, 0.99, 100`.
 
@@ -721,6 +962,16 @@ s_{t+1} = s_t + \mu + \exp(h_t) \xi_{t+1}
 $$
 
 با استفاده از این واقعیت، راه‌حل را می‌توان به شرح زیر نوشت.
+
+```{note}
+در اینجا ما کشیدن‌های تصادفی را درون حلقه داخلی نگه می‌داریم و از API قدیمی
+`np.random.randn()` به جای یک `Generator` استفاده می‌کنیم.
+
+این به این دلیل است که پشتیبانی Numba از اشیاء `Generator` تحت اجرای موازی
+(`@jit(parallel=True)`) [ایمن در برابر نخ (thread-safe)](https://numba.readthedocs.io/en/stable/reference/numpysupported.html#generator-objects) نیست.
+
+پیش‌کشیدن شوک‌ها در آرایه‌هایی با شکل `(M, n)` از این مشکل اجتناب می‌کند اما در اینجا غیرعملی است، زیرا `M = 10_000_000` به چندین گیگابایت حافظه نیاز خواهد داشت.
+```
 
 
 ```{code-cell} ipython3

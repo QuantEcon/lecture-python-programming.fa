@@ -1,0 +1,2018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>19. Polars &#8212; Python Programming for Economics and Finance</title>
+    
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js" integrity="sha384-bq5PNg/ZcfW7KMvFSmhjqCQJ/VFnec+6sZkctn/4ZLeubkn7U58Le4zFFSn3dhUu" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" integrity="sha384-qEqAs1VsN9WH2myXDbiP2wGGIttL9bMRZBKCl54ZnzpDlVqbYANP9vMaoT/wvQcf" crossorigin="anonymous"></script>
+    
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=1c349b9a0045df0ce6f4a606c2cc9441cbf3bef6" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/scripts/quantecon-book-theme.js?digest=9980b4379844dc0b911d69b62b295f34ede88fac"></script>
+    <script src="_static/scripts/jquery.js?v=5d32c60e"></script>
+    <script src="_static/scripts/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-X7DH1M2DPY"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-X7DH1M2DPY');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'polars';</script>
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/polars.html" />
+    <link rel="icon" href="_static/lectures-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="20. نوشتن کد خوب" href="writing_good_code.html" />
+    <link rel="prev" title="18. Pandas برای داده‌های پانلی" href="pandas_panel.html" />
+
+<!-- Normal Meta Tags -->
+<meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
+<meta name="keywords" content="Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski" />
+<meta name="description" content=This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski. />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@quantecon" />
+<meta name="twitter:title" content="Polars"/>
+<meta name="twitter:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.">
+<meta name="twitter:creator" content="@quantecon">
+<meta name="twitter:image" content="https://assets.quantecon.org/img/qe-twitter-logo.png">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Polars" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/polars.html" />
+<meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
+<meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
+<meta property="og:site_name" content="Python Programming for Economics and Finance" />
+<meta name="theme-color" content="#ffffff" />
+
+
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/polars.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/polars.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/polars.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/polars.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/polars.html" />
+
+
+  </head>
+<body dir="rtl">
+
+<!-- Prevent flash of light theme when dark mode is saved -->
+<script>
+(function() {
+  try {
+    if (localStorage.setContrast === '1') {
+      document.body.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+
+<!-- Override QuantEcon theme colors -->
+
+<!-- Color scheme: applies scheme-specific body class -->
+
+    <span id="top"></span>
+
+    <div class="qe-wrapper">
+
+        <div class="qe-main">
+
+            <div class="qe-page" id=polars>
+
+                <div class="qe-page__toc">
+
+                    
+                    
+                    
+
+                    
+                    <div class="inner sticky" data-autoexpand="true">
+
+                        
+                        <div class="qe-page__toc-header">
+                            On this page
+                        </div>
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
+                            <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">19.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series">19.2. Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe">19.3. DataFrameها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">19.3.1. انتخاب داده</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">19.3.2. فیلتر کردن بر اساس شرایط</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">19.3.3. عبارات ستونی</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">19.3.4. مقادیر گم‌شده</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">19.3.5. تجسم‌سازی</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">19.4. ارزیابی تنبل</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">19.4.1. مشتاق در برابر تنبل</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">19.4.2. بهینه‌سازی پرس‌وجو</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">19.4.3. مقایسه عملکرد</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">19.5. منابع داده آنلاین</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">19.6. تمرین‌ها</a></li>
+</ul>
+                            <p class="logo">
+                                
+                                    
+                                    <a href=https://quantecon.org><img src="_static/qe-logo.png" class="logo logo-img" alt="logo"></a>
+                                    
+                                    <a href=https://quantecon.org><img src="_static/quantecon-logo-transparent.png" class="dark-logo-img" alt="logo"></a>
+                                    
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/v1/">Jupyter Book</a></p>
+
+                        </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            
+                            
+                            
+                        </div>
+
+                    </div>
+
+                    
+                    <a href="#top" class="back-to-top-btn" title="Back to top">↑ Top</a>
+                    
+
+                </div>
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="intro.html">Python Programming for Economics and Finance</a></p>
+
+                    </div>
+
+                    <!-- Authors section -->
+                        <p class="qe-page__header-authors" font-size="18">
+                            
+                                
+                                    <a href="http://www.tomsargent.com/" target="_blank"><span>Thomas J. Sargent</span></a>
+                                
+                            
+                                
+                                    and <a href="https://johnstachurski.net/" target="_blank"><span>John Stachurski</span></a>
+                                
+                            
+                        </p>
+
+                    <!-- Last modified / Changelog dropdown -->
+                        <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
+                            Last changed: Aug 03, 2026
+                            <span class="changelog-icon">▼</span>
+                        </button>
+
+                    <!-- Changelog dropdown content -->
+                    <div class="qe-page__header-changelog" id="changelog-content" aria-hidden="true">
+                        <h4>Changelog (<a href="https://github.com/QuantEcon/lecture-python-programming.fa/commits/main/lectures/polars.md">full history</a>)</h4>
+                        <ul class="changelog-list">
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
+                                
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div> <!-- .page__header -->
+
+
+
+                
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <section class="tex2jax_ignore mathjax_ignore" id="polars">
+<h1><span class="section-number">19. </span>Polars<a class="headerlink" href="#polars" title="Link to this heading">#</a></h1>
+<p id="index-0">علاوه بر آنچه در Anaconda موجود است، این درس به کتابخانه‌های زیر نیاز دارد:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>polars<span class="w"> </span>yfinance
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting polars
+  Downloading polars-1.43.2-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: yfinance in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (1.5.2)
+Collecting polars-runtime-32==1.43.2 (from polars)
+  Downloading polars_runtime_32-1.43.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (3.0.3)
+Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.4.6)
+Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.34.2)
+Requirement already satisfied: multitasking&gt;=0.0.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.0.13)
+Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.9.4)
+Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2026.3.post1)
+Requirement already satisfied: peewee&gt;=3.16.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.3.0)
+Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.15.0)
+Requirement already satisfied: curl_cffi&gt;=0.15 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.16.0)
+Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (6.33.5)
+Requirement already satisfied: websockets&gt;=13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (16.0)
+Requirement already satisfied: soupsieve&gt;=1.6.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.8.4)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (4.16.0)
+Requirement already satisfied: cffi&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (2.1.0)
+Requirement already satisfied: certifi&gt;=2024.2.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (2026.6.17)
+Requirement already satisfied: pycparser in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from cffi&gt;=2.0.0-&gt;curl_cffi&gt;=0.15-&gt;yfinance) (3.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.3.0-&gt;yfinance) (1.17.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.18)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.7.0)
+Downloading polars-1.43.2-py3-none-any.whl (847 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/847.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">847.1/847.1 kB</span> <span class=" -Color -Color-Red">23.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25h
+Downloading polars_runtime_32-1.43.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (57.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/57.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">30.9/57.3 MB</span> <span class=" -Color -Color-Red">155.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.3/57.3 MB</span> <span class=" -Color -Color-Red">128.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25h
+Installing collected packages: polars-runtime-32, polars
+?25l
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
+   ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/2</span> [polars]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/2</span> [polars]
+Successfully installed polars-1.43.2 polars-runtime-32-1.43.2
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="id1">
+<h2><span class="section-number">19.1. </span>مروری کلی<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pola.rs/">Polars</a> یک کتابخانه سریع دستکاری داده برای Python است که به زبان Rust نوشته شده است.</p>
+<p>این کتابخانه به دلیل مزیت‌های عملکردی خود به عنوان جایگزینی مدرن برای <a class="reference internal" href="pandas.html"><span class="doc">pandas</span></a> محبوبیت قابل‌توجهی کسب کرده است.</p>
+<p>Polars با در نظر گرفتن عملکرد و کارایی حافظه طراحی شده و از موارد زیر بهره می‌برد:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arrow.apache.org/docs/format/Columnar.html">قالب ستونی Apache Arrow</a> برای دسترسی سریع به داده</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Lazy_evaluation">ارزیابی تنبل</a> برای بهینه‌سازی اجرای پرس‌وجو</p></li>
+<li><p>پردازش موازی برای استفاده از تمام هسته‌های پردازنده در دسترس</p></li>
+<li><p>یک رابط برنامه‌نویسی گویا که حول عبارات ستونی ساخته شده است</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>چرا Polars را به‌جای pandas در نظر بگیریم؟</em></p>
+<ul class="simple">
+<li><p><strong>حافظه</strong>: pandas معمولاً به ۵ تا ۱۰ برابر حجم مجموعه داده شما نیاز به RAM دارد؛ Polars تنها به ۲ تا ۴ برابر نیاز دارد</p></li>
+<li><p><strong>سرعت</strong>: Polars برای بسیاری از عملیات رایج ۱۰ تا ۱۰۰ برابر سریع‌تر است</p></li>
+<li><p><strong>مشاهده کنید</strong>: <a class="reference external" href="https://www.pola.rs/benchmarks/">معیارهای TPC-H در Polars</a> برای مقایسه‌های عملکردی به‌روز</p></li>
+</ul>
+</div>
+<p>در طول این درس، فرض می‌کنیم که واردسازی‌های زیر انجام شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>مانند <a class="reference internal" href="pandas.html"><span class="doc">Pandas</span></a>، Polars دو نوع داده مهم تعریف می‌کند: <code class="docutils literal notranslate"><span class="pre">Series</span></code> و <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>می‌توانید <code class="docutils literal notranslate"><span class="pre">Series</span></code> را به عنوان یک ستون داده در نظر بگیرید، مانند مجموعه‌ای از مشاهدات یک متغیر واحد.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> یک شیء دوبعدی برای ذخیره ستون‌های مرتبط داده است.</p>
+</section>
+<section id="series">
+<h2><span class="section-number">19.2. </span>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h2>
+<p id="index-1">بیایید با Series شروع کنیم.</p>
+<p>ابتدا سری‌ای از چهار مشاهده تصادفی می‌سازیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;daily returns&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>1.486557</td></tr><tr><td>1.118068</td></tr><tr><td>0.38464</td></tr><tr><td>0.156635</td></tr></tbody></table></div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>برخلاف Series در <a class="reference internal" href="pandas.html"><span class="doc">pandas</span></a>، Series در Polars هیچ نمایه ردیفی ندارند.
+Polars ستون‌محور است — دسترسی به داده از طریق عبارات ستونی
+و ماسک‌های بولی مدیریت می‌شود، نه برچسب‌های ردیف.
+برای جزئیات بیشتر <a class="reference external" href="https://docs.pola.rs/user-guide/migration/pandas/">راهنمای مهاجرت Polars برای کاربران pandas</a> را ببینید.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Series</span></code> در Polars بر پایه آرایه‌های <a class="reference external" href="https://arrow.apache.org/">Apache Arrow</a> ساخته شده‌اند و از بسیاری از عملیات آشنا پشتیبانی می‌کنند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>148.655749</td></tr><tr><td>111.806849</td></tr><tr><td>38.464045</td></tr><tr><td>15.663515</td></tr></tbody></table></div></div></div>
+</div>
+<p>مقادیر مطلق به عنوان یک متد در دسترس هستند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>1.486557</td></tr><tr><td>1.118068</td></tr><tr><td>0.38464</td></tr><tr><td>0.156635</td></tr></tbody></table></div></div></div>
+</div>
+<p>همچنین می‌توانیم آمار خلاصه سریع دریافت کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>4.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>0.786475</td></tr><tr><td>&quot;std&quot;</td><td>0.621353</td></tr><tr><td>&quot;min&quot;</td><td>0.156635</td></tr><tr><td>&quot;25%&quot;</td><td>0.38464</td></tr><tr><td>&quot;50%&quot;</td><td>1.118068</td></tr><tr><td>&quot;75%&quot;</td><td>1.118068</td></tr><tr><td>&quot;max&quot;</td><td>1.486557</td></tr></tbody></table></div></div></div>
+</div>
+<p>از آنجا که Polars هیچ نمایه ردیفی ندارد، داده‌های برچسب‌دار به <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> نیاز دارند.</p>
+<p>برای مثال، برای مرتبط کردن نمادهای معاملاتی با بازده‌ها:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;daily returns&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>-0.582233</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.133717</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.044996</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.87905</td></tr></tbody></table></div></div></div>
+</div>
+<p>با فیلتر کردن بر روی یک عبارت ستونی به یک مقدار دسترسی پیدا می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;company&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;AMZN&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;daily returns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5822325458777632
+</pre></div>
+</div>
+</div>
+</div>
+<p>به‌روزرسانی‌ها نیز از عبارات به‌جای تخصیص نمایه استفاده می‌کنند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;company&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;AMZN&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;daily returns&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;daily returns&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.0</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.133717</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.044996</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.87905</td></tr></tbody></table></div></div></div>
+</div>
+<p>می‌توانیم عضویت را نیز بررسی کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;AAPL&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe">
+<h2><span class="section-number">19.3. </span>DataFrameها<a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h2>
+<p id="index-2">در حالی که <code class="docutils literal notranslate"><span class="pre">Series</span></code> یک ستون منفرد از داده است، <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> چندین ستون است، یکی برای هر متغیر.</p>
+<p>مانند <a class="reference internal" href="pandas.html"><span class="doc">Pandas</span></a>، بیایید با داده‌های <a class="reference external" href="https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0">Penn World Tables</a> کار کنیم.</p>
+<p>این را با <code class="docutils literal notranslate"><span class="pre">pl.read_csv</span></code> می‌خوانیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/&#39;</span>
+       <span class="s1">&#39;lecture-python-programming/main/lectures/_static/&#39;</span>
+       <span class="s1">&#39;lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>&quot;ARG&quot;</td><td>2000</td><td>37335.653</td><td>0.9995</td><td>295072.21869</td><td>75.716805</td><td>5.578804</td></tr><tr><td>&quot;Australia&quot;</td><td>&quot;AUS&quot;</td><td>2000</td><td>19053.186</td><td>1.72483</td><td>541804.6521</td><td>67.759026</td><td>6.720098</td></tr><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;Israel&quot;</td><td>&quot;ISR&quot;</td><td>2000</td><td>6114.57</td><td>4.07733</td><td>129253.89423</td><td>64.436451</td><td>10.266688</td></tr><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.505</td><td>59.543808</td><td>5026.221784</td><td>74.707624</td><td>11.658954</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.098</td><td>6.93983</td><td>227242.36949</td><td>72.71871</td><td>5.726546</td></tr><tr><td>&quot;United States&quot;</td><td>&quot;USA&quot;</td><td>2000</td><td>282171.957</td><td>1.0</td><td>9.8987e6</td><td>72.347054</td><td>6.032454</td></tr><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.793</td><td>12.099592</td><td>25255.961693</td><td>78.97874</td><td>5.108068</td></tr></tbody></table></div></div></div>
+</div>
+<section id="id2">
+<h3><span class="section-number">19.3.1. </span>انتخاب داده<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>می‌توانیم ردیف‌ها را با برش‌دهی و ستون‌ها را با نام انتخاب کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;Israel&quot;</td><td>&quot;ISR&quot;</td><td>2000</td><td>6114.57</td><td>4.07733</td><td>129253.89423</td><td>64.436451</td><td>10.266688</td></tr><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.505</td><td>59.543808</td><td>5026.221784</td><td>74.707624</td><td>11.658954</td></tr></tbody></table></div></div></div>
+</div>
+<p>برای انتخاب ستون‌های خاص، فهرستی از نام‌ها را به <code class="docutils literal notranslate"><span class="pre">select</span></code> بدهید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 2)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>tcgdp</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>295072.21869</td></tr><tr><td>&quot;Australia&quot;</td><td>541804.6521</td></tr><tr><td>&quot;India&quot;</td><td>1.7281e6</td></tr><tr><td>&quot;Israel&quot;</td><td>129253.89423</td></tr><tr><td>&quot;Malawi&quot;</td><td>5026.221784</td></tr><tr><td>&quot;South Africa&quot;</td><td>227242.36949</td></tr><tr><td>&quot;United States&quot;</td><td>9.8987e6</td></tr><tr><td>&quot;Uruguay&quot;</td><td>25255.961693</td></tr></tbody></table></div></div></div>
+</div>
+<p>اینها می‌توانند ترکیب شوند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 2)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>tcgdp</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;India&quot;</td><td>1.7281e6</td></tr><tr><td>&quot;Israel&quot;</td><td>129253.89423</td></tr><tr><td>&quot;Malawi&quot;</td><td>5026.221784</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">19.3.2. </span>فیلتر کردن بر اساس شرایط<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>متد <code class="docutils literal notranslate"><span class="pre">filter</span></code> عبارات بولی ساخته‌شده از <code class="docutils literal notranslate"><span class="pre">pl.col</span></code> را می‌پذیرد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (4, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>&quot;ARG&quot;</td><td>2000</td><td>37335.653</td><td>0.9995</td><td>295072.21869</td><td>75.716805</td><td>5.578804</td></tr><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.098</td><td>6.93983</td><td>227242.36949</td><td>72.71871</td><td>5.726546</td></tr><tr><td>&quot;United States&quot;</td><td>&quot;USA&quot;</td><td>2000</td><td>282171.957</td><td>1.0</td><td>9.8987e6</td><td>72.347054</td><td>6.032454</td></tr></tbody></table></div></div></div>
+</div>
+<p>چندین شرط می‌توانند با <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (و) و <code class="docutils literal notranslate"><span class="pre">|</span></code> (یا) ترکیب شوند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_in</span><span class="p">([</span><span class="s1">&#39;Argentina&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="s1">&#39;South Africa&#39;</span><span class="p">]))</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40000</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (2, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.098</td><td>6.93983</td><td>227242.36949</td><td>72.71871</td><td>5.726546</td></tr></tbody></table></div></div></div>
+</div>
+<p>عبارات می‌توانند شامل عملیات حسابی بین ستون‌ها باشند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;cc&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;cg&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">20000</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (2, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.505</td><td>59.543808</td><td>5026.221784</td><td>74.707624</td><td>11.658954</td></tr><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.793</td><td>12.099592</td><td>25255.961693</td><td>78.97874</td><td>5.108068</td></tr></tbody></table></div></div></div>
+</div>
+<p>کشوری با بزرگ‌ترین سهم مصرف خانوار را انتخاب کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;cc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;cc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.793</td><td>12.099592</td><td>25255.961693</td><td>78.97874</td><td>5.108068</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">19.3.3. </span>عبارات ستونی<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>یک تفاوت کلیدی با pandas این است که Polars از <strong>عبارات ستونی</strong> برای تبدیل‌ها استفاده می‌کند، نه فراخوانی‌های عنصر به عنصر <code class="docutils literal notranslate"><span class="pre">apply</span></code>.</p>
+<p>در اینجا مثالی برای محاسبه بیشینه هر ستون عددی آورده شده است</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;XRAT&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;cc&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="s1">&#39;_max&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 6)</small><table border="1" class="dataframe"><thead><tr><th>year_max</th><th>POP_max</th><th>XRAT_max</th><th>tcgdp_max</th><th>cc_max</th><th>cg_max</th></tr><tr><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>2000</td><td>1.0063e6</td><td>59.543808</td><td>9.8987e6</td><td>78.97874</td><td>14.072206</td></tr></tbody></table></div></div></div>
+</div>
+<p>عبارات می‌توانند در داخل <code class="docutils literal notranslate"><span class="pre">with_columns</span></code> برای افزودن یا تغییر ستون‌ها استفاده شوند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;XRAT&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;XRAT_scaled&#39;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Float64</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 9)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th><th>XRAT_scaled</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>&quot;ARG&quot;</td><td>2000</td><td>37335.65</td><td>1.0</td><td>295072.22</td><td>75.72</td><td>5.58</td><td>0.09995</td></tr><tr><td>&quot;Australia&quot;</td><td>&quot;AUS&quot;</td><td>2000</td><td>19053.19</td><td>1.72</td><td>541804.65</td><td>67.76</td><td>6.72</td><td>0.172483</td></tr><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1006300.3</td><td>44.94</td><td>1.7281e6</td><td>64.58</td><td>14.07</td><td>4.49416</td></tr><tr><td>&quot;Israel&quot;</td><td>&quot;ISR&quot;</td><td>2000</td><td>6114.57</td><td>4.08</td><td>129253.89</td><td>64.44</td><td>10.27</td><td>0.407733</td></tr><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.5</td><td>59.54</td><td>5026.22</td><td>74.71</td><td>11.66</td><td>5.954381</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.1</td><td>6.94</td><td>227242.37</td><td>72.72</td><td>5.73</td><td>0.693983</td></tr><tr><td>&quot;United States&quot;</td><td>&quot;USA&quot;</td><td>2000</td><td>282171.96</td><td>1.0</td><td>9.8987e6</td><td>72.35</td><td>6.03</td><td>0.1</td></tr><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.79</td><td>12.1</td><td>25255.96</td><td>78.98</td><td>5.11</td><td>1.209959</td></tr></tbody></table></div></div></div>
+</div>
+<p>منطق شرطی از <code class="docutils literal notranslate"><span class="pre">pl.when(...).then(...).otherwise(...)</span></code> استفاده می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;POP_filtered&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;POP_filtered&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 3)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>POP</th><th>POP_filtered</th></tr><tr><td>str</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>37335.653</td><td>37335.653</td></tr><tr><td>&quot;Australia&quot;</td><td>19053.186</td><td>null</td></tr><tr><td>&quot;India&quot;</td><td>1.0063e6</td><td>1.0063e6</td></tr><tr><td>&quot;Israel&quot;</td><td>6114.57</td><td>null</td></tr><tr><td>&quot;Malawi&quot;</td><td>11801.505</td><td>null</td></tr><tr><td>&quot;South Africa&quot;</td><td>45064.098</td><td>45064.098</td></tr><tr><td>&quot;United States&quot;</td><td>282171.957</td><td>282171.957</td></tr><tr><td>&quot;Uruguay&quot;</td><td>3219.793</td><td>null</td></tr></tbody></table></div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Polars <code class="docutils literal notranslate"><span class="pre">map_elements</span></code> را به عنوان راه فراری برای اعمال توابع دلخواه
+Python به‌صورت ردیف‌به‌ردیف ارائه می‌دهد، اما این کار موتور بهینه‌شده عبارات
+را دور می‌زند و در صورت وجود عبارت بومی باید از آن اجتناب شود.</p>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">19.3.4. </span>مقادیر گم‌شده<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>بیایید برخی مقادیر تهی را برای نمایش تکنیک‌های جایگذاری وارد کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nulls</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_row_index</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;XRAT&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;XRAT&#39;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;cc&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;cc&#39;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">when</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">df_nulls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>&quot;ARG&quot;</td><td>2000</td><td>37335.653</td><td>null</td><td>295072.21869</td><td>75.716805</td><td>5.578804</td></tr><tr><td>&quot;Australia&quot;</td><td>&quot;AUS&quot;</td><td>2000</td><td>19053.186</td><td>1.72483</td><td>541804.6521</td><td>67.759026</td><td>6.720098</td></tr><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;Israel&quot;</td><td>&quot;ISR&quot;</td><td>2000</td><td>6114.57</td><td>4.07733</td><td>129253.89423</td><td>null</td><td>10.266688</td></tr><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.505</td><td>59.543808</td><td>5026.221784</td><td>74.707624</td><td>11.658954</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.098</td><td>6.93983</td><td>null</td><td>72.71871</td><td>5.726546</td></tr><tr><td>&quot;United States&quot;</td><td>&quot;USA&quot;</td><td>2000</td><td>null</td><td>1.0</td><td>9.8987e6</td><td>72.347054</td><td>6.032454</td></tr><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.793</td><td>12.099592</td><td>25255.961693</td><td>78.97874</td><td>5.108068</td></tr></tbody></table></div></div></div>
+</div>
+<p>تمام مقادیر تهی را با صفر پر کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nulls</span><span class="o">.</span><span class="n">fill_null</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>&quot;ARG&quot;</td><td>2000</td><td>37335.653</td><td>0.0</td><td>295072.21869</td><td>75.716805</td><td>5.578804</td></tr><tr><td>&quot;Australia&quot;</td><td>&quot;AUS&quot;</td><td>2000</td><td>19053.186</td><td>1.72483</td><td>541804.6521</td><td>67.759026</td><td>6.720098</td></tr><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;Israel&quot;</td><td>&quot;ISR&quot;</td><td>2000</td><td>6114.57</td><td>4.07733</td><td>129253.89423</td><td>0.0</td><td>10.266688</td></tr><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.505</td><td>59.543808</td><td>5026.221784</td><td>74.707624</td><td>11.658954</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.098</td><td>6.93983</td><td>0.0</td><td>72.71871</td><td>5.726546</td></tr><tr><td>&quot;United States&quot;</td><td>&quot;USA&quot;</td><td>2000</td><td>0.0</td><td>1.0</td><td>9.8987e6</td><td>72.347054</td><td>6.032454</td></tr><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.793</td><td>12.099592</td><td>25255.961693</td><td>78.97874</td><td>5.108068</td></tr></tbody></table></div></div></div>
+</div>
+<p>یا با میانگین‌های ستونی پر کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cc&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;XRAT&#39;</span><span class="p">]</span>
+<span class="n">df_nulls</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">fill_null</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 8)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>country isocode</th><th>year</th><th>POP</th><th>XRAT</th><th>tcgdp</th><th>cc</th><th>cg</th></tr><tr><td>str</td><td>str</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Argentina&quot;</td><td>&quot;ARG&quot;</td><td>2000</td><td>37335.653</td><td>18.618141</td><td>295072.21869</td><td>75.716805</td><td>5.578804</td></tr><tr><td>&quot;Australia&quot;</td><td>&quot;AUS&quot;</td><td>2000</td><td>19053.186</td><td>1.72483</td><td>541804.6521</td><td>67.759026</td><td>6.720098</td></tr><tr><td>&quot;India&quot;</td><td>&quot;IND&quot;</td><td>2000</td><td>1.0063e6</td><td>44.9416</td><td>1.7281e6</td><td>64.575551</td><td>14.072206</td></tr><tr><td>&quot;Israel&quot;</td><td>&quot;ISR&quot;</td><td>2000</td><td>6114.57</td><td>4.07733</td><td>129253.89423</td><td>72.400502</td><td>10.266688</td></tr><tr><td>&quot;Malawi&quot;</td><td>&quot;MWI&quot;</td><td>2000</td><td>11801.505</td><td>59.543808</td><td>5026.221784</td><td>74.707624</td><td>11.658954</td></tr><tr><td>&quot;South Africa&quot;</td><td>&quot;ZAF&quot;</td><td>2000</td><td>45064.098</td><td>6.93983</td><td>1.8033e6</td><td>72.71871</td><td>5.726546</td></tr><tr><td>&quot;United States&quot;</td><td>&quot;USA&quot;</td><td>2000</td><td>161269.871714</td><td>1.0</td><td>9.8987e6</td><td>72.347054</td><td>6.032454</td></tr><tr><td>&quot;Uruguay&quot;</td><td>&quot;URY&quot;</td><td>2000</td><td>3219.793</td><td>12.099592</td><td>25255.961693</td><td>78.97874</td><td>5.108068</td></tr></tbody></table></div></div></div>
+</div>
+<p>Polars همچنین از پر کردن رو به جلو (<code class="docutils literal notranslate"><span class="pre">fill_null(strategy='forward')</span></code>) و درون‌یابی پشتیبانی می‌کند.</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/impute.html">ابزارهای جایگذاری پیشرفته‌تری</a> در scikit-learn در دسترس هستند.</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">19.3.5. </span>تجسم‌سازی<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>بیایید یک ستون تولید ناخالص داخلی سرانه بسازیم و آن را رسم کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;POP&#39;</span><span class="p">:</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">:</span> <span class="s1">&#39;total GDP&#39;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;population&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;population&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;total GDP&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;population&#39;</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (8, 4)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>population</th><th>total GDP</th><th>GDP percap</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;United States&quot;</td><td>2.82171957e8</td><td>9.8987e6</td><td>35080.381854</td></tr><tr><td>&quot;Australia&quot;</td><td>1.9053186e7</td><td>541804.6521</td><td>28436.433261</td></tr><tr><td>&quot;Israel&quot;</td><td>6.11457e6</td><td>129253.89423</td><td>21138.672749</td></tr><tr><td>&quot;Argentina&quot;</td><td>3.7335653e7</td><td>295072.21869</td><td>7903.229085</td></tr><tr><td>&quot;Uruguay&quot;</td><td>3.219793e6</td><td>25255.961693</td><td>7843.97062</td></tr><tr><td>&quot;South Africa&quot;</td><td>4.5064098e7</td><td>227242.36949</td><td>5042.647686</td></tr><tr><td>&quot;India&quot;</td><td>1.0063e9</td><td>1.7281e6</td><td>1717.324719</td></tr><tr><td>&quot;Malawi&quot;</td><td>1.1801505e7</td><td>5026.221784</td><td>425.896679</td></tr></tbody></table></div></div></div>
+</div>
+<p>می‌توانیم ستون‌ها را مستقیماً برای matplotlib استخراج کنیم</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Polars همچنین یک <a class="reference external" href="https://docs.pola.rs/user-guide/misc/visualization/">رابط برنامه‌نویسی رسم داخلی</a>
+مبتنی بر Altair ارائه می‌دهد (به عنوان مثال، <code class="docutils literal notranslate"><span class="pre">df.plot.bar(x=...,</span> <span class="pre">y=...)</span></code>).
+ما در اینجا از matplotlib برای هماهنگی با بقیه سری درس‌ها استفاده می‌کنیم.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GDP percap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;GDP per capita&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1086660a9c88f1b6fbcf4ee7a74cff8d6f85f83902ebd67b49e16bc20f052ab0.png" src="_images/1086660a9c88f1b6fbcf4ee7a74cff8d6f85f83902ebd67b49e16bc20f052ab0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">19.4. </span>ارزیابی تنبل<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p id="index-3">یکی از قدرتمندترین ویژگی‌های Polars <strong>ارزیابی تنبل</strong> است.</p>
+<p>به‌جای اجرای فوری هر عملیات، حالت تنبل کل برنامه پرس‌وجو را جمع‌آوری کرده و پیش از اجرا آن را بهینه می‌کند.</p>
+<section id="id8">
+<h3><span class="section-number">19.4.1. </span>مشتاق در برابر تنبل<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reload the dataset</span>
+<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/&#39;</span>
+       <span class="s1">&#39;lecture-python-programming/main/lectures/_static/&#39;</span>
+       <span class="s1">&#39;lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<span class="n">df_full</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>رابط برنامه‌نویسی <strong>مشتاق (eager)</strong> بلافاصله اجرا می‌شود (مانند pandas)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_eager</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_full</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">result_eager</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>year</th><th>tcgdp</th></tr><tr><td>str</td><td>i64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;United States&quot;</td><td>2000</td><td>9.8987e6</td></tr><tr><td>&quot;India&quot;</td><td>2000</td><td>1.7281e6</td></tr><tr><td>&quot;Australia&quot;</td><td>2000</td><td>541804.6521</td></tr><tr><td>&quot;Argentina&quot;</td><td>2000</td><td>295072.21869</td></tr><tr><td>&quot;South Africa&quot;</td><td>2000</td><td>227242.36949</td></tr></tbody></table></div></div></div>
+</div>
+<p>رابط برنامه‌نویسی <strong>تنبل (lazy)</strong> در عوض یک برنامه پرس‌وجو می‌سازد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lazy_query</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_full</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lazy_query</span><span class="o">.</span><span class="n">explain</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SORT BY [descending: [true]] [col(&quot;tcgdp&quot;)]
+  FILTER col(&quot;tcgdp&quot;) &gt; 1000.0
+  FROM
+    DF [&quot;country&quot;, &quot;country isocode&quot;, &quot;year&quot;, &quot;POP&quot;, ...]; PROJECT[&quot;country&quot;, &quot;year&quot;, &quot;tcgdp&quot;] 3/8 COLUMNS
+</pre></div>
+</div>
+</div>
+</div>
+<p>برای اجرای برنامه، <code class="docutils literal notranslate"><span class="pre">collect</span></code> را فراخوانی کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_lazy</span> <span class="o">=</span> <span class="n">lazy_query</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="n">result_lazy</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>year</th><th>tcgdp</th></tr><tr><td>str</td><td>i64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;United States&quot;</td><td>2000</td><td>9.8987e6</td></tr><tr><td>&quot;India&quot;</td><td>2000</td><td>1.7281e6</td></tr><tr><td>&quot;Australia&quot;</td><td>2000</td><td>541804.6521</td></tr><tr><td>&quot;Argentina&quot;</td><td>2000</td><td>295072.21869</td></tr><tr><td>&quot;South Africa&quot;</td><td>2000</td><td>227242.36949</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">19.4.2. </span>بهینه‌سازی پرس‌وجو<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>موتور تنبل به‌طور خودکار چندین بهینه‌سازی را اعمال می‌کند:</p>
+<ul class="simple">
+<li><p><strong>فشار محمول (predicate pushdown)</strong> — فیلترها در اسرع وقت اعمال می‌شوند</p></li>
+<li><p><strong>فشار تصویر (projection pushdown)</strong> — فقط ستون‌های مورد نیاز از منبع خوانده می‌شوند</p></li>
+<li><p><strong>حذف زیرعبارت مشترک</strong> — محاسبات تکراری ادغام می‌شوند</p></li>
+</ul>
+<p>بیایید ببینیم Polars چگونه یک پرس‌وجوی چندمرحله‌ای را بازنویسی می‌کند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimized</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_full</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;gdp_per_capita&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimized plan:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">optimized</span><span class="o">.</span><span class="n">explain</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimized plan:
+FILTER col(&quot;gdp_per_capita&quot;) &gt; 10.0
+FROM
+  simple π 3/3 [&quot;country&quot;, &quot;year&quot;, ... 1 other column]
+     WITH_COLUMNS:
+     [(col(&quot;tcgdp&quot;) / col(&quot;POP&quot;)).alias(&quot;gdp_per_capita&quot;)] 
+      FILTER col(&quot;tcgdp&quot;) &gt; 500.0
+      FROM
+        DF [&quot;country&quot;, &quot;country isocode&quot;, &quot;year&quot;, &quot;POP&quot;, ...]; PROJECT[&quot;country&quot;, &quot;year&quot;, &quot;tcgdp&quot;, &quot;POP&quot;] 4/8 COLUMNS
+</pre></div>
+</div>
+</div>
+</div>
+<p>اجرای برنامه نتیجه نهایی را به ما می‌دهد</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimized</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (3, 3)</small><table border="1" class="dataframe"><thead><tr><th>country</th><th>year</th><th>gdp_per_capita</th></tr><tr><td>str</td><td>i64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Australia&quot;</td><td>2000</td><td>28.436433</td></tr><tr><td>&quot;Israel&quot;</td><td>2000</td><td>21.138673</td></tr><tr><td>&quot;United States&quot;</td><td>2000</td><td>35.080382</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id10">
+<h3><span class="section-number">19.4.3. </span>مقایسه عملکرد<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>بیایید pandas، Polars مشتاق، و Polars تنبل را روی همان کار مقایسه کنیم.</p>
+<p>ابتدا با یک مجموعه داده کوچک (همان Penn World Tables که در بالا استفاده کردیم) شروع می‌کنیم تا نشان دهیم
+که برای داده‌های کوچک تفاوت‌ها ناچیز هستند</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># Small dataset -- Penn World Tables (~8 rows)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/&#39;</span>
+       <span class="s1">&#39;lecture-python-programming/main/lectures/_static/&#39;</span>
+       <span class="s1">&#39;lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<span class="n">small_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">small_pl</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>اکنون همان عملیات فیلتر-انتخاب-مرتب‌سازی را در هر کتابخانه زمان‌بندی می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span><span class="n">small_pd</span>
+     <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;tcgdp &gt; 500&#39;</span><span class="p">)</span>
+     <span class="p">[[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">]]</span>
+     <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">gdp_pc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;POP&#39;</span><span class="p">])</span>
+     <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;gdp_pc&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">pd_small</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="c1"># Polars eager</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span><span class="n">small_pl</span>
+     <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span>
+     <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;tcgdp&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">])</span>
+     <span class="o">.</span><span class="n">with_columns</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;tcgdp&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;POP&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;gdp_pc&#39;</span><span class="p">))</span>
+     <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;gdp_pc&#39;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">pl_small</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Small data  --  pandas: </span><span class="si">{</span><span class="n">pd_small</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s | Polars eager: </span><span class="si">{</span><span class="n">pl_small</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Small data  --  pandas: 0.0055s | Polars eager: 0.0010s
+</pre></div>
+</div>
+</div>
+</div>
+<p>روی تعداد اندکی ردیف، تفاوت سرعت ناچیز است — از هر رابط برنامه‌نویسی که
+راحت‌تر می‌یابید استفاده کنید.</p>
+<p>اکنون بیایید مقیاس را به ۵ میلیون ردیف بزرگ کنیم که تفاوت واضح می‌شود.</p>
+<p>کار این است: فیلتر کردن ردیف‌هایی که <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>، محاسبه یک حاصل‌ضرب وزنی
+<code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">*</span> <span class="pre">weight</span></code>، سپس گرفتن میانگین آن حاصل‌ضرب در هر گروه —
+یک میانگین وزنی گروه‌بندی‌شده.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5_000_000</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">groups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">extra1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">extra2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">big_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">groups</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="p">,</span> <span class="s1">&#39;extra1&#39;</span><span class="p">:</span> <span class="n">extra1</span><span class="p">,</span> <span class="s1">&#39;extra2&#39;</span><span class="p">:</span> <span class="n">extra2</span>
+<span class="p">})</span>
+<span class="n">big_pl</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">groups</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="p">,</span> <span class="s1">&#39;extra1&#39;</span><span class="p">:</span> <span class="n">extra1</span><span class="p">,</span> <span class="s1">&#39;extra2&#39;</span><span class="p">:</span> <span class="n">extra2</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ابتدا، خط پایه pandas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">big_pd</span><span class="p">[</span><span class="n">big_pd</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">][[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;weighted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)[</span><span class="s1">&#39;weighted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">pd_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas:       </span><span class="si">{</span><span class="n">pd_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas:       0.1233s
+</pre></div>
+</div>
+</div>
+</div>
+<p>سپس، Polars در حالت مشتاق</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span><span class="n">big_pl</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="n">eager_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polars eager: </span><span class="si">{</span><span class="n">eager_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars eager: 0.0350s
+</pre></div>
+</div>
+</div>
+</div>
+<p>و در نهایت، Polars در حالت تنبل</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span><span class="n">big_pl</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">())</span>
+<span class="n">lazy_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polars lazy:  </span><span class="si">{</span><span class="n">lazy_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars lazy:  0.0292s
+</pre></div>
+</div>
+</div>
+</div>
+<p>نکته کلیدی:</p>
+<ul class="simple">
+<li><p>برای <strong>داده‌های کوچک</strong> (هزاران ردیف)، pandas و Polars به‌طور
+مشابهی عمل می‌کنند — بر اساس ترجیح رابط برنامه‌نویسی و تناسب اکوسیستم انتخاب کنید.</p></li>
+<li><p>برای <strong>داده‌های متوسط تا بزرگ</strong> (صدها هزار ردیف و بیشتر)،
+Polars می‌تواند به‌طور قابل‌توجهی سریع‌تر باشد به لطف موتور Rust، اجرای موازی،
+و (در حالت تنبل) بهینه‌سازی پرس‌وجو.</p></li>
+</ul>
+<p>رابط برنامه‌نویسی تنبل هنگام خواندن از دیسک به‌ویژه قدرتمند است — <code class="docutils literal notranslate"><span class="pre">scan_csv</span></code> مستقیماً یک <code class="docutils literal notranslate"><span class="pre">LazyFrame</span></code> برمی‌گرداند، بنابراین فیلترها و تصویرها به خواننده فایل فشار داده می‌شوند.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>از <code class="docutils literal notranslate"><span class="pre">pl.scan_csv(path)</span></code> به‌جای <code class="docutils literal notranslate"><span class="pre">pl.read_csv(path)</span></code> هنگام کار با
+فایل‌های CSV بزرگ استفاده کنید.
+فقط ستون‌ها و ردیف‌هایی که واقعاً به آن‌ها نیاز دارید از دیسک خوانده می‌شوند.
+<a class="reference external" href="https://docs.pola.rs/user-guide/io/csv/">مستندات ورودی/خروجی Polars</a> را ببینید.</p>
+</div>
+</section>
+</section>
+<section id="id11">
+<h2><span class="section-number">19.5. </span>منابع داده آنلاین<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p id="index-4">مانند <a class="reference internal" href="pandas.html"><span class="doc">Pandas</span></a>، Python پرس‌وجوی پایگاه‌های داده آنلاین را ساده می‌کند.</p>
+<p>یک پایگاه داده مهم برای اقتصاددانان <a class="reference external" href="https://fred.stlouisfed.org/">FRED</a> است — مجموعه‌ای گسترده از داده‌های سری زمانی که توسط فدرال رزرو سنت‌لوئیس نگهداری می‌شود.</p>
+<p>متد <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> در Polars می‌تواند داده را مستقیماً از یک URL دریافت کند.</p>
+<p>از <code class="docutils literal notranslate"><span class="pre">try_parse_dates=True</span></code> برای تجزیه خودکار ستون تاریخ استفاده می‌کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fred_url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://fred.stlouisfed.org/graph/fredgraph.csv?&#39;</span>
+            <span class="s1">&#39;bgcolor=</span><span class="si">%23e</span><span class="s1">1e9f0&amp;chart_type=line&amp;drp=0&amp;&#39;</span>
+            <span class="s1">&#39;fo=open</span><span class="si">%20s</span><span class="s1">ans&amp;graph_bgcolor=</span><span class="si">%23f</span><span class="s1">fffff&amp;&#39;</span>
+            <span class="s1">&#39;height=450&amp;mode=fred&amp;recession_bars=on&amp;&#39;</span>
+            <span class="s1">&#39;txtcolor=%23444444&amp;ts=12&amp;tts=12&amp;width=1318&amp;&#39;</span>
+            <span class="s1">&#39;nt=0&amp;thu=0&amp;trc=0&amp;show_legend=yes&amp;&#39;</span>
+            <span class="s1">&#39;show_axis_titles=yes&amp;show_tooltip=yes&amp;&#39;</span>
+            <span class="s1">&#39;id=UNRATE&amp;scale=left&amp;cosd=1948-01-01&amp;&#39;</span>
+            <span class="s1">&#39;coed=2024-06-01&amp;line_color=</span><span class="si">%234572a</span><span class="s1">7&amp;&#39;</span>
+            <span class="s1">&#39;link_values=false&amp;line_style=solid&amp;&#39;</span>
+            <span class="s1">&#39;mark_type=none&amp;mw=3&amp;lw=2&amp;ost=-99999&amp;&#39;</span>
+            <span class="s1">&#39;oet=99999&amp;mma=0&amp;fml=a&amp;fq=Monthly&amp;fam=avg&amp;&#39;</span>
+            <span class="s1">&#39;fgst=lin&amp;fgsnd=2020-02-01&amp;line_index=1&amp;&#39;</span>
+            <span class="s1">&#39;transformation=lin&amp;vintage_date=2024-07-29&amp;&#39;</span>
+            <span class="s1">&#39;revision_date=2024-07-29&amp;nd=1948-01-01&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fred_url</span><span class="p">,</span> <span class="n">try_parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بیایید چند ردیف اول را بررسی کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 2)</small><table border="1" class="dataframe"><thead><tr><th>observation_date</th><th>UNRATE</th></tr><tr><td>date</td><td>f64</td></tr></thead><tbody><tr><td>1948-01-01</td><td>3.4</td></tr><tr><td>1948-02-01</td><td>3.8</td></tr><tr><td>1948-03-01</td><td>4.0</td></tr><tr><td>1948-04-01</td><td>3.9</td></tr><tr><td>1948-05-01</td><td>3.5</td></tr></tbody></table></div></div></div>
+</div>
+<p>و آمار خلاصه را دریافت کنیم</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (9, 3)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>observation_date</th><th>UNRATE</th></tr><tr><td>str</td><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>&quot;918&quot;</td><td>918.0</td></tr><tr><td>&quot;null_count&quot;</td><td>&quot;0&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>&quot;1986-03-17 06:30:35.294117&quot;</td><td>5.693246</td></tr><tr><td>&quot;std&quot;</td><td>null</td><td>1.710248</td></tr><tr><td>&quot;min&quot;</td><td>&quot;1948-01-01&quot;</td><td>2.5</td></tr><tr><td>&quot;25%&quot;</td><td>&quot;1967-02-01&quot;</td><td>4.4</td></tr><tr><td>&quot;50%&quot;</td><td>&quot;1986-04-01&quot;</td><td>5.5</td></tr><tr><td>&quot;75%&quot;</td><td>&quot;2005-05-01&quot;</td><td>6.7</td></tr><tr><td>&quot;max&quot;</td><td>&quot;2024-06-01&quot;</td><td>14.8</td></tr></tbody></table></div></div></div>
+</div>
+<p>نرخ بیکاری از ۲۰۰۶ تا ۲۰۱۲ را رسم کنید</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;observation_date&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">pl</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;observation_date&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">pl</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered</span><span class="p">[</span><span class="s1">&#39;observation_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+        <span class="n">filtered</span><span class="p">[</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;US Unemployment Rate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a61de207bcb9903916c9e95a2444a28fad81a433fb0183bbe235b91ff888599c.png" src="_images/a61de207bcb9903916c9e95a2444a28fad81a433fb0183bbe235b91ff888599c.png" />
+</div>
+</div>
+<p>Polars از <a class="reference external" href="https://docs.pola.rs/user-guide/io/">فرمت‌های فایل بسیاری</a> از جمله Excel، JSON، Parquet، و اتصالات مستقیم پایگاه داده پشتیبانی می‌کند.</p>
+</section>
+<section id="id12">
+<h2><span class="section-number">19.6. </span>تمرین‌ها<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<div class="exercise admonition" id="pl_ex1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 19.1 </span></p>
+<section id="exercise-content">
+<p>با این واردسازی‌ها:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>برنامه‌ای بنویسید که تغییر درصدی قیمت را در طول سال ۲۰۲۱ برای سهام‌های زیر محاسبه کند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ticker_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;INTC&#39;</span><span class="p">:</span> <span class="s1">&#39;Intel&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;MSFT&#39;</span><span class="p">:</span> <span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;IBM&#39;</span><span class="p">:</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;BHP&#39;</span><span class="p">:</span> <span class="s1">&#39;BHP&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;TM&#39;</span><span class="p">:</span> <span class="s1">&#39;Toyota&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AAPL&#39;</span><span class="p">:</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AMZN&#39;</span><span class="p">:</span> <span class="s1">&#39;Amazon&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;Citigroup&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;QCOM&#39;</span><span class="p">:</span> <span class="s1">&#39;Qualcomm&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;KO&#39;</span><span class="p">:</span> <span class="s1">&#39;Coca-Cola&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;GOOG&#39;</span><span class="p">:</span> <span class="s1">&#39;Google&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>در اینجا تابعی است که قیمت‌های بسته شدن را در یک DataFrame Polars می‌خواند:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_data_polars</span><span class="p">(</span><span class="n">ticker_list</span><span class="p">,</span>
+                     <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                     <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read closing price data from Yahoo Finance</span>
+<span class="sd">    and return a Polars DataFrame.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dataframes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ticker_list</span><span class="p">:</span>
+        <span class="n">stock</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+        <span class="n">prices</span> <span class="o">=</span> <span class="n">stock</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">date</span><span class="p">),</span>
+            <span class="n">tick</span><span class="p">:</span> <span class="n">prices</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="p">})</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Date</span><span class="p">))</span>
+        <span class="n">dataframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">dataframes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="n">coalesce</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+
+<span class="n">ticker</span> <span class="o">=</span> <span class="n">read_data_polars</span><span class="p">(</span><span class="n">ticker_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>اتصال‌های Polars ترتیب ردیف‌های خروجی را تضمین نمی‌کنند — کلیدهایی که فقط در یک طرف
+مطابقت دارند به‌جای قرار گرفتن در جای خود، اضافه می‌شوند.
+این همان تم “بدون نمایه، بدون تراز خودکار” از بالاست: بدون برچسب‌های
+ردیف برای تراز کردن، ترتیب چیزی است که به‌طور صریح درخواست می‌کنیم.
+به همین دلیل <code class="docutils literal notranslate"><span class="pre">sort('Date')</span></code> قبل از بازگشت قرار دارد، که هر محاسبه بعدی
+<code class="docutils literal notranslate"><span class="pre">first()</span></code>/<code class="docutils literal notranslate"><span class="pre">last()</span></code> به آن متکی است.</p>
+</div>
+<p>برنامه را برای رسم نتیجه به عنوان یک نمودار میله‌ای کامل کنید.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="polars-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pl_ex1"> Exercise 19.1</a></p>
+<section id="solution-content">
+<p>تغییرات درصدی را با استفاده از عبارات Polars محاسبه کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price_change</span> <span class="o">=</span> <span class="n">ticker</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
+    <span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ticker_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
+    <span class="n">include_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">header_name</span><span class="o">=</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span>
+    <span class="n">column_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pct_change&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">replace_strict</span><span class="p">(</span><span class="n">ticker_list</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;company&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;pct_change&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">price_change</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (11, 3)
+┌────────┬────────────┬───────────┐
+│ ticker ┆ pct_change ┆ company   │
+│ ---    ┆ ---        ┆ ---       │
+│ str    ┆ f64        ┆ str       │
+╞════════╪════════════╪═══════════╡
+│ BHP    ┆ -2.249076  ┆ BHP       │
+│ C      ┆ 3.550576   ┆ Citigroup │
+│ AMZN   ┆ 5.845049   ┆ Amazon    │
+│ INTC   ┆ 6.86852    ┆ Intel     │
+│ KO     ┆ 14.922531  ┆ Coca-Cola │
+│ …      ┆ …          ┆ …         │
+│ TM     ┆ 23.416741  ┆ Toyota    │
+│ QCOM   ┆ 25.318529  ┆ Qualcomm  │
+│ AAPL   ┆ 38.550791  ┆ Apple     │
+│ MSFT   ┆ 57.179627  ┆ Microsoft │
+│ GOOG   ┆ 68.9609    ┆ Google    │
+└────────┴────────────┴───────────┘
+</pre></div>
+</div>
+</div>
+</div>
+<p>نتایج را مستقیماً با matplotlib رسم کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">companies</span> <span class="o">=</span> <span class="n">price_change</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">changes</span> <span class="o">=</span> <span class="n">price_change</span><span class="p">[</span><span class="s1">&#39;pct_change&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;blue&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">changes</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">companies</span><span class="p">,</span> <span class="n">changes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;stock&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;percentage change in price&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c91d64fbc0bd058c9bbef82bbbed83e294d1153dfea3d6fe168cec5a265ace07.png" src="_images/c91d64fbc0bd058c9bbef82bbbed83e294d1153dfea3d6fe168cec5a265ace07.png" />
+</div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="pl_ex2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 19.2 </span></p>
+<section id="exercise-content">
+<p>با استفاده از <code class="docutils literal notranslate"><span class="pre">read_data_polars</span></code> از <a class="reference internal" href="#pl_ex1"><span class="std std-numref">Exercise 19.1</span></a>، تغییر درصدی سال به سال را برای این شاخص‌ها بدست آورید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;^GSPC&#39;</span><span class="p">:</span> <span class="s1">&#39;S&amp;P 500&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;^IXIC&#39;</span><span class="p">:</span> <span class="s1">&#39;NASDAQ&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;^DJI&#39;</span><span class="p">:</span> <span class="s1">&#39;Dow Jones&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;^N225&#39;</span><span class="p">:</span> <span class="s1">&#39;Nikkei&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>نتیجه را به عنوان یک نمودار سری زمانی رسم کنید.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="polars-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#pl_ex2"> Exercise 19.2</a></p>
+<section id="solution-content">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_data</span> <span class="o">=</span> <span class="n">read_data_polars</span><span class="p">(</span>
+    <span class="n">indices_list</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1971</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">end</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">indices_data</span> <span class="o">=</span> <span class="n">indices_data</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>بازده‌های سالانه را با استفاده از عملیات گروه‌بندی محاسبه کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_returns</span> <span class="o">=</span> <span class="n">indices_data</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span>
+    <span class="o">*</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_first&#39;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indices_list</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">last</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_last&#39;</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indices_list</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">indices_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">yearly_returns</span> <span class="o">=</span> <span class="n">yearly_returns</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_last&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_first&#39;</span><span class="p">))</span>
+         <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">_first&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">yearly_returns</span> <span class="o">=</span> <span class="p">(</span><span class="n">yearly_returns</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">indices_list</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yearly_returns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (51, 5)
+┌──────┬────────────┬────────────┬───────────┬────────────┐
+│ year ┆ S&amp;P 500    ┆ NASDAQ     ┆ Dow Jones ┆ Nikkei     │
+│ ---  ┆ ---        ┆ ---        ┆ ---       ┆ ---        │
+│ i32  ┆ f64        ┆ f64        ┆ f64       ┆ f64        │
+╞══════╪════════════╪════════════╪═══════════╪════════════╡
+│ 1971 ┆ 12.002188  ┆ 14.120003  ┆ null      ┆ 36.407234  │
+│ 1972 ┆ 16.110952  ┆ 17.668274  ┆ null      ┆ 92.011231  │
+│ 1973 ┆ -18.094035 ┆ -31.523435 ┆ null      ┆ -17.697016 │
+│ 1974 ┆ -29.811633 ┆ -35.350697 ┆ null      ┆ -9.914309  │
+│ 1975 ┆ 28.4209    ┆ 27.874797  ┆ null      ┆ 16.798024  │
+│ …    ┆ …          ┆ …          ┆ …         ┆ …          │
+│ 2017 ┆ 18.415027  ┆ 27.155799  ┆ 24.331151 ┆ 16.182267  │
+│ 2018 ┆ -7.009394  ┆ -5.303631  ┆ -6.028635 ┆ -14.853703 │
+│ 2019 ┆ 28.714796  ┆ 34.603667  ┆ 22.23998  ┆ 20.931737  │
+│ 2020 ┆ 15.292907  ┆ 41.751104  ┆ 6.019231  ┆ 18.269064  │
+│ 2021 ┆ 29.132182  ┆ 23.964416  ┆ 20.428169 ┆ 5.625169   │
+└──────┴────────────┴────────────┴───────────┴────────────┘
+</pre></div>
+</div>
+</div>
+</div>
+<p>آمار خلاصه:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yearly_returns</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">indices_list</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (9, 5)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>S&amp;P 500</th><th>NASDAQ</th><th>Dow Jones</th><th>Nikkei</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>51.0</td><td>51.0</td><td>30.0</td><td>51.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td><td>0.0</td><td>21.0</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>9.20986</td><td>13.094786</td><td>9.10453</td><td>7.850346</td></tr><tr><td>&quot;std&quot;</td><td>16.398012</td><td>24.616625</td><td>14.134825</td><td>24.384181</td></tr><tr><td>&quot;min&quot;</td><td>-37.58465</td><td>-40.197764</td><td>-32.716831</td><td>-39.695649</td></tr><tr><td>&quot;25%&quot;</td><td>0.255632</td><td>2.470561</td><td>2.072082</td><td>-6.094919</td></tr><tr><td>&quot;50%&quot;</td><td>11.677594</td><td>14.312575</td><td>9.387316</td><td>7.667034</td></tr><tr><td>&quot;75%&quot;</td><td>19.671602</td><td>27.874797</td><td>21.451016</td><td>20.931737</td></tr><tr><td>&quot;max&quot;</td><td>34.157394</td><td>84.294285</td><td>33.311106</td><td>92.011231</td></tr></tbody></table></div></div></div>
+</div>
+<p>هر شاخص را در یک زیرنمودار رسم کنید:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">yearly_returns</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">iter_</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">indices_list</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="n">iter_</span><span class="p">]</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">yearly_returns</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;yearly return (%)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ae827d284737fcad3c42a6eda6ac3ba4fe23472e78ed98642dc669d759576c41.png" src="_images/ae827d284737fcad3c42a6eda6ac3ba4fe23472e78ed98642dc669d759576c41.png" />
+</div>
+</div>
+</section>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                    </div>
+                    
+                </main> <!-- .page__content -->
+                
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                    <p>A theme by <a href="https://quantecon.org">QuantEcon</a></p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="about_py.html">
+   1. درباره ی این دوره
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting_started.html">
+   2. بیاین شروع کنیم
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_by_example.html">
+   3. یک مثال مقدماتی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   4. توابع
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_essentials.html">
+   5. اصول برنامه‌نویسی پایتون
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="oop_intro.html">
+   6. برنامه‌نویسی شی‌گرا قسمت اول : اشیاء و متدها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="names.html">
+   7. نام‌ها و فضاهای نام
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_oop.html">
+   8. OOP II: ساخت کلاس‌ها
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations of Scientific Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="need_for_speed.html">
+   9. پایتون برای محاسبات علمی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy.html">
+   10. NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matplotlib.html">
+   11. Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scipy.html">
+   12. SciPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  High Performance Computing
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="numba.html">
+   13. Numba
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jax_intro.html">
+   14. JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_vs_numba_vs_jax.html">
+   15. NumPy در مقابل Numba در مقابل JAX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="autodiff.html">
+   16. ماجراهایی با مشتق‌گیری خودکار
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Working with Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   17. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_panel.html">
+   18. Pandas برای داده‌های پانلی
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   19. Polars
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  More Python Programming
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="writing_good_code.html">
+   20. نوشتن کد خوب
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workspace.html">
+   21. نوشتن برنامه‌های طولانی‌تر
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_advanced_features.html">
+   22. ویژگی‌های بیشتر زبان
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="debugging.html">
+   23. اشکال‌زدایی و مدیریت خطاها
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sympy.html">
+   24. SymPy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshooting.html">
+   25. عیب‌یابی
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="status.html">
+   26. آمار اجرا
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="https://quantecon.org" title=""><span class="show-for-sr">QuantEcon</span></a></li>
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li class="btn__search">
+                        <form action="search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search..." aria-label="Search..." autocomplete="off" accesskey="k">
+                            <i data-feather="search" id="search-icon"></i>
+                        </form>
+                    </li>
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <!--
+                    # Enable if looking for link to specific document hosted on GitHub
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa/blob/main/lectures/polars.md" download><i data-feather="github"></i></a></li>
+                    -->
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
+                    
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/polars.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/polars.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/polars.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/polars.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+                    
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "polars";
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
+  </body>
+</html>

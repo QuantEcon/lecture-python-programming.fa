@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>21. ویژگی‌های بیشتر زبان &#8212; Python Programming for Economics and Finance</title>
+    <title>22. ویژگی‌های بیشتر زبان &#8212; Python Programming for Economics and Finance</title>
     
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -124,12 +124,12 @@
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_advanced_features';</script>
-    <link rel="canonical" href="https://python-programming-fa.quantecon.org/python_advanced_features.html" />
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/python_advanced_features.html" />
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="22. اشکال‌زدایی و مدیریت خطاها" href="debugging.html" />
-    <link rel="prev" title="20. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
+    <link rel="next" title="23. اشکال‌زدایی و مدیریت خطاها" href="debugging.html" />
+    <link rel="prev" title="21. نوشتن برنامه‌های طولانی‌تر" href="workspace.html" />
 
 <!-- Normal Meta Tags -->
 <meta name="author" context="Thomas J. Sargent &amp; John Stachurski (Translation by Zahra Khanzadeh)" />
@@ -147,13 +147,24 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="ویژگی‌های بیشتر زبان" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python-programming-fa.quantecon.org/python_advanced_features.html" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/python_advanced_features.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
 
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/python_advanced_features.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/python_advanced_features.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/python_advanced_features.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/python_advanced_features.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/python_advanced_features.html" />
 
 
   </head>
@@ -204,52 +215,52 @@
 
                         <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">21.1. مروری کلی</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterable-iterator">21.2. Iterableها و Iteratorها</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator">21.2.1. Iteratorها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-for">21.2.2. Iteratorها در حلقه‌های for</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterable">21.2.3. Iterableها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">21.2.4. Iteratorها و توابع داخلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">22.1. مروری کلی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterable-iterator">22.2. Iterableها و Iteratorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator">22.2.1. Iteratorها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-for">22.2.2. Iteratorها در حلقه‌های for</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterable">22.2.3. Iterableها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">22.2.4. Iteratorها و توابع داخلی</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">21.3. عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">21.3.1. باز کردن آرگومان‌ها</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">21.3.2. آرگومان‌های دلخواه</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">22.3. عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">22.3.1. باز کردن آرگومان‌ها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">22.3.2. آرگومان‌های دلخواه</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">21.4. راهنمای نوع (Type Hints)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">21.4.1. نحو پایه</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">21.4.2. نوع‌های رایج</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">21.4.3. راهنماها نوع‌ها را اجبار نمی‌کنند</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">21.4.4. چرا از راهنمای نوع استفاده کنیم؟</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">21.4.5. راهنمای نوع در پایتون علمی</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">22.4. راهنمای نوع (Type Hints)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">22.4.1. نحو پایه</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">22.4.2. نوع‌های رایج</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">22.4.3. راهنماها نوع‌ها را اجبار نمی‌کنند</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">22.4.4. چرا از راهنمای نوع استفاده کنیم؟</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">22.4.5. راهنمای نوع در پایتون علمی</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator-descriptor">21.5. Decoratorها و Descriptorها</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator">21.5.1. Decoratorها</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">21.5.1.1. یک مثال</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">21.5.1.2. decoratorها وارد می‌شوند</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator-descriptor">22.5. Decoratorها و Descriptorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator">22.5.1. Decoratorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">22.5.1.1. یک مثال</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">22.5.1.2. decoratorها وارد می‌شوند</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptor">21.5.2. Descriptorها</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">21.5.2.1. یک راه‌حل</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">21.5.2.2. چگونه کار می‌کند</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator-property">21.5.2.3. decoratorها و propertyها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptor">22.5.2. Descriptorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">22.5.2.1. یک راه‌حل</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">22.5.2.2. چگونه کار می‌کند</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decorator-property">22.5.2.3. decoratorها و propertyها</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator">21.6. Generatorها</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">21.6.1. عبارات generator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">21.6.2. توابع generator</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">21.6.2.1. مثال 1</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">21.6.2.2. مثال 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator">22.6. Generatorها</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">22.6.1. عبارات generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">22.6.2. توابع generator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">22.6.2.1. مثال 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">22.6.2.2. مثال 2</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">21.6.3. مزایای iteratorها</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">22.6.3. مزایای iteratorها</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">21.7. تمرین‌ها</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">22.7. تمرین‌ها</a></li>
 </ul>
                             <p class="logo">
                                 
@@ -305,7 +316,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jun 19, 2026
+                            Last changed: Aug 03, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -316,11 +327,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/58dc111" class="changelog-hash">58dc111</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 minutes ago</span>
-                                <span class="changelog-message">fix(about_py): correct PyTorch and LaTeX capitalization (#124)</span>
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
                             </li>
                             
                         </ul>
@@ -336,9 +347,9 @@
                     <div>
                         
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">21. </span>ویژگی‌های بیشتر زبان<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>ویژگی‌های بیشتر زبان<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="id2">
-<h2><span class="section-number">21.1. </span>مروری کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>مروری کلی<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>توصیه ما برای این درس آخر این است که <em>در مرور اول آن را رد کنید</em>، مگر اینکه میل شدیدی به خواندن آن داشته باشید.</p>
 <p>این درس اینجاست</p>
 <ol class="arabic simple">
@@ -348,11 +359,11 @@
 <p>موضوعات متنوعی در این درس بررسی می‌شوند، از جمله iteratorها، type hintها، decoratorها و descriptorها، و generatorها.</p>
 </section>
 <section id="iterable-iterator">
-<h2><span class="section-number">21.2. </span>Iterableها و Iteratorها<a class="headerlink" href="#iterable-iterator" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>Iterableها و Iteratorها<a class="headerlink" href="#iterable-iterator" title="Link to this heading">#</a></h2>
 <p id="index-0">ما قبلاً <a class="reference internal" href="python_essentials.html#iterating-version-1"><span class="std std-ref">چیزهایی درباره تکرار</span></a> در Python گفته‌ایم.</p>
 <p>اکنون بیایید دقیق‌تر به نحوه کار آن نگاه کنیم، با تمرکز بر پیاده‌سازی Python از حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
 <section id="iterator">
-<span id="iterators"></span><h3><span class="section-number">21.2.1. </span>Iteratorها<a class="headerlink" href="#iterator" title="Link to this heading">#</a></h3>
+<span id="iterators"></span><h3><span class="section-number">22.2.1. </span>Iteratorها<a class="headerlink" href="#iterator" title="Link to this heading">#</a></h3>
 <p id="index-1">Iteratorها یک رابط یکنواخت برای حرکت در عناصر یک مجموعه هستند.</p>
 <p>در اینجا درباره استفاده از iteratorها صحبت خواهیم کرد — بعداً یاد خواهیم گرفت که چگونه iteratorهای خود را بسازیم.</p>
 <p>به طور رسمی، یک <em>iterator</em> یک شیء با متد <code class="docutils literal notranslate"><span class="pre">__next__</span></code> است.</p>
@@ -501,7 +512,7 @@
 </div>
 </section>
 <section id="iterator-for">
-<h3><span class="section-number">21.2.2. </span>Iteratorها در حلقه‌های for<a class="headerlink" href="#iterator-for" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.2. </span>Iteratorها در حلقه‌های for<a class="headerlink" href="#iterator-for" title="Link to this heading">#</a></h3>
 <p id="index-2">همه iteratorها می‌توانند در سمت راست کلمه کلیدی <code class="docutils literal notranslate"><span class="pre">in</span></code> در دستورات حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> قرار گیرند.</p>
 <p>در واقع به این ترتیب است که حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> کار می‌کند: اگر بنویسیم</p>
 <div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">iterator</span><span class="p">:</span>
@@ -528,7 +539,7 @@
 <p>این کار تا زمانی که خطای <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> رخ دهد، ادامه دارد.</p>
 </section>
 <section id="iterable">
-<h3><span class="section-number">21.2.3. </span>Iterableها<a class="headerlink" href="#iterable" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.3. </span>Iterableها<a class="headerlink" href="#iterable" title="Link to this heading">#</a></h3>
 <p id="index-3">شما از قبل می‌دانید که می‌توانیم یک لیست Python را در سمت راست <code class="docutils literal notranslate"><span class="pre">in</span></code> در یک حلقه <code class="docutils literal notranslate"><span class="pre">for</span></code> قرار دهیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -673,7 +684,7 @@ eggs
 </ul>
 </section>
 <section id="id3">
-<h3><span class="section-number">21.2.4. </span>Iteratorها و توابع داخلی<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.4. </span>Iteratorها و توابع داخلی<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p id="index-4">برخی از توابع داخلی که روی توالی‌ها عمل می‌کنند، با iterableها نیز کار می‌کنند</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code>، <code class="docutils literal notranslate"><span class="pre">min()</span></code>، <code class="docutils literal notranslate"><span class="pre">sum()</span></code>، <code class="docutils literal notranslate"><span class="pre">all()</span></code>، <code class="docutils literal notranslate"><span class="pre">any()</span></code></p></li>
@@ -752,11 +763,11 @@ eggs
 </section>
 </section>
 <section id="id4">
-<h2><span class="section-number">21.3. </span>عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>عملگرهای <code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> و <code class="docutils literal notranslate"><span class="pre">**</span></code> ابزارهای مناسب و پرکاربردی برای باز کردن لیست‌ها و tupleها و اجازه دادن به کاربران برای تعریف توابعی هستند که تعداد دلخواه آرگومان را به عنوان ورودی می‌گیرند.</p>
 <p>در این بخش، نحوه استفاده از آن‌ها و تمایز موارد استفاده آن‌ها را بررسی خواهیم کرد.</p>
 <section id="id5">
-<h3><span class="section-number">21.3.1. </span>باز کردن آرگومان‌ها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.3.1. </span>باز کردن آرگومان‌ها<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>وقتی روی لیستی از پارامترها عمل می‌کنیم، اغلب نیاز داریم که محتوای لیست را به عنوان آرگومان‌های منفرد به جای یک مجموعه استخراج کنیم هنگام ارسال آن‌ها به توابع.</p>
 <p>خوشبختانه، عملگر <code class="docutils literal notranslate"><span class="pre">*</span></code> می‌تواند به ما کمک کند تا لیست‌ها و tupleها را به <a class="reference internal" href="functions.html#pos-args"><span class="std std-ref"><em>آرگومان‌های موضعی</em></span></a> در فراخوانی توابع باز کنیم.</p>
 <p>برای مشخص کردن مطلب، مثال‌های زیر را در نظر بگیرید:</p>
@@ -877,7 +888,7 @@ eggs
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/167fd98e4124445a638f4dfba9a31bb547dd27ada568a2c0fba3353dc6245409.png" src="_images/167fd98e4124445a638f4dfba9a31bb547dd27ada568a2c0fba3353dc6245409.png" />
+<img alt="_images/37d731d5c8f09456daee515d0740556b4a9d2b1cae97492325250e029ba44fff.png" src="_images/37d731d5c8f09456daee515d0740556b4a9d2b1cae97492325250e029ba44fff.png" />
 </div>
 </div>
 <p>در این مثال، <code class="docutils literal notranslate"><span class="pre">*</span></code> پارامترهای zip شده <code class="docutils literal notranslate"><span class="pre">βs</span></code> و خروجی تابع <code class="docutils literal notranslate"><span class="pre">generate_data</span></code> که در tupleها ذخیره شده‌اند را باز کرد،
@@ -886,7 +897,7 @@ eggs
 <p>تفاوت این است که <code class="docutils literal notranslate"><span class="pre">*</span></code> لیست‌ها و tupleها را به <em>آرگومان‌های موضعی</em> باز می‌کند، در حالی که <code class="docutils literal notranslate"><span class="pre">**</span></code> دیکشنری‌ها را به <em>آرگومان‌های کلیدواژه‌ای</em> باز می‌کند.</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">21.3.2. </span>آرگومان‌های دلخواه<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.3.2. </span>آرگومان‌های دلخواه<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>زمانی که توابع را <em>تعریف</em> می‌کنیم، گاهی مطلوب است که به کاربران اجازه دهیم هر تعداد آرگومان که می‌خواهند را وارد یک تابع کنند.</p>
 <p>شاید متوجه شده باشید که تابع <code class="docutils literal notranslate"><span class="pre">ax.plot()</span></code> می‌تواند تعداد دلخواهی آرگومان را مدیریت کند.</p>
 <p>اگر به <a class="reference external" href="https://github.com/matplotlib/matplotlib/blob/v3.6.2/lib/matplotlib/axes/_axes.py#L1417-L1669">مستندات</a> تابع نگاه کنیم، می‌بینیم تابع به صورت زیر تعریف شده است</p>
@@ -965,7 +976,7 @@ eggs
 </section>
 </section>
 <section id="type-hints">
-<h2><span class="section-number">21.4. </span>راهنمای نوع (Type Hints)<a class="headerlink" href="#type-hints" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>راهنمای نوع (Type Hints)<a class="headerlink" href="#type-hints" title="Link to this heading">#</a></h2>
 <p id="index-5">پایتون یک زبان <em>با نوع‌دهی پویا</em> است، به این معنی که نیازی به اعلان نوع متغیرها ندارید.</p>
 <p>(بحث <a class="reference internal" href="need_for_speed.html"><span class="doc">پیشین</span></a> ما درباره نوع‌های پویا در برابر استاتیک را ببینید.)</p>
 <p>با این حال، پایتون از <strong>راهنمای نوع</strong> (type hints) اختیاری (که به آن حاشیه‌نویسی نوع نیز گفته می‌شود) پشتیبانی می‌کند که به شما امکان می‌دهد نوع‌های مورد انتظار متغیرها، پارامترهای تابع، و مقادیر بازگشتی را مشخص کنید.</p>
@@ -976,7 +987,7 @@ eggs
 <p>راهنمای نوع <em>در زمان اجرا توسط مفسر پایتون نادیده گرفته می‌شود</em> — آن‌ها بر نحوه اجرای کد شما تأثیری ندارند. آن‌ها صرفاً اطلاعاتی هستند و به عنوان مستندات برای انسان‌ها و ابزارها عمل می‌کنند.</p>
 </div>
 <section id="id7">
-<h3><span class="section-number">21.4.1. </span>نحو پایه<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.4.1. </span>نحو پایه<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>راهنمای نوع از دونقطه <code class="docutils literal notranslate"><span class="pre">:</span></code> برای حاشیه‌نویسی متغیرها و پارامترها، و از پیکان <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> برای حاشیه‌نویسی نوع‌های بازگشتی استفاده می‌کند.</p>
 <p>در اینجا یک مثال ساده آمده است:</p>
 <div class="cell docutils container">
@@ -1012,7 +1023,7 @@ eggs
 </div>
 </section>
 <section id="id8">
-<h3><span class="section-number">21.4.2. </span>نوع‌های رایج<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.4.2. </span>نوع‌های رایج<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>پرکاربردترین راهنمای نوع، نوع‌های داخلی (built-in) هستند:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -1053,7 +1064,7 @@ eggs
 </div>
 </section>
 <section id="id9">
-<h3><span class="section-number">21.4.3. </span>راهنماها نوع‌ها را اجبار نمی‌کنند<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.4.3. </span>راهنماها نوع‌ها را اجبار نمی‌کنند<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>یک نکته مهم برای برنامه‌نویسان جدید پایتون: راهنمای نوع در زمان اجرا <em>اجبار نمی‌شوند</em>.</p>
 <p>پایتون در صورت ارسال نوع «اشتباه» خطایی ایجاد نمی‌کند:</p>
 <div class="cell docutils container">
@@ -1076,7 +1087,7 @@ eggs
 <p>این تفاوت کلیدی با زبان‌های با نوع‌دهی ایستا مانند C یا Java است، که در آن‌ها عدم تطابق نوع‌ها باعث خطاهای کامپایل می‌شود.</p>
 </section>
 <section id="id10">
-<h3><span class="section-number">21.4.4. </span>چرا از راهنمای نوع استفاده کنیم؟<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.4.4. </span>چرا از راهنمای نوع استفاده کنیم؟<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <p>اگر پایتون آن‌ها را نادیده می‌گیرد، چرا زحمت بکشیم؟</p>
 <ol class="arabic simple">
 <li><p><strong>خوانایی</strong>: راهنمای نوع امضای تابع را خوددستنویس (self-documenting) می‌کند. خواننده فوراً می‌داند که یک تابع چه نوع‌هایی را انتظار دارد و چه نوع‌هایی برمی‌گرداند.</p></li>
@@ -1086,7 +1097,7 @@ eggs
 </ol>
 </section>
 <section id="id11">
-<h3><span class="section-number">21.4.5. </span>راهنمای نوع در پایتون علمی<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.4.5. </span>راهنمای نوع در پایتون علمی<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <p>راهنمای نوع به بحث <a class="reference internal" href="need_for_speed.html"><span class="doc">نیاز به سرعت</span></a> ارتباط دارد:</p>
 <ul class="simple">
 <li><p>کتابخانه‌های پرکارایی مانند <a class="reference external" href="https://docs.jax.dev/en/latest/">JAX</a> و <a class="reference external" href="https://numba.pydata.org/">Numba</a> برای کامپایل کد ماشین سریع به دانستن نوع متغیرها متکی هستند.</p></li>
@@ -1097,17 +1108,17 @@ eggs
 </section>
 </section>
 <section id="decorator-descriptor">
-<h2><span class="section-number">21.5. </span>Decoratorها و Descriptorها<a class="headerlink" href="#decorator-descriptor" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.5. </span>Decoratorها و Descriptorها<a class="headerlink" href="#decorator-descriptor" title="Link to this heading">#</a></h2>
 <p id="index-7"><span id="index-6"></span>بیایید به برخی از عناصر نحوی خاص نگاه کنیم که به طور معمول توسط توسعه‌دهندگان Python استفاده می‌شوند.</p>
 <p>ممکن است بلافاصله به مفاهیم زیر نیاز نداشته باشید، اما آن‌ها را در کد دیگران خواهید دید.</p>
 <p>از این رو در مرحله‌ای از آموزش Python خود باید آن‌ها را درک کنید.</p>
 <section id="decorator">
-<h3><span class="section-number">21.5.1. </span>Decoratorها<a class="headerlink" href="#decorator" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.5.1. </span>Decoratorها<a class="headerlink" href="#decorator" title="Link to this heading">#</a></h3>
 <p id="index-8">Decoratorها کمی نحو شیرین هستند که، اگرچه به راحتی قابل اجتناب هستند، محبوب شده‌اند.</p>
 <p>بسیار آسان است بگوییم که decoratorها چه کاری انجام می‌دهند.</p>
 <p>از طرف دیگر توضیح اینکه <em>چرا</em> ممکن است از آن‌ها استفاده کنید، کمی تلاش می‌طلبد.</p>
 <section id="id12">
-<h4><span class="section-number">21.5.1.1. </span>یک مثال<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.5.1.1. </span>یک مثال<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
 <p>فرض کنید روی برنامه‌ای کار می‌کنیم که شبیه این است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1186,7 +1197,7 @@ eggs
 <p>در عین حال، منطق تست فقط یک بار نوشته شده است.</p>
 </section>
 <section id="id13">
-<h4><span class="section-number">21.5.1.2. </span>decoratorها وارد می‌شوند<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.5.1.2. </span>decoratorها وارد می‌شوند<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
 <p id="index-9">نسخه آخر کد ما هنوز ایده‌آل نیست.</p>
 <p>به عنوان مثال، اگر کسی کد ما را بخواند و بخواهد بداند که
 <code class="docutils literal notranslate"><span class="pre">f</span></code> چگونه کار می‌کند، به دنبال تعریف تابع خواهد گشت، که این است</p>
@@ -1239,7 +1250,7 @@ eggs
 </section>
 </section>
 <section id="descriptor">
-<span id="descriptors"></span><h3><span class="section-number">21.5.2. </span>Descriptorها<a class="headerlink" href="#descriptor" title="Link to this heading">#</a></h3>
+<span id="descriptors"></span><h3><span class="section-number">22.5.2. </span>Descriptorها<a class="headerlink" href="#descriptor" title="Link to this heading">#</a></h3>
 <p id="index-10">Descriptorها مشکل رایجی را در مورد مدیریت متغیرها حل می‌کنند.</p>
 <p>برای درک موضوع، یک کلاس <code class="docutils literal notranslate"><span class="pre">Car</span></code> را در نظر بگیرید که یک ماشین را شبیه‌سازی می‌کند.</p>
 <p>فرض کنید این کلاس متغیرهای <code class="docutils literal notranslate"><span class="pre">miles</span></code> و <code class="docutils literal notranslate"><span class="pre">kms</span></code> را تعریف می‌کند که به ترتیب فاصله طی شده به مایل
@@ -1301,7 +1312,7 @@ eggs
 <p>در دو خط آخر می‌بینیم که <code class="docutils literal notranslate"><span class="pre">miles</span></code> و <code class="docutils literal notranslate"><span class="pre">kms</span></code> همگام نیستند.</p>
 <p>آنچه واقعاً می‌خواهیم یک مکانیسم است که به موجب آن هر زمان که کاربر یکی از این متغیرها را تنظیم می‌کند، <em>دیگری به طور خودکار به‌روز شود</em>.</p>
 <section id="id14">
-<h4><span class="section-number">21.5.2.1. </span>یک راه‌حل<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.5.2.1. </span>یک راه‌حل<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
 <p>در Python، این موضوع با استفاده از <em>descriptorها</em> حل می‌شود.</p>
 <p>یک descriptor فقط یک شیء Python است که متدهای خاصی را پیاده‌سازی می‌کند.</p>
 <p>این متدها زمانی فعال می‌شوند که شیء از طریق نشانه‌گذاری ویژگی نقطه‌دار قابل دسترسی باشد.</p>
@@ -1365,7 +1376,7 @@ eggs
 <p>بله، این همان چیزی است که می‌خواهیم — <code class="docutils literal notranslate"><span class="pre">car.kms</span></code> به طور خودکار به‌روز می‌شود.</p>
 </section>
 <section id="id15">
-<h4><span class="section-number">21.5.2.2. </span>چگونه کار می‌کند<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.5.2.2. </span>چگونه کار می‌کند<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
 <p>نام‌های <code class="docutils literal notranslate"><span class="pre">_miles</span></code> و <code class="docutils literal notranslate"><span class="pre">_kms</span></code> نام‌های دلخواهی هستند که برای ذخیره مقادیر متغیرها استفاده می‌کنیم.</p>
 <p>اشیاء <code class="docutils literal notranslate"><span class="pre">miles</span></code> و <code class="docutils literal notranslate"><span class="pre">kms</span></code> <em>propertyها</em> هستند، نوع رایجی از descriptor.</p>
 <p>متدهای <code class="docutils literal notranslate"><span class="pre">get_miles</span></code>، <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>، <code class="docutils literal notranslate"><span class="pre">get_kms</span></code> و <code class="docutils literal notranslate"><span class="pre">set_kms</span></code> تعریف
@@ -1379,7 +1390,7 @@ eggs
 آن فعال می‌شود — در این مورد <code class="docutils literal notranslate"><span class="pre">set_miles</span></code>.</p>
 </section>
 <section id="decorator-property">
-<h4><span class="section-number">21.5.2.3. </span>decoratorها و propertyها<a class="headerlink" href="#decorator-property" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.5.2.3. </span>decoratorها و propertyها<a class="headerlink" href="#decorator-property" title="Link to this heading">#</a></h4>
 <p id="index-12"><span id="index-11"></span>این روزها بسیار رایج است که تابع <code class="docutils literal notranslate"><span class="pre">property</span></code> را از طریق یک decorator ببینید.</p>
 <p>اینجا نسخه دیگری از کلاس <code class="docutils literal notranslate"><span class="pre">Car</span></code> ما است که مانند قبل کار می‌کند اما حالا از
 decoratorها برای تنظیم propertyها استفاده می‌کند</p>
@@ -1418,11 +1429,11 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </section>
 </section>
 <section id="generator">
-<span id="paf-generators"></span><h2><span class="section-number">21.6. </span>Generatorها<a class="headerlink" href="#generator" title="Link to this heading">#</a></h2>
+<span id="paf-generators"></span><h2><span class="section-number">22.6. </span>Generatorها<a class="headerlink" href="#generator" title="Link to this heading">#</a></h2>
 <p id="index-13">یک generator نوعی iterator است (یعنی با تابع <code class="docutils literal notranslate"><span class="pre">next</span></code> کار می‌کند).</p>
 <p>دو راه برای ساخت generatorها مطالعه خواهیم کرد: عبارات generator و توابع generator.</p>
 <section id="id16">
-<h3><span class="section-number">21.6.1. </span>عبارات generator<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.6.1. </span>عبارات generator<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <p>ساده‌ترین راه برای ساخت generatorها استفاده از <em>عبارات generator</em> است.</p>
 <p>درست مانند list comprehension، اما با پرانتز گرد.</p>
 <p>اینجا list comprehension است:</p>
@@ -1544,11 +1555,11 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </div>
 </section>
 <section id="id17">
-<h3><span class="section-number">21.6.2. </span>توابع generator<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.6.2. </span>توابع generator<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <p id="index-14">انعطاف‌پذیرترین راه برای ایجاد اشیاء generator استفاده از توابع generator است.</p>
 <p>بیایید به چند مثال نگاه کنیم.</p>
 <section id="id18">
-<h4><span class="section-number">21.6.2.1. </span>مثال 1<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.6.2.1. </span>مثال 1<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
 <p>اینجا یک مثال بسیار ساده از یک تابع generator است</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1582,7 +1593,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fab5bae0880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f1f042e9590&gt;
 </pre></div>
 </div>
 </div>
@@ -1663,7 +1674,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 <p>وقتی بلوک کد تمام می‌شود، generator یک خطای <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> پرتاب می‌کند.</p>
 </section>
 <section id="id19">
-<h4><span class="section-number">21.6.2.2. </span>مثال 2<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">22.6.2.2. </span>مثال 2<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
 <p>مثال بعدی ما یک آرگومان <code class="docutils literal notranslate"><span class="pre">x</span></code> را از فراخواننده دریافت می‌کند</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1787,7 +1798,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </section>
 </section>
 <section id="id20">
-<h3><span class="section-number">21.6.3. </span>مزایای iteratorها<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.6.3. </span>مزایای iteratorها<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
 <p>مزیت استفاده از iterator اینجا چیست؟</p>
 <p>فرض کنید می‌خواهیم از یک binomial(n,0.5) نمونه بگیریم.</p>
 <p>یک راه برای انجام آن به شرح زیر است</p>
@@ -1801,7 +1812,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4998832
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000048
 </pre></div>
 </div>
 </div>
@@ -1840,7 +1851,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7fab5bb04790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object f at 0x7f1f04105e50&gt;
 </pre></div>
 </div>
 </div>
@@ -1852,7 +1863,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999274
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5000476
 </pre></div>
 </div>
 </div>
@@ -1865,10 +1876,10 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </section>
 </section>
 <section id="id21">
-<h2><span class="section-number">21.7. </span>تمرین‌ها<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.7. </span>تمرین‌ها<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
 <div class="exercise admonition" id="paf_ex1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 21.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 22.1 </span></p>
 <section id="exercise-content">
 <p>کد زیر را کامل کنید و آن را با استفاده از <a class="reference external" href="https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/python_advanced_features/test_table.csv">این فایل csv</a> تست کنید، که فرض می‌کنیم آن را در دایرکتوری کاری فعلی خود قرار داده‌اید</p>
 <div class="no-execute highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">column_iterator</span><span class="p">(</span><span class="n">target_file</span><span class="p">,</span> <span class="n">column_number</span><span class="p">):</span>
@@ -1890,7 +1901,7 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 </div>
 <div class="solution dropdown admonition" id="python_advanced_features-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#paf_ex1"> Exercise 21.1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#paf_ex1"> Exercise 22.1</a></p>
 <section id="solution-content">
 <p>یک راه‌حل به شرح زیر است</p>
 <div class="cell docutils container">
@@ -2106,6 +2117,11 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
    18. Pandas برای داده‌های پانلی
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polars.html">
+   19. Polars
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -2115,27 +2131,27 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 <ul class="current nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. نوشتن کد خوب
+   20. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   20. نوشتن برنامه‌های طولانی‌تر
+   21. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1 current active active">
   <a class="current reference internal" href="#">
-   21. ویژگی‌های بیشتر زبان
+   22. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. اشکال‌زدایی و مدیریت خطاها
+   23. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   23. SymPy
+   24. SymPy
   </a>
  </li>
 </ul>
@@ -2147,12 +2163,12 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   24. عیب‌یابی
+   25. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   25. آمار اجرا
+   26. آمار اجرا
   </a>
  </li>
 </ul>
@@ -2188,7 +2204,6 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
@@ -2196,6 +2211,49 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
                     
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/python_advanced_features.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/python_advanced_features.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/python_advanced_features.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/python_advanced_features.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
                     
                 </ul>
 
@@ -2225,18 +2283,16 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/python_advanced_features.ipynb">Colab</option>
-                
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/python_advanced_features.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/python_advanced_features.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -2267,9 +2323,9 @@ decoratorها برای تنظیم propertyها استفاده می‌کند</p>
                 const launcherPublic = document.getElementById('launcher-public-input');
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "python_advanced_features";
-                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
-                const urlPath = "tree/lecture-python-programming.fa.notebooks/python_advanced_features.ipynb";
-                const branch = "main"
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 
                 // Highlight public server option if previous selection exists

@@ -1,0 +1,87 @@
+Traceback (most recent call last):
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import wbgapi as wb
+wb.series.info('GC.DOD.TOTL.GD.ZS')
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAPIError[39m                                  Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[56][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m wbgapi [38;5;28;01mas[39;00m wb
+[32m----> [39m[32m2[39m wb.series.info([33m'GC.DOD.TOTL.GD.ZS'[39m)
+
+[36mFile [39m[32m~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/series.py:85[39m, in [36minfo[39m[34m(id, q, topic, db)[39m
+[32m     68[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34minfo[39m([38;5;28mid[39m=[33m'[39m[33mall[39m[33m'[39m, q=[38;5;28;01mNone[39;00m, topic=[38;5;28;01mNone[39;00m, db=[38;5;28;01mNone[39;00m):
+[32m     69[39m [38;5;250m    [39m[33;03m'''Print a user report of series. This can be time consuming[39;00m
+[32m     70[39m [33;03m    for large databases like the WDI if 'all' series are requested.[39;00m
+[32m     71[39m 
+[32m   (...)[39m[32m     82[39m [33;03m        None[39;00m
+[32m     83[39m [33;03m    '''[39;00m
+[32m---> [39m[32m85[39m     [38;5;28;01mreturn[39;00m [30;43mw[39;49m[30;43m.[39;49m[30;43mFeatureset[39;49m[30;43m([39;49m[30;43mlist[39;49m[30;43m([39;49m[30;43mid[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mq[39;49m[30;43m=[39;49m[30;43mq[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mtopic[39;49m[30;43m=[39;49m[30;43mtopic[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdb[39;49m[30;43m=[39;49m[30;43mdb[39;49m[30;43m)[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:190[39m, in [36mFeatureset.__init__[39m[34m(self, items, columns)[39m
+[32m    186[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m__init__[39m([38;5;28mself[39m, items, columns=[38;5;28;01mNone[39;00m):
+[32m    187[39m [38;5;250m    [39m[33;03m''' can be initialized with any iterable[39;00m
+[32m    188[39m [33;03m    '''[39;00m
+[32m--> [39m[32m190[39m     [38;5;28mself[39m.items = [30;43mlist[39;49m[30;43m([39;49m[30;43mitems[39;49m[30;43m)[39;49m
+[32m    191[39m     [38;5;28mself[39m.columns = columns [38;5;28;01mif[39;00m columns [38;5;28;01melse[39;00m [[33m'[39m[33mid[39m[33m'[39m, [33m'[39m[33mvalue[39m[33m'[39m]
+
+[36mFile [39m[32m~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/series.py:40[39m, in [36mlist[39m[34m(id, q, topic, db)[39m
+[32m     36[39m         [38;5;28mid[39m = topics
+[32m     38[39m q,fullSearch = utils.qget(q)
+[32m---> [39m[32m40[39m [30;43m[39;49m[30;43;01mfor[39;49;00m[30;43m [39;49m[30;43mrow[39;49m[30;43m [39;49m[30;43;01min[39;49;00m[30;43m [39;49m[30;43mw[39;49m[30;43m.[39;49m[30;43msource[39;49m[30;43m.[39;49m[30;43mfeatures[39;49m[30;43m([39;49m[30;43m'[39;49m[30;43mseries[39;49m[30;43m'[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mw[39;49m[30;43m.[39;49m[30;43mqueryParam[39;49m[30;43m([39;49m[30;43mid[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m'[39;49m[30;43mseries[39;49m[30;43m'[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdb[39;49m[30;43m=[39;49m[30;43mdb[39;49m[30;43m)[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdb[39;49m[30;43m=[39;49m[30;43mdb[39;49m[30;43m)[39;49m[30;43m:[39;49m
+[32m     41[39m [30;43m    [39;49m[30;43;01mif[39;49;00m[30;43m [39;49m[30;43mutils[39;49m[30;43m.[39;49m[30;43mqmatch[39;49m[30;43m([39;49m[30;43mq[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mrow[39;49m[30;43m[[39;49m[30;43m'[39;49m[30;43mvalue[39;49m[30;43m'[39;49m[30;43m][39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mfullSearch[39;49m[30;43m)[39;49m[30;43m:[39;49m
+[32m     42[39m [30;43m        [39;49m[30;43;01myield[39;49;00m[30;43m [39;49m[30;43mrow[39;49m
+
+[36mFile [39m[32m~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:322[39m, in [36mrefetch[39m[34m(url, variables, **kwargs)[39m
+[32m    320[39m [38;5;28;01mtry[39;00m:
+[32m    321[39m     [38;5;28;01mfor[39;00m url2 [38;5;129;01min[39;00m _refetch_url(url, variables[[32m0[39m], variables[[32m1[39m:], **kwargs):
+[32m--> [39m[32m322[39m [30;43m        [39;49m[30;43;01mfor[39;49;00m[30;43m [39;49m[30;43mrow[39;49m[30;43m [39;49m[30;43;01min[39;49;00m[30;43m [39;49m[30;43mfetch[39;49m[30;43m([39;49m[30;43murl2[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mparams[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mconcepts[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mlang[39;49m[30;43m)[39;49m[30;43m:[39;49m
+[32m    323[39m [30;43m            [39;49m[30;43;01myield[39;49;00m[30;43m [39;49m[30;43mrow[39;49m
+[32m    324[39m [38;5;28;01mexcept[39;00m URLError:
+
+[36mFile [39m[32m~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:281[39m, in [36mfetch[39m[34m(url, params, concepts, lang)[39m
+[32m    278[39m [38;5;28;01mwhile[39;00m totalRecords [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m recordsRead < totalRecords:
+[32m    280[39m     url_ = [33m'[39m[38;5;132;01m{}[39;00m[33m/[39m[38;5;132;01m{}[39;00m[33m/[39m[38;5;132;01m{}[39;00m[33m?[39m[38;5;132;01m{}[39;00m[33m'[39m.format(endpoint, lang, url, urllib.parse.urlencode(params_))
+[32m--> [39m[32m281[39m     (hdr,result) = [30;43m_queryAPI[39;49m[30;43m([39;49m[30;43murl_[39;49m[30;43m)[39;49m
+[32m    283[39m     [38;5;28;01mif[39;00m totalRecords [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m    284[39m         totalRecords = [38;5;28mint[39m(hdr[[33m'[39m[33mtotal[39m[33m'[39m])
+
+[36mFile [39m[32m~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:530[39m, in [36m_queryAPI[39m[34m(url)[39m
+[32m    528[39m response = requests.get(url, **params)
+[32m    529[39m [38;5;28;01mif[39;00m response.status_code != [32m200[39m:
+[32m--> [39m[32m530[39m     [38;5;28;01mraise[39;00m APIError(url, response.reason, response.status_code)
+[32m    532[39m [38;5;28;01mtry[39;00m:
+[32m    533[39m     result = response.json()
+
+[31mAPIError[39m: APIError: [502] Bad Gateway (https://api.worldbank.org/v2/en/sources/2/series/GC.DOD.TOTL.GD.ZS?per_page=1000&page=1&format=json)
+

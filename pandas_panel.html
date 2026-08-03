@@ -124,11 +124,11 @@
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pandas_panel';</script>
-    <link rel="canonical" href="https://python-programming-fa.quantecon.org/pandas_panel.html" />
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/pandas_panel.html" />
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="19. نوشتن کد خوب" href="writing_good_code.html" />
+    <link rel="next" title="19. Polars" href="polars.html" />
     <link rel="prev" title="17. Pandas" href="pandas.html" />
 
 <!-- Normal Meta Tags -->
@@ -147,13 +147,24 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="Pandas برای داده‌های پانلی" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python-programming-fa.quantecon.org/pandas_panel.html" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/pandas_panel.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
 
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/pandas_panel.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/pandas_panel.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/pandas_panel.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/pandas_panel.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/pandas_panel.html" />
 
 
   </head>
@@ -265,7 +276,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jun 19, 2026
+                            Last changed: Aug 03, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -276,11 +287,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/58dc111" class="changelog-hash">58dc111</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 minutes ago</span>
-                                <span class="changelog-message">fix(about_py): correct PyTorch and LaTeX capitalization (#124)</span>
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
                             </li>
                             
                         </ul>
@@ -311,19 +322,17 @@
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: seaborn in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (0.13.2)
-Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (2.3.5)
-Requirement already satisfied: pandas&gt;=1.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (2.3.3)
-Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (3.10.6)
+Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (2.4.6)
+Requirement already satisfied: pandas&gt;=1.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (3.0.3)
+Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from seaborn) (3.11.0)
 Requirement already satisfied: contourpy&gt;=1.0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.3.3)
-Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.11.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.60.1)
+Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.63.0)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.9)
-Requirement already satisfied: packaging&gt;=20.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (25.0)
-Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (12.0.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.2.5)
+Requirement already satisfied: packaging&gt;=20.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (26.0)
+Requirement already satisfied: pillow&gt;=9 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (12.3.0)
+Requirement already satisfied: pyparsing&gt;=3 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.2.5)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.2)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.2)
 Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.17.0)
 </pre></div>
 </div>
@@ -366,7 +375,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 <p>مجموعه داده با لینک زیر قابل دسترسی است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url1</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/lecture-python/master/source/_static/lecture_specific/pandas_panel/realwage.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url1</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/QuantEcon/data-lectures/raw/main/lectures/realwage.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -604,7 +613,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.indexes.datetimes.DatetimeIndex
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.DatetimeIndex
 </pre></div>
 </div>
 </div>
@@ -618,7 +627,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.indexes.multi.MultiIndex
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.MultiIndex
 </pre></div>
 </div>
 </div>
@@ -732,10 +741,6 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2956/743219372.py:1: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What&#39;s New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
-  realwage.stack().head()
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -855,10 +860,6 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2956/1205496966.py:1: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What&#39;s New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
-  realwage.stack(level=&#39;Country&#39;).head()
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -952,10 +953,6 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2956/1065142626.py:1: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What&#39;s New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
-  realwage.loc[&#39;2015&#39;].stack(level=(1, 2)).transpose().head()
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1152,7 +1149,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 <p>مجموعه داده با لینک زیر قابل دسترسی است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/lecture-python/master/source/_static/lecture_specific/pandas_panel/countries.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/QuantEcon/data-lectures/raw/main/lectures/countries.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1640,7 +1637,7 @@ NaN       Europe
 227.00       NaN
 241.00       NaN
 240.00       NaN
-Name: Country, dtype: object
+Name: Country, dtype: str
 </pre></div>
 </div>
 </div>
@@ -1741,13 +1738,13 @@ Name: Country, dtype: object
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>2006-01-01</th>
-      <th>2007-01-01</th>
-      <th>2008-01-01</th>
+      <th>2006-01-01 00:00:00</th>
+      <th>2007-01-01 00:00:00</th>
+      <th>2008-01-01 00:00:00</th>
       <th>...</th>
-      <th>2014-01-01</th>
-      <th>2015-01-01</th>
-      <th>2016-01-01</th>
+      <th>2014-01-01 00:00:00</th>
+      <th>2015-01-01 00:00:00</th>
+      <th>2016-01-01 00:00:00</th>
     </tr>
     <tr>
       <th>Continent</th>
@@ -1848,7 +1845,7 @@ Name: Country, dtype: object
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2006-01-01&#39;, &#39;2007-01-01&#39;, &#39;2008-01-01&#39;, &#39;2009-01-01&#39;,
                &#39;2010-01-01&#39;, &#39;2011-01-01&#39;, &#39;2012-01-01&#39;, &#39;2013-01-01&#39;,
                &#39;2014-01-01&#39;, &#39;2015-01-01&#39;, &#39;2016-01-01&#39;],
-              dtype=&#39;datetime64[ns]&#39;, name=&#39;Time&#39;, freq=None)
+              dtype=&#39;datetime64[us]&#39;, name=&#39;Time&#39;, freq=None)
 </pre></div>
 </div>
 </div>
@@ -2010,7 +2007,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/90082b4facf9d1385589c2b03b4a8d303f02ef65685c1d398a5e49a104ccdf42.png" src="_images/90082b4facf9d1385589c2b03b4a8d303f02ef65685c1d398a5e49a104ccdf42.png" />
+<img alt="_images/4e0382e2c220771d151e035d347bd19e2d687feadf27f52676e431ca14b2485f.png" src="_images/4e0382e2c220771d151e035d347bd19e2d687feadf27f52676e431ca14b2485f.png" />
 </div>
 </div>
 <p>ارسال <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> به <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> بر روی ستون‌ها تجمیع خواهد کرد (میانگین حداقل دستمزد برای همه کشورها در طول زمان را می‌دهد)</p>
@@ -2044,7 +2041,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/22bb86f9d9ca350fe6c5299234c4a470facead85c4d5b0ac89bff885e04f92eb.png" src="_images/22bb86f9d9ca350fe6c5299234c4a470facead85c4d5b0ac89bff885e04f92eb.png" />
+<img alt="_images/2706d53033f1feccdb29c292db197ebcb1a71a1e7897f7e6effc1a166f273589.png" src="_images/2706d53033f1feccdb29c292db197ebcb1a71a1e7897f7e6effc1a166f273589.png" />
 </div>
 </div>
 <p>همچنین می‌توانیم یک سطح از <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> (در محور ستون) را برای تجمیع بر روی آن مشخص کنیم.</p>
@@ -2151,7 +2148,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b81644bbfbecf2782449f20e32a17c7071dde50e7cb7ba44d69f39fd40959cf8.png" src="_images/b81644bbfbecf2782449f20e32a17c7071dde50e7cb7ba44d69f39fd40959cf8.png" />
+<img alt="_images/e7a8dd9622fe8c1e50f65377c939226995b8ed1048e50a0ee9c4c93690cd2e8c.png" src="_images/e7a8dd9622fe8c1e50f65377c939226995b8ed1048e50a0ee9c4c93690cd2e8c.png" />
 </div>
 </div>
 <p>استرالیا را به عنوان یک قاره برای اهداف رسم حذف خواهیم کرد</p>
@@ -2167,7 +2164,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3174468e82ac053307230e20121f1764e7d27a7f2cc9ff3064a567426fb6f2f2.png" src="_images/3174468e82ac053307230e20121f1764e7d27a7f2cc9ff3064a567426fb6f2f2.png" />
+<img alt="_images/7d88310209521a483dde7ac67ae2590ea28053f4c9788e70fe66aecb6cace335.png" src="_images/7d88310209521a483dde7ac67ae2590ea28053f4c9788e70fe66aecb6cace335.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.describe()</span></code> برای بازیابی سریع تعدادی از آمار خلاصه رایج مفید است</p>
@@ -2178,10 +2175,6 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2956/4288984536.py:1: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What&#39;s New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation and silence this warning.
-  merged.stack().describe()
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2275,7 +2268,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fd50b91a3f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7faf58b29eb0&gt;
 </pre></div>
 </div>
 </div>
@@ -2316,7 +2309,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e5afd025bf1f787ec93f9421cd2cc0c949bee2be3a7112a07506bfc785b1326.png" src="_images/2e5afd025bf1f787ec93f9421cd2cc0c949bee2be3a7112a07506bfc785b1326.png" />
+<img alt="_images/0c527149a89ad718e4f663a835a874ad76ed1ab9e4448cba32efb5895ba295cb.png" src="_images/0c527149a89ad718e4f663a835a874ad76ed1ab9e4448cba32efb5895ba295cb.png" />
 </div>
 </div>
 </section>
@@ -2335,7 +2328,7 @@ dtype: int64
 <p>مجموعه داده با لینک زیر قابل دسترسی است:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url3</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/lecture-python/master/source/_static/lecture_specific/pandas_panel/employ.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url3</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/QuantEcon/data-lectures/raw/main/lectures/employ.csv&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -2504,10 +2497,10 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UNIT Index([&#39;Percentage of total population&#39;, &#39;Thousand persons&#39;], dtype=&#39;object&#39;, name=&#39;UNIT&#39;)
-AGE Index([&#39;From 15 to 24 years&#39;, &#39;From 25 to 54 years&#39;, &#39;From 55 to 64 years&#39;], dtype=&#39;object&#39;, name=&#39;AGE&#39;)
-SEX Index([&#39;Females&#39;, &#39;Males&#39;, &#39;Total&#39;], dtype=&#39;object&#39;, name=&#39;SEX&#39;)
-INDIC_EM Index([&#39;Active population&#39;, &#39;Total employment (resident population concept - LFS)&#39;], dtype=&#39;object&#39;, name=&#39;INDIC_EM&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UNIT Index([&#39;Percentage of total population&#39;, &#39;Thousand persons&#39;], dtype=&#39;str&#39;, name=&#39;UNIT&#39;)
+AGE Index([&#39;From 15 to 24 years&#39;, &#39;From 25 to 54 years&#39;, &#39;From 55 to 64 years&#39;], dtype=&#39;str&#39;, name=&#39;AGE&#39;)
+SEX Index([&#39;Females&#39;, &#39;Males&#39;, &#39;Total&#39;], dtype=&#39;str&#39;, name=&#39;SEX&#39;)
+INDIC_EM Index([&#39;Active population&#39;, &#39;Total employment (resident population concept - LFS)&#39;], dtype=&#39;str&#39;, name=&#39;INDIC_EM&#39;)
 GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croatia&#39;, &#39;Cyprus&#39;, &#39;Czech Republic&#39;,
        &#39;Denmark&#39;, &#39;Estonia&#39;, &#39;Euro area (17 countries)&#39;,
        &#39;Euro area (18 countries)&#39;, &#39;Euro area (19 countries)&#39;,
@@ -2520,7 +2513,7 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
        &#39;Malta&#39;, &#39;Netherlands&#39;, &#39;Norway&#39;, &#39;Poland&#39;, &#39;Portugal&#39;, &#39;Romania&#39;,
        &#39;Slovakia&#39;, &#39;Slovenia&#39;, &#39;Spain&#39;, &#39;Sweden&#39;, &#39;Switzerland&#39;, &#39;Turkey&#39;,
        &#39;United Kingdom&#39;],
-      dtype=&#39;object&#39;, name=&#39;GEO&#39;)
+      dtype=&#39;str&#39;, name=&#39;GEO&#39;)
 </pre></div>
 </div>
 </div>
@@ -2573,7 +2566,7 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
        &#39;Malta&#39;, &#39;Netherlands&#39;, &#39;Norway&#39;, &#39;Poland&#39;, &#39;Portugal&#39;, &#39;Romania&#39;,
        &#39;Slovakia&#39;, &#39;Slovenia&#39;, &#39;Spain&#39;, &#39;Sweden&#39;, &#39;Switzerland&#39;, &#39;Turkey&#39;,
        &#39;United Kingdom&#39;],
-      dtype=&#39;object&#39;, name=&#39;GEO&#39;)
+      dtype=&#39;str&#39;, name=&#39;GEO&#39;)
 </pre></div>
 </div>
 </div>
@@ -2720,7 +2713,7 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/639c26646360474ddc0c06e9fd95d1c866d4a89e59937996b94b92bf64031d37.png" src="_images/639c26646360474ddc0c06e9fd95d1c866d4a89e59937996b94b92bf64031d37.png" />
+<img alt="_images/2d0b097cf1729aae16c5bbbc0e6c88f49fc675e16defca1f90a0c6b61579541f.png" src="_images/2d0b097cf1729aae16c5bbbc0e6c88f49fc675e16defca1f90a0c6b61579541f.png" />
 </div>
 </div>
 </section>
@@ -2896,6 +2889,11 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
    18. Pandas برای داده‌های پانلی
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polars.html">
+   19. Polars
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -2905,27 +2903,27 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. نوشتن کد خوب
+   20. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   20. نوشتن برنامه‌های طولانی‌تر
+   21. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. ویژگی‌های بیشتر زبان
+   22. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. اشکال‌زدایی و مدیریت خطاها
+   23. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   23. SymPy
+   24. SymPy
   </a>
  </li>
 </ul>
@@ -2937,12 +2935,12 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   24. عیب‌یابی
+   25. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   25. آمار اجرا
+   26. آمار اجرا
   </a>
  </li>
 </ul>
@@ -2978,7 +2976,6 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
@@ -2986,6 +2983,49 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
                     
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/pandas_panel.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/pandas_panel.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/pandas_panel.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/pandas_panel.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
                     
                 </ul>
 
@@ -3015,18 +3055,16 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/pandas_panel.ipynb">Colab</option>
-                
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/pandas_panel.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/pandas_panel.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -3057,9 +3095,9 @@ GEO Index([&#39;Austria&#39;, &#39;Belgium&#39;, &#39;Bulgaria&#39;, &#39;Croati
                 const launcherPublic = document.getElementById('launcher-public-input');
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "pandas_panel";
-                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
-                const urlPath = "tree/lecture-python-programming.fa.notebooks/pandas_panel.ipynb";
-                const branch = "main"
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 
                 // Highlight public server option if previous selection exists

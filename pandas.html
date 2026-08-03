@@ -124,7 +124,7 @@
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pandas';</script>
-    <link rel="canonical" href="https://python-programming-fa.quantecon.org/pandas.html" />
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/pandas.html" />
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -147,13 +147,24 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="Pandas" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python-programming-fa.quantecon.org/pandas.html" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/pandas.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
 
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/pandas.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/pandas.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/pandas.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/pandas.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/pandas.html" />
 
 
   </head>
@@ -275,7 +286,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jun 19, 2026
+                            Last changed: Aug 03, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -286,11 +297,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/58dc111" class="changelog-hash">58dc111</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 minutes ago</span>
-                                <span class="changelog-message">fix(about_py): correct PyTorch and LaTeX capitalization (#124)</span>
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
                             </li>
                             
                         </ul>
@@ -323,61 +334,57 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wbgapi
   Downloading wbgapi-1.0.14-py3-none-any.whl.metadata (13 kB)
-Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (2.32.5)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (2.34.2)
 Requirement already satisfied: PyYAML in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (6.0.3)
-Requirement already satisfied: tabulate in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (0.9.0)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.4.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.11)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2.5.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2025.11.12)
+Requirement already satisfied: tabulate in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from wbgapi) (0.10.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.4.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (3.18)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2.7.0)
+Requirement already satisfied: certifi&gt;=2023.5.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests-&gt;wbgapi) (2026.6.17)
 Downloading wbgapi-1.0.14-py3-none-any.whl (36 kB)
 Installing collected packages: wbgapi
 Successfully installed wbgapi-1.0.14
 Collecting yfinance
-  Downloading yfinance-1.4.1-py2.py3-none-any.whl.metadata (6.2 kB)
-Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.3.3)
-Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.3.5)
-Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.32.5)
+  Downloading yfinance-1.5.2-py2.py3-none-any.whl.metadata (6.2 kB)
+Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (3.0.3)
+Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.4.6)
+Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.34.2)
 Collecting multitasking&gt;=0.0.7 (from yfinance)
   Downloading multitasking-0.0.13-py3-none-any.whl.metadata (16 kB)
-Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.5.0)
-Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2025.2)
+Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.9.4)
+Collecting pytz&gt;=2022.5 (from yfinance)
+  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
 Collecting peewee&gt;=3.16.2 (from yfinance)
-  Downloading peewee-4.1.0-py3-none-any.whl.metadata (10 kB)
-Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.13.5)
+  Downloading peewee-4.3.0-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.15.0)
 Collecting curl_cffi&gt;=0.15 (from yfinance)
-  Downloading curl_cffi-0.15.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (18 kB)
-Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (5.29.3)
-Collecting websockets&gt;=13.0 (from yfinance)
-  Downloading websockets-16.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
-Requirement already satisfied: soupsieve&gt;1.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.5)
-Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (4.15.0)
-Requirement already satisfied: cffi&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (2.0.0)
-Requirement already satisfied: certifi&gt;=2024.2.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (2025.11.12)
-Requirement already satisfied: rich in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (14.2.0)
-Requirement already satisfied: pycparser in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from cffi&gt;=2.0.0-&gt;curl_cffi&gt;=0.15-&gt;yfinance) (2.23)
+  Downloading curl_cffi-0.16.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (17 kB)
+Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (6.33.5)
+Requirement already satisfied: websockets&gt;=13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (16.0)
+Requirement already satisfied: soupsieve&gt;=1.6.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.8.4)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (4.16.0)
+Requirement already satisfied: cffi&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (2.1.0)
+Requirement already satisfied: certifi&gt;=2024.2.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from curl_cffi&gt;=0.15-&gt;yfinance) (2026.6.17)
+Requirement already satisfied: pycparser in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from cffi&gt;=2.0.0-&gt;curl_cffi&gt;=0.15-&gt;yfinance) (3.0)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.9.0.post0)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2025.2)
 Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.3.0-&gt;yfinance) (1.17.0)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.11)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.5.0)
-Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from rich-&gt;curl_cffi&gt;=0.15-&gt;yfinance) (3.0.0)
-Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from rich-&gt;curl_cffi&gt;=0.15-&gt;yfinance) (2.19.2)
-Requirement already satisfied: mdurl~=0.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich-&gt;curl_cffi&gt;=0.15-&gt;yfinance) (0.1.2)
-Downloading yfinance-1.4.1-py2.py3-none-any.whl (137 kB)
-Downloading curl_cffi-0.15.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (11.1 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/11.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.1/11.1 MB</span> <span class=" -Color -Color-Red">90.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.18)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.7.0)
+Downloading yfinance-1.5.2-py2.py3-none-any.whl (144 kB)
+Downloading curl_cffi-0.16.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (13.5 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/13.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.5/13.5 MB</span> <span class=" -Color -Color-Red">144.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading multitasking-0.0.13-py3-none-any.whl (16 kB)
-Downloading peewee-4.1.0-py3-none-any.whl (155 kB)
-Downloading websockets-16.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (184 kB)
-Installing collected packages: peewee, multitasking, websockets, curl_cffi, yfinance
+Downloading peewee-4.3.0-py3-none-any.whl (179 kB)
+Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+Installing collected packages: pytz, multitasking, peewee, curl_cffi, yfinance
 ?25l
-   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [websockets]
+   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/5</span> [peewee]
+   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3/5</span> [curl_cffi]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ <span class=" -Color -Color-Green">4/5</span> [yfinance]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5/5</span> [yfinance]
-Successfully installed curl_cffi-0.15.0 multitasking-0.0.13 peewee-4.1.0 websockets-16.0 yfinance-1.4.1
+Successfully installed curl_cffi-0.16.0 multitasking-0.0.13 peewee-4.3.0 pytz-2026.3.post1 yfinance-1.5.2
 </pre></div>
 </div>
 </div>
@@ -434,10 +441,10 @@ Successfully installed curl_cffi-0.15.0 multitasking-0.0.13 peewee-4.1.0 websock
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.269896
-1    0.001716
-2   -0.615702
-3   -2.051848
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -0.140920
+1    0.094548
+2    1.942897
+3    1.116812
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -452,10 +459,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    126.989600
-1      0.171586
-2    -61.570199
-3   -205.184784
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    -14.092013
+1      9.454799
+2    194.289716
+3    111.681197
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -468,10 +475,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.269896
-1    0.001716
-2    0.615702
-3    2.051848
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.140920
+1    0.094548
+2    1.942897
+3    1.116812
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -487,13 +494,13 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4.000000
-mean    -0.348984
-std      1.380175
-min     -2.051848
-25%     -0.974738
-50%     -0.306993
-75%      0.318761
-max      1.269896
+mean     0.753334
+std      0.962785
+min     -0.140920
+25%      0.035681
+50%      0.605680
+75%      1.323333
+max      1.942897
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -508,10 +515,10 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    1.269896
-AAPL    0.001716
-MSFT   -0.615702
-GOOG   -2.051848
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN   -0.140920
+AAPL    0.094548
+MSFT    1.942897
+GOOG    1.116812
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -526,7 +533,7 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2698960012247271)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-0.14092012791058728)
 </pre></div>
 </div>
 </div>
@@ -540,9 +547,9 @@ Name: daily returns, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AMZN    0.000000
-AAPL    0.001716
-MSFT   -0.615702
-GOOG   -2.051848
+AAPL    0.094548
+MSFT    1.942897
+GOOG    1.116812
 Name: daily returns, dtype: float64
 </pre></div>
 </div>
@@ -602,7 +609,7 @@ Name: daily returns, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.DataFrame
 </pre></div>
 </div>
 </div>
@@ -3293,7 +3300,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7dd764907995fbc0b89fe5ee18805fe4e9a5e6431ca3262d319b68f37570d5d8.png" src="_images/7dd764907995fbc0b89fe5ee18805fe4e9a5e6431ca3262d319b68f37570d5d8.png" />
+<img alt="_images/62b6086b846d95e8b501ec439d092e81dfb74e3d0861b6c63a2914025ae6d3c0.png" src="_images/62b6086b846d95e8b501ec439d092e81dfb74e3d0861b6c63a2914025ae6d3c0.png" />
 </div>
 </div>
 <p>در حال حاضر دیتافریم به ترتیب الفبایی بر اساس کشورها مرتب شده است — بیایید آن را به تولید ناخالص داخلی سرانه تغییر دهیم</p>
@@ -3398,7 +3405,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7caefb7fbad28377703bb23dddd7bd04a72925bd4b7aa0a217ae8bd7f5631f8a.png" src="_images/7caefb7fbad28377703bb23dddd7bd04a72925bd4b7aa0a217ae8bd7f5631f8a.png" />
+<img alt="_images/cf9894679094a5de5da34ca37e7e3f97b924154195e117f08c35f3b74113013c.png" src="_images/cf9894679094a5de5da34ca37e7e3f97b924154195e117f08c35f3b74113013c.png" />
 </div>
 </div>
 </section>
@@ -3491,7 +3498,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.DataFrame
 </pre></div>
 </div>
 </div>
@@ -3630,7 +3637,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/53880b060d7698a3988bebf5788270c267bfa5203454c1bb24f01abe1deaeb1c.png" src="_images/53880b060d7698a3988bebf5788270c267bfa5203454c1bb24f01abe1deaeb1c.png" />
+<img alt="_images/42bf16eef7bab69a0f7a5db2c9d4579ffd6b76bb915953608f5103240c64138c.png" src="_images/42bf16eef7bab69a0f7a5db2c9d4579ffd6b76bb915953608f5103240c64138c.png" />
 </div>
 </div>
 <p>توجه کنید که pandas گزینه‌های بسیار دیگری برای نوع فایل ارائه می‌دهد.</p>
@@ -3656,15 +3663,60 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div class="wbgapi"><table>
-<thead>
-<tr><th>id               </th><th>value                                    </th></tr>
-</thead>
-<tbody>
-<tr><td>GC.DOD.TOTL.GD.ZS</td><td>Central government debt, total (% of GDP)</td></tr>
-<tr><td>                 </td><td>1 elements                               </td></tr>
-</tbody>
-</table></div></div></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">APIError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">56</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">wbgapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">wb</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">wb</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;GC.DOD.TOTL.GD.ZS&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/series.py:85,</span> in <span class="ni">info</span><span class="nt">(id, q, topic, db)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span> <span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Print a user report of series. This can be time consuming</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="sd">     for large databases like the WDI if &#39;all&#39; series are requested.</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="sd"> </span>
+<span class="sd">   (...)     82         None</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd">     &#39;&#39;&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">85</span>     <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">Featureset</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="n">topic</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">))</span>
+
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:190,</span> in <span class="ni">Featureset.__init__</span><span class="nt">(self, items, columns)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span><span class="w">     </span><span class="sd">&#39;&#39;&#39; can be initialized with any iterable</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span><span class="sd">     &#39;&#39;&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">190</span>     <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>     <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span> <span class="k">if</span> <span class="n">columns</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
+
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/series.py:40,</span> in <span class="ni">list</span><span class="nt">(id, q, topic, db)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="nb">id</span> <span class="o">=</span> <span class="n">topics</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">q</span><span class="p">,</span><span class="n">fullSearch</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">qget</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">40</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">w</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">features</span><span class="p">(</span><span class="s1">&#39;series&#39;</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">queryParam</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;series&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">),</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">qmatch</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">],</span> <span class="n">fullSearch</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">yield</span> <span class="n">row</span>
+
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:322,</span> in <span class="ni">refetch</span><span class="nt">(url, variables, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="k">for</span> <span class="n">url2</span> <span class="ow">in</span> <span class="n">_refetch_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">variables</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">variables</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">322</span>         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">concepts</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>             <span class="k">yield</span> <span class="n">row</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">except</span> <span class="n">URLError</span><span class="p">:</span>
+
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:281,</span> in <span class="ni">fetch</span><span class="nt">(url, params, concepts, lang)</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span> <span class="k">while</span> <span class="n">totalRecords</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">recordsRead</span> <span class="o">&lt;</span> <span class="n">totalRecords</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="n">url_</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">?</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params_</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">281</span>     <span class="p">(</span><span class="n">hdr</span><span class="p">,</span><span class="n">result</span><span class="p">)</span> <span class="o">=</span> <span class="n">_queryAPI</span><span class="p">(</span><span class="n">url_</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span>     <span class="k">if</span> <span class="n">totalRecords</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span>         <span class="n">totalRecords</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hdr</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">])</span>
+
+<span class="nn">File ~/miniconda3/envs/quantecon/lib/python3.13/site-packages/wbgapi/__init__.py:530,</span> in <span class="ni">_queryAPI</span><span class="nt">(url)</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">530</span>     <span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="ne">APIError</span>: APIError: [502] Bad Gateway (https://api.worldbank.org/v2/en/sources/2/series/GC.DOD.TOTL.GD.ZS?per_page=1000&amp;page=1&amp;format=json)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3679,9 +3731,6 @@ dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">govt_debt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Government debt (</span><span class="si">% o</span><span class="s1">f GDP)&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/0f9cbe8df44b0a5b4fdb5fe6a14b4df472ca01ccc70f40e1d77489f6f466febb.png" src="_images/0f9cbe8df44b0a5b4fdb5fe6a14b4df472ca01ccc70f40e1d77489f6f466febb.png" />
 </div>
 </div>
 </section>
@@ -3768,22 +3817,6 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INTC     6.9
-MSFT    57.2
-IBM     18.7
-BHP     -2.2
-TM      23.4
-AAPL    38.6
-AMZN     5.8
-C        3.6
-QCOM    25.3
-KO      14.9
-GOOG    69.0
-dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <p>از طرف دیگر می‌توانید از یک متد داخلی <code class="docutils literal notranslate"><span class="pre">pct_change</span></code> استفاده کنید و آن را برای انجام محاسبه صحیح با استفاده از آرگومان <code class="docutils literal notranslate"><span class="pre">periods</span></code> پیکربندی کنید.</p>
 <div class="cell docutils container">
@@ -3794,42 +3827,12 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INTC     6.9
-MSFT    57.2
-IBM     18.7
-BHP     -2.2
-TM      23.4
-AAPL    38.6
-AMZN     5.8
-C        3.6
-QCOM    25.3
-KO      14.9
-GOOG    69.0
-Name: 2021-12-30 00:00:00, dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <p>سپس برای رسم نمودار</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price_change</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">price_change</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ticker_list</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2878/1503263560.py:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  price_change.sort_values(inplace=True)
-/tmp/ipykernel_2878/1503263560.py:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  price_change.rename(index=ticker_list, inplace=True)
 </pre></div>
 </div>
 </div>
@@ -3843,9 +3846,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/2126970c0f9d116bc01b86a0808e7a30388d65c5bb1c4abd7af59b235b3cf2f0.png" src="_images/2126970c0f9d116bc01b86a0808e7a30388d65c5bb1c4abd7af59b235b3cf2f0.png" />
 </div>
 </div>
 </section>
@@ -3901,392 +3901,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>S&amp;P 500</th>
-      <th>NASDAQ</th>
-      <th>Dow Jones</th>
-      <th>Nikkei</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1971</th>
-      <td>1.2e-01</td>
-      <td>1.4e-01</td>
-      <td>NaN</td>
-      <td>3.6e-01</td>
-    </tr>
-    <tr>
-      <th>1972</th>
-      <td>1.6e-01</td>
-      <td>1.8e-01</td>
-      <td>NaN</td>
-      <td>9.2e-01</td>
-    </tr>
-    <tr>
-      <th>1973</th>
-      <td>-1.8e-01</td>
-      <td>-3.2e-01</td>
-      <td>NaN</td>
-      <td>-1.8e-01</td>
-    </tr>
-    <tr>
-      <th>1974</th>
-      <td>-3.0e-01</td>
-      <td>-3.5e-01</td>
-      <td>NaN</td>
-      <td>-9.9e-02</td>
-    </tr>
-    <tr>
-      <th>1975</th>
-      <td>2.8e-01</td>
-      <td>2.8e-01</td>
-      <td>NaN</td>
-      <td>1.7e-01</td>
-    </tr>
-    <tr>
-      <th>1976</th>
-      <td>1.8e-01</td>
-      <td>2.5e-01</td>
-      <td>NaN</td>
-      <td>1.3e-01</td>
-    </tr>
-    <tr>
-      <th>1977</th>
-      <td>-1.1e-01</td>
-      <td>7.5e-02</td>
-      <td>NaN</td>
-      <td>-2.7e-02</td>
-    </tr>
-    <tr>
-      <th>1978</th>
-      <td>2.4e-02</td>
-      <td>1.3e-01</td>
-      <td>NaN</td>
-      <td>2.3e-01</td>
-    </tr>
-    <tr>
-      <th>1979</th>
-      <td>1.2e-01</td>
-      <td>2.8e-01</td>
-      <td>NaN</td>
-      <td>8.7e-02</td>
-    </tr>
-    <tr>
-      <th>1980</th>
-      <td>2.8e-01</td>
-      <td>3.7e-01</td>
-      <td>NaN</td>
-      <td>7.7e-02</td>
-    </tr>
-    <tr>
-      <th>1981</th>
-      <td>-1.0e-01</td>
-      <td>-3.8e-02</td>
-      <td>NaN</td>
-      <td>7.4e-02</td>
-    </tr>
-    <tr>
-      <th>1982</th>
-      <td>1.5e-01</td>
-      <td>1.9e-01</td>
-      <td>NaN</td>
-      <td>3.9e-02</td>
-    </tr>
-    <tr>
-      <th>1983</th>
-      <td>1.9e-01</td>
-      <td>2.1e-01</td>
-      <td>NaN</td>
-      <td>2.3e-01</td>
-    </tr>
-    <tr>
-      <th>1984</th>
-      <td>2.0e-02</td>
-      <td>-1.1e-01</td>
-      <td>NaN</td>
-      <td>1.6e-01</td>
-    </tr>
-    <tr>
-      <th>1985</th>
-      <td>2.8e-01</td>
-      <td>3.2e-01</td>
-      <td>NaN</td>
-      <td>1.3e-01</td>
-    </tr>
-    <tr>
-      <th>1986</th>
-      <td>1.6e-01</td>
-      <td>7.3e-02</td>
-      <td>NaN</td>
-      <td>4.4e-01</td>
-    </tr>
-    <tr>
-      <th>1987</th>
-      <td>2.6e-03</td>
-      <td>-6.4e-02</td>
-      <td>NaN</td>
-      <td>1.5e-01</td>
-    </tr>
-    <tr>
-      <th>1988</th>
-      <td>8.5e-02</td>
-      <td>1.3e-01</td>
-      <td>NaN</td>
-      <td>4.2e-01</td>
-    </tr>
-    <tr>
-      <th>1989</th>
-      <td>2.8e-01</td>
-      <td>2.0e-01</td>
-      <td>NaN</td>
-      <td>2.9e-01</td>
-    </tr>
-    <tr>
-      <th>1990</th>
-      <td>-8.2e-02</td>
-      <td>-1.9e-01</td>
-      <td>NaN</td>
-      <td>-3.8e-01</td>
-    </tr>
-    <tr>
-      <th>1991</th>
-      <td>2.8e-01</td>
-      <td>5.8e-01</td>
-      <td>NaN</td>
-      <td>-4.5e-02</td>
-    </tr>
-    <tr>
-      <th>1992</th>
-      <td>4.4e-02</td>
-      <td>1.5e-01</td>
-      <td>4.1e-02</td>
-      <td>-2.9e-01</td>
-    </tr>
-    <tr>
-      <th>1993</th>
-      <td>7.1e-02</td>
-      <td>1.6e-01</td>
-      <td>1.3e-01</td>
-      <td>2.5e-02</td>
-    </tr>
-    <tr>
-      <th>1994</th>
-      <td>-1.3e-02</td>
-      <td>-2.4e-02</td>
-      <td>2.1e-02</td>
-      <td>1.4e-01</td>
-    </tr>
-    <tr>
-      <th>1995</th>
-      <td>3.4e-01</td>
-      <td>4.1e-01</td>
-      <td>3.3e-01</td>
-      <td>9.4e-03</td>
-    </tr>
-    <tr>
-      <th>1996</th>
-      <td>1.9e-01</td>
-      <td>2.2e-01</td>
-      <td>2.5e-01</td>
-      <td>-6.1e-02</td>
-    </tr>
-    <tr>
-      <th>1997</th>
-      <td>3.2e-01</td>
-      <td>2.3e-01</td>
-      <td>2.3e-01</td>
-      <td>-2.2e-01</td>
-    </tr>
-    <tr>
-      <th>1998</th>
-      <td>2.6e-01</td>
-      <td>3.9e-01</td>
-      <td>1.5e-01</td>
-      <td>-7.5e-02</td>
-    </tr>
-    <tr>
-      <th>1999</th>
-      <td>2.0e-01</td>
-      <td>8.4e-01</td>
-      <td>2.5e-01</td>
-      <td>4.1e-01</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>-9.3e-02</td>
-      <td>-4.0e-01</td>
-      <td>-5.0e-02</td>
-      <td>-2.7e-01</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>-1.1e-01</td>
-      <td>-1.5e-01</td>
-      <td>-5.9e-02</td>
-      <td>-2.3e-01</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>-2.4e-01</td>
-      <td>-3.3e-01</td>
-      <td>-1.7e-01</td>
-      <td>-2.1e-01</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>2.2e-01</td>
-      <td>4.5e-01</td>
-      <td>2.1e-01</td>
-      <td>2.3e-01</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>9.3e-02</td>
-      <td>8.4e-02</td>
-      <td>3.6e-02</td>
-      <td>6.1e-02</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>3.8e-02</td>
-      <td>2.5e-02</td>
-      <td>-1.1e-03</td>
-      <td>4.0e-01</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>1.2e-01</td>
-      <td>7.6e-02</td>
-      <td>1.5e-01</td>
-      <td>5.3e-02</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>3.7e-02</td>
-      <td>9.5e-02</td>
-      <td>6.3e-02</td>
-      <td>-1.2e-01</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>-3.8e-01</td>
-      <td>-4.0e-01</td>
-      <td>-3.3e-01</td>
-      <td>-4.0e-01</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>2.0e-01</td>
-      <td>3.9e-01</td>
-      <td>1.5e-01</td>
-      <td>1.7e-01</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>1.1e-01</td>
-      <td>1.5e-01</td>
-      <td>9.4e-02</td>
-      <td>-4.0e-02</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>-1.1e-02</td>
-      <td>-3.2e-02</td>
-      <td>4.7e-02</td>
-      <td>-1.9e-01</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>1.2e-01</td>
-      <td>1.4e-01</td>
-      <td>5.7e-02</td>
-      <td>2.1e-01</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>2.6e-01</td>
-      <td>3.4e-01</td>
-      <td>2.4e-01</td>
-      <td>5.2e-01</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>1.2e-01</td>
-      <td>1.4e-01</td>
-      <td>8.4e-02</td>
-      <td>9.7e-02</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>-6.9e-03</td>
-      <td>5.9e-02</td>
-      <td>-2.3e-02</td>
-      <td>9.3e-02</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>1.1e-01</td>
-      <td>9.8e-02</td>
-      <td>1.5e-01</td>
-      <td>3.6e-02</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <td>1.8e-01</td>
-      <td>2.7e-01</td>
-      <td>2.4e-01</td>
-      <td>1.6e-01</td>
-    </tr>
-    <tr>
-      <th>2018</th>
-      <td>-7.0e-02</td>
-      <td>-5.3e-02</td>
-      <td>-6.0e-02</td>
-      <td>-1.5e-01</td>
-    </tr>
-    <tr>
-      <th>2019</th>
-      <td>2.9e-01</td>
-      <td>3.5e-01</td>
-      <td>2.2e-01</td>
-      <td>2.1e-01</td>
-    </tr>
-    <tr>
-      <th>2020</th>
-      <td>1.5e-01</td>
-      <td>4.2e-01</td>
-      <td>6.0e-02</td>
-      <td>1.8e-01</td>
-    </tr>
-    <tr>
-      <th>2021</th>
-      <td>2.9e-01</td>
-      <td>2.4e-01</td>
-      <td>2.0e-01</td>
-      <td>5.6e-02</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>در مرحله بعد، می‌توانید آمار خلاصه را با استفاده از متد <code class="docutils literal notranslate"><span class="pre">describe</span></code> به دست آورید.</p>
 <div class="cell docutils container">
@@ -4295,91 +3909,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>S&amp;P 500</th>
-      <th>NASDAQ</th>
-      <th>Dow Jones</th>
-      <th>Nikkei</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>5.1e+01</td>
-      <td>5.1e+01</td>
-      <td>3.0e+01</td>
-      <td>5.1e+01</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>9.2e-02</td>
-      <td>1.3e-01</td>
-      <td>9.1e-02</td>
-      <td>7.9e-02</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.6e-01</td>
-      <td>2.5e-01</td>
-      <td>1.4e-01</td>
-      <td>2.4e-01</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>-3.8e-01</td>
-      <td>-4.0e-01</td>
-      <td>-3.3e-01</td>
-      <td>-4.0e-01</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>-2.2e-03</td>
-      <td>1.6e-04</td>
-      <td>2.5e-02</td>
-      <td>-6.8e-02</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>1.2e-01</td>
-      <td>1.4e-01</td>
-      <td>8.9e-02</td>
-      <td>7.7e-02</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2.0e-01</td>
-      <td>2.8e-01</td>
-      <td>2.1e-01</td>
-      <td>2.0e-01</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>3.4e-01</td>
-      <td>8.4e-01</td>
-      <td>3.3e-01</td>
-      <td>9.2e-01</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>سپس، برای رسم نمودار</p>
 <div class="cell docutils container">
@@ -4395,9 +3924,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/aab73373aa803d32c8a7c62c16b04cdb8dcda4d253d77f7ee20b83a206db410c.png" src="_images/aab73373aa803d32c8a7c62c16b04cdb8dcda4d253d77f7ee20b83a206db410c.png" />
 </div>
 </div>
 </section>
@@ -4580,6 +4106,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
    18. Pandas برای داده‌های پانلی
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polars.html">
+   19. Polars
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -4589,27 +4120,27 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. نوشتن کد خوب
+   20. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   20. نوشتن برنامه‌های طولانی‌تر
+   21. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. ویژگی‌های بیشتر زبان
+   22. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. اشکال‌زدایی و مدیریت خطاها
+   23. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   23. SymPy
+   24. SymPy
   </a>
  </li>
 </ul>
@@ -4621,12 +4152,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   24. عیب‌یابی
+   25. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   25. آمار اجرا
+   26. آمار اجرا
   </a>
  </li>
 </ul>
@@ -4662,7 +4193,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
@@ -4670,6 +4200,49 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
                     
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/pandas.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/pandas.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/pandas.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/pandas.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
                     
                 </ul>
 
@@ -4699,18 +4272,16 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/pandas.ipynb">Colab</option>
-                
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/pandas.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/pandas.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -4741,9 +4312,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
                 const launcherPublic = document.getElementById('launcher-public-input');
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "pandas";
-                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
-                const urlPath = "tree/lecture-python-programming.fa.notebooks/pandas.ipynb";
-                const branch = "main"
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 
                 // Highlight public server option if previous selection exists

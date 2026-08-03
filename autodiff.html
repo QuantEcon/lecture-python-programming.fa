@@ -126,7 +126,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'autodiff';</script>
-    <link rel="canonical" href="https://python-programming-fa.quantecon.org/autodiff.html" />
+    <link rel="canonical" href="https://quantecon.github.io/lecture-python-programming.fa/autodiff.html" />
     <link rel="icon" href="_static/lectures-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -149,13 +149,24 @@
 <!-- Opengraph tags -->
 <meta property="og:title" content="ماجراهایی با مشتق‌گیری خودکار" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://python-programming-fa.quantecon.org/autodiff.html" />
+<meta property="og:url" content="https://quantecon.github.io/lecture-python-programming.fa/autodiff.html" />
 <meta property="og:image" content="https://assets.quantecon.org/img/qe-og-logo.png" />
 <meta property="og:description" content="This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski." />
 <meta property="og:site_name" content="Python Programming for Economics and Finance" />
 <meta name="theme-color" content="#ffffff" />
 
 
+
+
+<link rel="alternate" hreflang="en" href="https://python-programming.quantecon.org/autodiff.html" />
+
+<link rel="alternate" hreflang="fa" href="https://quantecon.github.io/lecture-python-programming.fa/autodiff.html" />
+
+<link rel="alternate" hreflang="fr" href="https://quantecon.github.io/lecture-python-programming.fr/autodiff.html" />
+
+<link rel="alternate" hreflang="zh-cn" href="https://quantecon.github.io/lecture-python-programming.zh-cn/autodiff.html" />
+
+<link rel="alternate" hreflang="x-default" href="https://python-programming.quantecon.org/autodiff.html" />
 
 
   </head>
@@ -283,7 +294,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Jun 19, 2026
+                            Last changed: Aug 03, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -294,11 +305,11 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/58dc111" class="changelog-hash">58dc111</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
                                 
-                                <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">4 minutes ago</span>
-                                <span class="changelog-message">fix(about_py): correct PyTorch and LaTeX capitalization (#124)</span>
+                                <span class="changelog-author">dependabot[bot]</span>
+                                <span class="changelog-time">5 minutes ago</span>
+                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
                             </li>
                             
                         </ul>
@@ -348,27 +359,27 @@ that you can access as follows:</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jax
-  Downloading jax-0.10.2-py3-none-any.whl.metadata (13 kB)
-Collecting jaxlib&lt;=0.10.2,&gt;=0.10.1 (from jax)
-  Downloading jaxlib-0.10.2-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
+  Downloading jax-0.11.0-py3-none-any.whl.metadata (13 kB)
+Collecting jaxlib&lt;=0.11.0,&gt;=0.11.0 (from jax)
+  Downloading jaxlib-0.11.0-cp313-cp313-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
 Collecting ml_dtypes&gt;=0.5.0 (from jax)
   Downloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
-Requirement already satisfied: numpy&gt;=2.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (2.3.5)
+Requirement already satisfied: numpy&gt;=2.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (2.4.6)
 Collecting opt_einsum (from jax)
   Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
-Requirement already satisfied: scipy&gt;=1.14 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (1.16.3)
-Downloading jax-0.10.2-py3-none-any.whl (3.2 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.2/3.2 MB</span> <span class=" -Color -Color-Red">109.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading jaxlib-0.10.2-cp313-cp313-manylinux_2_27_x86_64.whl (85.5 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/85.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ <span class=" -Color -Color-Green">75.0/85.5 MB</span> <span class=" -Color -Color-Red">374.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">85.5/85.5 MB</span> <span class=" -Color -Color-Red">361.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">85.5/85.5 MB</span> <span class=" -Color -Color-Red">361.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">85.5/85.5 MB</span> <span class=" -Color -Color-Red">123.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+Requirement already satisfied: scipy&gt;=1.15 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from jax) (1.18.0)
+Downloading jax-0.11.0-py3-none-any.whl (3.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.3/3.3 MB</span> <span class=" -Color -Color-Red">55.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25h
+Downloading jaxlib-0.11.0-cp313-cp313-manylinux_2_27_x86_64.whl (87.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/87.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">33.6/87.3 MB</span> <span class=" -Color -Color-Red">175.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">79.2/87.3 MB</span> <span class=" -Color -Color-Red">197.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">87.3/87.3 MB</span> <span class=" -Color -Color-Red">166.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading ml_dtypes-0.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/5.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">124.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.0/5.0 MB</span> <span class=" -Color -Color-Red">136.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
 Installing collected packages: opt_einsum, ml_dtypes, jaxlib, jax
 ?25l
@@ -381,6 +392,9 @@ Installing collected packages: opt_einsum, ml_dtypes, jaxlib, jax
    ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/4</span> [jaxlib]
    ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/4</span> [jaxlib]
    ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/4</span> [jaxlib]
+   ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/4</span> [jaxlib]
+   ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/4</span> [jaxlib]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">3/4</span> [jax]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">3/4</span> [jax]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">3/4</span> [jax]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">3/4</span> [jax]
@@ -391,8 +405,7 @@ Installing collected packages: opt_einsum, ml_dtypes, jaxlib, jax
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">3/4</span> [jax]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">3/4</span> [jax]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4/4</span> [jax]
-
-Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
+Successfully installed jax-0.11.0 jaxlib-0.11.0 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </pre></div>
 </div>
 </div>
@@ -451,7 +464,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/33fcf6b0d491555bfa3f8692bf3e6f0f5da2404e29e65852586052341edc771c.png" src="_images/33fcf6b0d491555bfa3f8692bf3e6f0f5da2404e29e65852586052341edc771c.png" />
+<img alt="_images/c82a9dabc6b166c3adf79523cfe0ca059229693d92f1bb67033182c03532f010.png" src="_images/c82a9dabc6b166c3adf79523cfe0ca059229693d92f1bb67033182c03532f010.png" />
 </div>
 </div>
 <p>این نوع مشتق عددی اغلب نادقیق و ناپایدار است.</p>
@@ -539,7 +552,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/231ff855d261713ca0831a6587fc1b11c104ae7ec035b604a02e2efa805f084d.png" src="_images/231ff855d261713ca0831a6587fc1b11c104ae7ec035b604a02e2efa805f084d.png" />
+<img alt="_images/1acfe3727b48ed3723d89c3afea15dacf74166b2024616b22bb3d414334c6b5e.png" src="_images/1acfe3727b48ed3723d89c3afea15dacf74166b2024616b22bb3d414334c6b5e.png" />
 </div>
 </div>
 </section>
@@ -572,7 +585,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/180f81583a5e3b54192142913f7f931817a1308c588c2c97101c39d20d5f41c3.png" src="_images/180f81583a5e3b54192142913f7f931817a1308c588c2c97101c39d20d5f41c3.png" />
+<img alt="_images/0cd3877f2dfb0c6cde97d2ee4cf9ddf23fef63dc2caf15cab6b2ea88e2677af0.png" src="_images/0cd3877f2dfb0c6cde97d2ee4cf9ddf23fef63dc2caf15cab6b2ea88e2677af0.png" />
 </div>
 </div>
 <p>در نقطه غیرقابل مشتق‌گیری <span class="math notranslate nohighlight">\(0\)</span>، <code class="docutils literal notranslate"><span class="pre">jax.grad</span></code> مشتق راست را برمی‌گرداند:</p>
@@ -633,7 +646,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ef5d5317cf22f7669ae6aedda5a91d51ae90cc38a4ea51f01b04d5821a941e46.png" src="_images/ef5d5317cf22f7669ae6aedda5a91d51ae90cc38a4ea51f01b04d5821a941e46.png" />
+<img alt="_images/fb8c4dc1a226fb100a22e5a2fa81b38121db96945e0035a9b7882bddcc620402.png" src="_images/fb8c4dc1a226fb100a22e5a2fa81b38121db96945e0035a9b7882bddcc620402.png" />
 </div>
 </div>
 </section>
@@ -653,7 +666,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9a5accde9bbe5cb89661980a0d0678de614ba880e5d5215d3f77eeebc241e59e.png" src="_images/9a5accde9bbe5cb89661980a0d0678de614ba880e5d5215d3f77eeebc241e59e.png" />
+<img alt="_images/3c503d01290e1221e0ecb0a26c0fdf27fb8d332986ce349f7f57da445dead56a.png" src="_images/3c503d01290e1221e0ecb0a26c0fdf27fb8d332986ce349f7f57da445dead56a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -679,7 +692,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d9133b94168ac96c01d99415d8c0a0291afac313c27a3452f023aa5ba658e6e1.png" src="_images/d9133b94168ac96c01d99415d8c0a0291afac313c27a3452f023aa5ba658e6e1.png" />
+<img alt="_images/c0ca20890aa113b9b9a0e8614920b1a093190147268cae784dec08d806099270.png" src="_images/c0ca20890aa113b9b9a0e8614920b1a093190147268cae784dec08d806099270.png" />
 </div>
 </div>
 </section>
@@ -756,7 +769,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0221fa5d23cb1042a674dc3b40f909a25a555da184a816ad75f8cc57742e46f3.png" src="_images/0221fa5d23cb1042a674dc3b40f909a25a555da184a816ad75f8cc57742e46f3.png" />
+<img alt="_images/46a030cf05c400701bc4cde334d8162a42b619bf0ef5146db3315631e06d6fd6.png" src="_images/46a030cf05c400701bc4cde334d8162a42b619bf0ef5146db3315631e06d6fd6.png" />
 </div>
 </div>
 <p>بیایید با محاسبه شیب و عرض از مبدأ برآوردشده با استفاده از راه‌حل‌های فرم بسته شروع کنیم.</p>
@@ -794,7 +807,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/961acff5b4b4bbbf3fc467231787fc205f754d9fd42c61f9c3f46ac63579bf2a.png" src="_images/961acff5b4b4bbbf3fc467231787fc205f754d9fd42c61f9c3f46ac63579bf2a.png" />
+<img alt="_images/ab21163e2d29e232462809850687a212614012c98e965dcdf695ca98511267e8.png" src="_images/ab21163e2d29e232462809850687a212614012c98e965dcdf695ca98511267e8.png" />
 </div>
 </div>
 </section>
@@ -837,7 +850,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1828a85202e088c018773308bbe2164f987dfc49f5881f5828a5d215fed76087.png" src="_images/1828a85202e088c018773308bbe2164f987dfc49f5881f5828a5d215fed76087.png" />
+<img alt="_images/c86e14ec20cc42fae78d06370262a9ecebd6eaede4e5725669d6d4fcde235852.png" src="_images/c86e14ec20cc42fae78d06370262a9ecebd6eaede4e5725669d6d4fcde235852.png" />
 </div>
 </div>
 <p>توجه کنید که همان برآوردهایی را به دست می‌آوریم که از راه‌حل‌های فرم بسته به دست آوردیم.</p>
@@ -874,7 +887,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/759699ccc4a32ecc7e1caf5f658640451f54d10c0d296ab9797d07538b64d948.png" src="_images/759699ccc4a32ecc7e1caf5f658640451f54d10c0d296ab9797d07538b64d948.png" />
+<img alt="_images/9b470396a8ac57b55c2664b0c7176511b74d7983d75a0590181fffce52a6f878.png" src="_images/9b470396a8ac57b55c2664b0c7176511b74d7983d75a0590181fffce52a6f878.png" />
 </div>
 </div>
 </section>
@@ -937,7 +950,7 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 [-0.6674018   0.9289466   0.17091699  1.0223495 ]
 </pre></div>
 </div>
-<img alt="_images/a2c804d62674030439a554024a4b9a176d5e3e7b67222e5ee0a030c84b9a02fc.png" src="_images/a2c804d62674030439a554024a4b9a176d5e3e7b67222e5ee0a030c84b9a02fc.png" />
+<img alt="_images/b1cc826b7de8e74f06c2db7465195c060ab282f646de723b0f6ba90e65c8d58c.png" src="_images/b1cc826b7de8e74f06c2db7465195c060ab282f646de723b0f6ba90e65c8d58c.png" />
 </div>
 </div>
 </section>
@@ -1113,6 +1126,11 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
    18. Pandas برای داده‌های پانلی
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polars.html">
+   19. Polars
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -1122,27 +1140,27 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="writing_good_code.html">
-   19. نوشتن کد خوب
+   20. نوشتن کد خوب
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="workspace.html">
-   20. نوشتن برنامه‌های طولانی‌تر
+   21. نوشتن برنامه‌های طولانی‌تر
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="python_advanced_features.html">
-   21. ویژگی‌های بیشتر زبان
+   22. ویژگی‌های بیشتر زبان
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="debugging.html">
-   22. اشکال‌زدایی و مدیریت خطاها
+   23. اشکال‌زدایی و مدیریت خطاها
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="sympy.html">
-   23. SymPy
+   24. SymPy
   </a>
  </li>
 </ul>
@@ -1154,12 +1172,12 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
 <ul class="nav bd-sidenav nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="troubleshooting.html">
-   24. عیب‌یابی
+   25. عیب‌یابی
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="status.html">
-   25. آمار اجرا
+   26. آمار اجرا
   </a>
  </li>
 </ul>
@@ -1195,7 +1213,6 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
                     <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
                     <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
                     <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                    <li class="settings-button" id="settingsButton"><div data-tippy-content="Launch Notebook"><i data-feather="play-circle"></i></div></li>
                         <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
                     <!--
                     # Enable if looking for link to specific document hosted on GitHub
@@ -1203,6 +1220,49 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
                     -->
                     <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/QuantEcon/lecture-python-programming.fa" download><i data-feather="github"></i></a></li>
                     
+                    
+                    <li class="btn__language" data-tippy-content="Switch language">
+                        <div class="language-switcher">
+                            <button class="language-switcher__toggle" aria-label="Switch language" aria-expanded="false" aria-haspopup="true">
+                                <i data-feather="globe"></i>
+                            </button>
+                            <ul class="language-switcher__menu">
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://python-programming.quantecon.org/autodiff.html"
+                                       hreflang="en"
+                                       >
+                                        English
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fa/autodiff.html"
+                                       hreflang="fa"
+                                       aria-current="true" class="active">
+                                        فارسی
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.fr/autodiff.html"
+                                       hreflang="fr"
+                                       >
+                                        Français
+                                    </a>
+                                </li>
+                                
+                                <li role="none">
+                                    <a role="menuitem" href="https://quantecon.github.io/lecture-python-programming.zh-cn/autodiff.html"
+                                       hreflang="zh-cn"
+                                       >
+                                        中文
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
                     
                 </ul>
 
@@ -1232,18 +1292,16 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
                 <span class="label">Public</span>
                 <select id="launcher-public-input">
                 
-                    <option value="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/autodiff.ipynb">Colab</option>
-                
                 </select>
                 <i class="fas fa-check-circle"></i>
             </li>
             <li class="launcher-private">
                 <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="https://github.com/QuantEcon/lecture-python-programming.fa.notebooks" data-urlpath="tree/lecture-python-programming.fa.notebooks/autodiff.ipynb" data-branch=main>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
                 <i class="fas fa-check-circle"></i>
             </li>
             </ul>
-            <p class="launch"><a href="https://colab.research.google.com/github/QuantEcon/lecture-python-programming.fa.notebooks/blob/main/autodiff.ipynb" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
             <script>
                 // QuantEcon Notebook Launcher
                 const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
@@ -1274,9 +1332,9 @@ Successfully installed jax-0.10.2 jaxlib-0.10.2 ml_dtypes-0.5.4 opt_einsum-3.4.0
                 const launcherPublic = document.getElementById('launcher-public-input');
                 const launcherPrivate = document.getElementById('launcher-private-input');
                 const pageName = "autodiff";
-                const repoURL = "https://github.com/QuantEcon/lecture-python-programming.fa.notebooks";
-                const urlPath = "tree/lecture-python-programming.fa.notebooks/autodiff.ipynb";
-                const branch = "main"
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
                 const launchNotebookLink = document.getElementById('advancedLaunchButton');
 
                 // Highlight public server option if previous selection exists
