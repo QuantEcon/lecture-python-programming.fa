@@ -1,6 +1,6 @@
-source-sha: b4ebdd49fbe75f99571b4c798d7379c542a63681
-synced-at: "2026-03-20"
-model: unknown
-mode: RESYNC
+source-sha: 1bb37dd0f0523e796ffb8a69303971a741adec6d
+synced-at: "2026-08-03"
+model: claude-sonnet-5
+mode: UPDATE
 section-count: 6
-tool-version: 0.13.0
+tool-version: 0.24.0
