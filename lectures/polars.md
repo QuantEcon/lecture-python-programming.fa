@@ -359,9 +359,7 @@ plt.show()
 
 ```{code-cell} ipython3
 # Reload the dataset
-url = ('https://raw.githubusercontent.com/QuantEcon/'
-       'lecture-python-programming/main/lectures/_static/'
-       'lecture_specific/pandas/data/test_pwt.csv')
+url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
 df_full = pl.read_csv(url)
 ```
 
@@ -437,9 +435,7 @@ import pandas as pd
 import time
 
 # Small dataset -- Penn World Tables (~8 rows)
-url = ('https://raw.githubusercontent.com/QuantEcon/'
-       'lecture-python-programming/main/lectures/_static/'
-       'lecture_specific/pandas/data/test_pwt.csv')
+url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
 small_pd = pd.read_csv(url)
 small_pl = pl.read_csv(url)
 ```
