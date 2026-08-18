@@ -159,7 +159,7 @@ s
 
 بنابراین، یک ابزار قدرتمند برای نمایش و تحلیل داده‌هایی است که به طور طبیعی در سطرها و ستون‌ها سازماندهی شده‌اند، اغلب با اندیس‌های توصیفی برای سطرها و ستون‌های فردی.
 
-بیایید به مثالی نگاه کنیم که داده را از فایل CSV `pandas/data/test_pwt.csv` می‌خواند، که از [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0) گرفته شده است.
+بیایید به مثالی نگاه کنیم که داده را از فایل CSV `test_pwt.csv` می‌خواند، که از [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0) گرفته شده است.
 
 مجموعه داده شامل شاخص‌های زیر است
 
@@ -174,7 +174,7 @@ s
 ما این را از یک URL با استفاده از تابع `read_csv` در `pandas` خواهیم خواند.
 
 ```{code-cell} ipython3
-df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/pandas/data/test_pwt.csv')
+df = pd.read_csv('https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv')
 type(df)
 ```
 
