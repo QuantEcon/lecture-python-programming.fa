@@ -1,6 +1,6 @@
-source-sha: 4cacd9a2d34a306abeb9383dbbe08be02e29011d
-synced-at: "2026-07-17"
+source-sha: d35eb831da23a763f43d403e96f20d43529cae53
+synced-at: "2026-08-18"
 model: claude-sonnet-5
 mode: UPDATE
 section-count: 6
-tool-version: 0.16.1
+tool-version: 0.26.0
