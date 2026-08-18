@@ -95,7 +95,8 @@ import matplotlib.pyplot as plt
 ابتدا سری‌ای از چهار مشاهده تصادفی می‌سازیم
 
 ```{code-cell} ipython3
-s = pl.Series(name='daily returns', values=np.random.randn(4))
+rng = np.random.default_rng()
+s = pl.Series(name='daily returns', values=rng.standard_normal(4))
 s
 ```
 
@@ -131,7 +132,7 @@ s.describe()
 ```{code-cell} ipython3
 df = pl.DataFrame({
     'company': ['AMZN', 'AAPL', 'MSFT', 'GOOG'],
-    'daily returns': np.random.randn(4)
+    'daily returns': rng.standard_normal(4)
 })
 df
 ```
@@ -358,7 +359,9 @@ plt.show()
 
 ```{code-cell} ipython3
 # Reload the dataset
-url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
+url = ('https://raw.githubusercontent.com/QuantEcon/'
+       'lecture-python-programming/main/lectures/_static/'
+       'lecture_specific/pandas/data/test_pwt.csv')
 df_full = pl.read_csv(url)
 ```
 
@@ -434,7 +437,9 @@ import pandas as pd
 import time
 
 # Small dataset -- Penn World Tables (~8 rows)
-url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
+url = ('https://raw.githubusercontent.com/QuantEcon/'
+       'lecture-python-programming/main/lectures/_static/'
+       'lecture_specific/pandas/data/test_pwt.csv')
 small_pd = pd.read_csv(url)
 small_pl = pl.read_csv(url)
 ```
@@ -696,7 +701,7 @@ ticker = read_data_polars(ticker_list)
 
 ```{code-cell} ipython3
 price_change = ticker.select([
-    ((pl.col(tick).last() / pl.col(tick).first() - 1) * 100)
+    ((pl.col(tick).drop_nulls().last() / pl.col(tick).drop_nulls().first() - 1) * 100)
     .alias(tick)
     for tick in ticker_list.keys()
 ]).transpose(
