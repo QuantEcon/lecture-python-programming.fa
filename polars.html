@@ -80,9 +80,9 @@
     <link rel="stylesheet" href="_static/styles/quantecon-book-theme.css?digest=1c349b9a0045df0ce6f4a606c2cc9441cbf3bef6" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=982b99e0" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -288,7 +288,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Aug 03, 2026
+                            Last changed: Aug 18, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -299,11 +299,47 @@
                             
                             <li class="changelog-entry">
                                 
-                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/05c437c" class="changelog-hash">05c437c</a>
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/76022e8" class="changelog-hash">76022e8</a>
                                 
-                                <span class="changelog-author">dependabot[bot]</span>
-                                <span class="changelog-time">5 minutes ago</span>
-                                <span class="changelog-message">:arrow_up: Bump anaconda from 2026.06 to 2026.07 (#141)</span>
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">22 hours ago</span>
+                                <span class="changelog-message">Restore the repointed data URLs reverted by the #154 regeneration (#155)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/1bceccd" class="changelog-hash">1bceccd</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">23 hours ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] FIX: lecture cleanup batch from the 2026-08 tracker audit (#154)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/39f9f7d" class="changelog-hash">39f9f7d</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">23 hours ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Read test_pwt.csv from data-lectures (Track D) (#153)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/7a5c3ab" class="changelog-hash">7a5c3ab</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">23 hours ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] FIX: point the Polars benchmarks link at its final destination (#147)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/9a337f4" class="changelog-hash">9a337f4</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">2 weeks ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] Add Polars lecture to complement existing Pandas lecture (#144)</span>
                             </li>
                             
                         </ul>
@@ -335,19 +371,20 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting polars
   Downloading polars-1.43.2-py3-none-any.whl.metadata (11 kB)
-Requirement already satisfied: yfinance in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (1.5.2)
+Requirement already satisfied: yfinance in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (1.6.0)
 Collecting polars-runtime-32==1.43.2 (from polars)
   Downloading polars_runtime_32-1.43.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
-Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (3.0.3)
-Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.4.6)
-Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.34.2)
-Requirement already satisfied: multitasking&gt;=0.0.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.0.13)
-Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.9.4)
-Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2026.3.post1)
-Requirement already satisfied: peewee&gt;=3.16.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.3.0)
 Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.15.0)
 Requirement already satisfied: curl_cffi&gt;=0.15 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.16.0)
+Requirement already satisfied: lxml&gt;=4.9.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (6.1.1)
+Requirement already satisfied: multitasking&gt;=0.0.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.0.13)
+Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.4.6)
+Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (3.0.3)
+Requirement already satisfied: peewee&gt;=3.16.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.3.0)
+Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.9.4)
 Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (6.33.5)
+Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2026.3.post1)
+Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.34.2)
 Requirement already satisfied: websockets&gt;=13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (16.0)
 Requirement already satisfied: soupsieve&gt;=1.6.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.8.4)
 Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (4.16.0)
@@ -361,12 +398,10 @@ Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/env
 Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.7.0)
 Downloading polars-1.43.2-py3-none-any.whl (847 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/847.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">847.1/847.1 kB</span> <span class=" -Color -Color-Red">23.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25h
-Downloading polars_runtime_32-1.43.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (57.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">847.1/847.1 kB</span> <span class=" -Color -Color-Red">66.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading polars_runtime_32-1.43.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (57.3 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/57.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">30.9/57.3 MB</span> <span class=" -Color -Color-Red">155.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.3/57.3 MB</span> <span class=" -Color -Color-Red">128.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.3/57.3 MB</span> <span class=" -Color -Color-Red">261.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 Installing collected packages: polars-runtime-32, polars
 ?25l
@@ -376,6 +411,7 @@ Installing collected packages: polars-runtime-32, polars
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
    ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/2</span> [polars]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/2</span> [polars]
+
 Successfully installed polars-1.43.2 polars-runtime-32-1.43.2
 </pre></div>
 </div>
@@ -399,7 +435,7 @@ Successfully installed polars-1.43.2 polars-runtime-32-1.43.2
 <ul class="simple">
 <li><p><strong>حافظه</strong>: pandas معمولاً به ۵ تا ۱۰ برابر حجم مجموعه داده شما نیاز به RAM دارد؛ Polars تنها به ۲ تا ۴ برابر نیاز دارد</p></li>
 <li><p><strong>سرعت</strong>: Polars برای بسیاری از عملیات رایج ۱۰ تا ۱۰۰ برابر سریع‌تر است</p></li>
-<li><p><strong>مشاهده کنید</strong>: <a class="reference external" href="https://www.pola.rs/benchmarks/">معیارهای TPC-H در Polars</a> برای مقایسه‌های عملکردی به‌روز</p></li>
+<li><p><strong>مشاهده کنید</strong>: <a class="reference external" href="https://pola.rs/benchmarks/">معیارهای TPC-H در Polars</a> برای مقایسه‌های عملکردی به‌روز</p></li>
 </ul>
 </div>
 <p>در طول این درس، فرض می‌کنیم که واردسازی‌های زیر انجام شده است</p>
@@ -422,7 +458,8 @@ Successfully installed polars-1.43.2 polars-runtime-32-1.43.2
 <p>ابتدا سری‌ای از چهار مشاهده تصادفی می‌سازیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;daily returns&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;daily returns&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">s</span>
 </pre></div>
 </div>
@@ -435,7 +472,7 @@ Successfully installed polars-1.43.2 polars-runtime-32-1.43.2
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>1.486557</td></tr><tr><td>1.118068</td></tr><tr><td>0.38464</td></tr><tr><td>0.156635</td></tr></tbody></table></div></div></div>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>-1.289138</td></tr><tr><td>0.685724</td></tr><tr><td>-0.094137</td></tr><tr><td>-0.033635</td></tr></tbody></table></div></div></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -459,7 +496,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>148.655749</td></tr><tr><td>111.806849</td></tr><tr><td>38.464045</td></tr><tr><td>15.663515</td></tr></tbody></table></div></div></div>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>-128.913793</td></tr><tr><td>68.572418</td></tr><tr><td>-9.413743</td></tr><tr><td>-3.363491</td></tr></tbody></table></div></div></div>
 </div>
 <p>مقادیر مطلق به عنوان یک متد در دسترس هستند</p>
 <div class="cell docutils container">
@@ -476,7 +513,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>1.486557</td></tr><tr><td>1.118068</td></tr><tr><td>0.38464</td></tr><tr><td>0.156635</td></tr></tbody></table></div></div></div>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>1.289138</td></tr><tr><td>0.685724</td></tr><tr><td>0.094137</td></tr><tr><td>0.033635</td></tr></tbody></table></div></div></div>
 </div>
 <p>همچنین می‌توانیم آمار خلاصه سریع دریافت کنیم</p>
 <div class="cell docutils container">
@@ -493,7 +530,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>4.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>0.786475</td></tr><tr><td>&quot;std&quot;</td><td>0.621353</td></tr><tr><td>&quot;min&quot;</td><td>0.156635</td></tr><tr><td>&quot;25%&quot;</td><td>0.38464</td></tr><tr><td>&quot;50%&quot;</td><td>1.118068</td></tr><tr><td>&quot;75%&quot;</td><td>1.118068</td></tr><tr><td>&quot;max&quot;</td><td>1.486557</td></tr></tbody></table></div></div></div>
+<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>4.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>-0.182797</td></tr><tr><td>&quot;std&quot;</td><td>0.818215</td></tr><tr><td>&quot;min&quot;</td><td>-1.289138</td></tr><tr><td>&quot;25%&quot;</td><td>-0.094137</td></tr><tr><td>&quot;50%&quot;</td><td>-0.033635</td></tr><tr><td>&quot;75%&quot;</td><td>-0.033635</td></tr><tr><td>&quot;max&quot;</td><td>0.685724</td></tr></tbody></table></div></div></div>
 </div>
 <p>از آنجا که Polars هیچ نمایه ردیفی ندارد، داده‌های برچسب‌دار به <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> نیاز دارند.</p>
 <p>برای مثال، برای مرتبط کردن نمادهای معاملاتی با بازده‌ها:</p>
@@ -501,7 +538,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;daily returns&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="s1">&#39;daily returns&#39;</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="p">})</span>
 <span class="n">df</span>
 </pre></div>
@@ -515,7 +552,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>-0.582233</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.133717</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.044996</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.87905</td></tr></tbody></table></div></div></div>
+<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>-0.065946</td></tr><tr><td>&quot;AAPL&quot;</td><td>0.134938</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.397659</td></tr><tr><td>&quot;GOOG&quot;</td><td>0.452777</td></tr></tbody></table></div></div></div>
 </div>
 <p>با فیلتر کردن بر روی یک عبارت ستونی به یک مقدار دسترسی پیدا می‌کنیم</p>
 <div class="cell docutils container">
@@ -527,7 +564,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5822325458777632
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.06594567865634897
 </pre></div>
 </div>
 </div>
@@ -553,7 +590,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.0</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.133717</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.044996</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.87905</td></tr></tbody></table></div></div></div>
+<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.0</td></tr><tr><td>&quot;AAPL&quot;</td><td>0.134938</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.397659</td></tr><tr><td>&quot;GOOG&quot;</td><td>0.452777</td></tr></tbody></table></div></div></div>
 </div>
 <p>می‌توانیم عضویت را نیز بررسی کنیم</p>
 <div class="cell docutils container">
@@ -576,9 +613,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
 <p>این را با <code class="docutils literal notranslate"><span class="pre">pl.read_csv</span></code> می‌خوانیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/&#39;</span>
-       <span class="s1">&#39;lecture-python-programming/main/lectures/_static/&#39;</span>
-       <span class="s1">&#39;lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -931,9 +966,7 @@ Python به‌صورت ردیف‌به‌ردیف ارائه می‌دهد، ا�
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reload the dataset</span>
-<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/&#39;</span>
-       <span class="s1">&#39;lecture-python-programming/main/lectures/_static/&#39;</span>
-       <span class="s1">&#39;lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv&#39;</span>
 <span class="n">df_full</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1070,9 +1103,7 @@ FROM
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># Small dataset -- Penn World Tables (~8 rows)</span>
-<span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/QuantEcon/&#39;</span>
-       <span class="s1">&#39;lecture-python-programming/main/lectures/_static/&#39;</span>
-       <span class="s1">&#39;lecture_specific/pandas/data/test_pwt.csv&#39;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv&#39;</span>
 <span class="n">small_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">small_pl</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
@@ -1105,7 +1136,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Small data  --  pandas: 0.0055s | Polars eager: 0.0010s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Small data  --  pandas: 0.0054s | Polars eager: 0.0010s
 </pre></div>
 </div>
 </div>
@@ -1119,13 +1150,13 @@ FROM
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5_000_000</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="n">groups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">extra1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">extra2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">extra1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">extra2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
 <span class="n">big_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="n">groups</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span>
@@ -1152,7 +1183,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas:       0.1233s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas:       0.1308s
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1205,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars eager: 0.0350s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars eager: 0.0373s
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1228,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars lazy:  0.0292s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars lazy:  0.0330s
 </pre></div>
 </div>
 </div>
@@ -1392,7 +1423,7 @@ Polars می‌تواند به‌طور قابل‌توجهی سریع‌تر ب�
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price_change</span> <span class="o">=</span> <span class="n">ticker</span><span class="o">.</span><span class="n">select</span><span class="p">([</span>
-    <span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">last</span><span class="p">()</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span><span class="o">.</span><span class="n">drop_nulls</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
     <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">tick</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">ticker_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
@@ -1416,17 +1447,17 @@ Polars می‌تواند به‌طور قابل‌توجهی سریع‌تر ب�
 │ ---    ┆ ---        ┆ ---       │
 │ str    ┆ f64        ┆ str       │
 ╞════════╪════════════╪═══════════╡
-│ BHP    ┆ -2.249076  ┆ BHP       │
-│ C      ┆ 3.550576   ┆ Citigroup │
+│ BHP    ┆ -2.249103  ┆ BHP       │
+│ C      ┆ 3.55057    ┆ Citigroup │
 │ AMZN   ┆ 5.845049   ┆ Amazon    │
-│ INTC   ┆ 6.86852    ┆ Intel     │
-│ KO     ┆ 14.922531  ┆ Coca-Cola │
+│ INTC   ┆ 6.868511   ┆ Intel     │
+│ KO     ┆ 14.922493  ┆ Coca-Cola │
 │ …      ┆ …          ┆ …         │
-│ TM     ┆ 23.416741  ┆ Toyota    │
-│ QCOM   ┆ 25.318529  ┆ Qualcomm  │
-│ AAPL   ┆ 38.550791  ┆ Apple     │
-│ MSFT   ┆ 57.179627  ┆ Microsoft │
-│ GOOG   ┆ 68.9609    ┆ Google    │
+│ TM     ┆ 23.416778  ┆ Toyota    │
+│ QCOM   ┆ 25.318531  ┆ Qualcomm  │
+│ AAPL   ┆ 38.550773  ┆ Apple     │
+│ MSFT   ┆ 57.17959   ┆ Microsoft │
+│ GOOG   ┆ 68.960933  ┆ Google    │
 └────────┴────────────┴───────────┘
 </pre></div>
 </div>

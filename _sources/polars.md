@@ -68,7 +68,7 @@ Polars با در نظر گرفتن عملکرد و کارایی حافظه طر�
 
 * **حافظه**: pandas معمولاً به ۵ تا ۱۰ برابر حجم مجموعه داده شما نیاز به RAM دارد؛ Polars تنها به ۲ تا ۴ برابر نیاز دارد
 * **سرعت**: Polars برای بسیاری از عملیات رایج ۱۰ تا ۱۰۰ برابر سریع‌تر است
-* **مشاهده کنید**: [معیارهای TPC-H در Polars](https://www.pola.rs/benchmarks/) برای مقایسه‌های عملکردی به‌روز
+* **مشاهده کنید**: [معیارهای TPC-H در Polars](https://pola.rs/benchmarks/) برای مقایسه‌های عملکردی به‌روز
 ```
 
 در طول این درس، فرض می‌کنیم که واردسازی‌های زیر انجام شده است
@@ -95,7 +95,8 @@ import matplotlib.pyplot as plt
 ابتدا سری‌ای از چهار مشاهده تصادفی می‌سازیم
 
 ```{code-cell} ipython3
-s = pl.Series(name='daily returns', values=np.random.randn(4))
+rng = np.random.default_rng()
+s = pl.Series(name='daily returns', values=rng.standard_normal(4))
 s
 ```
 
@@ -131,7 +132,7 @@ s.describe()
 ```{code-cell} ipython3
 df = pl.DataFrame({
     'company': ['AMZN', 'AAPL', 'MSFT', 'GOOG'],
-    'daily returns': np.random.randn(4)
+    'daily returns': rng.standard_normal(4)
 })
 df
 ```
@@ -174,9 +175,7 @@ df
 این را با `pl.read_csv` می‌خوانیم
 
 ```{code-cell} ipython3
-url = ('https://raw.githubusercontent.com/QuantEcon/'
-       'lecture-python-programming/main/lectures/_static/'
-       'lecture_specific/pandas/data/test_pwt.csv')
+url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
 df = pl.read_csv(url)
 df
 ```
@@ -360,9 +359,7 @@ plt.show()
 
 ```{code-cell} ipython3
 # Reload the dataset
-url = ('https://raw.githubusercontent.com/QuantEcon/'
-       'lecture-python-programming/main/lectures/_static/'
-       'lecture_specific/pandas/data/test_pwt.csv')
+url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
 df_full = pl.read_csv(url)
 ```
 
@@ -438,9 +435,7 @@ import pandas as pd
 import time
 
 # Small dataset -- Penn World Tables (~8 rows)
-url = ('https://raw.githubusercontent.com/QuantEcon/'
-       'lecture-python-programming/main/lectures/_static/'
-       'lecture_specific/pandas/data/test_pwt.csv')
+url = 'https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv'
 small_pd = pd.read_csv(url)
 small_pl = pl.read_csv(url)
 ```
@@ -480,13 +475,13 @@ print(f"Small data  --  pandas: {pd_small:.4f}s | Polars eager: {pl_small:.4f}s"
 
 ```{code-cell} ipython3
 n = 5_000_000
-np.random.seed(42)
+rng = np.random.default_rng(42)
 
-groups = np.random.choice(['A', 'B', 'C', 'D'], n)
-values = np.random.randn(n)
-weights = np.random.rand(n)
-extra1 = np.random.randn(n)
-extra2 = np.random.randn(n)
+groups = rng.choice(['A', 'B', 'C', 'D'], n)
+values = rng.standard_normal(n)
+weights = rng.random(n)
+extra1 = rng.standard_normal(n)
+extra2 = rng.standard_normal(n)
 
 big_pd = pd.DataFrame({
     'group': groups, 'value': values,
@@ -702,7 +697,7 @@ ticker = read_data_polars(ticker_list)
 
 ```{code-cell} ipython3
 price_change = ticker.select([
-    ((pl.col(tick).last() / pl.col(tick).first() - 1) * 100)
+    ((pl.col(tick).drop_nulls().last() / pl.col(tick).drop_nulls().first() - 1) * 100)
     .alias(tick)
     for tick in ticker_list.keys()
 ]).transpose(

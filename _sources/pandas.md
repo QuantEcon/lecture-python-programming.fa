@@ -100,7 +100,8 @@ import requests
 با ایجاد یک سری از چهار مشاهده تصادفی شروع می‌کنیم
 
 ```{code-cell} ipython3
-s = pd.Series(np.random.randn(4), name='daily returns')
+rng = np.random.default_rng()
+s = pd.Series(rng.standard_normal(4), name='daily returns')
 s
 ```
 
@@ -159,7 +160,7 @@ s
 
 بنابراین، یک ابزار قدرتمند برای نمایش و تحلیل داده‌هایی است که به طور طبیعی در سطرها و ستون‌ها سازماندهی شده‌اند، اغلب با اندیس‌های توصیفی برای سطرها و ستون‌های فردی.
 
-بیایید به مثالی نگاه کنیم که داده را از فایل CSV `pandas/data/test_pwt.csv` می‌خواند، که از [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0) گرفته شده است.
+بیایید به مثالی نگاه کنیم که داده را از فایل CSV `test_pwt.csv` می‌خواند، که از [Penn World Tables](https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt-7.0) گرفته شده است.
 
 مجموعه داده شامل شاخص‌های زیر است
 
@@ -174,7 +175,7 @@ s
 ما این را از یک URL با استفاده از تابع `read_csv` در `pandas` خواهیم خواند.
 
 ```{code-cell} ipython3
-df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-python-programming/main/lectures/_static/lecture_specific/pandas/data/test_pwt.csv')
+df = pd.read_csv('https://github.com/QuantEcon/data-lectures/raw/main/lectures/test_pwt.csv')
 type(df)
 ```
 
@@ -385,7 +386,7 @@ df.apply(update_row, axis=1)
 
 ```{code-cell} ipython3
 # گرد کردن تمام اعداد اعشاری به 2 رقم اعشار
-df.map(lambda x : round(x,2) if type(x)!=str else x)
+df.map(lambda x : round(x,2) if not isinstance(x, str) else x)
 ```
 
 **کاربرد: جایگزینی مقدار گمشده**
@@ -408,8 +409,8 @@ df
 ```{code-cell} ipython3
 # جایگزینی تمام مقادیر NaN با 0
 def replace_nan(x):
-    if type(x)!=str:
-        return  0 if np.isnan(x) else x
+    if not isinstance(x, str):
+        return  0 if pd.isna(x) else x
     else:
         return x
 
@@ -541,7 +542,7 @@ r = requests.get('https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e
 * به دستگاه دیگری تغییر دهید
 * مشکل پروکسی خود را با خواندن [مستندات](https://requests.readthedocs.io/en/latest/) حل کنید
 
-با فرض اینکه همه چیز کار می‌کند، اکنون می‌توانید از شیء `source` برگردانده شده توسط فراخوانی `requests.get('https://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')` استفاده کنید
+با فرض اینکه همه چیز کار می‌کند، اکنون می‌توانید شیء `source` را از داده‌های برگردانده شده توسط فراخوانی `requests.get(url)` بسازید
 
 ```{code-cell} ipython3
 url = 'https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2024-06-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2024-07-29&revision_date=2024-07-29&nd=1948-01-01'

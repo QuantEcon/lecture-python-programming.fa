@@ -371,7 +371,7 @@ git clone https://github.com/QuantEcon/QuantEcon.py
 1. به 'forking' مخازن GitHub نگاه کنید (forking به معنای ایجاد کپی خود از یک مخزن GitHub است که در GitHub ذخیره می‌شود).
 1. [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py) را fork کنید.
 1. fork خود را در یک دایرکتوری محلی clone کنید، ویرایش‌ها انجام دهید، آنها را commit کنید و به مخزن GitHub fork شده خود push کنید.
-1. اگر بهبود ارزشمندی ایجاد کردید، برای ما یک [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) ارسال کنید!
+1. اگر بهبود ارزشمندی ایجاد کردید، برای ما یک [pull request](https://docs.github.com/en/pull-requests/reference/pull-requests) ارسال کنید!
 
 برای خواندن در مورد این موضوعات و سایر موضوعات، امتحان کنید
 
