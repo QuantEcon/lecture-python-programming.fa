@@ -21,6 +21,15 @@ jobs:
           python-version: "3.13"
           environment-file: environment.yml
           activate-environment: quantecon
+      - name: Install JAX (CPU, pinned)
+        shell: bash -l {0}
+        run: |
+          # Pinned: jax 0.11.1 (2026-08-17) hangs numpy_vs_numba_vs_jax's
+          # lax.fori_loop cells on the CPU path -- context is recorded in
+          # QuantEcon/workspace-lectures#49. With jax already present, the
+          # lecture's unpinned `!pip install quantecon jax` cell is satisfied
+          # and does not upgrade.
+          pip install "jax==0.11.0"
       - name: Install latex dependencies
         run: |
           sudo apt-get -qq update
