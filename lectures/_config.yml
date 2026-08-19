@@ -5,7 +5,7 @@ description: This website presents a set of lectures on python programming for e
 
 execute:
   execute_notebooks: "cache"
-  timeout: 600 # 10 minutes
+  timeout: 1800 # 30 minutes: the numpy_vs_numba_vs_jax benchmarks run on CPU-only runners here and exceed 600s (the English repo builds on GPU)
 
 html:
   baseurl: https://quantecon.github.io/lecture-python-programming.fa/
