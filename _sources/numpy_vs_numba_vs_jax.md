@@ -61,7 +61,7 @@ JAX، از سوی دیگر، به تنهایی می‌ایستد.
 ---
 tags: [hide-output]
 ---
-!pip install quantecon jax
+!pip install quantecon "jax==0.11.0"
 ```
 
 ```{include} _admonition/gpu.md
