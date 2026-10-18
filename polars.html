@@ -96,7 +96,6 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -290,7 +289,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Aug 18, 2026
+                            Last changed: Oct 18, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -301,10 +300,19 @@
                             
                             <li class="changelog-entry">
                                 
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/439dd81" class="changelog-hash">439dd81</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">17 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] [polars] Fetch the FRED CSV with requests before parsing it (#171)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/76022e8" class="changelog-hash">76022e8</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">Restore the repointed data URLs reverted by the #154 regeneration (#155)</span>
                             </li>
                             
@@ -313,7 +321,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/1bceccd" class="changelog-hash">1bceccd</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] FIX: lecture cleanup batch from the 2026-08 tracker audit (#154)</span>
                             </li>
                             
@@ -322,7 +330,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/39f9f7d" class="changelog-hash">39f9f7d</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] Read test_pwt.csv from data-lectures (Track D) (#153)</span>
                             </li>
                             
@@ -331,7 +339,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/7a5c3ab" class="changelog-hash">7a5c3ab</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] FIX: point the Polars benchmarks link at its final destination (#147)</span>
                             </li>
                             
@@ -372,20 +380,20 @@
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting polars
-  Downloading polars-1.44.1-py3-none-any.whl.metadata (11 kB)
+  Downloading polars-2.0.0-py3-none-any.whl.metadata (11 kB)
 Requirement already satisfied: yfinance in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (1.7.0)
-Collecting polars-runtime-32==1.44.1 (from polars)
-  Downloading polars_runtime_32-1.44.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting polars-runtime-32==2.0.0 (from polars)
+  Downloading polars_runtime_32-2.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
 Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.15.0)
 Requirement already satisfied: curl_cffi&gt;=0.15 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.16.3)
 Requirement already satisfied: lxml&gt;=4.9.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (6.1.3)
 Requirement already satisfied: multitasking&gt;=0.0.7 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (0.0.13)
 Requirement already satisfied: numpy&gt;=1.16.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.4.6)
 Requirement already satisfied: pandas&gt;=1.3.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (3.0.3)
-Requirement already satisfied: peewee&gt;=3.16.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.4.0)
+Requirement already satisfied: peewee&gt;=3.16.2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.5.3)
 Requirement already satisfied: platformdirs&gt;=2.0.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (4.9.4)
 Requirement already satisfied: protobuf&gt;=3.19.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (6.33.5)
-Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2026.3.post1)
+Requirement already satisfied: pytz&gt;=2022.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2026.5)
 Requirement already satisfied: requests&gt;=2.31 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (2.34.2)
 Requirement already satisfied: websockets&gt;=13.0 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from yfinance) (16.0)
 Requirement already satisfied: soupsieve&gt;=1.6.1 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.8.4)
@@ -398,25 +406,22 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/quant
 Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.4.7)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (3.18)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/quantecon/lib/python3.13/site-packages (from requests&gt;=2.31-&gt;yfinance) (2.7.0)
-Downloading polars-1.44.1-py3-none-any.whl (865 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/865.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">865.2/865.2 kB</span> <span class=" -Color -Color-Red">18.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading polars_runtime_32-1.44.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (58.6 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/58.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">58.5/58.6 MB</span> <span class=" -Color -Color-Red">345.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">58.5/58.6 MB</span> <span class=" -Color -Color-Red">345.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">58.6/58.6 MB</span> <span class=" -Color -Color-Red">121.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+Downloading polars-2.0.0-py3-none-any.whl (876 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">876.6/876.6 kB</span> <span class=" -Color -Color-Red">66.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading polars_runtime_32-2.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (54.5 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/54.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">54.3/54.5 MB</span> <span class=" -Color -Color-Red">372.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">54.3/54.5 MB</span> <span class=" -Color -Color-Red">372.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">54.5/54.5 MB</span> <span class=" -Color -Color-Red">124.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 Installing collected packages: polars-runtime-32, polars
 ?25l
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0/2</span> [polars-runtime-32]
-   ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/2</span> [polars]
    ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1/2</span> [polars]
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2/2</span> [polars]
-Successfully installed polars-1.44.1 polars-runtime-32-1.44.1
+Successfully installed polars-2.0.0 polars-runtime-32-2.0.0
 </pre></div>
 </div>
 </div>
@@ -476,7 +481,7 @@ Successfully installed polars-1.44.1 polars-runtime-32-1.44.1
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>-0.094546</td></tr><tr><td>-1.582521</td></tr><tr><td>0.602659</td></tr><tr><td>-0.614352</td></tr></tbody></table></div></div></div>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>-0.382727</td></tr><tr><td>-1.037242</td></tr><tr><td>-0.26864</td></tr><tr><td>-0.071325</td></tr></tbody></table></div></div></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -500,7 +505,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>-9.454632</td></tr><tr><td>-158.252125</td></tr><tr><td>60.265926</td></tr><tr><td>-61.435176</td></tr></tbody></table></div></div></div>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>-38.272701</td></tr><tr><td>-103.724202</td></tr><tr><td>-26.863965</td></tr><tr><td>-7.132488</td></tr></tbody></table></div></div></div>
 </div>
 <p>مقادیر مطلق به عنوان یک متد در دسترس هستند</p>
 <div class="cell docutils container">
@@ -517,7 +522,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>0.094546</td></tr><tr><td>1.582521</td></tr><tr><td>0.602659</td></tr><tr><td>0.614352</td></tr></tbody></table></div></div></div>
+<small>shape: (4,)</small><table border="1" class="dataframe"><thead><tr><th>daily returns</th></tr><tr><td>f64</td></tr></thead><tbody><tr><td>0.382727</td></tr><tr><td>1.037242</td></tr><tr><td>0.26864</td></tr><tr><td>0.071325</td></tr></tbody></table></div></div></div>
 </div>
 <p>همچنین می‌توانیم آمار خلاصه سریع دریافت کنیم</p>
 <div class="cell docutils container">
@@ -534,7 +539,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>4.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>-0.42219</td></tr><tr><td>&quot;std&quot;</td><td>0.920319</td></tr><tr><td>&quot;min&quot;</td><td>-1.582521</td></tr><tr><td>&quot;25%&quot;</td><td>-0.614352</td></tr><tr><td>&quot;50%&quot;</td><td>-0.094546</td></tr><tr><td>&quot;75%&quot;</td><td>-0.094546</td></tr><tr><td>&quot;max&quot;</td><td>0.602659</td></tr></tbody></table></div></div></div>
+<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>4.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>-0.439983</td></tr><tr><td>&quot;std&quot;</td><td>0.418435</td></tr><tr><td>&quot;min&quot;</td><td>-1.037242</td></tr><tr><td>&quot;25%&quot;</td><td>-0.382727</td></tr><tr><td>&quot;50%&quot;</td><td>-0.26864</td></tr><tr><td>&quot;75%&quot;</td><td>-0.26864</td></tr><tr><td>&quot;max&quot;</td><td>-0.071325</td></tr></tbody></table></div></div></div>
 </div>
 <p>از آنجا که Polars هیچ نمایه ردیفی ندارد، داده‌های برچسب‌دار به <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> نیاز دارند.</p>
 <p>برای مثال، برای مرتبط کردن نمادهای معاملاتی با بازده‌ها:</p>
@@ -556,7 +561,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.199239</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.62845</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.659929</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.603024</td></tr></tbody></table></div></div></div>
+<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.449214</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.690569</td></tr><tr><td>&quot;MSFT&quot;</td><td>-1.03709</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.153935</td></tr></tbody></table></div></div></div>
 </div>
 <p>با فیلتر کردن بر روی یک عبارت ستونی به یک مقدار دسترسی پیدا می‌کنیم</p>
 <div class="cell docutils container">
@@ -568,7 +573,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1992386692460381
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.44921370251015624
 </pre></div>
 </div>
 </div>
@@ -594,7 +599,7 @@ Polars ستون‌محور است — دسترسی به داده از طریق �
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.0</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.62845</td></tr><tr><td>&quot;MSFT&quot;</td><td>0.659929</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.603024</td></tr></tbody></table></div></div></div>
+<small>shape: (4, 2)</small><table border="1" class="dataframe"><thead><tr><th>company</th><th>daily returns</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;AMZN&quot;</td><td>0.0</td></tr><tr><td>&quot;AAPL&quot;</td><td>-0.690569</td></tr><tr><td>&quot;MSFT&quot;</td><td>-1.03709</td></tr><tr><td>&quot;GOOG&quot;</td><td>-0.153935</td></tr></tbody></table></div></div></div>
 </div>
 <p>می‌توانیم عضویت را نیز بررسی کنیم</p>
 <div class="cell docutils container">
@@ -1140,7 +1145,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Small data  --  pandas: 0.0058s | Polars eager: 0.0010s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Small data  --  pandas: 0.0049s | Polars eager: 0.0008s
 </pre></div>
 </div>
 </div>
@@ -1187,7 +1192,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas:       0.1378s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas:       0.1055s
 </pre></div>
 </div>
 </div>
@@ -1209,7 +1214,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars eager: 0.0374s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars eager: 0.0269s
 </pre></div>
 </div>
 </div>
@@ -1232,7 +1237,7 @@ FROM
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars lazy:  0.0372s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polars lazy:  0.0177s
 </pre></div>
 </div>
 </div>
@@ -1259,7 +1264,8 @@ Polars می‌تواند به‌طور قابل‌توجهی سریع‌تر ب�
 <h2><span class="section-number">19.5. </span>منابع داده آنلاین<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p id="index-4">مانند <a class="reference internal" href="pandas.html"><span class="doc">Pandas</span></a>، Python پرس‌وجوی پایگاه‌های داده آنلاین را ساده می‌کند.</p>
 <p>یک پایگاه داده مهم برای اقتصاددانان <a class="reference external" href="https://fred.stlouisfed.org/">FRED</a> است — مجموعه‌ای گسترده از داده‌های سری زمانی که توسط فدرال رزرو سنت‌لوئیس نگهداری می‌شود.</p>
-<p>متد <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> در Polars می‌تواند داده را مستقیماً از یک URL دریافت کند.</p>
+<p>فایل CSV را با استفاده از <a class="reference external" href="https://requests.readthedocs.io/en/latest/">requests</a> دانلود می‌کنیم
+و محتوای آن را به متد <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> در Polars می‌دهیم.</p>
 <p>از <code class="docutils literal notranslate"><span class="pre">try_parse_dates=True</span></code> برای تجزیه خودکار ستون تاریخ استفاده می‌کنیم</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1278,7 +1284,10 @@ Polars می‌تواند به‌طور قابل‌توجهی سریع‌تر ب�
             <span class="s1">&#39;fgst=lin&amp;fgsnd=2020-02-01&amp;line_index=1&amp;&#39;</span>
             <span class="s1">&#39;transformation=lin&amp;vintage_date=2024-07-29&amp;&#39;</span>
             <span class="s1">&#39;revision_date=2024-07-29&amp;nd=1948-01-01&#39;</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fred_url</span><span class="p">,</span> <span class="n">try_parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">fred_url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">try_parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1451,17 +1460,17 @@ Polars می‌تواند به‌طور قابل‌توجهی سریع‌تر ب�
 │ ---    ┆ ---        ┆ ---       │
 │ str    ┆ f64        ┆ str       │
 ╞════════╪════════════╪═══════════╡
-│ BHP    ┆ -2.249112  ┆ BHP       │
-│ C      ┆ 3.550578   ┆ Citigroup │
+│ BHP    ┆ -2.249099  ┆ BHP       │
+│ C      ┆ 3.550562   ┆ Citigroup │
 │ AMZN   ┆ 5.845049   ┆ Amazon    │
-│ INTC   ┆ 6.868538   ┆ Intel     │
-│ KO     ┆ 14.922522  ┆ Coca-Cola │
+│ INTC   ┆ 6.868556   ┆ Intel     │
+│ KO     ┆ 14.922512  ┆ Coca-Cola │
 │ …      ┆ …          ┆ …         │
-│ TM     ┆ 23.416753  ┆ Toyota    │
-│ QCOM   ┆ 25.31854   ┆ Qualcomm  │
-│ AAPL   ┆ 38.550814  ┆ Apple     │
-│ MSFT   ┆ 57.179579  ┆ Microsoft │
-│ GOOG   ┆ 68.960915  ┆ Google    │
+│ TM     ┆ 23.416767  ┆ Toyota    │
+│ QCOM   ┆ 25.318542  ┆ Qualcomm  │
+│ AAPL   ┆ 38.550751  ┆ Apple     │
+│ MSFT   ┆ 57.179649  ┆ Microsoft │
+│ GOOG   ┆ 68.960895  ┆ Google    │
 └────────┴────────────┴───────────┘
 </pre></div>
 </div>

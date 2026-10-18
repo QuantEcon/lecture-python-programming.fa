@@ -96,7 +96,6 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -278,7 +277,7 @@
 
                     <!-- Last modified / Changelog dropdown -->
                         <button class="qe-page__header-changed" id="changelog-toggle" aria-expanded="false">
-                            Last changed: Aug 19, 2026
+                            Last changed: Oct 18, 2026
                             <span class="changelog-icon">▼</span>
                         </button>
 
@@ -289,10 +288,19 @@
                             
                             <li class="changelog-entry">
                                 
+                                <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/822eeff" class="changelog-hash">822eeff</a>
+                                
+                                <span class="changelog-author">Matt McKay</span>
+                                <span class="changelog-time">18 minutes ago</span>
+                                <span class="changelog-message">🌐 [translation-sync] [pandas_panel] Describe the single .replace() call, not a loop (#170)</span>
+                            </li>
+                            
+                            <li class="changelog-entry">
+                                
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/905bab7" class="changelog-hash">905bab7</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">Repair the #154 regeneration residue: repoint state and pandas_panel URL form (#158)</span>
                             </li>
                             
@@ -301,7 +309,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/76022e8" class="changelog-hash">76022e8</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">Restore the repointed data URLs reverted by the #154 regeneration (#155)</span>
                             </li>
                             
@@ -310,7 +318,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/1bceccd" class="changelog-hash">1bceccd</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">1 month ago</span>
+                                <span class="changelog-time">2 months ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] FIX: lecture cleanup batch from the 2026-08 tracker audit (#154)</span>
                             </li>
                             
@@ -319,7 +327,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/bedc311" class="changelog-hash">bedc311</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">2 months ago</span>
+                                <span class="changelog-time">3 months ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] P2 pilot: read pandas_panel data from data-lectures (#136)</span>
                             </li>
                             
@@ -328,7 +336,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/219f346" class="changelog-hash">219f346</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">3 months ago</span>
+                                <span class="changelog-time">4 months ago</span>
                                 <span class="changelog-message">🌐 [translation-sync] [pandas, pandas_panel] Update lectures for pandas 3.0 compatibility (#127)</span>
                             </li>
                             
@@ -346,7 +354,7 @@
                                 <a href="https://github.com/QuantEcon/lecture-python-programming.fa/commit/3f9c65e" class="changelog-hash">3f9c65e</a>
                                 
                                 <span class="changelog-author">Matt McKay</span>
-                                <span class="changelog-time">6 months ago</span>
+                                <span class="changelog-time">7 months ago</span>
                                 <span class="changelog-message">Setup action-translation v0.11.0 infrastructure (#67)</span>
                             </li>
                             
@@ -1764,7 +1772,7 @@ Name: Country, dtype: str
 </div></div></div>
 </div>
 <p>همچنین قاره آمریکا را در یک قاره واحد ترکیب خواهیم کرد - این کار تجسم ما را بعداً زیباتر خواهد کرد.</p>
-<p>برای انجام این کار، از <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> استفاده خواهیم کرد و از طریق لیستی از مقادیر قاره‌ای که می‌خواهیم جایگزین کنیم حلقه می‌زنیم</p>
+<p>برای انجام این کار، از <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> به همراه لیستی از مقادیر قاره‌ای که می‌خواهیم جایگزین کنیم استفاده خواهیم کرد.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replace</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Central America&#39;</span><span class="p">,</span> <span class="s1">&#39;North America&#39;</span><span class="p">,</span> <span class="s1">&#39;South America&#39;</span><span class="p">]</span>
@@ -2333,7 +2341,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7f7f7448dd90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7f72a60e5d90&gt;
 </pre></div>
 </div>
 </div>
