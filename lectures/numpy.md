@@ -451,9 +451,6 @@ A * B
 ```{index} single: NumPy; Matrix Multiplication
 ```
 
-```{index} single: NumPy; Matrix Multiplication
-```
-
 ما از نماد `@` برای ضرب ماتریسی استفاده می‌کنیم، به صورت زیر:
 
 ```{code-cell} python3
