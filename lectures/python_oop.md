@@ -172,7 +172,7 @@ OOP به همان دلیلی که انتزاع مفید است، مفید است
 
 ```{code-cell} python3
 def earn(w,y):
-    "Consumer with inital wealth w earns y"
+    "Consumer with initial wealth w earns y"
     return w+y
 
 def spend(w,x):
@@ -240,7 +240,7 @@ class Consumer:
         "The consumer spends x dollars if feasible"
         new_wealth = self.wealth - x
         if new_wealth < 0:
-            print("Insufficent funds")
+            print("Insufficient funds")
         else:
             self.wealth = new_wealth
 ```
@@ -257,7 +257,7 @@ class Consumer:
 
 متد `__init__` یک *متد سازنده* است.
 
-هر زمان که نمونه‌ای از کلاس ایجاد کنیم، متد `__init_` به صورت خودکار فراخوانی می‌شود.
+هر زمان که نمونه‌ای از کلاس ایجاد کنیم، متد `__init__` به صورت خودکار فراخوانی می‌شود.
 
 فراخوانی `__init__` یک "namespace" برای نگهداری داده‌های نمونه راه‌اندازی می‌کند --- بیشتر در این مورد بعداً.
 
