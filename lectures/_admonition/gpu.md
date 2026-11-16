@@ -1,12 +1,11 @@
 ```{admonition} GPU
 :class: warning
 
-This lecture was built using a machine with access to a GPU --- although it will also run without one.
+این درس با استفاده از دستگاهی که به GPU دسترسی داشت ساخته شده است --- اگرچه بدون آن نیز اجرا خواهد شد.
 
-[Google Colab](https://colab.research.google.com/) has a free tier with GPUs
-that you can access as follows:
+[Google Colab](https://colab.research.google.com/) دارای یک سطح رایگان با GPU است که می‌توانید به شکل زیر به آن دسترسی پیدا کنید:
 
-1. Click on the "play" icon top right
-2. Select Colab
-3. Set the runtime environment to include a GPU
+1. روی آیکون "پخش" در گوشه بالا سمت راست کلیک کنید
+2. Colab را انتخاب کنید
+3. محیط اجرا را طوری تنظیم کنید که شامل GPU باشد
 ```
