@@ -47,7 +47,7 @@ translation:
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-!pip install --upgrade polars yfinance
+!pip install polars yfinance
 ```
 
 ## مروری کلی
