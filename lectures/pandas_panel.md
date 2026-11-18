@@ -39,7 +39,7 @@ translation:
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-!pip install --upgrade seaborn
+!pip install seaborn
 ```
 
 ما از import های زیر استفاده می‌کنیم.
