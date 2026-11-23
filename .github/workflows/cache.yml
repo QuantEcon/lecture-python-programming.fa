@@ -21,12 +21,13 @@ jobs:
       - name: Install JAX (CPU, pinned)
         shell: bash -l {0}
         run: |
-          # Pinned: jax 0.11.1 (2026-08-17) hangs numpy_vs_numba_vs_jax's
-          # lax.fori_loop cells on the CPU path -- context is recorded in
-          # QuantEcon/workspace-lectures#49. With jax already present, the
-          # lecture's unpinned `!pip install quantecon jax` cell is satisfied
-          # and does not upgrade.
-          pip install "jax==0.11.0"
+          # Pinned to the lecture baseline, QuantEcon/lectures'
+          # _base/environment-update.yml, as in the English edition. jax 0.11.1
+          # hung numpy_vs_numba_vs_jax's lax.fori_loop cells on the CPU path
+          # (QuantEcon/workspace-lectures#49); 0.12.1 runs them. The lecture's
+          # own install cell names the same version, so it is satisfied and
+          # reinstalls nothing.
+          pip install "jax==0.12.1"
       - name: Build HTML
         shell: bash -l {0}
         run: |
