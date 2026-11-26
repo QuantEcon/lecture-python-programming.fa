@@ -45,8 +45,8 @@ translation:
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-!pip install --upgrade wbgapi
-!pip install --upgrade yfinance
+!pip install wbgapi
+!pip install yfinance
 ```
 
 ## مرور کلی
